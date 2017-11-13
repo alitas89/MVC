@@ -32,8 +32,10 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public int Post([FromBody]Test test)
         {
+            int sayi = _testService.Add(test);
+            return sayi;
         }
 
         // PUT api/<controller>/5

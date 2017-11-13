@@ -29,9 +29,9 @@ namespace BusinessLayer.Concrete
         //{p => (p.Id == value(BusinessLayer.Concrete.TestManager+<>c__DisplayClass3_0).id)}
         public Test GetById(int id)
         {
-            var predicate = Predicates.Field<Test>(f => f.Id, Operator.Eq, id);
-            return _testDal.Get(predicate);
-            //_testDal.Get(p => p.TestId == productId);
+            //var predicate = Predicates.Field<Test>(f => f.Id, Operator.Eq, id);
+            //return _testDal.Get(predicate);
+            return _testDal.Get("select * from Test where Id=@id", new { id = id });
         }
 
         public List<Test> GetByTestName(string testName)
@@ -44,10 +44,11 @@ namespace BusinessLayer.Concrete
         //    return _testDal.GetList(p => p.TestName.Contains(productName));
         //}
 
-        public void Add(Test product)
+        public int Add(Test test)
         {
             //ValidatorTool.Validate(ProductValidator, product);
             //_testDal.Add(product);
+            return _testDal.Add("insert Test(Id, Ip) values (@Id, @Ip)", test);
         }
     }
 

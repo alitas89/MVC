@@ -9,3 +9,12 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Debug\D
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Debug\EntityLayer.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Debug\EntityLayer.pdb
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\EntityLayer.dll
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\EntityLayer.pdb
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.dll
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.dll
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.pdb
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.xml
+D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojResolveAssemblyReference.cache
+D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
+D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb

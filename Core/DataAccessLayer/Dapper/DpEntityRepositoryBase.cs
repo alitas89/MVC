@@ -28,7 +28,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public TEntity Get(IFieldPredicate filter = null)
+        public TEntity Get(string query, object parameters)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -36,22 +36,31 @@ namespace Core.DataAccessLayer.Dapper
                 {
                     db.Open();
                 }
-                
-                return db.GetList<TEntity>(filter).SingleOrDefault();
+
+                return db.Query<TEntity>(query, parameters).SingleOrDefault();
             }
         }
 
-        public TEntity Add(TEntity entity)
+        public int Add(string query, object parameters)
+        {
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                var count = connection.Execute(query, parameters);
+                return count;
+            }
+        }
+
+        public int Update(string query, object parameters)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity Update(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(TEntity entity)
+        public void Delete(string query, object parameters)
         {
             throw new NotImplementedException();
         }

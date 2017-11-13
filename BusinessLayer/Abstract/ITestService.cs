@@ -14,7 +14,7 @@ namespace BusinessLayer.Abstract
 
         List<Test> GetByTestName(string testName);
 
-        void Add(Test test);
+        int Add(Test test);
 
     }
 }

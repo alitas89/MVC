@@ -10,12 +10,12 @@ namespace Core.DataAccessLayer
     {
         List<T> GetList(Expression<Func<T,bool>> filter=null);
 
-        T Get(IFieldPredicate filter = null);
+        T Get(string query, object parameters);
 
-        T Add(T entity);
+        int Add(string query, object parameters);
 
-        T Update(T entity);
+        int Update(string query, object parameters);
 
-        void Delete(T entity);
+        void Delete(string query, object parameters);
     }
 }
