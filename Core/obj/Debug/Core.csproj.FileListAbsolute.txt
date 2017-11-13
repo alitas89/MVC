@@ -1,0 +1,9 @@
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Core.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Dapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\DapperExtensions.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Dapper.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\DapperExtensions.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.pdb

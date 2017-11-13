@@ -1,0 +1,13 @@
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\Core.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\EntityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\Dapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\DapperExtensions.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\Dapper.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\DapperExtensions.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
