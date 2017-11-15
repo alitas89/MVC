@@ -19,9 +19,9 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<Test> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _testService.GetList(1);
         }
 
         // GET api/<controller>/5

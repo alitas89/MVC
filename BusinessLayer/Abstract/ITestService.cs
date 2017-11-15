@@ -8,7 +8,7 @@ namespace BusinessLayer.Abstract
     //Çünkü servis operasyonları zamanla erozyona uğrar (ihtiyaca göre ciddi değişikliler oluşur)
     public interface ITestService
     {
-        List<Test> GetList();
+        List<Test> GetList(int top = 0, string whereQuery = "", object parameters = null);
 
         Test GetById(int id);
 

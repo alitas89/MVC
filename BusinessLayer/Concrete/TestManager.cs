@@ -20,10 +20,10 @@ namespace BusinessLayer.Concrete
             _testDal = testDal;
         }
 
-        public List<Test> GetList()
+        public List<Test> GetList(int top=0, string whereQuery="", object parameters=null)
         {
-            return new List<Test>();
-                //_testDal.GetList();
+            string topSql = top == 0 ? "" : "TOP " + top;
+            return _testDal.GetList($"select {topSql} * from Test"+ whereQuery, parameters);
         }
 
         //{p => (p.Id == value(BusinessLayer.Concrete.TestManager+<>c__DisplayClass3_0).id)}

@@ -8,7 +8,7 @@ namespace Core.DataAccessLayer
 {
     public interface IEntityRepository<T> where T: class, IEntity, new()
     {
-        List<T> GetList(Expression<Func<T,bool>> filter=null);
+        List<T> GetList(string query, object parameters);
 
         T Get(string query, object parameters);
 

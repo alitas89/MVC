@@ -57,10 +57,15 @@ namespace Core.DataAccessLayer.Dapper
 
         public int Update(string query, object parameters)
         {
-            throw new NotImplementedException();
+            return 1;
         }
 
         public void Delete(string query, object parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TEntity> GetList(string query, object parameters)
         {
             throw new NotImplementedException();
         }
