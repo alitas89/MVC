@@ -16,15 +16,16 @@ namespace Core.DataAccessLayer.Dapper
     public abstract class DpEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
     {
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
+        public List<TEntity> GetList(string query, object parameters)
         {
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["NorthwindContext"].ConnectionString))
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
                 if (db.State == ConnectionState.Closed)
                 {
                     db.Open();
                 }
-                return db.Query<TEntity>("select CategoryID, CategoryName from Categories").ToList();
+
+                return db.Query<TEntity>(query, parameters).ToList();
             }
         }
 
@@ -61,11 +62,6 @@ namespace Core.DataAccessLayer.Dapper
         }
 
         public void Delete(string query, object parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<TEntity> GetList(string query, object parameters)
         {
             throw new NotImplementedException();
         }

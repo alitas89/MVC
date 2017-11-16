@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<Test> Get()
         {
-            return _testService.GetList(1);
+            return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
         }
 
         // GET api/<controller>/5
