@@ -158,3 +158,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.H
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\LogLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\LogLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\log4net.xml

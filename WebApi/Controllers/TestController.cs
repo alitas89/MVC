@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {
@@ -25,9 +26,11 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>/5
+        [MyException]
         public string Get(int id)
         {
             Test test = _testService.GetById(id);
+            throw new Exception("test");
             return test.Ip;
         }
 
