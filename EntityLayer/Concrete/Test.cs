@@ -11,5 +11,6 @@ namespace EntityLayer.Concrete
     {
         public int Id { get; set; }
         public string Ip { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

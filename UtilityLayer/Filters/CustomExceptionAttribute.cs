@@ -10,15 +10,16 @@ using LogLayer;
 
 namespace UtilityLayer.Filters
 {
-    public class MyExceptionAttribute : ExceptionFilterAttribute
+    public class CustomExceptionAttribute : ExceptionFilterAttribute
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
             //1. Loglama
             LogServices.AddLog(
-                actionExecutedContext.ActionContext.ActionDescriptor.ActionName,
+                "Kullanıcı Adı",
                 "ErrorFormat",
-                actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName,
+                actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName + " - " +
+                actionExecutedContext.ActionContext.ActionDescriptor.ActionName,
                 actionExecutedContext.Exception.Message, actionExecutedContext.Exception.StackTrace,
                 actionExecutedContext.Exception);
 

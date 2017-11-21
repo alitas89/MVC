@@ -11,6 +11,7 @@ using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {
+
     public class TestManager : ITestService
     {
         ITestDal _testDal;
@@ -20,36 +21,35 @@ namespace BusinessLayer.Concrete
             _testDal = testDal;
         }
 
-        public List<Test> GetList(int top=0, string whereQuery="", object parameters=null)
+        public List<Test> GetList(int top = 0, string whereQuery = "", object parameters = null)
         {
             string topSql = top == 0 ? "" : "TOP " + top;
-            return _testDal.GetList($"select {topSql} * from Test"+ whereQuery, parameters);
+            return _testDal.GetList($"select {topSql}* from Test" + whereQuery, parameters);
         }
 
-        //{p => (p.Id == value(BusinessLayer.Concrete.TestManager+<>c__DisplayClass3_0).id)}
-        public Test GetById(int id)
+        public Test GetById(int Id)
         {
-            //var predicate = Predicates.Field<Test>(f => f.Id, Operator.Eq, id);
-            //return _testDal.Get(predicate);
-            return _testDal.Get("select * from Test where Id=@id", new { id = id });
+            return _testDal.Get("select *  from Test where Id = @Id", new {Id = Id});
         }
-
-        public List<Test> GetByTestName(string testName)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public List<Test> GetByTestName(string productName)
-        //{
-        //    return _testDal.GetList(p => p.TestName.Contains(productName));
-        //}
 
         public int Add(Test test)
         {
-            //ValidatorTool.Validate(ProductValidator, product);
-            //_testDal.Add(product);
-            return _testDal.Add("insert Test(Id, Ip) values (@Id, @Ip)", test);
+            return _testDal.Add("insert Test(Ip,IsDeleted) values (@Ip,@IsDeleted)", test);
+        }
+
+        public int Update(Test test)
+        {
+            return _testDal.Update("update Test set Ip=@Ip,IsDeleted=@IsDeleted where Id=@Id", test);
+        }
+
+        public int Delete(int Id)
+        {
+            return _testDal.Delete("delete from Test where Id=@Id", new {Id = Id});
+        }
+
+        public int DeleteSoft(int Id)
+        {
+            return _testDal.Update("update Test set IsDeleted = 1 where Id=@Id", new {Id = Id});
         }
     }
-
 }

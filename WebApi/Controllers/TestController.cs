@@ -10,6 +10,7 @@ using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {
+    [CustomException]
     public class TestController : ApiController
     {
         ITestService _testService;
@@ -22,19 +23,19 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<Test> Get()
         {
-            return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
+            //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
+            return _testService.GetList();
         }
 
         // GET api/<controller>/5
-        [MyException]
         public string Get(int id)
         {
             Test test = _testService.GetById(id);
-            throw new Exception("test");
             return test.Ip;
         }
 
         // POST api/<controller>
+        [CustomAction]
         public int Post([FromBody]Test test)
         {
             int sayi = _testService.Add(test);
@@ -42,13 +43,28 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [CustomAction]
+        public int Put([FromBody]Test test)
         {
+            int sayi = _testService.Update(test);
+            return sayi;
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [CustomAction]
+        public int Delete(int id)
         {
+            int sayi = _testService.DeleteSoft(id);
+            return sayi;
+        }
+
+        // DELETE api/<controller>/5
+        [CustomAction]
+        [Route("api/test/deletehard/{id}")]
+        public int DeleteHard(int id)
+        {
+            int sayi = _testService.Delete(id);
+            return sayi;
         }
     }
 }

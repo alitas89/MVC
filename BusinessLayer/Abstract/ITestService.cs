@@ -12,9 +12,12 @@ namespace BusinessLayer.Abstract
 
         Test GetById(int id);
 
-        List<Test> GetByTestName(string testName);
-
         int Add(Test test);
 
+        int Update(Test test);
+
+        int Delete(int Id);
+
+        int DeleteSoft(int Id);
     }
 }

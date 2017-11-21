@@ -58,12 +58,44 @@ namespace Core.DataAccessLayer.Dapper
 
         public int Update(string query, object parameters)
         {
-            return 1;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                var count = connection.Execute(query, parameters);
+                return count;
+            }
         }
 
-        public void Delete(string query, object parameters)
+        public int Delete(string query, object parameters)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                var count = connection.Execute(query, parameters);
+                return count;
+            }
+        }
+
+        public int DeleteSoft(string query, object parameters)
+        {
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                var count = connection.Execute(query, parameters);
+                return count;
+            }
         }
     }
 }

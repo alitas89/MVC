@@ -16,6 +16,8 @@ namespace Core.DataAccessLayer
 
         int Update(string query, object parameters);
 
-        void Delete(string query, object parameters);
+        int Delete(string query, object parameters);
+
+        int DeleteSoft(string query, object parameters);
     }
 }
