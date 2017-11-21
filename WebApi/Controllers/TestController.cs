@@ -54,8 +54,8 @@ namespace WebApi.Controllers
         [CustomAction]
         public int Delete(int id)
         {
-            int sayi = _testService.DeleteSoft(id);
-            return sayi;
+           int sayi = _testService.DeleteSoft(id);
+           return sayi;
         }
 
         // DELETE api/<controller>/5

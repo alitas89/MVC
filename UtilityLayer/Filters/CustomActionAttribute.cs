@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using LogLayer;
+using UtilityLayer.Tools;
+using System.Net;
 
 namespace UtilityLayer.Filters
 {
@@ -22,12 +24,13 @@ namespace UtilityLayer.Filters
         {
             LogServices.AddLog(
                 "Kullanıcı Adı",
+                IpGenerator.GetIpAddress(),
                 "InfoFormat",
                 actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName + " - " +
                 actionExecutedContext.ActionContext.ActionDescriptor.ActionName,
                 (actionExecutedContext.Response.Content as ObjectContent)?.ObjectType.FullName,
                 actionExecutedContext.ActionContext.ActionDescriptor.ActionName +" işlemi yapıldı.",
-                null);
+                null);            
         }
     }
 }

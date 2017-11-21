@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 using LogLayer;
+using UtilityLayer.Tools;
 
 namespace UtilityLayer.Filters
 {
@@ -17,6 +18,7 @@ namespace UtilityLayer.Filters
             //1. Loglama
             LogServices.AddLog(
                 "Kullanıcı Adı",
+                IpGenerator.GetIpAddress(),
                 "ErrorFormat",
                 actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName + " - " +
                 actionExecutedContext.ActionContext.ActionDescriptor.ActionName,
@@ -24,6 +26,11 @@ namespace UtilityLayer.Filters
                 actionExecutedContext.Exception);
 
             //2. Response Hazırlama
+            ExceptionResponseMessageCreate(actionExecutedContext);
+        }
+
+        private void ExceptionResponseMessageCreate(HttpActionExecutedContext actionExecutedContext)
+        {
             ExceptionResponse result = new ExceptionResponse();
             result.ErrorAction = actionExecutedContext.ActionContext.ActionDescriptor.ActionName;
             result.ErrorController = actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName;

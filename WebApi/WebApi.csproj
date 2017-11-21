@@ -24,6 +24,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -204,7 +205,7 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\UtilityLayer\UtilityLayer.csproj">
-      <Project>{DAB7B400-0187-419A-8FFD-FA46879E11BA}</Project>
+      <Project>{dab7b400-0187-419a-8ffd-fa46879e11ba}</Project>
       <Name>UtilityLayer</Name>
     </ProjectReference>
   </ItemGroup>

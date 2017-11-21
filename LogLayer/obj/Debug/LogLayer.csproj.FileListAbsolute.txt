@@ -5,3 +5,11 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\LogLayer\bin\Debug\log4
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\LogLayer\obj\Debug\LogLayer.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\LogLayer\obj\Debug\LogLayer.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\LogLayer\obj\Debug\LogLayer.pdb
+D:\MVC\mvcprojesi\LogLayer\bin\Debug\LogLayer.dll
+D:\MVC\mvcprojesi\LogLayer\bin\Debug\LogLayer.pdb
+D:\MVC\mvcprojesi\LogLayer\bin\Debug\log4net.dll
+D:\MVC\mvcprojesi\LogLayer\bin\Debug\log4net.xml
+D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csprojResolveAssemblyReference.cache
+D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csproj.CoreCompileInputs.cache
+D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.dll
+D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.pdb

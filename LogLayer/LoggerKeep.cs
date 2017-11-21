@@ -10,10 +10,7 @@ namespace LogLayer
     class LoggerKeep
     {
         public static void LoggerAdd(log4net.ILog logger, string LoggerType, string LogProcess, string User, string Data, string LogMessage, System.Exception Ex)
-        {
-            if (log4net.ThreadContext.Properties["ip"] == null || !string.IsNullOrEmpty(log4net.ThreadContext.Properties["ip"].ToString()))
-                log4net.ThreadContext.Properties["ip"] = HttpContext.Current.Request.UserHostAddress.PadLeft(15);
-
+        {           
             if (LoggerType == "InfoFormat")
             {
                 object[] args = new object[4];
