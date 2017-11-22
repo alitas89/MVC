@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using UtilityLayer.Filters;
 
 namespace WebApi
 {
@@ -12,6 +13,8 @@ namespace WebApi
             // Web API configuration and services
 
             // Web API routes
+            config.MessageHandlers.Add(new ApiResponseHandler());
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
