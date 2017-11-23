@@ -10,7 +10,7 @@ using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {
-    
+    [CustomException]
     public class TestController : ApiController
     {
         ITestService _testService;
@@ -35,15 +35,15 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-   
-        public void Post([FromBody]Test test)
+        [CustomAction]
+        public int Post([FromBody]Test test)
         {
-             _testService.Add(test);
+           return _testService.Add(test);
          
         }
 
         // PUT api/<controller>/5
-      
+        [CustomAction]
         public int Put([FromBody]Test test)
         {
             int sayi = _testService.Update(test);
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
         }
 
         // DELETE api/<controller>/5
-      
+        [CustomAction]
         public int Delete(int id)
         {
            int sayi = _testService.DeleteSoft(id);
@@ -59,7 +59,7 @@ namespace WebApi.Controllers
         }
 
         // DELETE api/<controller>/5
-        
+        [CustomAction]
         [Route("api/test/deletehard/{id}")]
         public int DeleteHard(int id)
         {

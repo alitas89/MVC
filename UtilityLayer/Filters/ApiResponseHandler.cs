@@ -10,7 +10,7 @@ namespace UtilityLayer.Filters
 {
     public class ApiResponseHandler : DelegatingHandler
     {
-        protected override async System.Threading.Tasks.Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
         {
             var response = await base.SendAsync(request, cancellationToken);
 
@@ -21,6 +21,7 @@ namespace UtilityLayer.Filters
         {
             object content = null;
             string errorMessage = string.Empty;
+            
 
             ValidateResponse(response, ref content, ref errorMessage);
 
@@ -38,7 +39,7 @@ namespace UtilityLayer.Filters
 
         private static HttpResponseMessage CreateHttpResponseMessage<T>(HttpRequestMessage request, HttpResponseMessage response, T content, string errorMessage)
         {
-            return request.CreateResponse(response.StatusCode, new ApiResponse<T>(response.StatusCode, content, errorMessage));
+            return request.CreateResponse(response.StatusCode, new ApiResponse<T>(response.IsSuccessStatusCode, response.StatusCode, content, errorMessage));
         }
 
         private static void ValidateResponse(HttpResponseMessage response, ref object content, ref string errorMessage)

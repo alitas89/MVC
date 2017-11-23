@@ -11,8 +11,9 @@ namespace UtilityLayer.Filters
     [DataContract]
     public class ApiResponse<T>
     {
-        public ApiResponse(HttpStatusCode statusCode, T result, string errorMessage = null)
+        public ApiResponse(bool success, HttpStatusCode statusCode, T result, string errorMessage = null)
         {
+            Success = success;
             StatusCode = (int)statusCode;
             Result = result;
             ErrorMessage = errorMessage;
@@ -24,7 +25,10 @@ namespace UtilityLayer.Filters
         }
 
         [DataMember]
-        public string Version { get { return "1.0"; } }
+        public string Version => "1.0";
+
+        [DataMember]
+        public bool Success { get; set; }
 
         [DataMember]
         public int StatusCode { get; set; }
