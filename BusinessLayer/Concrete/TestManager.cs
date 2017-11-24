@@ -8,6 +8,7 @@ using BusinessLayer.Abstract;
 using DapperExtensions;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Concrete.DatabaseModel;
 
 namespace BusinessLayer.Concrete
 {

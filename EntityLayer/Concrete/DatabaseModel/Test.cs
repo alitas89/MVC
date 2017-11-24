@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.EntityLayer;
 
-namespace EntityLayer.Concrete
+namespace EntityLayer.Concrete.DatabaseModel
 {
     public class Test : IEntity
     {
