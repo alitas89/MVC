@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Abstract\ITestDal.cs" />
+    <Compile Include="Concrete\Dapper\DpCategoryDal.cs" />
+    <Compile Include="Concrete\Dapper\DpProductDal.cs" />
     <Compile Include="Concrete\Dapper\DpTestDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

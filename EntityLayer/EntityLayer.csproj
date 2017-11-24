@@ -40,14 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\DatabaseModel\Category.cs" />
+    <Compile Include="Concrete\DatabaseModel\Product.cs" />
     <Compile Include="Concrete\DatabaseModel\Test.cs" />
+    <Compile Include="Concrete\ParameterModel\ComplexParam.cs" />
+    <Compile Include="Concrete\RequestModel\TestRequestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
     <Folder Include="ComplexTypes\" />
-    <Folder Include="Concrete\ParameterModel\" />
-    <Folder Include="Concrete\RequestModel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

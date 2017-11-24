@@ -72,6 +72,9 @@ namespace WebApi.App_Start
         {
             kernel.Bind<ITestService>().To<TestManager>();
             kernel.Bind<ITestDal>().To<DpTestDal>();
+
+            kernel.Bind<IProductService>().To<ProductManager>();
+            kernel.Bind<IProductDal>().To<DpProductDal>();
         }        
     }
 }

@@ -29,6 +29,19 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
+        public List<TEntity> GetListMapping(string query, Func<TEntity, TEntity, TEntity> mapping, object parameters)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                {
+                    db.Open();
+                }
+
+                return db.Query<TEntity, TEntity, TEntity>(query, mapping, parameters).ToList();
+            }
+        }
+
         public TEntity Get(string query, object parameters)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))

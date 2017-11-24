@@ -12,5 +12,9 @@ namespace EntityLayer.Concrete.DatabaseModel
         public int Id { get; set; }
         public string Ip { get; set; }
         public bool IsDeleted { get; set; }
+
+        //[js]
+        //public User User { get; set; }
+       
     }
 }

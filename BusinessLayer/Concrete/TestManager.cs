@@ -6,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using DapperExtensions;
+using DapperExtensions.Mapper;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete.RequestModel;
 
 namespace BusinessLayer.Concrete
 {
@@ -22,6 +24,15 @@ namespace BusinessLayer.Concrete
             _testDal = testDal;
         }
 
+        public List<TestRequestModel> GetListRequest(string query, object parameters = null)
+        {
+            //Burada _testDal Test modeline göre yazıldığı için otomatik olarak Test nesnesi dönüyor
+            //Ama biz TestRequestModel istiyoruz
+            var test = _testDal.GetList($"select * from Test", parameters);
+            //return ClassMapper<List<TestRequestModel>>(test);
+            return  new List<TestRequestModel>();
+        }
+
         public List<Test> GetList(int top = 0, string whereQuery = "", object parameters = null)
         {
             string topSql = top == 0 ? "" : "TOP " + top;
@@ -30,7 +41,7 @@ namespace BusinessLayer.Concrete
 
         public Test GetById(int Id)
         {
-            return _testDal.Get("select *  from Test where Id = @Id", new {Id = Id});
+            return _testDal.Get("select *  from Test where Id = @Id", new { Id = Id });
         }
 
         public int Add(Test test)
@@ -45,12 +56,12 @@ namespace BusinessLayer.Concrete
 
         public int Delete(int Id)
         {
-            return _testDal.Delete("delete from Test where Id=@Id", new {Id = Id});
+            return _testDal.Delete("delete from Test where Id=@Id", new { Id = Id });
         }
 
         public int DeleteSoft(int Id)
         {
-            return _testDal.Update("update Test set IsDeleted = 1 where Id=@Id", new {Id = Id});
+            return _testDal.Update("update Test set IsDeleted = 1 where Id=@Id", new { Id = Id });
         }
     }
 }
