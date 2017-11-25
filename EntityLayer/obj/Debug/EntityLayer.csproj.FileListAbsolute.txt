@@ -17,3 +17,13 @@ D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojResolveAssemblyReferen
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb

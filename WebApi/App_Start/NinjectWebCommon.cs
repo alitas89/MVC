@@ -75,6 +75,7 @@ namespace WebApi.App_Start
 
             kernel.Bind<IProductService>().To<ProductManager>();
             kernel.Bind<IProductDal>().To<DpProductDal>();
+            kernel.Bind<IProductCategoryDal>().To<DpProductCategoryDal>();
         }        
     }
 }

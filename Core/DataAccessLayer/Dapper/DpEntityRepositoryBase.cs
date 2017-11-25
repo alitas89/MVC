@@ -38,7 +38,7 @@ namespace Core.DataAccessLayer.Dapper
                     db.Open();
                 }
 
-                return db.Query<TEntity, TEntity, TEntity>(query, mapping, parameters).ToList();
+                return db.Query(query, mapping, parameters).ToList();
             }
         }
 

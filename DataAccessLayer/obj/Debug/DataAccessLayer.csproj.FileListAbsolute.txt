@@ -21,3 +21,15 @@ D:\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssembl
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\EntityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Dapper.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Dapper.xml
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

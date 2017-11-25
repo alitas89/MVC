@@ -13,10 +13,12 @@ namespace BusinessLayer.Concrete
     public class ProductManager : IProductService
     {
         IProductDal _productDal;
+        private IProductCategoryDal _productCategoryDal;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, IProductCategoryDal productCategoryDal)
         {
             _productDal = productDal;
+            _productCategoryDal = productCategoryDal;
         }
 
 
@@ -28,16 +30,19 @@ namespace BusinessLayer.Concrete
 
         public List<Product> GetListWithCategory()
         {
-            string query = @"SELECT dbo.Product.Id, dbo.Product.Name, dbo.Product.Color, 
-                            dbo.Category.Name AS Expr1, dbo.Category.Weight
-            FROM dbo.Category s INNER JOIN
-            dbo.Product ON dbo.Category.Id = dbo.Product.Id";
+            string query = @"SELECT        p.Name AS ProductName, c.Name AS CategoryName
+                            FROM            dbo.Product AS p INNER JOIN
+                                dbo.Category AS c ON p.CategoryId = c.Id";
 
             //return _productDal.GetListMapping(query,
             //    //(a, s) => { a.Category = s;
             //    //return a;}
             //    new System.Func<Product, Product, Product>()
             //    , new {});
+            var x =  _productCategoryDal.GetListMapping(query, (p,c)=> { p.Category = c;
+                return p;
+            }, new {});
+
             return  new List<Product>();
         }
 
