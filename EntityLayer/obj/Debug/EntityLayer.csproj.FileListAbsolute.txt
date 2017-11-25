@@ -27,3 +27,4 @@ C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojResolveAsse
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.Mapper.dll

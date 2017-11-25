@@ -229,6 +229,7 @@ C:\Users\Eren\MVC\mvcprojesi\TestLayer\obj\Debug\TestLayer.csprojResolveAssembly
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\obj\Debug\TestLayer.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\obj\Debug\TestLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\obj\Debug\TestLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\TestLayer\bin\Debug\Dapper.Mapper.dll
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\bin\Debug\roslyn\csc.exe
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\bin\Debug\roslyn\csc.exe.config
 C:\Users\Eren\MVC\mvcprojesi\TestLayer\bin\Debug\roslyn\csc.rsp

@@ -258,3 +258,4 @@ C:\Users\Eren\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyRefere
 C:\Users\Eren\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.dll
 C:\Users\Eren\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\Dapper.Mapper.dll

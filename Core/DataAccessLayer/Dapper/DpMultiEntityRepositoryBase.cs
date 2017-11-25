@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.EntityLayer;
 using Dapper;
+using Dapper.Mapper;
 
 namespace Core.DataAccessLayer.Dapper
 {
-    public abstract class DpMultiEntityRepositoryBase<TA, TB, TC> : IMultiEntityRepository<TA, TB, TC>
+    public abstract class DpMultiEntityRepositoryBase<TA, TB> : IMultiEntityRepository<TA, TB>
         where TA : class, IEntity, new()
         where TB : class, IEntity, new()
-        where TC : class, IEntity, new()
     {
 
-        public IQueryable<TC> GetListMapping(string query, Func<TA, TB, TC> mapping, object parameters)
+        public List<TA> GetListMapping(string query, string splitOn)
         {
             using (IDbConnection db =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
@@ -27,8 +27,24 @@ namespace Core.DataAccessLayer.Dapper
                     db.Open();
                 }
 
-                return db.Query<TA,TB,TC>(query, mapping, parameters).AsQueryable();
+                var x = db.Query<TA, TB>(query, null, null, true, splitOn).ToList();
+                return x;
+
             }
         }
+
+        //public IQueryable<TC> GetListMapping(string query, Func<TA, TB, TC> mapping, object parameters)
+        //{
+        //    using (IDbConnection db =
+        //        new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+        //    {
+        //        if (db.State == ConnectionState.Closed)
+        //        {
+        //            db.Open();
+        //        }
+
+        //        return db.Query<TA,TB,TC>(query, mapping, parameters).AsQueryable();
+        //    }
+        //}
     }
 }

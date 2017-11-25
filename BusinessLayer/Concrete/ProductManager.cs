@@ -30,20 +30,15 @@ namespace BusinessLayer.Concrete
 
         public List<Product> GetListWithCategory()
         {
-            string query = @"SELECT        p.Name AS ProductName, c.Name AS CategoryName
+            string query = @"SELECT      p.*,c.*
                             FROM            dbo.Product AS p INNER JOIN
-                                dbo.Category AS c ON p.CategoryId = c.Id";
+                                dbo.Category AS c ON c.CategoryId = p.CategoryId";
 
-            //return _productDal.GetListMapping(query,
-            //    //(a, s) => { a.Category = s;
-            //    //return a;}
-            //    new System.Func<Product, Product, Product>()
-            //    , new {});
-            var x =  _productCategoryDal.GetListMapping(query, (p,c)=> { p.Category = c;
-                return p;
-            }, new {});
+            //var x =  _productCategoryDal.GetListMapping(query, (p,c)=> { p.Category = c;
+            //    return p;
+            //}, new {});
 
-            return  new List<Product>();
+            return _productCategoryDal.GetListMapping(query, "CategoryId");
         }
 
         public Product GetById(int Id)

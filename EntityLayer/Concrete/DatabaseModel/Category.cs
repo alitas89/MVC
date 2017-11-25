@@ -9,7 +9,7 @@ namespace EntityLayer.Concrete.DatabaseModel
 {
     public class Category : IEntity
     {
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
         public int Weight { get; set; }
         public bool IsDeleted { get; set; }

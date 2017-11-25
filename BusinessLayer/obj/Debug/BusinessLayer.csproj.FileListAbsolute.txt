@@ -45,3 +45,4 @@ C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csprojResolve
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Dapper.Mapper.dll

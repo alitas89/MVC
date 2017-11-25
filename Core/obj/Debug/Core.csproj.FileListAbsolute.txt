@@ -27,3 +27,4 @@ C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.xml
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.Mapper.dll
