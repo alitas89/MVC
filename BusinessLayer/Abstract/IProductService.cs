@@ -14,6 +14,8 @@ namespace BusinessLayer.Abstract
 
         List<Product> GetListWithCategory();
 
+        List<Product> GetListWithCategoryCompany();
+
         List<ProductNameColorDto> GetListProductNameColor();
 
         List<ProductCategoryNamesDto> GetListProductCategoryNames();

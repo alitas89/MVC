@@ -12,7 +12,7 @@ using Dapper.Mapper;
 
 namespace Core.DataAccessLayer.Dapper
 {
-    public abstract class DpMultiEntityRepositoryBase<TA, TB> : IMultiEntityRepository<TA, TB>
+    public abstract class DpMulti2EntityRepositoryBase<TA, TB> : IMulti2EntityRepository<TA,TB>
         where TA : class, IEntity, new()
         where TB : class, IEntity, new()
     {

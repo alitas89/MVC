@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\DatabaseModel\Category.cs" />
+    <Compile Include="Concrete\DatabaseModel\Company.cs" />
     <Compile Include="Concrete\DatabaseModel\Product.cs" />
     <Compile Include="Concrete\DatabaseModel\Test.cs" />
     <Compile Include="Concrete\ParameterModel\ComplexParam.cs" />

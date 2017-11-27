@@ -41,10 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICompanyDal.cs" />
+    <Compile Include="Abstract\IProductCategoryCompanyDal.cs" />
     <Compile Include="Abstract\IProductCategoryDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Abstract\ITestDal.cs" />
     <Compile Include="Concrete\Dapper\DpCategoryDal.cs" />
+    <Compile Include="Concrete\Dapper\DpCompanyDal.cs" />
+    <Compile Include="Concrete\Dapper\DpProductCategoryCompanyDal.cs" />
     <Compile Include="Concrete\Dapper\DpProductCategoryDal.cs" />
     <Compile Include="Concrete\Dapper\DpProductDal.cs" />
     <Compile Include="Concrete\Dapper\DpTestDal.cs" />

@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\ICompanyService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ITestService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\CompanyManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\TestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,9 +1,10 @@
-﻿using Core.DataAccessLayer;
+﻿using System;
+using Core.DataAccessLayer;
 using EntityLayer.Concrete.DatabaseModel;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IProductCategoryDal: IMultiEntityRepository<Product,Category>
+    public interface IProductCategoryDal: IMulti2EntityRepository<Product,Category>
     {
         
     }

@@ -5,7 +5,7 @@ using Core.EntityLayer;
 
 namespace Core.DataAccessLayer
 {
-    public interface IMultiEntityRepository<TA, TB> 
+    public interface IMulti2EntityRepository<TA, TB> 
         where TA : class, IEntity, new()
         where TB : class, IEntity, new()
     {

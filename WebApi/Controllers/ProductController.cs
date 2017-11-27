@@ -36,11 +36,19 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
+        [Route("api/product/getwithcatcom")]
+        public IEnumerable<Product> GetListWithCategoryCompany()
+        {
+            //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
+            return _productService.GetListWithCategoryCompany();
+        }
+
+        // GET api/<controller>
         [Route("api/product/getproductnamecolor")]
         public IEnumerable<ProductNameColorDto> GetProductNameColor()
         {
             //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
-            var x= _productService.GetListProductNameColor();
+            var x = _productService.GetListProductNameColor();
             return x;
         }
 
@@ -49,7 +57,7 @@ namespace WebApi.Controllers
         public IEnumerable<ProductCategoryNamesDto> GetProductCategoryNames()
         {
             //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
-            var x= _productService.GetListProductCategoryNames();
+            var x = _productService.GetListProductCategoryNames();
             return x;
         }
 

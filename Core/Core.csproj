@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayer\Dapper\DpEntityRepositoryBase.cs" />
-    <Compile Include="DataAccessLayer\Dapper\DpMultiEntityRepositoryBase.cs" />
+    <Compile Include="DataAccessLayer\Dapper\DpMulti2EntityRepositoryBase.cs" />
+    <Compile Include="DataAccessLayer\Dapper\DpMulti3EntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\IEntityRepository.cs" />
-    <Compile Include="DataAccessLayer\IMultiEntityRepository.cs" />
+    <Compile Include="DataAccessLayer\IMulti2EntityRepository.cs" />
+    <Compile Include="DataAccessLayer\IMulti3EntityRepository.cs" />
     <Compile Include="EntityLayer\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

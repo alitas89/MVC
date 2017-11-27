@@ -9,7 +9,7 @@ using EntityLayer.Concrete.DatabaseModel;
 
 namespace DataAccessLayer.Concrete.Dapper
 {
-    public class DpProductCategoryDal : DpMulti2EntityRepositoryBase<Product, Category>, IProductCategoryDal
+    public class DpProductCategoryCompanyDal : DpMulti3EntityRepositoryBase<Product, Category, Company>, IProductCategoryCompanyDal
     {
 
     }

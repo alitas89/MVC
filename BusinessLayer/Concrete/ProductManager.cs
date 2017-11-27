@@ -16,11 +16,14 @@ namespace BusinessLayer.Concrete
     {
         IProductDal _productDal;
         private IProductCategoryDal _productCategoryDal;
+        private IProductCategoryCompanyDal _productCategoryCompanyDal;
 
-        public ProductManager(IProductDal productDal, IProductCategoryDal productCategoryDal)
+        public ProductManager(IProductDal productDal, IProductCategoryDal productCategoryDal,
+            IProductCategoryCompanyDal productCategoryCompanyDal)
         {
             _productDal = productDal;
             _productCategoryDal = productCategoryDal;
+            _productCategoryCompanyDal = productCategoryCompanyDal;
         }
 
 
@@ -43,6 +46,25 @@ namespace BusinessLayer.Concrete
             return _productCategoryDal.GetListMapping(query, "CategoryId");
         }
 
+        public List<Product> GetListWithCategoryCompany()
+        {
+            string query = @"SELECT      p.*,c.*, s.*
+                            FROM            dbo.Product AS p INNER JOIN
+                                dbo.Category AS c ON c.CategoryId = p.CategoryId
+                            INNER JOIN dbo.Company s ON s.CompanyId = p.CompanyId";
+
+            //var x =  _productCategoryDal.GetListMapping(query, (p,c)=> { p.Category = c;
+            //    return p;
+            //}, new {});
+
+            var x = _productCategoryCompanyDal.GetListMapping(query, "CategoryId");
+            return x;
+        }
+
+        /// <summary>
+        /// Tek class üzerinden mapleme
+        /// </summary>
+        /// <returns></returns>
         public List<ProductNameColorDto> GetListProductNameColor()
         {
             //Mapleme için konfigürasyon yapılır
@@ -56,6 +78,10 @@ namespace BusinessLayer.Concrete
             return listProductNameColorDto;
         }
 
+        /// <summary>
+        /// 2 class üzerinden mapleme
+        /// </summary>
+        /// <returns></returns>
         public List<ProductCategoryNamesDto> GetListProductCategoryNames()
         {
             //Mapleme için konfigürasyon yapılır
