@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete.RequestModel;
 
 namespace BusinessLayer.Concrete
 {
@@ -22,10 +24,10 @@ namespace BusinessLayer.Concrete
         }
 
 
-        
+
         public List<Product> GetList()
         {
-            return _productDal.GetList("select * from Product", new {});
+            return _productDal.GetList("select * from Product", new { });
         }
 
         public List<Product> GetListWithCategory()
@@ -39,6 +41,40 @@ namespace BusinessLayer.Concrete
             //}, new {});
 
             return _productCategoryDal.GetListMapping(query, "CategoryId");
+        }
+
+        public List<ProductNameColorDto> GetListProductNameColor()
+        {
+            //Mapleme için konfigürasyon yapılır
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductNameColorDto>());
+            var mapper = config.CreateMapper();
+            //List<Product> çekilir
+            var listProduct = GetList();
+            //Mapleme işlemi gerçekleştirilir
+            var listProductNameColorDto = mapper.Map<List<Product>, List<ProductNameColorDto>>(listProduct);
+
+            return listProductNameColorDto;
+        }
+
+        public List<ProductCategoryNamesDto> GetListProductCategoryNames()
+        {
+            //Mapleme için konfigürasyon yapılır
+            var config = new MapperConfiguration(
+                cfg =>
+                {
+                    cfg.CreateMap<Product, ProductCategoryNamesDto>()
+                        .ForMember("CategoryName", opt => opt.MapFrom(src => src.Category.Name));
+                    cfg.CreateMap<Product, ProductCategoryNamesDto>()
+                                           .ForMember(x=>x.CategoryId, opt => opt.MapFrom(src => src.Category.CategoryId));
+                }
+                );
+            var mapper = config.CreateMapper();
+            //List<Product> çekilir
+            var listProduct = GetListWithCategory();
+            //Mapleme işlemi gerçekleştirilir
+            var listProductCategoryNames = mapper.Map<List<Product>, List<ProductCategoryNamesDto>>(listProduct);
+
+            return listProductCategoryNames;
         }
 
         public Product GetById(int Id)

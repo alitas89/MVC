@@ -44,6 +44,8 @@
     <Compile Include="Concrete\DatabaseModel\Product.cs" />
     <Compile Include="Concrete\DatabaseModel\Test.cs" />
     <Compile Include="Concrete\ParameterModel\ComplexParam.cs" />
+    <Compile Include="Concrete\RequestModel\ProductCategoryNamesDto.cs" />
+    <Compile Include="Concrete\RequestModel\ProductNameColorDto.cs" />
     <Compile Include="Concrete\RequestModel\TestRequestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

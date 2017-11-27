@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete.RequestModel;
 using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
@@ -32,6 +33,24 @@ namespace WebApi.Controllers
         {
             //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
             return _productService.GetListWithCategory();
+        }
+
+        // GET api/<controller>
+        [Route("api/product/getproductnamecolor")]
+        public IEnumerable<ProductNameColorDto> GetProductNameColor()
+        {
+            //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
+            var x= _productService.GetListProductNameColor();
+            return x;
+        }
+
+        // GET api/<controller>
+        [Route("api/product/getproductcategorynames")]
+        public IEnumerable<ProductCategoryNamesDto> GetProductCategoryNames()
+        {
+            //return _testService.GetList(1, " where Ip=@Ip", new { Ip = "Bulunamadı!" });
+            var x= _productService.GetListProductCategoryNames();
+            return x;
         }
 
         public Product Get(int id)

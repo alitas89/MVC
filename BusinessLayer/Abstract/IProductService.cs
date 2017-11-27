@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete.RequestModel;
 
 namespace BusinessLayer.Abstract
 {
@@ -12,6 +13,10 @@ namespace BusinessLayer.Abstract
         List<Product> GetList();
 
         List<Product> GetListWithCategory();
+
+        List<ProductNameColorDto> GetListProductNameColor();
+
+        List<ProductCategoryNamesDto> GetListProductCategoryNames();
 
         Product GetById(int id);
 
