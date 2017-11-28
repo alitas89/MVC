@@ -16,5 +16,6 @@ namespace EntityLayer.Concrete.DatabaseModel
         public int CompanyId { get; set; }
         public bool IsDeleted { get; set; }
         public Category Category { get; set; }
+        public Company Company { get; set; }
     }
 }
