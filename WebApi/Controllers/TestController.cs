@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
-using EntityLayer.Concrete.DatabaseModel;
 using UtilityLayer.Filters;
 
 namespace WebApi.Controllers

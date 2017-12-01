@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.EntityLayer;
 
-namespace EntityLayer.Concrete.DatabaseModel
+namespace EntityLayer.Concrete
 {
-    public class Company : IEntity
+    public class Category : IEntity
     {
-        public int CompanyId { get; set; }
-        public string Name { get; set; } 
+        public int CategoryId { get; set; }
+        public string Name { get; set; }
+        public int Weight { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

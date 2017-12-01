@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {

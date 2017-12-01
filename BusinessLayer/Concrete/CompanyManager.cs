@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {

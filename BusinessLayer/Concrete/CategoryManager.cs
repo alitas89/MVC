@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {

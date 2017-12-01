@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.EntityLayer;
 
-namespace EntityLayer.Concrete.DatabaseModel
+namespace EntityLayer.Concrete
 {
     public class Product : IEntity
     {

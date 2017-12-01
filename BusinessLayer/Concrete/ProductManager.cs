@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using EntityLayer.Concrete.DatabaseModel;
-using EntityLayer.Concrete.RequestModel;
+using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
 {

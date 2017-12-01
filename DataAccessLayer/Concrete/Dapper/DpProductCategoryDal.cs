@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper;
 using DataAccessLayer.Abstract;
-using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
 {

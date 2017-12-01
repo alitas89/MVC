@@ -1,6 +1,6 @@
 ﻿using System;
 using Core.DataAccessLayer;
-using EntityLayer.Concrete.DatabaseModel;
+using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Abstract
 {

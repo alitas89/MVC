@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
-using EntityLayer.Concrete.DatabaseModel;
-using EntityLayer.Concrete.RequestModel;
+using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.Concrete;
 using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
