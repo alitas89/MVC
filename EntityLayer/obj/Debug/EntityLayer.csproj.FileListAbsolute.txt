@@ -29,3 +29,4 @@ C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.Mapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Debug\Dapper.Mapper.dll
+D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.Mapper.dll

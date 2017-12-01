@@ -35,3 +35,4 @@ C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Dapper.Mapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\Dapper.Mapper.dll
+D:\MVC\mvcprojesi\DataAccessLayer\bin\Debug\Dapper.Mapper.dll

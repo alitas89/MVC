@@ -12,7 +12,7 @@ namespace UtilityLayer.Filters
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
         {
-            var response = await base.SendAsync(request, cancellationToken);
+            var response = await base.SendAsync(request, cancellationToken);           
 
             return BuildApiResponse(request, response);
         }
@@ -20,8 +20,7 @@ namespace UtilityLayer.Filters
         private static HttpResponseMessage BuildApiResponse(HttpRequestMessage request, HttpResponseMessage response)
         {
             object content = null;
-            string errorMessage = string.Empty;
-            
+            string errorMessage = string.Empty;            
 
             ValidateResponse(response, ref content, ref errorMessage);
 

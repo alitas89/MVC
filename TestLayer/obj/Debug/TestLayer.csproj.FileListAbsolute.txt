@@ -259,3 +259,7 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\TestLayer\bin\Debug\ros
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\TestLayer\bin\Debug\roslyn\vbc.rsp
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\TestLayer\bin\Debug\roslyn\VBCSCompiler.exe
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\TestLayer\bin\Debug\roslyn\VBCSCompiler.exe.config
+D:\MVC\mvcprojesi\TestLayer\bin\Debug\AutoMapper.dll
+D:\MVC\mvcprojesi\TestLayer\bin\Debug\Dapper.Mapper.dll
+D:\MVC\mvcprojesi\TestLayer\bin\Debug\Swashbuckle.Core.dll
+D:\MVC\mvcprojesi\TestLayer\bin\Debug\AutoMapper.xml

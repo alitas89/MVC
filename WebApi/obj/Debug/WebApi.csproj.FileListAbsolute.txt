@@ -262,3 +262,7 @@ C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\Dapper.Mapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\AutoMapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Dapper.Mapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\AutoMapper.xml
+D:\MVC\mvcprojesi\WebApi\bin\Swashbuckle.Core.dll
+D:\MVC\mvcprojesi\WebApi\bin\AutoMapper.dll
+D:\MVC\mvcprojesi\WebApi\bin\Dapper.Mapper.dll
+D:\MVC\mvcprojesi\WebApi\bin\AutoMapper.xml
