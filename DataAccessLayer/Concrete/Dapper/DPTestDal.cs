@@ -10,6 +10,8 @@ using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
 {
+    //Interface içinden interface aldık ve uygulanacak ek bişe kalmadı
+    //Eğer ITestDal'a ek yapılar tanımlanırsa o zaman buraya ek yapıları implemente olarak yazmamış gerekir.
     public class DpTestDal:DpEntityRepositoryBase<Test>, ITestDal
     {
 
