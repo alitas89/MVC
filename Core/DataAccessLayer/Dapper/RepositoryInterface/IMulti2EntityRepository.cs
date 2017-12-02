@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Core.EntityLayer;
 
-namespace Core.DataAccessLayer
+namespace Core.DataAccessLayer.Dapper.RepositoryInterface
 {
     public interface IMulti2EntityRepository<TA, TB> 
         where TA : class, IEntity, new()
@@ -12,6 +10,6 @@ namespace Core.DataAccessLayer
 
         //IQueryable<TC> GetListMapping(string query, Func<TA, TB, TC> mapping, object parameters);
 
-        List<TA> GetListMapping(string query, string splitOn);
+        List<TA> GetListMappingQuery(string query, string splitOn);
     }
 }

@@ -52,3 +52,5 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\Dapper.Mapper.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.xml

@@ -9,7 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface ICategoryService
     {
-        List<Category> GetList(int top = 0, string whereQuery = "", object parameters = null);
+        List<Category> GetList();
 
         Category GetById(int id);
 

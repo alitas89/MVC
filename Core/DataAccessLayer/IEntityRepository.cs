@@ -8,18 +8,16 @@ namespace Core.DataAccessLayer
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetList(string query, object parameters);
+        List<T> GetList();
 
-        List<T> GetListMapping(string query, Func<T, T, T> mapping, object parameters);
+        T Get(int Id);
 
-        T Get(string query, object parameters);
+        int Add(T obj);
 
-        int Add(string query, object parameters);
+        int Update(T obj);
 
-        int Update(string query, object parameters);
+        int Delete(int Id);
 
-        int Delete(string query, object parameters);
-
-        int DeleteSoft(string query, object parameters);
+        int DeleteSoft(int Id);
     }
 }

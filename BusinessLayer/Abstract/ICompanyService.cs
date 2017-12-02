@@ -5,7 +5,7 @@ namespace BusinessLayer.Abstract
 {
     public interface ICompanyService
     {
-        List<Company> GetList(int top = 0, string whereQuery = "", object parameters = null);
+        List<Company> GetList();
 
         Company GetById(int id);
 

@@ -19,37 +19,34 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-        public List<Category> GetList(int top = 0, string whereQuery = "", object parameters = null)
+        public List<Category> GetList()
         {
-            string topSql = top == 0 ? "" : "TOP " + top;
-            return _categoryDal.GetList($"select {topSql}* from Test" + whereQuery, parameters);
+            return _categoryDal.GetList();
         }
 
         public Category GetById(int Id)
         {
-            return _categoryDal.Get("select *  from Category where Id = @Id", new {Id = Id});
+            return _categoryDal.Get(Id);
         }
 
         public int Add(Category category)
         {
-            return _categoryDal.Add("insert Category(Name,Weight,IsDeleted) values (@Name,@Weight,@IsDeleted)",
-                category);
+            return _categoryDal.Add(category);
         }
 
         public int Update(Category category)
         {
-            return _categoryDal.Update(
-                "update Category set Name=@Name,Weight=@Weight,IsDeleted=@IsDeleted where Id=@Id", category);
+            return _categoryDal.Update(category);
         }
 
         public int Delete(int Id)
         {
-            return _categoryDal.Delete("delete from Category where Id=@Id", new {Id = Id});
+            return _categoryDal.Delete(Id);
         }
 
         public int DeleteSoft(int Id)
         {
-            return _categoryDal.Update("update Category set IsDeleted = 1 where Id=@Id", new {Id = Id});
+            return _categoryDal.DeleteSoft(Id);
         }
     }
 }

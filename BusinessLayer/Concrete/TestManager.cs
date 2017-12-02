@@ -22,35 +22,34 @@ namespace BusinessLayer.Concrete
             _testDal = testDal;
         }
 
-        public List<Test> GetList(int top = 0, string whereQuery = "", object parameters = null)
+        public List<Test> GetList()
         {
-            string topSql = top == 0 ? "" : "TOP " + top;
-            return _testDal.GetList($"select {topSql}* from Test" + whereQuery, parameters);
+            return _testDal.GetList();
         }
 
         public Test GetById(int Id)
         {
-            return _testDal.Get("select *  from Test where Id = @Id", new { Id = Id });
+            return _testDal.Get(Id);
         }
 
         public int Add(Test test)
         {
-            return _testDal.Add("insert Test(Ip,IsDeleted) values (@Ip,@IsDeleted)", test);
+            return _testDal.Add(test);
         }
 
         public int Update(Test test)
         {
-            return _testDal.Update("update Test set Ip=@Ip,IsDeleted=@IsDeleted where Id=@Id", test);
+            return _testDal.Update(test);
         }
 
         public int Delete(int Id)
         {
-            return _testDal.Delete("delete from Test where Id=@Id", new { Id = Id });
+            return _testDal.Delete(Id);
         }
 
         public int DeleteSoft(int Id)
         {
-            return _testDal.Update("update Test set IsDeleted = 1 where Id=@Id", new { Id = Id });
+            return _testDal.DeleteSoft(Id);
         }
     }
 }

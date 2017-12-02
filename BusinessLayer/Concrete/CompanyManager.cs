@@ -14,32 +14,31 @@ namespace BusinessLayer.Concrete
             _companyDal = companyDal;
         }
 
-        public List<Company> GetList(int top = 0, string whereQuery = "", object parameters = null)
+        public List<Company> GetList()
         {
-            string topSql = top == 0 ? "" : "TOP " + top;
-            return _companyDal.GetList($"select {topSql}* from Test" + whereQuery, parameters);
+            return _companyDal.GetList();
         }
 
         public Company GetById(int Id)
         {
-            return _companyDal.Get("select *  from Company where Id = @Id", new { Id = Id });
+            return _companyDal.Get(Id);
         }
 
         public int Add(Company company)
         {
-            return _companyDal.Add("insert Company(Name,IsDeleted) values (@Name,@IsDeleted)", company);
+            return _companyDal.Add(company);
         }
         public int Update(Company company)
         {
-            return _companyDal.Update("update Company set Name=@Name,IsDeleted=@IsDeleted where CompanyId=@CompanyId", company);
+            return _companyDal.Update(company);
         }
         public int Delete(int CompanyId)
         {
-            return _companyDal.Delete("delete from Company where CompanyId=@CompanyId", new { CompanyId = CompanyId });
+            return _companyDal.Delete(CompanyId);
         }
         public int DeleteSoft(int CompanyId)
         {
-            return _companyDal.Update("update Company set IsDeleted = 1 where CompanyId=@CompanyId", new { CompanyId = CompanyId });
+            return _companyDal.DeleteSoft(CompanyId);
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Core.DataAccessLayer.Dapper.RepositoryInterface;
 using Core.EntityLayer;
 using Dapper.Mapper;
 
-namespace Core.DataAccessLayer.Dapper
+namespace Core.DataAccessLayer.Dapper.RepositoryBase
 {
     public abstract class DpMulti3EntityRepositoryBase<TA, TB, TC> : IMulti3EntityRepository<TA, TB, TC>
         where TA : class, IEntity, new()
@@ -17,7 +15,7 @@ namespace Core.DataAccessLayer.Dapper
         where TC : class, IEntity, new()
     {
 
-        public List<TA> GetListMapping(string query, string splitOn)
+        public List<TA> GetListMappingQuery(string query, string splitOn)
         {
             using (IDbConnection db =
                 new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))

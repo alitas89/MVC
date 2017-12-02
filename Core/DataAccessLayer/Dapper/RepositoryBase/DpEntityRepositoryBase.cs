@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using Core.DataAccessLayer.Dapper.RepositoryInterface;
 using Core.EntityLayer;
 using Dapper;
-using DapperExtensions;
 
-namespace Core.DataAccessLayer.Dapper
+namespace Core.DataAccessLayer.Dapper.RepositoryBase
 {
-    public abstract class DpEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
+    public abstract class DpEntityRepositoryBase<TEntity> : IDapper<TEntity>
         where TEntity : class, IEntity, new()
     {
-        public List<TEntity> GetList(string query, object parameters)
+        public List<TEntity> GetListQuery(string query, object parameters)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -29,20 +25,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public List<TEntity> GetListMapping(string query, Func<TEntity, TEntity, TEntity> mapping, object parameters)
-        {
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
-            {
-                if (db.State == ConnectionState.Closed)
-                {
-                    db.Open();
-                }
-
-                return db.Query(query, mapping, parameters).ToList();
-            }
-        }
-
-        public TEntity Get(string query, object parameters)
+        public TEntity GetQuery(string query, object parameters)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -55,7 +38,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public int Add(string query, object parameters)
+        public int AddQuery(string query, object parameters)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -69,7 +52,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public int Update(string query, object parameters)
+        public int UpdateQuery(string query, object parameters)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -83,7 +66,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public int Delete(string query, object parameters)
+        public int DeleteQuery(string query, object parameters)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -97,7 +80,7 @@ namespace Core.DataAccessLayer.Dapper
             }
         }
 
-        public int DeleteSoft(string query, object parameters)
+        public int DeleteSoftQuery(string query, object parameters)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
