@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules.FluentValidation;
+using Core.Aspects.Postsharp;
+using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DataAccessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
@@ -90,10 +93,13 @@ namespace BusinessLayer.Concrete
             return _productDal.Get(Id);
         }
 
+        [FluentValidationAspect(typeof(ProductValidator))]
         public int Add(Product product)
         {
             return _productDal.Add(product);
         }
+
+        [FluentValidationAspect(typeof(ProductValidator))]
         public int Update(Product product)
         {
             return _productDal.Update(product);

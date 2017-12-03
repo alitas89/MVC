@@ -270,3 +270,7 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Swashbuckle.
 C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\Swashbuckle.Core.dll
 C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\AutoMapper.dll
 C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\FluentValidation.dll
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\PostSharp.dll
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\FluentValidation.xml
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\PostSharp.xml

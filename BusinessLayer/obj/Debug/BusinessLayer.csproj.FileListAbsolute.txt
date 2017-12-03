@@ -54,3 +54,9 @@ D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\Dapper.Mapper.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.dll
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\FluentValidation.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\PostSharp.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\FluentValidation.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\PostSharp.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
