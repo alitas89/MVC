@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Symbols LinesOfCode="132" PostSharpLinesOfCode="0" xmlns="http://schemas.postsharp.org/2.0/symbols">
   <Class Class="#1=T:[Core]Core.Aspects.Postsharp.CacheAspects.CacheAspect">
-    <Instance Declaration="#2=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::GetList()" Id="83d374a32461e2da">
+    <Instance Declaration="#2=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::GetList()" Id="83d374a376e31ffb">
       <Target>
         <JoinPoint Advising="#1" Description="#3=Intercepted by OnInvoke" Ordinal="0" />
       </Target>
     </Instance>
   </Class>
   <Class Class="#4=T:[Core]Core.Aspects.Postsharp.ValidationAspects.FluentValidationAspect">
-    <Instance Declaration="#5=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::Add(EntityLayer.Concrete.Product)" Id="83d374a3e90474ae">
+    <Instance Declaration="#5=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::Add(EntityLayer.Concrete.Product)" Id="83d374a34b4e5bd7">
       <Target>
         <JoinPoint Advising="#4" Description="#6=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" Ordinal="2" />
       </Target>
     </Instance>
-    <Instance Declaration="#7=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::Update(EntityLayer.Concrete.Product)" Id="83d374a300e4c741">
+    <Instance Declaration="#7=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::Update(EntityLayer.Concrete.Product)" Id="83d374a3d77f4011">
       <Target>
         <JoinPoint Advising="#4" Description="#6" Ordinal="3" />
       </Target>
     </Instance>
   </Class>
   <Class Class="#8=T:[Core]Core.Aspects.Postsharp.CacheAspects.CacheRemoveAspect">
-    <Instance Declaration="#5" Id="83d374a31621689d">
+    <Instance Declaration="#5" Id="83d374a389cbca44">
       <Target>
         <JoinPoint Advising="#8" Description="#6" />
       </Target>
     </Instance>
   </Class>
   <Class Class="#9=T:[Core]Core.Aspects.Postsharp.TransactionAspects.TransactionScopeAspect">
-    <Instance Declaration="#10=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::TransactionalOperation(EntityLayer.Concrete.Product, EntityLayer.Concrete.Product)" Id="83d374a3123dc312">
+    <Instance Declaration="#10=M:[BusinessLayer]BusinessLayer.Concrete.ProductManager::TransactionalOperation(EntityLayer.Concrete.Product, EntityLayer.Concrete.Product)" Id="83d374a3982a5aa4">
       <Target>
         <JoinPoint Advising="#9" Description="#6" Ordinal="4" />
       </Target>

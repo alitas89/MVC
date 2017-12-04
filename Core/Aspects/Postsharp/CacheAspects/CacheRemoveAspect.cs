@@ -45,8 +45,7 @@ namespace Core.Aspects.Postsharp.CacheAspects
         public override void OnSuccess(MethodExecutionArgs args)
         {
             //pattern yoksa tamamı silinmelidir (*)
-            _cacheManager.RemoveByPattern(string.IsNullOrEmpty(_pattern) ? string.Format($@"{args.Method.ReflectedType.Namespace}.
-                                            {args.Method.ReflectedType.Name}.*") : _pattern);
+            _cacheManager.RemoveByPattern(string.IsNullOrEmpty(_pattern) ? string.Format($@"{args.Method.ReflectedType.Namespace}.{args.Method.ReflectedType.Name}.*") : _pattern);
         }
     }
 }

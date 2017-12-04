@@ -36,9 +36,7 @@ namespace Core.Aspects.Postsharp.CacheAspects
 
         public override void OnInvoke(MethodInterceptionArgs args)
         {
-            var methodName = string.Format($@"{args.Method.ReflectedType.Namespace}.
-                                           {args.Method.ReflectedType.Name}.
-                                           {args.Method.Name}");
+            var methodName = string.Format($@"{args.Method.ReflectedType.Namespace}.{args.Method.ReflectedType.Name}.{args.Method.Name}");
             var arguments = args.Arguments.ToList();
 
             var key = string.Format(
@@ -49,6 +47,7 @@ namespace Core.Aspects.Postsharp.CacheAspects
             {
                 //returnValue ile işlem burada biter - cachedekini almıştır
                 args.ReturnValue = _cacheManager.Get<object>(key);
+                return;
             }
 
             base.OnInvoke(args);
