@@ -29,5 +29,7 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        void TransactionalOperation(Product product1, Product product2);
     }
 }

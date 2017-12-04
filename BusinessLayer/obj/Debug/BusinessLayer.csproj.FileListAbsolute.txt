@@ -60,3 +60,9 @@ C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\FluentValidation.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\PostSharp.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pssym
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp

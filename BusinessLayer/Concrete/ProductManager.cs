@@ -7,6 +7,10 @@ using AutoMapper;
 using BusinessLayer.Abstract;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp;
+using Core.Aspects.Postsharp.CacheAspects;
+using Core.Aspects.Postsharp.TransactionAspects;
+using Core.Aspects.Postsharp.ValidationAspects;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DataAccessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
@@ -29,8 +33,8 @@ namespace BusinessLayer.Concrete
             _productCategoryCompanyDal = productCategoryCompanyDal;
         }
 
-
-
+        //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Product> GetList()
         {
             return _productDal.GetList();
@@ -93,7 +97,9 @@ namespace BusinessLayer.Concrete
             return _productDal.Get(Id);
         }
 
+        //Veride değişiklik olacağı için cache öldürülmeli
         [FluentValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Add(Product product)
         {
             return _productDal.Add(product);
@@ -111,6 +117,17 @@ namespace BusinessLayer.Concrete
         public int DeleteSoft(int Id)
         {
             return _productDal.DeleteSoft(Id);
+        }
+
+        [TransactionScopeAspect]
+        public void TransactionalOperation(Product product1, Product product2)
+        {
+            _productDal.Add(product1);
+            if (product2.Name=="1")
+            {
+                throw new Exception("test");
+            }
+            _productDal.Update(product2);
         }
     }
 }

@@ -70,10 +70,10 @@ namespace WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ITestService>().To<TestManager>();
+            kernel.Bind<ITestService>().To<TestManager>().InSingletonScope();
             kernel.Bind<ITestDal>().To<DpTestDal>();
 
-            kernel.Bind<IProductService>().To<ProductManager>();
+            kernel.Bind<IProductService>().To<ProductManager>().InSingletonScope();
             kernel.Bind<IProductDal>().To<DpProductDal>();
             //Multi2
             kernel.Bind<IProductCategoryDal>().To<DpProductCategoryDal>();

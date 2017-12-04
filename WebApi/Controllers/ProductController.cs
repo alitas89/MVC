@@ -73,5 +73,20 @@ namespace WebApi.Controllers
         {
             return _productService.Add(product);
         }
+
+        [CustomAction]
+        [Route("api/product/posttrans")]
+        public int TransactionalOperation([FromBody]Product product)
+        {
+            Product pro2 = new Product()
+            {
+                Id = 2,
+                Name = "NEEEWW",
+                CategoryId = 2,
+                Color = "aa"
+            };
+            _productService.TransactionalOperation(product, pro2);
+            return 1;
+        }
     }
 }
