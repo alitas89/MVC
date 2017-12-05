@@ -281,3 +281,6 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\PostSharp.xm
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Cors.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.Cors.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.Cors.xml
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\System.Web.Cors.dll
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Cors.dll
+C:\Users\Eren\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Cors.xml

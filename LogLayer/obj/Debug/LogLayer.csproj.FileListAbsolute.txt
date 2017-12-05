@@ -13,3 +13,11 @@ D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csprojResolveAssemblyReference.cac
 D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.dll
 D:\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\bin\Debug\LogLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\bin\Debug\LogLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\bin\Debug\log4net.dll
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\bin\Debug\log4net.xml
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\LogLayer\obj\Debug\LogLayer.pdb

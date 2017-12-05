@@ -66,3 +66,7 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pssym
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\log4net.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\log4net.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Newtonsoft.Json.xml

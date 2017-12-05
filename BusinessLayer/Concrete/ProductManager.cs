@@ -8,9 +8,11 @@ using BusinessLayer.Abstract;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp;
 using Core.Aspects.Postsharp.CacheAspects;
+using Core.Aspects.Postsharp.LogAspects;
 using Core.Aspects.Postsharp.TransactionAspects;
 using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DataAccessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
@@ -35,6 +37,7 @@ namespace BusinessLayer.Concrete
 
         //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
         [CacheAspect(typeof(MemoryCacheManager))]
+        [LogAspect(typeof(DatabaseLogger))]
         public List<Product> GetList()
         {
             return _productDal.GetList();
