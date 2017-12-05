@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ IConsumptionPlaceDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\ICompanyDal.cs" />
     <Compile Include="Abstract\IProductCategoryCompanyDal.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Abstract\ITestDal.cs" />
     <Compile Include="Concrete\Dapper\DpCategoryDal.cs" />
     <Compile Include="Concrete\Dapper\DpCompanyDal.cs" />
+    <Compile Include="Concrete\Dapper\DpConsumptionPlaceDal.cs" />
     <Compile Include="Concrete\Dapper\DpProductCategoryCompanyDal.cs" />
     <Compile Include="Concrete\Dapper\DpProductCategoryDal.cs" />
     <Compile Include="Concrete\Dapper\DpProductDal.cs" />

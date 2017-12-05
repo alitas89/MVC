@@ -70,6 +70,9 @@ namespace WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IConsumptionPlaceService>().To<ConsumptionPlaceManager>().InSingletonScope();
+            kernel.Bind<IConsumptionPlaceDal>().To<DpConsumptionPlaceDal>();
+
             kernel.Bind<ITestService>().To<TestManager>().InSingletonScope();
             kernel.Bind<ITestDal>().To<DpTestDal>();
 
