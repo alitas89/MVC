@@ -1,0 +1,14 @@
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\EntityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\EntityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Core.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\FluentValidation.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\PostSharp.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Dapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Dapper.Mapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\FluentValidation.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\PostSharp.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Dapper.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.csprojResolveAssemblyReference.cache
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.pdb

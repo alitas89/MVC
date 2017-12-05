@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
 using UtilityLayer.Filters;
 
@@ -13,6 +14,13 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            //Komple cors uygulaması
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*"); //params=> origins, headers, methods
+            //*, *, * olsaydı tüm herşeye izin vermiş olurduk.
+            //İlk hane izin verilen web siteleridir => http://localhost:3583, http://localhost:1231 her bir site bu şekilde virgülle ayrılarak //eklenmelidir.
+            config.EnableCors(cors);
+
+
             // Web API configuration and services
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -27,6 +35,8 @@ namespace WebApi
                     new DelegatingHandler[] {new ApiResponseHandler()}
                     )
             );
+
+            //config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
         }
     }
 }

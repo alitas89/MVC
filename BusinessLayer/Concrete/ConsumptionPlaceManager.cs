@@ -15,51 +15,51 @@ namespace BusinessLayer.Concrete
 {
     public class ConsumptionPlaceManager : IConsumptionPlaceService
     {
-        IConsumptionPlaceDal _companyDal;
+        IConsumptionPlaceDal _consumptionPlaceDal;
 
-        public ConsumptionPlaceManager(IConsumptionPlaceDal companyDal)
+        public ConsumptionPlaceManager(IConsumptionPlaceDal consumptionPlaceDal)
         {
-            _companyDal = companyDal;
+            _consumptionPlaceDal = consumptionPlaceDal;
         }
 
         //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<ConsumptionPlace> GetList()
         {
-            return _companyDal.GetList();
+            return _consumptionPlaceDal.GetList();
         }
 
         //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
         [CacheAspect(typeof(MemoryCacheManager))]
         public ConsumptionPlace GetById(int id)
         {
-            return _companyDal.Get(id);
+            return _consumptionPlaceDal.Get(id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(ConsumptionPlaceValidator))]
         public int Add(ConsumptionPlace consumptionplace)
         {
-            return _companyDal.Add(consumptionplace);
+            return _consumptionPlaceDal.Add(consumptionplace);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(ConsumptionPlaceValidator))]
         public int Update(ConsumptionPlace consumptionplace)
         {
-            return _companyDal.Update(consumptionplace);
+            return _consumptionPlaceDal.Update(consumptionplace);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Delete(int Id)
         {
-            return _companyDal.Delete(Id);
+            return _consumptionPlaceDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoft(int Id)
         {
-            return _companyDal.DeleteSoft(Id);
+            return _consumptionPlaceDal.DeleteSoft(Id);
         }
     }
 }

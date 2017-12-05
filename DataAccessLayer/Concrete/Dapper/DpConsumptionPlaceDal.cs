@@ -18,7 +18,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public ConsumptionPlace Get(int Id)
         {
-            return GetQuery("select *  from ConsumptionPlace where Id = @Id", new { Id = Id });
+            return GetQuery("select *  from ConsumptionPlace where ConsumptionPlaceID = @Id", new { Id = Id });
         }
 
         public int Add(ConsumptionPlace consumptionPlace)

@@ -1,0 +1,15 @@
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\LogLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\LogLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\log4net.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\bin\Release\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\obj\Release\UtilityLayer.csprojResolveAssemblyReference.cache
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\obj\Release\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\UtilityLayer\obj\Release\UtilityLayer.pdb
