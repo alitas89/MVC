@@ -25,8 +25,8 @@ namespace BusinessLayer.Concrete
         }
 
 
-        [LogAspect(typeof(DatabaseLogger))]
-        [LogAspect(typeof(FileLogger))]
+        //[LogAspect(typeof(DatabaseLogger))]
+        //[LogAspect(typeof(FileLogger))]
         public List<Test> GetList()
         {
             return _testDal.GetList();

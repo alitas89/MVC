@@ -76,3 +76,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml

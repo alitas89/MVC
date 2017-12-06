@@ -77,3 +77,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer.Tests\bin\Debug\System.Net.Http.Formatting.xml

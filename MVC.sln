@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{2D2830AE-A4A3-4572-9AB4-9B79D95D0DBF}"
 EndProject
@@ -12,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{99689944-0E2C-4CC7-BBE1-97F8F59C42FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{8E00610C-A402-4CCD-8900-E62E0F3543FD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogLayer", "LogLayer\LogLayer.csproj", "{BD9DFA8A-A1FB-489F-A94D-04426B493ED4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLayer", "UtilityLayer\UtilityLayer.csproj", "{DAB7B400-0187-419A-8FFD-FA46879E11BA}"
 EndProject
@@ -45,10 +43,6 @@ Global
 		{8E00610C-A402-4CCD-8900-E62E0F3543FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E00610C-A402-4CCD-8900-E62E0F3543FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E00610C-A402-4CCD-8900-E62E0F3543FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD9DFA8A-A1FB-489F-A94D-04426B493ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD9DFA8A-A1FB-489F-A94D-04426B493ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD9DFA8A-A1FB-489F-A94D-04426B493ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD9DFA8A-A1FB-489F-A94D-04426B493ED4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAB7B400-0187-419A-8FFD-FA46879E11BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAB7B400-0187-419A-8FFD-FA46879E11BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAB7B400-0187-419A-8FFD-FA46879E11BA}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -62,11 +62,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LogLayer\LogLayer.csproj">
-      <Project>{bd9dfa8a-a1fb-489f-a94d-04426b493ed4}</Project>
-      <Name>LogLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

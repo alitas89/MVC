@@ -52,3 +52,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Deb
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\System.Net.Http.Formatting.xml

@@ -50,3 +50,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.csp
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.dll.postsharp
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Debug\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Net.Http.Formatting.xml

@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
-using LogLayer;
 using UtilityLayer.Tools;
 
 namespace UtilityLayer.Filters
@@ -15,17 +14,6 @@ namespace UtilityLayer.Filters
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            //1. Loglama
-            LogServices.AddLog(
-                "Kullanıcı Adı",
-                IpGenerator.GetIpAddress(),
-                "ErrorFormat",
-                actionExecutedContext.ActionContext.ControllerContext.ControllerDescriptor.ControllerName + " - " +
-                actionExecutedContext.ActionContext.ActionDescriptor.ActionName,
-                actionExecutedContext.Exception.Message, actionExecutedContext.Exception.StackTrace,
-                actionExecutedContext.Exception);
-
-            //2. Response Hazırlama
             ExceptionResponseMessageCreate(actionExecutedContext);
         }
 

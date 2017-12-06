@@ -1,6 +1,9 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Core.Aspects.Postsharp.ExceptionAspects;
+using Core.Aspects.Postsharp.LogAspects;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
@@ -13,6 +16,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+//Tüm managerlar loglanacaktır => Örneğin içinde Add geçenler için *Add* yazılabilir.
+[assembly: LogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "BusinessLayer.Concrete.*")]
+[assembly: LogAspect(typeof(FileLogger), AttributeTargetTypes = "BusinessLayer.Concrete.*")]
+//Managerlarda herhangi bir hata meydana geldiği anda loglama yapılacaktır.
+[assembly: ExceptionLogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "BusinessLayer.Concrete.*")]
+[assembly: ExceptionLogAspect(typeof(FileLogger), AttributeTargetTypes = "BusinessLayer.Concrete.*")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
