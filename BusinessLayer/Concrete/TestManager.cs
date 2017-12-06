@@ -5,6 +5,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
+using Core.Aspects.Postsharp.LogAspects;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DapperExtensions;
 using DapperExtensions.Mapper;
 using DataAccessLayer.Abstract;
@@ -22,6 +24,9 @@ namespace BusinessLayer.Concrete
             _testDal = testDal;
         }
 
+
+        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(FileLogger))]
         public List<Test> GetList()
         {
             return _testDal.GetList();

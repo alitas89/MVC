@@ -1,18 +1,3 @@
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Core.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DapperExtensions.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DataAccessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\EntityLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Core.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DataAccessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\EntityLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DapperExtensions.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.pdb
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pdb
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\Core.dll
@@ -46,9 +31,6 @@ C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCo
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.pdb
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Dapper.Mapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\AutoMapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.Mapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\AutoMapper.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\Dapper.Mapper.dll
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\AutoMapper.xml
@@ -60,13 +42,37 @@ C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\FluentValidation.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\PostSharp.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pssym
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\log4net.dll
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\log4net.xml
 C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\AutoMapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Core.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DapperExtensions.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\EntityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Ninject.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.Mapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\AutoMapper.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Dapper.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\DapperExtensions.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\FluentValidation.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Ninject.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\PostSharp.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\log4net.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\BusinessLayer.pssym
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Debug\BusinessLayer.pdb

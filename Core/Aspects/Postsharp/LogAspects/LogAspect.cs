@@ -11,8 +11,8 @@ using PostSharp.Extensibility;
 
 namespace Core.Aspects.Postsharp.LogAspects
 {
-    [Serializable]
     //LogAspect tüm class'a verilebileceği için Multicast ile constructorlara uygulama ifadesi eklenmiştir.
+    [Serializable]
     [MulticastAttributeUsage(MulticastTargets.Method, TargetMemberAttributes = MulticastAttributes.Instance)]
     public class LogAspect : OnMethodBoundaryAspect
     {
@@ -30,8 +30,7 @@ namespace Core.Aspects.Postsharp.LogAspects
             {
                 throw new Exception("Wrong logger type");
             }
-
-            _loggerService = (LoggerService) Activator.CreateInstance(_loggerType);
+            _loggerService = (LoggerService)Activator.CreateInstance(_loggerType);
             base.RuntimeInitialize(method);
         }
 
@@ -42,21 +41,29 @@ namespace Core.Aspects.Postsharp.LogAspects
                 return;
             }
 
-            var logParameters = args.Method.GetParameters().Select((t, i) => new LogParameter
+            try
             {
-                Name = t.Name,
-                Type = t.ParameterType.Name,
-                Value = args.Arguments.GetArgument(i)
-            }).ToList();
+                var logParameters = args.Method.GetParameters().Select((t, i) => new LogParameter
+                {
+                    Name = t.Name,
+                    Type = t.ParameterType.Name,
+                    Value = args.Arguments.GetArgument(i)
+                }).ToList();
 
-            var logDetail = new LogDetail()
+                var logDetail = new LogDetail
+                {
+                    FullName = args.Method.DeclaringType == null ? null : args.Method.DeclaringType.Name,
+                    MethodName = args.Method.Name,
+                    Parameters = logParameters
+                };
+
+                _loggerService.Info(logDetail);
+            }
+            catch (Exception)
             {
-                FullName = args.Method.DeclaringType == null ? null : args.Method.DeclaringType.Name,
-                MethodName = args.Method.Name,
-                Parameters = logParameters
-            };
 
-            _loggerService.Info(logDetail);
+            }
+
         }
     }
 }

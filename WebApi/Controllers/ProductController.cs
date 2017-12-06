@@ -68,13 +68,11 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        [CustomAction]
         public int Post([FromBody]Product product)
         {
             return _productService.Add(product);
         }
-
-        [CustomAction]
+        
         [Route("api/product/posttrans")]
         public int TransactionalOperation([FromBody]Product product)
         {

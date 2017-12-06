@@ -1,23 +1,19 @@
+using System;
+using System.Web;
 using System.Web.Http;
-using BusinessLayer.Abstract;
-using BusinessLayer.Concrete;
-using DataAccessLayer.Abstract;
-using  DataAccessLayer.Concrete.Dapper;
+using BusinessLayer.DependencyResolvers.Ninject;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
+using Ninject.Web.Common.WebHost;
+using WebApi;
 using WebApiContrib.IoC.Ninject;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebApi.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebApi.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-namespace WebApi.App_Start
+namespace WebApi
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -70,18 +66,8 @@ namespace WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IConsumptionPlaceService>().To<ConsumptionPlaceManager>().InSingletonScope();
-            kernel.Bind<IConsumptionPlaceDal>().To<DpConsumptionPlaceDal>();
-
-            kernel.Bind<ITestService>().To<TestManager>().InSingletonScope();
-            kernel.Bind<ITestDal>().To<DpTestDal>();
-
-            kernel.Bind<IProductService>().To<ProductManager>().InSingletonScope();
-            kernel.Bind<IProductDal>().To<DpProductDal>();
-            //Multi2
-            kernel.Bind<IProductCategoryDal>().To<DpProductCategoryDal>();
-            //Multi3
-            kernel.Bind<IProductCategoryCompanyDal>().To<DpProductCategoryCompanyDal>();
+            //BusinessModule bir ninjectmodule'dur.
+            kernel.Load(new BusinessModule());
         }        
     }
 }
