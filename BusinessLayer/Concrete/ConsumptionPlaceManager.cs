@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.ValidationRules.FluentValidation;
@@ -28,6 +29,7 @@ namespace BusinessLayer.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<ConsumptionPlace> GetList()
         {
+            Thread.Sleep(5000);
             return _consumptionPlaceDal.GetList();
         }
 

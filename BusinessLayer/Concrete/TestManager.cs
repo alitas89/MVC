@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using Core.Aspects.Postsharp.LogAspects;
+using Core.Aspects.Postsharp.PerformanceAspects;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DapperExtensions;
 using DapperExtensions.Mapper;
@@ -27,8 +29,11 @@ namespace BusinessLayer.Concrete
 
         //[LogAspect(typeof(DatabaseLogger))]
         //[LogAspect(typeof(FileLogger))]
+        //2snyi geçmemelidir.
+        [PerformanceCounterAspect(2)]
         public List<Test> GetList()
         {
+            //Thread.Sleep(3000);
             return _testDal.GetList();
         }
 
