@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp.CacheAspects;
+using Core.Aspects.Postsharp.ExceptionAspects;
 using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
@@ -35,9 +37,9 @@ namespace BusinessLayer.Concrete
         {
             return _consumptionPlaceDal.Get(id);
         }
-
+        
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [FluentValidationAspect(typeof(ConsumptionPlaceValidator))]
+        [FluentValidationAspect(typeof(ConsumptionPlaceValidator), AspectPriority = 1)]
         public int Add(ConsumptionPlace consumptionplace)
         {
             return _consumptionPlaceDal.Add(consumptionplace);

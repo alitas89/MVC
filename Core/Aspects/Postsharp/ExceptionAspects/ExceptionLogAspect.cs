@@ -12,7 +12,6 @@ namespace Core.Aspects.Postsharp.ExceptionAspects
     [Serializable]
     public class ExceptionLogAspect : OnExceptionAspect
     {
-
         [NonSerialized]
         private LoggerService _loggerService;
         private readonly Type _loggerType;
