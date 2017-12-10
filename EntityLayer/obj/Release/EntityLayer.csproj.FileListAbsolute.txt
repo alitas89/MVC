@@ -12,3 +12,28 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.csprojResolveAssemblyReference.cache
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\obj\Release\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\EntityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\EntityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\FluentValidation.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\log4net.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\PostSharp.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Dapper.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Dapper.Mapper.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\UtilityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\System.Web.Http.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\FluentValidation.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\log4net.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\PostSharp.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Dapper.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\UtilityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\System.Web.Http.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.pdb

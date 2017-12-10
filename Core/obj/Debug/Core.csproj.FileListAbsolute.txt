@@ -56,3 +56,9 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.N
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\UtilityLayer.pdb
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Web.Http.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\UtilityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\UtilityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.xml

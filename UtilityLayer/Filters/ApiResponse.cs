@@ -11,12 +11,14 @@ namespace UtilityLayer.Filters
     [DataContract]
     public class ApiResponse<T>
     {
-        public ApiResponse(bool success, HttpStatusCode statusCode, T result, string errorMessage = null)
+        public ApiResponse(bool success, HttpStatusCode statusCode, T result,
+            string errorMessage = null, string clientErrorMessage = null)
         {
             Success = success;
             StatusCode = (int)statusCode;
             Result = result;
             ErrorMessage = errorMessage;
+            ClientErrorMessage = clientErrorMessage;
         }
 
         public ApiResponse()
@@ -35,6 +37,9 @@ namespace UtilityLayer.Filters
 
         [DataMember(EmitDefaultValue = false)]
         public string ErrorMessage { get; set; }
+
+        [DataMember(EmitDefaultValue = false)]
+        public string ClientErrorMessage { get; set; }
 
         [DataMember(EmitDefaultValue = false)]
         public T Result { get; set; }

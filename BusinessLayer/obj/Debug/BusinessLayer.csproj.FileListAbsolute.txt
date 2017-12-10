@@ -82,3 +82,11 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\UtilityLayer.pdb
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Web.Http.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Ninject.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\UtilityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Web.Http.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\Ninject.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\UtilityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Web.Http.xml
+C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml

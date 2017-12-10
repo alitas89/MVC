@@ -29,7 +29,6 @@ namespace BusinessLayer.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<ConsumptionPlace> GetList()
         {
-            Thread.Sleep(5000);
             return _consumptionPlaceDal.GetList();
         }
 

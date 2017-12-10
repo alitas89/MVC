@@ -36,7 +36,7 @@ namespace WebApi
                     )
             );
 
-            //config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
         }
     }
 }

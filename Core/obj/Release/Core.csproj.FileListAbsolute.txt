@@ -14,3 +14,30 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Release\Core.c
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Release\Core.dll.postsharp
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Release\Core.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\obj\Release\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Dapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Dapper.Mapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\DapperExtensions.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\FluentValidation.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\log4net.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Newtonsoft.Json.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\PostSharp.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\UtilityLayer.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\System.Web.Http.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\UtilityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Dapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\DapperExtensions.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\FluentValidation.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\log4net.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Newtonsoft.Json.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\PostSharp.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\System.Web.Http.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Release\Core.pssym
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.dll.postsharp
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.pdb
