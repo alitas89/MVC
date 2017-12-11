@@ -58,7 +58,12 @@ namespace UtilityLayer.Filters
                     {
                         if (loopError.Key == "ExceptionMessage")
                         {
-                            clientErrorMessage = loopError.Value + "";
+                            string pureClientErrorMessage = loopError.Value.ToString();
+                            if (pureClientErrorMessage.Contains("Validation failed: \r\n "))
+                            {
+                                pureClientErrorMessage = pureClientErrorMessage.Replace("Validation failed: \r\n ", "");
+                            }
+                            clientErrorMessage = pureClientErrorMessage;
                         }
                         sb.Append(string.Format("{0}: {1} ", loopError.Key, loopError.Value));
                     }

@@ -37,3 +37,13 @@ C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csprojResolveAs
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\log4net.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Net.Http.Formatting.xml
