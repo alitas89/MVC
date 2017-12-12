@@ -10,7 +10,9 @@ using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Utilities.Mappings;
+using PostSharp.Aspects.Dependencies;
 
 namespace BusinessLayer.Concrete
 {
@@ -33,6 +35,7 @@ namespace BusinessLayer.Concrete
 
         //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
         [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetList()
         {
             return _productDal.GetList();
