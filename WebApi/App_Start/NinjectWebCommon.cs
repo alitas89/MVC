@@ -67,7 +67,7 @@ namespace WebApi
         private static void RegisterServices(IKernel kernel)
         {
             //BusinessModule bir ninjectmodule'dur.
-            kernel.Load(new BusinessModule());
+            kernel.Load(new BusinessModule(), new AutoMapperModule());
         }        
     }
 }
