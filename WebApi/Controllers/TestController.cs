@@ -6,11 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
-using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {
-    [CustomException]
     public class TestController : ApiController
     {
         ITestService _testService;
@@ -35,7 +33,6 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        [CustomAction]
         public int Post([FromBody]Test test)
         {
            return _testService.Add(test);
@@ -43,7 +40,6 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<controller>/5
-        [CustomAction]
         public int Put([FromBody]Test test)
         {
             int sayi = _testService.Update(test);
@@ -51,7 +47,6 @@ namespace WebApi.Controllers
         }
 
         // DELETE api/<controller>/5
-        [CustomAction]
         public int Delete(int id)
         {
            int sayi = _testService.DeleteSoft(id);
@@ -59,7 +54,6 @@ namespace WebApi.Controllers
         }
 
         // DELETE api/<controller>/5
-        [CustomAction]
         [Route("api/test/deletehard/{id}")]
         public int DeleteHard(int id)
         {

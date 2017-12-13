@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
-using UtilityLayer.Filters;
+using WebApi.MessageHandlers;
 
 namespace WebApi
 {

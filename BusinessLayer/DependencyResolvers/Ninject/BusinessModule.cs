@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.Dapper;
 using Ninject.Modules;
 
@@ -15,6 +16,12 @@ namespace BusinessLayer.DependencyResolvers.Ninject
     {
         public override void Load()
         {
+            Bind<IKullaniciService>().To<KullaniciManager>().InSingletonScope();
+            Bind<IKullaniciDal>().To<DpKullaniciDal>();
+
+            Bind<IRolService>().To<RolManager>().InSingletonScope();
+            Bind<IRolDal>().To<DpRolDal>();
+
             Bind<IConsumptionPlaceService>().To<ConsumptionPlaceManager>().InSingletonScope();
             Bind<IConsumptionPlaceDal>().To<DpConsumptionPlaceDal>();
 

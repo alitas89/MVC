@@ -47,5 +47,10 @@ namespace BusinessLayer.Concrete
         {
             return _kullaniciDal.DeleteSoft(Id);
         }
+
+        public Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre)
+        {
+            return _kullaniciDal.GetByKullaniciAdiAndSifre(kullaniciAdi, sifre);
+        }
     }
 }

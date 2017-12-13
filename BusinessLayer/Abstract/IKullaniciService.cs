@@ -13,5 +13,7 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre);
     }
 }

@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
-using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {
@@ -32,28 +31,24 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        [CustomAction]
         public int Post([FromBody]ConsumptionPlace consumptionPlace)
         {
             return _consumptionPlaceService.Add(consumptionPlace);
         }
 
         // PUT api/<controller>/5
-        [CustomAction]
         public int Put([FromBody]ConsumptionPlace consumptionPlace)
         {
             return _consumptionPlaceService.Update(consumptionPlace);
         }
 
         // DELETE api/<controller>/5
-        [CustomAction]
         public int Delete(int id)
         {
             return _consumptionPlaceService.DeleteSoft(id);
         }
 
         // DELETE api/<controller>/5
-        [CustomAction]
         [Route("api/consumptionplace/deletehard/{id}")]
         public int DeleteHard(int id)
         {

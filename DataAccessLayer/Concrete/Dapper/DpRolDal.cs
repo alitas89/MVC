@@ -40,5 +40,15 @@ namespace DataAccessLayer.Concrete.Dapper
         {
             return UpdateQuery("update Rol set Silindi = 1 where RolId=@Id", new { Id });
         }
+
+        public List<Rol> GetRolByKullaniciId(int kullaniciId)
+        {
+            return GetListQuery(@"SELECT dbo.Rol.*
+                FROM dbo.Kullanici INNER JOIN
+                dbo.KullaniciRol ON dbo.Kullanici.KullaniciId = dbo.KullaniciRol.KullaniciId 
+                INNER JOIN
+                dbo.Rol ON dbo.KullaniciRol.RolId = dbo.Rol.RolId
+                WHERE (dbo.Kullanici.KullaniciId = @kullaniciId)", new { kullaniciId });
+        }
     }
 }

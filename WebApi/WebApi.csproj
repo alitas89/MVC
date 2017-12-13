@@ -184,6 +184,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MessageHandlers\ApiResponse.cs" />
+    <Compile Include="MessageHandlers\ApiResponseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,10 +226,6 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{BC1837E1-6A55-45FB-85AB-9EA756EA609A}</Project>
       <Name>EntityLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UtilityLayer\UtilityLayer.csproj">
-      <Project>{dab7b400-0187-419a-8ffd-fa46879e11ba}</Project>
-      <Name>UtilityLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

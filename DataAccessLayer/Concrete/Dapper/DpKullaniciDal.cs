@@ -7,7 +7,7 @@ using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
-namespace DataAccessLayer.Concrete
+namespace DataAccessLayer.Concrete.Dapper
 {
     public class DpKullaniciDal : DpEntityRepositoryBase<Kullanici>, IKullaniciDal
     {
@@ -39,6 +39,12 @@ namespace DataAccessLayer.Concrete
         public int DeleteSoft(int Id)
         {
             return UpdateQuery("update Kullanici set Silindi = 1 where KullaniciId=@Id", new { Id });
+        }
+
+        public Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre)
+        {
+            return GetQuery("select * from Kullanici where KullaniciAdi= @kullaniciAdi and Sifre = @sifre",
+                new { kullaniciAdi, sifre });
         }
     }
 }

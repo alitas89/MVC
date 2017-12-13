@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using BusinessLayer.Abstract;
+using BusinessLayer.DependencyResolvers.Ninject;
+using EntityLayer.Concrete;
 
-namespace UtilityLayer.Filters
+namespace WebApi.MessageHandlers
 {
     public class ApiResponseHandler : DelegatingHandler
     {
@@ -21,19 +27,21 @@ namespace UtilityLayer.Filters
                     string decodedString = Encoding.UTF8.GetString(data);
                     string[] tokenValues = decodedString.Split(':');
 
-                    //IKullaniciService userService = InstanceFactory.GetInstance<IUserService>();
+                    IKullaniciService kullaniciService = InstanceFactory.GetInstance<IKullaniciService>();
+                    IRolService rolService = InstanceFactory.GetInstance<IRolService>();
 
-                    //User user = userService.GetByUserNameAndPassword(tokenValues[0], tokenValues[1]);
-                    //if (user != null)
-                    //{
-                    //    IPrincipal principal = new GenericPrincipal(new GenericIdentity(tokenValues[0]),
-                    //        userService.GetUserRoles(user).Select(u => u.RoleName).ToArray());
-                    //    Thread.CurrentPrincipal = principal;
-                    //    HttpContext.Current.User = principal;
-                    //}
+                    Kullanici kullanici = kullaniciService.GetByKullaniciAdiAndSifre(tokenValues[0], tokenValues[1]);
+                    if (kullanici != null)
+                    {
+                        var rolArray =
+                            rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
+                        IPrincipal principal = new GenericPrincipal(new GenericIdentity(tokenValues[0]), rolArray);
+                        Thread.CurrentPrincipal = principal;
+                        HttpContext.Current.User = principal;
+                    }
                 }
             }
-            catch
+            catch(Exception ex)
             {
 
             }
@@ -65,7 +73,8 @@ namespace UtilityLayer.Filters
 
         private static HttpResponseMessage CreateHttpResponseMessage<T>(HttpRequestMessage request, HttpResponseMessage response, T content, string errorMessage, string clientErrorMessage)
         {
-            return request.CreateResponse(response.StatusCode, new ApiResponse<T>(response.IsSuccessStatusCode, response.StatusCode, content, errorMessage, clientErrorMessage));
+            return request.CreateResponse(response.StatusCode, 
+                new ApiResponse<T>(response.IsSuccessStatusCode, response.StatusCode, content, errorMessage, clientErrorMessage));
         }
 
         private static void ValidateResponse(HttpResponseMessage response, ref object content,

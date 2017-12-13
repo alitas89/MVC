@@ -47,5 +47,10 @@ namespace BusinessLayer.Concrete
         {
             return _rolDal.DeleteSoft(Id);
         }
+
+        public List<Rol> GetRolByKullaniciId(int kullaniciId)
+        {
+            return _rolDal.GetRolByKullaniciId(kullaniciId);
+        }
     }
 }

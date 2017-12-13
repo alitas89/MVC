@@ -64,3 +64,5 @@ C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.xml
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.xml

@@ -66,3 +66,5 @@ C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\System.Web.Http.xml
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\AutoMapper.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Debug\AutoMapper.xml

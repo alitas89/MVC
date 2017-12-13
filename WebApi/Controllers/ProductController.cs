@@ -7,7 +7,6 @@ using System.Web.Http;
 using BusinessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
-using UtilityLayer.Filters;
 
 namespace WebApi.Controllers
 {

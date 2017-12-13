@@ -5,6 +5,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IKullaniciDal : IEntityRepository<Kullanici>
     {
-
+        Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre);
     }
 }
