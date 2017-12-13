@@ -45,7 +45,10 @@
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Company.cs" />
     <Compile Include="Concrete\ConsumptionPlace.cs" />
+    <Compile Include="Concrete\Kullanici.cs" />
+    <Compile Include="Concrete\KullaniciRol.cs" />
     <Compile Include="Concrete\Product.cs" />
+    <Compile Include="Concrete\Rol.cs" />
     <Compile Include="Concrete\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
