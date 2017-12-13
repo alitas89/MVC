@@ -41,3 +41,13 @@ C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csprojR
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\log4net.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Net.Http.Formatting.xml

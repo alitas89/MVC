@@ -41,3 +41,13 @@ C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.csproj.CoreCompileInputs.cach
 C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.dll.postsharp
 C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\obj\Release\Core.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\log4net.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\Newtonsoft.Json.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\UtilityLayer.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\System.Web.Http.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\UtilityLayer.pdb
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\log4net.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\Newtonsoft.Json.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\System.Web.Http.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Release\System.Net.Http.Formatting.xml

@@ -58,3 +58,5 @@ C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\System.Net.Http.Formatting.dl
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\UtilityLayer.pdb
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\System.Web.Http.xml
 C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Debug\AutoMapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Debug\AutoMapper.xml

@@ -10,6 +10,9 @@ using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using Core.Aspects.Postsharp.AuthorizationAspects;
+using Core.Utilities.Mappings;
+using PostSharp.Aspects.Dependencies;
 
 namespace BusinessLayer.Concrete
 {
@@ -19,17 +22,20 @@ namespace BusinessLayer.Concrete
         IProductDal _productDal;
         private IProductCategoryDal _productCategoryDal;
         private IProductCategoryCompanyDal _productCategoryCompanyDal;
+        private readonly IMapper _mapper;
 
         public ProductManager(IProductDal productDal, IProductCategoryDal productCategoryDal,
-            IProductCategoryCompanyDal productCategoryCompanyDal)
+            IProductCategoryCompanyDal productCategoryCompanyDal, IMapper mapper)
         {
             _productDal = productDal;
             _productCategoryDal = productCategoryDal;
             _productCategoryCompanyDal = productCategoryCompanyDal;
+            _mapper = mapper;
         }
 
         //Verileri çekerken ya cacheden getir yada cache'e al işlemi yapar
         [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetList()
         {
             return _productDal.GetList();
@@ -51,13 +57,20 @@ namespace BusinessLayer.Concrete
         /// <returns></returns>
         public List<ProductNameColorDto> GetListProductNameColor()
         {
-            //Mapleme için konfigürasyon yapılır
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductNameColorDto>());
-            var mapper = config.CreateMapper();
-            //List<Product> çekilir
-            var listProduct = GetList();
-            //Mapleme işlemi gerçekleştirilir
-            var listProductNameColorDto = mapper.Map<List<Product>, List<ProductNameColorDto>>(listProduct);
+            //**Uzun yöntem
+            ////Mapleme için konfigürasyon yapılır
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductNameColorDto>());
+            //var mapper = config.CreateMapper();
+            ////List<Product> çekilir
+            //var listProduct = GetList();
+            ////Mapleme işlemi gerçekleştirilir
+            //var listProductNameColorDto = mapper.Map<List<Product>, List<ProductNameColorDto>>(listProduct);
+
+            //**Basitleştirilmiş Helper Alanı
+            //var listProductNameColorDto = AutoMapperHelper.MapToDiffTypeList<Product, ProductNameColorDto>(GetList());
+
+            //**Ninject profile ile kullanım
+            var listProductNameColorDto = _mapper.Map<List<ProductNameColorDto>>(GetList());
 
             return listProductNameColorDto;
         }
