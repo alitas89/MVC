@@ -8,28 +8,7 @@ D:\MVC\mvcprojesi\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.dll
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.pdb
-C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
-C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
-C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.pdb
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.pdb
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.xml
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.pdb
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.Mapper.dll
 D:\MVC\mvcprojesi\Core\bin\Debug\Dapper.Mapper.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\FluentValidation.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\PostSharp.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\FluentValidation.xml
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\PostSharp.xml
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.pssym
-C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.dll.postsharp
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\log4net.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\log4net.xml
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Newtonsoft.Json.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Core.dll
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Core.pdb
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\Dapper.dll
@@ -56,13 +35,34 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.N
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\UtilityLayer.pdb
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Web.Http.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.dll
+C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.Mapper.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\FluentValidation.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\log4net.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\PostSharp.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\UtilityLayer.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\UtilityLayer.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Dapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.pdb
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\FluentValidation.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\log4net.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\PostSharp.xml
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.xml
 C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\Core\bin\Debug\AutoMapper.xml
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.dll
-C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\AutoMapper.xml
+C:\Users\Eren\MVC\mvcprojesi\Core\bin\Debug\Core.pssym
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.dll.postsharp
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.dll
+C:\Users\Eren\MVC\mvcprojesi\Core\obj\Debug\Core.pdb

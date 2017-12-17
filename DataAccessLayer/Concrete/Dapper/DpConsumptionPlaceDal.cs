@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete.Dapper
     {
         public List<ConsumptionPlace> GetList()
         {
-            return GetListQuery("select * from ConsumptionPlace", new { });
+            return GetListQuery("select * from ConsumptionPlace where IsDeleted=0", new { });
         }
 
         public ConsumptionPlace Get(int Id)

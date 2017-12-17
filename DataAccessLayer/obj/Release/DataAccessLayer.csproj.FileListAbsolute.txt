@@ -51,3 +51,5 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Rel
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\Newtonsoft.Json.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Web.Http.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\DataAccessLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Release\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\DataAccessLayer\bin\Release\AutoMapper.xml

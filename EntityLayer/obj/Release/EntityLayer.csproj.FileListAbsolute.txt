@@ -47,3 +47,5 @@ C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\Newtonsoft.Json.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Web.Http.xml
 C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\EntityLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\AutoMapper.dll
+C:\Users\Eren\MVC\mvcprojesi\EntityLayer\bin\Release\AutoMapper.xml
