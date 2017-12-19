@@ -71,6 +71,7 @@
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\IRolService.cs" />
     <Compile Include="Abstract\ITestService.cs" />
+    <Compile Include="Abstract\IVerifyService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\CompanyManager.cs" />
     <Compile Include="Concrete\ConsumptionPlaceManager.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\RolManager.cs" />
     <Compile Include="Concrete\TestManager.cs" />
+    <Compile Include="Concrete\VerifyManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\AutoMapperModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />

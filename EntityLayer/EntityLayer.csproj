@@ -50,6 +50,7 @@
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\Rol.cs" />
     <Compile Include="Concrete\Test.cs" />
+    <Compile Include="Concrete\Verify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

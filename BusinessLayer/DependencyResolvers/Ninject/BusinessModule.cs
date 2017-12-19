@@ -16,6 +16,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
     {
         public override void Load()
         {
+            Bind<IVerifyService>().To<VerifyManager>().InSingletonScope();
+            Bind<IVerifyDal>().To<DpVerifyDal>();
+
             Bind<IKullaniciService>().To<KullaniciManager>().InSingletonScope();
             Bind<IKullaniciDal>().To<DpKullaniciDal>();
 

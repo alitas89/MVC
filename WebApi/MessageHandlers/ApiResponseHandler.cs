@@ -17,34 +17,7 @@ namespace WebApi.MessageHandlers
     public class ApiResponseHandler : DelegatingHandler
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
-        {
-            //try
-            //{
-            //    var token = request.Headers.GetValues("Authorization").FirstOrDefault();
-            //    if (token != null)
-            //    {
-            //        byte[] data = Convert.FromBase64String(token);
-            //        string decodedString = Encoding.UTF8.GetString(data);
-            //        string[] tokenValues = decodedString.Split(':');
-
-            //        IKullaniciService kullaniciService = InstanceFactory.GetInstance<IKullaniciService>();
-            //        IRolService rolService = InstanceFactory.GetInstance<IRolService>();
-
-            //        Kullanici kullanici = kullaniciService.GetByKullaniciAdiAndSifre(tokenValues[0], tokenValues[1]);
-            //        if (kullanici != null)
-            //        {
-            //            var rolArray =
-            //                rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
-            //            IPrincipal principal = new GenericPrincipal(new GenericIdentity(tokenValues[0]), rolArray);
-            //            Thread.CurrentPrincipal = principal;
-            //            HttpContext.Current.User = principal;
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
+        {        
 
             var response = await base.SendAsync(request, cancellationToken);
 

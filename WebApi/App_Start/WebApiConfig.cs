@@ -14,11 +14,12 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            //Kors izinleri startupta verildi!
             //Komple cors uygulaması
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*"); //params=> origins, headers, methods
+            //EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*"); //params=> origins, headers, methods
             //*, *, * olsaydı tüm herşeye izin vermiş olurduk.
             //İlk hane izin verilen web siteleridir => http://localhost:3583, http://localhost:1231 her bir site bu şekilde virgülle ayrılarak //eklenmelidir.
-            config.EnableCors(cors);
+            //config.EnableCors(cors);
 
 
             // Web API configuration and services

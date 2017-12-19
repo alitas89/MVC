@@ -20,6 +20,9 @@ namespace WebApi
         {
             HttpConfiguration configuration = new HttpConfiguration();
             configuration.DependencyResolver = new NinjectResolver(NinjectConfig.CreateKernel());
+            //Cors etkinleştirilir
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
             Configure(app);
 
             WebApiConfig.Register(configuration);
