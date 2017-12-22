@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IKisimService
     {
+        List<Kisim> GetList();
+
         Kisim GetById(int id);
 
         int Add(Kisim kisim);

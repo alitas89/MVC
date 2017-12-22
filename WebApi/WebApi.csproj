@@ -190,8 +190,20 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bearer\AuthorizationServerProvider.cs" />
     <Compile Include="Controllers\ConsumptionPlaceController.cs" />
+    <Compile Include="Controllers\DurusKismiController.cs" />
+    <Compile Include="Controllers\DurusNedeniController.cs" />
+    <Compile Include="Controllers\HurdaController.cs" />
+    <Compile Include="Controllers\IsletmeController.cs" />
+    <Compile Include="Controllers\KisimController.cs" />
+    <Compile Include="Controllers\MarkaController.cs" />
+    <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SarfYeriController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Controllers\VarlikDurumuController.cs" />
+    <Compile Include="Controllers\VarlikGrupController.cs" />
+    <Compile Include="Controllers\VarlikTuruController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

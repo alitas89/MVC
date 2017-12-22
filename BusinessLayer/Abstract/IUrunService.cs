@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IUrunService
     {
+        List<Urun> GetList();
+
         Urun GetById(int id);
 
         int Add(Urun urun);

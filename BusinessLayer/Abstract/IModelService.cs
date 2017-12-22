@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IModelService
     {
+        List<Model> GetList();
+
         Model GetById(int id);
 
         int Add(Model model);

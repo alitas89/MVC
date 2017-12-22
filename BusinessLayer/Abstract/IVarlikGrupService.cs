@@ -1,9 +1,13 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IVarlikGrupService
     {
+
+        List<VarlikGrup> GetList();
+
         VarlikGrup GetById(int id);
 
         int Add(VarlikGrup varlikgrup);
