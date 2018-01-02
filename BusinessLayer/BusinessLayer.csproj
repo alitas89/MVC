@@ -112,8 +112,14 @@
     <Compile Include="Mappings\AutoMapper\Profiles\BusinessProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\FluentValidation\ConsumptionPlaceValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\DurusKismiValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\DurusNedeniValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\IsletmeValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\KisimValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\MarkaValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\ProductValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\SarfYeriValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\VarlikGrupValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

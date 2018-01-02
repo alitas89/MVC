@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules.FluentValidation;
+using Core.Aspects.Postsharp.AuthorizationAspects;
+using Core.Aspects.Postsharp.CacheAspects;
+using Core.Aspects.Postsharp.ValidationAspects;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 
@@ -11,36 +16,54 @@ namespace BusinessLayer.Concrete
 {
     public class IsletmeManager : IIsletmeService
     {
-        IIsletmeDal _ısletmeDal;
+        IIsletmeDal _isletmeDal;
 
-        public IsletmeManager(IIsletmeDal ısletmeDal)
+        public IsletmeManager(IIsletmeDal isletmeDal)
         {
-            _ısletmeDal = ısletmeDal;
+            _isletmeDal = isletmeDal;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<Isletme> GetList()
         {
-            return _ısletmeDal.GetList();
+            return _isletmeDal.GetList();
         }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
         public Isletme GetById(int Id)
         {
-            return _ısletmeDal.Get(Id);
+            return _isletmeDal.Get(Id);
         }
-        public int Add(Isletme ısletme)
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public int Add(Isletme isletme)
         {
-            return _ısletmeDal.Add(ısletme);
+            return _isletmeDal.Add(isletme);
         }
-        public int Update(Isletme ısletme)
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public int Update(Isletme isletme)
         {
-            return _ısletmeDal.Update(ısletme);
+            return _isletmeDal.Update(isletme);
         }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public int Delete(int Id)
         {
-            return _ısletmeDal.Delete(Id);
+            return _isletmeDal.Delete(Id);
         }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public int DeleteSoft(int Id)
         {
-            return _ısletmeDal.DeleteSoft(Id);
+            return _isletmeDal.DeleteSoft(Id);
         }
     }
 }
