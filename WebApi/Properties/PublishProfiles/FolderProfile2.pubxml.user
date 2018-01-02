@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>12/22/2017 15:33:45</publishTime>
+      <publishTime>01/02/2018 14:54:24</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>12/22/2017 15:33:45</publishTime>
+      <publishTime>01/02/2018 14:54:23</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>12/22/2017 15:33:40</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>12/22/2017 15:33:40</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -43,16 +43,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>12/22/2017 15:33:41</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>12/22/2017 15:33:41</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>12/22/2017 15:33:41</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>12/22/2017 15:33:41</publishTime>
+      <publishTime>01/02/2018 14:11:57</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -229,19 +229,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/UtilityLayer.dll">
-      <publishTime>12/22/2017 15:33:38</publishTime>
+      <publishTime>01/02/2018 14:11:56</publishTime>
     </File>
     <File Include="bin/UtilityLayer.pdb">
-      <publishTime>12/22/2017 15:33:38</publishTime>
+      <publishTime>01/02/2018 14:11:56</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>12/22/2017 15:34:34</publishTime>
+      <publishTime>01/02/2018 14:54:41</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>12/22/2017 15:34:34</publishTime>
+      <publishTime>01/02/2018 14:54:41</publishTime>
     </File>
     <File Include="bin/WebApiContrib.IoC.Ninject.dll">
       <publishTime>12/15/2017 08:50:28</publishTime>
