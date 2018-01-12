@@ -52,6 +52,7 @@
     <Compile Include="Concrete\BeklemeIptalNedeni.cs" />
     <Compile Include="Concrete\BilgilendirmeGrubu.cs" />
     <Compile Include="Concrete\BilgilendirmeTuru.cs" />
+    <Compile Include="Concrete\Birim.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Company.cs" />
     <Compile Include="Concrete\ConsumptionPlace.cs" />
