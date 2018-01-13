@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace WebApi.Controllers
@@ -19,9 +20,9 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public IEnumerable<SarfYeri> Get()
+        public IEnumerable<SarfYeriDto> Get()
         {
-            return _sarfYeriService.GetList();
+            return _sarfYeriService.GetListDto();
         }
 
         // GET api/<controller>/5

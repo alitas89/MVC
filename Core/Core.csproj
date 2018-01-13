@@ -93,10 +93,12 @@
     <Compile Include="CrossCuttingConcerns\Security\Web\AuthenticationHelper.cs" />
     <Compile Include="CrossCuttingConcerns\Security\Web\SecurityUtilities.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidatorTool.cs" />
+    <Compile Include="DataAccessLayer\Dapper\RepositoryBase\DpDtoRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryBase\DpEntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryBase\DpMulti2EntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryBase\DpMulti3EntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryInterface\IDapper.cs" />
+    <Compile Include="DataAccessLayer\Dapper\RepositoryInterface\IDto.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryInterface\IMultiDapper.cs" />
     <Compile Include="DataAccessLayer\IEntityRepository.cs" />
     <Compile Include="DataAccessLayer\Dapper\RepositoryInterface\IMulti2EntityRepository.cs" />
