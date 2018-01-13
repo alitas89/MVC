@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IOncelikService
     {
+        List<Oncelik> GetList();
+
         Oncelik GetById(int id);
 
         int Add(Oncelik oncelik);

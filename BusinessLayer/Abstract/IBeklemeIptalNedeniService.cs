@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IBeklemeIptalNedeniService
     {
+        List<BeklemeIptalNedeni> GetList();
+
         BeklemeIptalNedeni GetById(int id);
 
         int Add(BeklemeIptalNedeni beklemeıptalnedeni);

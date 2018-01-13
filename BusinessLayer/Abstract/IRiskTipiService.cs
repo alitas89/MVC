@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IRiskTipiService
     {
+        List<RiskTipi> GetList();
+
         RiskTipi GetById(int id);
 
         int Add(RiskTipi risktipi);

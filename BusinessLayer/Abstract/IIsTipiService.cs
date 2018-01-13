@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IIsTipiService
     {
+        List<IsTipi> GetList();
+
         IsTipi GetById(int id);
 
         int Add(IsTipi isTipi);

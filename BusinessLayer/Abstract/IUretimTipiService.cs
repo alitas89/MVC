@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IUretimTipiService
     {
+        List<UretimTipi> GetList();
+
         UretimTipi GetById(int id);
 
         int Add(UretimTipi uretimtipi);

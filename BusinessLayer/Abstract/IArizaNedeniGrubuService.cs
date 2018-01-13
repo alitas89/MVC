@@ -1,9 +1,12 @@
-﻿using EntityLayer.Concrete;
+﻿using System.Collections.Generic;
+using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
 {
     public interface IArizaNedeniGrubuService
     {
+        List<ArizaNedeniGrubu> GetList();
+
         ArizaNedeniGrubu GetById(int id);
 
         int Add(ArizaNedeniGrubu arizanedenigrubu);

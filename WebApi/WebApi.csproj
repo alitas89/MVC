@@ -189,17 +189,39 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bearer\AuthorizationServerProvider.cs" />
+    <Compile Include="Controllers\ArizaCozumuController.cs" />
+    <Compile Include="Controllers\ArizaNedeniController.cs" />
+    <Compile Include="Controllers\ArizaNedeniGrubuController.cs" />
+    <Compile Include="Controllers\BakimArizaKoduController.cs" />
+    <Compile Include="Controllers\BakimEkibiController.cs" />
+    <Compile Include="Controllers\BakimOncelikController.cs" />
+    <Compile Include="Controllers\BakimRiskiController.cs" />
+    <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
+    <Compile Include="Controllers\BilgilendirmeGrubuController.cs" />
+    <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
+    <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\ConsumptionPlaceController.cs" />
     <Compile Include="Controllers\DurusKismiController.cs" />
     <Compile Include="Controllers\DurusNedeniController.cs" />
+    <Compile Include="Controllers\EtkiYeriController.cs" />
+    <Compile Include="Controllers\GecikmeNedeniController.cs" />
+    <Compile Include="Controllers\GonderimFormatiController.cs" />
+    <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
+    <Compile Include="Controllers\IsTipiController.cs" />
     <Compile Include="Controllers\KisimController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
+    <Compile Include="Controllers\OncelikController.cs" />
+    <Compile Include="Controllers\ParaBirimController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RiskTipiController.cs" />
     <Compile Include="Controllers\SarfYeriController.cs" />
+    <Compile Include="Controllers\StatuController.cs" />
+    <Compile Include="Controllers\StatuTipiController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UretimTipiController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\VarlikDurumuController.cs" />
     <Compile Include="Controllers\VarlikGrupController.cs" />
@@ -233,7 +255,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
