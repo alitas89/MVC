@@ -7,7 +7,7 @@ using EntityLayer.Concrete;
 
 namespace EntityLayer.ComplexTypes.DtoModel
 {
-    public class SarfYeriDto
+    public class SarfYeriDto: SarfYeri
     {
         public string IsletmeAd { get; set; }
     }
