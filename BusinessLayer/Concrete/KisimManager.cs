@@ -10,6 +10,7 @@ using Core.Aspects.Postsharp.CacheAspects;
 using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -28,6 +29,13 @@ namespace BusinessLayer.Concrete
         public List<Kisim> GetList()
         {
             return _kisimDal.GetList();
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<KisimDto> GetListDto()
+        {
+            return _kisimDal.GetListDto();
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]

@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<IsTipi> Get()
         {
-            return _isTipiService.GetList();
+            return _isTipiService.GetListDto();
         }
 
         // GET api/<controller>/5

@@ -8,6 +8,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -26,6 +27,13 @@ namespace BusinessLayer.Concrete
         public List<Model> GetList()
         {
             return _modelDal.GetList();
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<ModelDto> GetListDto()
+        {
+            return _modelDal.GetListDto();
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]

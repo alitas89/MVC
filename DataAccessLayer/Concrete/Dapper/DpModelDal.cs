@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
@@ -35,6 +36,11 @@ namespace DataAccessLayer.Concrete.Dapper
         public int DeleteSoft(int Id)
         {
             return UpdateQuery("update Model set Silindi = 1 where ModelID=@Id", new { Id });
+        }
+
+        public List<ModelDto> GetListDto()
+        {
+            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery("select M.*, MA.Ad as MarkaAd from Model M inner join Marka MA on MA.MarkaID = M.MarkaID", new { });
         }
     }
 }

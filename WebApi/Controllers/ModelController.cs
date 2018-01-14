@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<Model> Get()
         {
-            return _modelService.GetList();
+            return _modelService.GetListDto();
         }
 
         // GET api/<controller>/5

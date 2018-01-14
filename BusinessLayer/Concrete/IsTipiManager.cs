@@ -8,6 +8,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -27,6 +28,14 @@ namespace BusinessLayer.Concrete
         {
             return _isTipiDal.GetList();
         }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<IsTipiDto> GetListDto()
+        {
+            return _isTipiDal.GetListDto();
+        }
+
         [SecuredOperation(Roles = "Admin,Editor")]
         public IsTipi GetById(int Id)
         {

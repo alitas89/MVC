@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<Kisim> Get()
         {
-            return _kisimService.GetList();
+            return _kisimService.GetListDto();
         }
 
         // GET api/<controller>/5
