@@ -41,7 +41,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
 
 
-            //Asıl tablolar
+            //*****Asıl tablolar
+
+            //#VarlıkModul
             Bind<IDurusKismiService>().To<DurusKismiManager>().InSingletonScope();
             Bind<IDurusKismiDal>().To<DpDurusKismiDal>();
 
@@ -77,6 +79,73 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IVarlikTuruService>().To<VarlikTuruManager>().InSingletonScope();
             Bind<IVarlikTuruDal>().To<DpVarlikTuruDal>();
+
+            //#BakimModul
+            Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
+            Bind<IIsTipiDal>().To<DpIsTipiDal>();
+
+            Bind<IBakimArizaKoduService>().To<BakimArizaKoduManager>().InSingletonScope();
+            Bind<IBakimArizaKoduDal>().To<DpBakimArizaKoduDal>();
+
+            Bind<IArizaCozumuService>().To<ArizaCozumuManager>().InSingletonScope();
+            Bind<IArizaCozumuDal>().To<DpArizaCozumuDal>();
+
+            Bind<IArizaNedeniGrubuService>().To<ArizaNedeniGrubuManager>().InSingletonScope();
+            Bind<IArizaNedeniGrubuDal>().To<DpArizaNedeniGrubuDal>();
+
+            Bind<IBakimOncelikService>().To<BakimOncelikManager>().InSingletonScope();
+            Bind<IBakimOncelikDal>().To<DpBakimOncelikDal>();
+
+            Bind<IUretimTipiService>().To<UretimTipiManager>().InSingletonScope();
+            Bind<IUretimTipiDal>().To<DpUretimTipiDal>();
+
+            Bind<IBakimEkibiService>().To<BakimEkibiManager>().InSingletonScope();
+            Bind<IBakimEkibiDal>().To<DpBakimEkibiDal>();
+
+            Bind<IBeklemeIptalNedeniService>().To<BeklemeIptalNedeniManager>().InSingletonScope();
+            Bind<IBeklemeIptalNedeniDal>().To<DpBeklemeIptalNedeniDal>();
+
+            Bind<IGecikmeNedeniService>().To<GecikmeNedeniManager>().InSingletonScope();
+            Bind<IGecikmeNedeniDal>().To<DpGecikmeNedeniDal>();
+
+            Bind<IBilgilendirmeTuruService>().To<BilgilendirmeTuruManager>().InSingletonScope();
+            Bind<IBilgilendirmeTuruDal>().To<DpBilgilendirmeTuruDal>();
+
+            Bind<IBilgilendirmeGrubuService>().To<BilgilendirmeGrubuManager>().InSingletonScope();
+            Bind<IBilgilendirmeGrubuDal>().To<DpBilgilendirmeGrubuDal>();
+
+            Bind<IGonderimFormatiService>().To<GonderimFormatiManager>().InSingletonScope();
+            Bind<IGonderimFormatiDal>().To<DpGonderimFormatiDal>();
+
+            Bind<IParaBirimService>().To<ParaBirimManager>().InSingletonScope();
+            Bind<IParaBirimDal>().To<DpParaBirimDal>();
+
+            Bind<IHizmetService>().To<HizmetManager>().InSingletonScope();
+            Bind<IHizmetDal>().To<DpHizmetDal>();
+
+            Bind<IRiskTipiService>().To<RiskTipiManager>().InSingletonScope();
+            Bind<IRiskTipiDal>().To<DpRiskTipiDal>();
+
+            Bind<IBakimRiskiService>().To<BakimRiskiManager>().InSingletonScope();
+            Bind<IBakimRiskiDal>().To<DpBakimRiskiDal>();
+
+            Bind<IOncelikService>().To<OncelikManager>().InSingletonScope();
+            Bind<IOncelikDal>().To<DpOncelikDal>();
+
+            Bind<IStatuTipiService>().To<StatuTipiManager>().InSingletonScope();
+            Bind<IStatuTipiDal>().To<DpStatuTipiDal>();
+
+            Bind<IStatuService>().To<StatuManager>().InSingletonScope();
+            Bind<IStatuDal>().To<DpStatuDal>();
+
+            Bind<IEtkiYeriService>().To<EtkiYeriManager>().InSingletonScope();
+            Bind<IEtkiYeriDal>().To<DpEtkiYeriDal>();
+
+            Bind<IArizaNedeniService>().To<ArizaNedeniManager>().InSingletonScope();
+            Bind<IArizaNedeniDal>().To<DpArizaNedeniDal>();
+
+            Bind<IBirimService>().To<BirimManager>().InSingletonScope();
+            Bind<IBirimDal>().To<DpBirimDal>();
         }
     }
 }
