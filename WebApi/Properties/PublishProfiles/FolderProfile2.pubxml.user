@@ -6,89 +6,89 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Eren\Pubs\MVCPub</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\ereng\Pubs\MVCPub</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:41</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:41</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:31</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:31</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/Dapper.Mapper.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/DapperExtensions.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/DapperExtensions.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:32</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:32</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:31</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:05:31</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/log4net.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="bin/log4net.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Cors.dll">
-      <publishTime>04/05/2017 11:53:36</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Ninject.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/Ninject.Web.Common.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -103,226 +103,226 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/12/2017 20:10:49</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/PostSharp.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/csc.rsp">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/csi.rsp">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.AppContext.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.rsp">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/Swashbuckle.Core.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:25</publishTime>
     </File>
     <File Include="bin/UtilityLayer.dll">
-      <publishTime>12/01/2018 10:03:48</publishTime>
+      <publishTime>01/14/2018 11:44:40</publishTime>
     </File>
     <File Include="bin/UtilityLayer.pdb">
-      <publishTime>12/01/2018 10:03:48</publishTime>
+      <publishTime>01/14/2018 11:44:40</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 13:48:45</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 13:48:45</publishTime>
     </File>
     <File Include="bin/WebApiContrib.IoC.Ninject.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:26</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="log4net.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:24</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/23/2017 10:47:23</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/14/2018 12:49:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

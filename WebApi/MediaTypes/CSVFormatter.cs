@@ -54,7 +54,7 @@ namespace WebApi.MediaTypes
 
             StringWriter _stringWriter = new StringWriter();
 
-            _stringWriter.WriteLine(
+            _stringWriter.WriteLineAsync(
                 string.Join<string>(
                     ",", itemType.GetProperties().Select(x => x.Name)
                 )
@@ -90,11 +90,11 @@ namespace WebApi.MediaTypes
                     }
                 }
 
-                _stringWriter.WriteLine(_valueLine.TrimEnd(','));
+                _stringWriter.WriteLineAsync(_valueLine.TrimEnd(','));
             }
 
             var streamWriter = new StreamWriter(stream);
-            streamWriter.Write(_stringWriter.ToString());
+            streamWriter.WriteAsync(_stringWriter.ToString());
             streamWriter.Close();
         }
     }
