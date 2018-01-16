@@ -19,10 +19,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>01/16/2018 10:17:10</publishTime>
+      <publishTime>01/16/2018 12:16:20</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>01/16/2018 10:17:10</publishTime>
+      <publishTime>01/16/2018 12:16:20</publishTime>
     </File>
     <File Include="bin/Core.dll">
       <publishTime>01/15/2018 10:31:21</publishTime>
@@ -43,10 +43,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/16/2018 10:17:01</publishTime>
+      <publishTime>01/16/2018 12:16:11</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/16/2018 10:17:01</publishTime>
+      <publishTime>01/16/2018 12:16:11</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -67,7 +67,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Cors.dll">
-      <publishTime>04/05/2017 11:53:36</publishTime>
+      <publishTime>05/04/2017 11:53:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
       <publishTime>12/18/2017 15:43:34</publishTime>
@@ -226,10 +226,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>01/16/2018 10:18:06</publishTime>
+      <publishTime>01/16/2018 12:17:34</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>01/16/2018 10:18:06</publishTime>
+      <publishTime>01/16/2018 12:17:34</publishTime>
     </File>
     <File Include="bin/WebApiContrib.IoC.Ninject.dll">
       <publishTime>12/15/2017 08:50:28</publishTime>

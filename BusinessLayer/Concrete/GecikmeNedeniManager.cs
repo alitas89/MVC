@@ -28,15 +28,15 @@ namespace BusinessLayer.Concrete
         {
             return _gecikmenedeniDal.Get(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(GecikmeNedeni gecikmenedeni)
         {
             return _gecikmenedeniDal.Add(gecikmenedeni);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(GecikmeNedeni gecikmenedeni)
         {

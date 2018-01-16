@@ -25,7 +25,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Company company)
         {
-            return AddQuery("insert Company(Name,IsDeleted) values (@Name,@IsDeleted)", company);
+            return AddQuery("insert into Company(Name,IsDeleted) values (@Name,@IsDeleted)", company);
         }
 
         public int Update(Company company)

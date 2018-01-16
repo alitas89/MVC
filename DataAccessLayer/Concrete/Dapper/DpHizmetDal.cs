@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Hizmet hizmet)
         {
-            return AddQuery("insert Hizmet(Kod,Ad,BirimFiyat,ParaBirimID,Aciklama,Silindi) values (@Kod,@Ad,@BirimFiyat,@ParaBirimID,@Aciklama,@Silindi)", hizmet);
+            return AddQuery("insert into Hizmet(Kod,Ad,BirimFiyat,ParaBirimID,Aciklama,Silindi) values (@Kod,@Ad,@BirimFiyat,@ParaBirimID,@Aciklama,@Silindi)", hizmet);
         }
 
         public int Update(Hizmet hizmet)

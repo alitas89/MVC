@@ -42,16 +42,16 @@ namespace BusinessLayer.Concrete
             return _modelDal.Get(Id);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(Model model)
         {
             return _modelDal.Add(model);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Model model)
         {

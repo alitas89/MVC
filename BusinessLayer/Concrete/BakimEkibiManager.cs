@@ -33,15 +33,17 @@ namespace BusinessLayer.Concrete
         {
             return _bakimekibiDal.Get(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(BakimEkibi bakimekibi)
         {
             return _bakimekibiDal.Add(bakimekibi);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(BakimEkibi bakimekibi)
         {

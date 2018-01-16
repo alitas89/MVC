@@ -28,15 +28,17 @@ namespace BusinessLayer.Concrete
         {
             return _arizanedeniDal.Get(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(ArizaNedeni arizanedeni)
         {
             return _arizanedeniDal.Add(arizanedeni);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(ArizaNedeni arizanedeni)
         {

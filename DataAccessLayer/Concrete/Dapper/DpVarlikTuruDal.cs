@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(VarlikTuru varlikturu)
         {
-            return AddQuery("insert VarlikTuru(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama)", varlikturu);
+            return AddQuery("insert into VarlikTuru(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama)", varlikturu);
         }
 
         public int Update(VarlikTuru varlikturu)

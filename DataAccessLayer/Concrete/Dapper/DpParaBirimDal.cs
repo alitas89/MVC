@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(ParaBirim parabirim)
         {
-            return AddQuery("insert ParaBirim(ParaBirimAd) values (@ParaBirimAd)", parabirim);
+            return AddQuery("insert into ParaBirim(ParaBirimAd) values (@ParaBirimAd)", parabirim);
         }
 
         public int Update(ParaBirim parabirim)

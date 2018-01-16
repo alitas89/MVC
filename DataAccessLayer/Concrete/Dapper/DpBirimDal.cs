@@ -23,7 +23,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Birim birim)
         {
-            return AddQuery("insert Birim(BirimAd) values (@BirimAd)", birim);
+            return AddQuery("insert into Birim(BirimAd) values (@BirimAd)", birim);
         }
 
         public int Update(Birim birim)

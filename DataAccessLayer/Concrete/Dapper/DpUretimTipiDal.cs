@@ -23,7 +23,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(UretimTipi uretimtipi)
         {
-            return AddQuery("insert UretimTipi(UretimTipiAd) values (@UretimTipiAd)", uretimtipi);
+            return AddQuery("insert into UretimTipi(UretimTipiAd) values (@UretimTipiAd)", uretimtipi);
         }
 
         public int Update(UretimTipi uretimtipi)

@@ -32,15 +32,15 @@ namespace BusinessLayer.Concrete
         {
             return _risktipiDal.Get(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(RiskTipi risktipi)
         {
             return _risktipiDal.Add(risktipi);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(RiskTipi risktipi)
         {

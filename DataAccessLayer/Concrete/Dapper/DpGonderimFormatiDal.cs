@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(GonderimFormati gonderimformati)
         {
-            return AddQuery("insert GonderimFormati(GonderimTuruID,Kod,Ad,Konu,Format,Silindi) values (@GonderimTuruID,@Kod,@Ad,@Konu,@Format,@Silindi)", gonderimformati);
+            return AddQuery("insert into GonderimFormati(GonderimTuruID,Kod,Ad,Konu,Format,Silindi) values (@GonderimTuruID,@Kod,@Ad,@Konu,@Format,@Silindi)", gonderimformati);
         }
 
         public int Update(GonderimFormati gonderimformati)

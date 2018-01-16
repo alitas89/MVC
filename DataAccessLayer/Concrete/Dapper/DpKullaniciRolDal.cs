@@ -23,7 +23,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(KullaniciRol kullanicirol)
         {
-            return AddQuery("insert KullaniciRol(KullaniciRolId,KullaniciId,Silindi) values (@KullaniciRolId,@KullaniciId,@Silindi)", kullanicirol);
+            return AddQuery("insert into KullaniciRol(KullaniciRolId,KullaniciId,Silindi) values (@KullaniciRolId,@KullaniciId,@Silindi)", kullanicirol);
         }
 
         public int Update(KullaniciRol kullanicirol)

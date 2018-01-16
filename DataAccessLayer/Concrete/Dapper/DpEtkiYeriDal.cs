@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(EtkiYeri etkiyeri)
         {
-            return AddQuery("insert EtkiYeri(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi)", etkiyeri);
+            return AddQuery("insert into EtkiYeri(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi)", etkiyeri);
         }
 
         public int Update(EtkiYeri etkiyeri)

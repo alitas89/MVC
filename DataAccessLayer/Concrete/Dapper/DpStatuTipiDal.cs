@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(StatuTipi statutipi)
         {
-            return AddQuery("insert StatuTipi(StatuTipiAd) values (@StatuTipiAd)", statutipi);
+            return AddQuery("insert into StatuTipi(StatuTipiAd) values (@StatuTipiAd)", statutipi);
         }
 
         public int Update(StatuTipi statutipi)

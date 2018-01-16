@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(RiskTipi risktipi)
         {
-            return AddQuery("insert RiskTipi(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi)", risktipi);
+            return AddQuery("insert into RiskTipi(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi)", risktipi);
         }
 
         public int Update(RiskTipi risktipi)

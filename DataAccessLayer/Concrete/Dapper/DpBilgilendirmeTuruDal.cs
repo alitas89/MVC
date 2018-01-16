@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(BilgilendirmeTuru bilgilendirmeturu)
         {
-            return AddQuery("insert BilgilendirmeTuru(BilgilendirmeTuruAd) values (@BilgilendirmeTuruAd)", bilgilendirmeturu);
+            return AddQuery("insert into BilgilendirmeTuru(BilgilendirmeTuruAd) values (@BilgilendirmeTuruAd)", bilgilendirmeturu);
         }
 
         public int Update(BilgilendirmeTuru bilgilendirmeturu)

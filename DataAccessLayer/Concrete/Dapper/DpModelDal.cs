@@ -20,7 +20,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Model model)
         {
-            return AddQuery("insert Model(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama)", model);
+            return AddQuery("insert into Model(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama)", model);
         }
 
         public int Update(Model model)

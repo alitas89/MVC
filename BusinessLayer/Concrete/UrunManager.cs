@@ -34,16 +34,16 @@ namespace BusinessLayer.Concrete
             return _urunDal.Get(Id);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(Urun urun)
         {
             return _urunDal.Add(urun);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Urun urun)
         {

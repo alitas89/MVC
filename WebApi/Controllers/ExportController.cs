@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Script.Serialization;
@@ -56,18 +57,20 @@ namespace WebApi.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                var obj = response.Content.ReadAsAsync<ResultTypes>().Result.Result;
+                var obj = response.Content.ReadAsAsync<ResultTypes>().Result;
                 //json çevrilir ve tekrar deserialize edilir
+                string jsonData = JsonConvert.SerializeObject(obj.Result);
+                var list = JsonConvert.DeserializeObject<List<Test>>(jsonData);
 
-
-                string jsonData = response.Content.ReadAsStringAsync().Result;
-                //JavaScriptSerializer jss = new JavaScriptSerializer();
-                //var data = jss.Deserialize<ResultTypes>(jsonData).Result;
-                //string json = jss.Serialize(data);
-                //var dataNewton = JsonConvert.DeserializeObject<ResultTypes>(jsonData);
-
-                //var list2 = JsonConvert.DeserializeObject<IEnumerable<Test>>(json);
-                //list = response.Content.ReadAsAsync<IEnumerable<Test>>().Result;
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    //writer.Write(list[i].GetType().GetProperty());
+                    PropertyInfo[] arrPropInfo = list[i].GetType().GetProperties();
+                    foreach (var propInfo in arrPropInfo)
+                    {
+                        //writer.Write(list[i].GetType().GetProperties(propInfo));
+                    }
+                }
             }
             else
             {
@@ -75,7 +78,6 @@ namespace WebApi.Controllers
             }
 
             //Ajax Sonu
-
             writer.Write("test");
             writer.Flush();
             stream.Position = 0;

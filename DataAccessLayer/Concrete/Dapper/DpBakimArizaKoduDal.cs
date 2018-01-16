@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(BakimArizaKodu bakimarizakodu)
         {
-            return AddQuery("insert BakimArizaKodu(Kod,GenelKod,Ad,IsTipiID,BakimOnceligiID,TalimatKoduID,RiskKoduID,BakimPeriyodu,BirimID,BakimSuresi,BakimPuanı,Etiket,SurecPerformansinaDahil,Aciklama,UretimTipiID,Silindi) values (@Kod,@GenelKod,@Ad,@IsTipiID,@BakimOnceligiID,@TalimatKoduID,@RiskKoduID,@BakimPeriyodu,@BirimID,@BakimSuresi,@BakimPuanı,@Etiket,@SurecPerformansinaDahil,@Aciklama,@UretimTipiID,@Silindi)", bakimarizakodu);
+            return AddQuery("insert into BakimArizaKodu(Kod,GenelKod,Ad,IsTipiID,BakimOnceligiID,TalimatKoduID,RiskKoduID,BakimPeriyodu,BirimID,BakimSuresi,BakimPuanı,Etiket,SurecPerformansinaDahil,Aciklama,UretimTipiID,Silindi) values (@Kod,@GenelKod,@Ad,@IsTipiID,@BakimOnceligiID,@TalimatKoduID,@RiskKoduID,@BakimPeriyodu,@BirimID,@BakimSuresi,@BakimPuanı,@Etiket,@SurecPerformansinaDahil,@Aciklama,@UretimTipiID,@Silindi)", bakimarizakodu);
         }
 
         public int Update(BakimArizaKodu bakimarizakodu)

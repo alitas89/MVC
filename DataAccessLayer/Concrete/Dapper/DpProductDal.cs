@@ -21,7 +21,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Product product)
         {
-            return AddQuery("insert Product(Name,Color,CategoryId,IsDeleted) values (@Name,@Color,@CategoryId,@IsDeleted)", product);
+            return AddQuery("insert into Product(Name,Color,CategoryId,IsDeleted) values (@Name,@Color,@CategoryId,@IsDeleted)", product);
         }
 
         public int Update(Product product)

@@ -30,16 +30,16 @@ namespace BusinessLayer.Concrete
             return _varlikturuDal.Get(Id);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(VarlikTuru varlikturu)
         {
             return _varlikturuDal.Add(varlikturu);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(VarlikTuru varlikturu)
         {

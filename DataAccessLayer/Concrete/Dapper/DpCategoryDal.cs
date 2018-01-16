@@ -26,7 +26,7 @@ namespace DataAccessLayer.Concrete.Dapper
 
         public int Add(Category category)
         {
-            return AddQuery("insert Category(Name,Weight,IsDeleted) values (@Name,@Weight,@IsDeleted)", category);
+            return AddQuery("insert into Category(Name,Weight,IsDeleted) values (@Name,@Weight,@IsDeleted)", category);
         }
 
         public int Update(Category category)
