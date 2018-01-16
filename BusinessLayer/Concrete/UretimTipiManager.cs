@@ -28,27 +28,27 @@ namespace BusinessLayer.Concrete
         {
             return _uretimtipiDal.Get(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Add(uretimtipi);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Update(uretimtipi);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Delete(int Id)
         {
             return _uretimtipiDal.Delete(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int DeleteSoft(int Id)
         {

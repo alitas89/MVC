@@ -28,27 +28,27 @@ namespace BusinessLayer.Concrete
         {
             return _statuDal.Get(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(Statu statu)
         {
             return _statuDal.Add(statu);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Statu statu)
         {
             return _statuDal.Update(statu);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Delete(int Id)
         {
             return _statuDal.Delete(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int DeleteSoft(int Id)
         {

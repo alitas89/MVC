@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         // GET api/<controller>
         public IEnumerable<VarlikGrup> Get()
         {
-            return _varlikGrupService.GetList();
+            return _varlikGrupService.GetListDto();
         }
 
         // GET api/<controller>/5

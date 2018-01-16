@@ -17,7 +17,6 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
-
-        List<IsTipiDto> GetListDto();
+        
     }
 }

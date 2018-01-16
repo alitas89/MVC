@@ -37,10 +37,5 @@ namespace DataAccessLayer.Concrete.Dapper
         {
             return UpdateQuery("update IsTipi set Silindi = 1 where IsTipiID=@Id", new { Id });
         }
-
-        public List<IsTipiDto> GetListDto()
-        {
-            return new DpDtoRepositoryBase<IsTipiDto>().GetListDtoQuery("select VG.*, IT.IsTipiAd as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID", new { });
-        }
     }
 }

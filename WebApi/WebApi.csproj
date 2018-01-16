@@ -170,6 +170,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -201,6 +202,7 @@
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\ConsumptionPlaceController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\DurusKismiController.cs" />
     <Compile Include="Controllers\DurusNedeniController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />

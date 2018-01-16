@@ -7,7 +7,7 @@ using EntityLayer.Concrete;
 
 namespace EntityLayer.ComplexTypes.DtoModel
 {
-    public class IsTipiDto: IsTipi
+    public class VarlikGrupDto: VarlikGrup
     {
         public string IsTipiAd { get; set; }
     }

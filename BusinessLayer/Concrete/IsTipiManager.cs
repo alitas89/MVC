@@ -29,39 +29,32 @@ namespace BusinessLayer.Concrete
             return _isTipiDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
-        public List<IsTipiDto> GetListDto()
-        {
-            return _isTipiDal.GetListDto();
-        }
-
         [SecuredOperation(Roles = "Admin,Editor")]
         public IsTipi GetById(int Id)
         {
             return _isTipiDal.Get(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(IsTipi ıstipi)
         {
             return _isTipiDal.Add(ıstipi);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(IsTipi ıstipi)
         {
             return _isTipiDal.Update(ıstipi);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Delete(int Id)
         {
             return _isTipiDal.Delete(Id);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int DeleteSoft(int Id)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
@@ -17,5 +18,7 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        List<VarlikGrupDto> GetListDto();
     }
 }

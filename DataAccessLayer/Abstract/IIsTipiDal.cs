@@ -7,6 +7,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IIsTipiDal : IEntityRepository<IsTipi>
     {
-        List<IsTipiDto> GetListDto();
+      
     }
 }

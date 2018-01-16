@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComplexTypes\DtoModel\IsTipiDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\VarlikGrupDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\KisimDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ModelDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
