@@ -138,6 +138,9 @@
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiContrib.2.0.0\lib\net45\WebApiContrib.dll</HintPath>
+    </Reference>
     <Reference Include="WebApiContrib.IoC.Ninject, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebApiContrib.IoC.Ninject.0.9.3.0\lib\net40\WebApiContrib.IoC.Ninject.dll</HintPath>
     </Reference>
@@ -202,7 +205,6 @@
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\ConsumptionPlaceController.cs" />
-    <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\DurusKismiController.cs" />
     <Compile Include="Controllers\DurusNedeniController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />
@@ -232,6 +234,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MediaTypes\CsvForm.cs" />
+    <Compile Include="MediaTypes\CsvFormatter.cs" />
+    <Compile Include="MediaTypes\CsvMediaTypeFormatter2.cs" />
     <Compile Include="MessageHandlers\ApiResponse.cs" />
     <Compile Include="MessageHandlers\ApiResponseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
+using WebApi.MediaTypes;
 using WebApi.MessageHandlers;
+using WebApiContrib.Formatting;
 
 namespace WebApi
 {
@@ -25,6 +28,7 @@ namespace WebApi
             // Web API configuration and services
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.Formatters.Add(new CsvForm(new QueryStringMapping("format", "csv", "text/csv")));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -33,11 +37,19 @@ namespace WebApi
                 constraints: null,
                 handler: HttpClientFactory.CreatePipeline(
                     new HttpControllerDispatcher(config),
-                    new DelegatingHandler[] {new ApiResponseHandler()}
+                    new DelegatingHandler[] { new ApiResponseHandler() }
                     )
             );
 
+            config.Routes.MapHttpRoute(
+                name: "Route2",
+                routeTemplate: "api/{controller}/{format}",
+                defaults: new { format = RouteParameter.Optional }
+            );
+
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            
+
         }
     }
 }

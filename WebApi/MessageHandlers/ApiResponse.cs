@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Web;
+using EntityLayer.Concrete;
 
 namespace WebApi.MessageHandlers
 {
+    //[KnownType(typeof(List<Test>))]
     [DataContract]
     public class ApiResponse<T>
     {
@@ -25,8 +27,9 @@ namespace WebApi.MessageHandlers
 
         }
 
+        private string _version;
         [DataMember]
-        public string Version => "1.0";
+        public string Version { get { return "1.0"; } set { this._version = value; } }
 
         [DataMember]
         public bool Success { get; set; }
