@@ -28,7 +28,10 @@ namespace WebApi
             // Web API configuration and services
             // Web API routes
             config.MapHttpAttributeRoutes();
-            config.Formatters.Add(new CsvForm(new QueryStringMapping("format", "csv", "text/csv")));
+            //new QueryStringMapping("format", "csv", "text/csv")
+            config.Formatters.Add(new CsvForm(
+                new QueryStringMapping("format", "csv", "text/csv")
+            ));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -42,13 +45,13 @@ namespace WebApi
             );
 
             config.Routes.MapHttpRoute(
-                name: "Route2",
-                routeTemplate: "api/{controller}/{format}",
+                name: "ExportApi",
+                routeTemplate: "api/{controller}/export/{format}",
                 defaults: new { format = RouteParameter.Optional }
             );
 
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
-            
+
 
         }
     }

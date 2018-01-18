@@ -235,8 +235,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MediaTypes\CsvForm.cs" />
-    <Compile Include="MediaTypes\CsvFormatter.cs" />
-    <Compile Include="MediaTypes\CsvMediaTypeFormatter2.cs" />
     <Compile Include="MessageHandlers\ApiResponse.cs" />
     <Compile Include="MessageHandlers\ApiResponseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
