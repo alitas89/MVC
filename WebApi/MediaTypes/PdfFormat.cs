@@ -73,9 +73,8 @@ namespace WebApi.MediaTypes
 
             //Create a base font object making sure to specify IDENTITY-H
             BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-
             //Create a specific font object
-            Font NormalFont = new Font(bf, 12, Font.NORMAL);
+            Font NormalFont = new Font(bf, 8, Font.NORMAL);
 
 
             using (PdfWriter myPDFWriter = PdfWriter.GetInstance(myDocument, myMemoryStream))
@@ -96,9 +95,17 @@ namespace WebApi.MediaTypes
                 table.AddCell(header);
 
                 //Başlıklar oluşturulur
+                Font HeaderFont = new Font(bf, 8, Font.NORMAL, BaseColor.WHITE);
                 foreach (var itemHeader in itemHeaders)
                 {
-                    table.AddCell(new Phrase(itemHeader, NormalFont));
+                    PdfPCell cell = new PdfPCell(new Phrase(itemHeader, HeaderFont));
+                    cell.BackgroundColor = BaseColor.GRAY;
+                    cell.HorizontalAlignment = 1;
+                    //cell.BorderColor = new Color(255, 242, 0);
+                    //table.AddCell(new Phrase(itemHeader, NormalFont));
+                    cell.PaddingBottom = 4f;
+                    cell.PaddingTop = 2f;
+                    table.AddCell(cell);
                 }
 
 
