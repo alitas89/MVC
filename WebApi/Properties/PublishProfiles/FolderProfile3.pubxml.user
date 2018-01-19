@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>01/16/2018 12:16:20</publishTime>
+      <publishTime>01/19/2018 11:00:15</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>01/16/2018 12:16:20</publishTime>
+      <publishTime>01/19/2018 11:00:15</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>01/15/2018 10:31:21</publishTime>
+      <publishTime>01/19/2018 11:00:05</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>01/15/2018 10:31:21</publishTime>
+      <publishTime>01/19/2018 11:00:05</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -43,19 +43,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/16/2018 12:16:11</publishTime>
+      <publishTime>01/19/2018 11:00:06</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/16/2018 12:16:11</publishTime>
+      <publishTime>01/19/2018 11:00:06</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/19/2018 11:00:05</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/19/2018 11:00:05</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>04/14/2013 08:36:28</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>08/22/2017 17:39:42</publishTime>
     </File>
     <File Include="bin/log4net.config">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -67,7 +73,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Cors.dll">
-      <publishTime>05/04/2017 11:53:36</publishTime>
+      <publishTime>04/05/2017 11:53:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
       <publishTime>12/18/2017 15:43:34</publishTime>
@@ -217,19 +223,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/UtilityLayer.dll">
-      <publishTime>01/15/2018 10:29:23</publishTime>
+      <publishTime>01/19/2018 11:00:03</publishTime>
     </File>
     <File Include="bin/UtilityLayer.pdb">
-      <publishTime>01/15/2018 10:29:23</publishTime>
+      <publishTime>01/19/2018 11:00:03</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>01/16/2018 12:17:34</publishTime>
+      <publishTime>01/19/2018 11:01:33</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>01/16/2018 12:17:34</publishTime>
+      <publishTime>01/19/2018 11:01:33</publishTime>
+    </File>
+    <File Include="bin/WebApiContrib.dll">
+      <publishTime>02/17/2016 14:29:24</publishTime>
+    </File>
+    <File Include="bin/WebApiContrib.Formatting.Xlsx.dll">
+      <publishTime>03/19/2015 21:38:52</publishTime>
     </File>
     <File Include="bin/WebApiContrib.IoC.Ninject.dll">
       <publishTime>12/15/2017 08:50:28</publishTime>
@@ -265,7 +277,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/19/2017 10:02:37</publishTime>
+      <publishTime>01/18/2018 16:10:14</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -310,7 +322,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/16/2018 10:18:06</publishTime>
+      <publishTime>01/19/2018 11:01:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

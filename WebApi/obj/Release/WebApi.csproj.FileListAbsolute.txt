@@ -310,3 +310,9 @@ C:\Users\ereng\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csprojResolveAssemblyRef
 C:\Users\ereng\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\ereng\MVC\mvcprojesi\WebApi\obj\Release\WebApi.dll
 C:\Users\ereng\MVC\mvcprojesi\WebApi\obj\Release\WebApi.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.Formatting.Xlsx.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.xml
