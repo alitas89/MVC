@@ -296,3 +296,8 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.Formatting.Xlsx.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.xml

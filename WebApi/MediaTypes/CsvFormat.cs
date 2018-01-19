@@ -17,19 +17,19 @@ using WebApiContrib.Formatting;
 
 namespace WebApi.MediaTypes
 {
-    public class CsvForm : CSVMediaTypeFormatter
+    public class CsvFormat : CSVMediaTypeFormatter
     {
-        public CsvForm()
+        public CsvFormat()
         {
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/csv"));
         }
 
-        public CsvForm(MediaTypeMapping mediaTypeMapping) : this()
+        public CsvFormat(MediaTypeMapping mediaTypeMapping) : this()
         {
             MediaTypeMappings.Add(mediaTypeMapping);
         }
 
-        public CsvForm(IEnumerable<MediaTypeMapping> mediaTypeMappings) : this()
+        public CsvFormat(IEnumerable<MediaTypeMapping> mediaTypeMappings) : this()
         {
             foreach (var mediaTypeMapping in mediaTypeMappings)
                 MediaTypeMappings.Add(mediaTypeMapping);

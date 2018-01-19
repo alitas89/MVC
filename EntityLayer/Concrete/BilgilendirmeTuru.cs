@@ -11,5 +11,6 @@ namespace EntityLayer.Concrete
     {
         public int BilgilendirmeTuruID { get; set; }
         public string BilgilendirmeTuruAd { get; set; }
+        public bool Silindi { get; set; }
     }
 }

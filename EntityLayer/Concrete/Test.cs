@@ -7,6 +7,7 @@ using Core.EntityLayer;
 
 namespace EntityLayer.Concrete
 {
+    [Serializable]
     public class Test : IEntity
     {
         public int Id { get; set; }

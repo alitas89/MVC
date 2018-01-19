@@ -11,5 +11,6 @@ namespace EntityLayer.Concrete
     {
         public int ParaBirimID { get; set; }
         public string ParaBirimAd { get; set; }
+        public bool Silindi { get; set; }
     }
 }

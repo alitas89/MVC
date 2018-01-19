@@ -54,6 +54,12 @@
     <Reference Include="DapperExtensions, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DapperExtensions.1.6.3\lib\net45\DapperExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -140,6 +146,9 @@
     </Reference>
     <Reference Include="WebApiContrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebApiContrib.2.0.0\lib\net45\WebApiContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.Formatting.Xlsx, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiContrib.Formatting.Xlsx.1.0.1\lib\net45\WebApiContrib.Formatting.Xlsx.dll</HintPath>
     </Reference>
     <Reference Include="WebApiContrib.IoC.Ninject, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebApiContrib.IoC.Ninject.0.9.3.0\lib\net40\WebApiContrib.IoC.Ninject.dll</HintPath>
@@ -234,7 +243,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MediaTypes\CsvForm.cs" />
+    <Compile Include="MediaTypes\CsvFormat.cs" />
+    <Compile Include="MediaTypes\PdfFormat.cs" />
+    <Compile Include="MediaTypes\XlsxFormat.cs" />
     <Compile Include="MessageHandlers\ApiResponse.cs" />
     <Compile Include="MessageHandlers\ApiResponseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

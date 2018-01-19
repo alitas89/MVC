@@ -10,6 +10,7 @@ using System.Web.Http.Dispatcher;
 using WebApi.MediaTypes;
 using WebApi.MessageHandlers;
 using WebApiContrib.Formatting;
+using WebApiContrib.Formatting.Xlsx;
 
 namespace WebApi
 {
@@ -29,9 +30,11 @@ namespace WebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
             //new QueryStringMapping("format", "csv", "text/csv")
-            config.Formatters.Add(new CsvForm(
-                new QueryStringMapping("format", "csv", "text/csv")
-            ));
+            config.Formatters.Add(new CsvFormat(new QueryStringMapping("format", "csv", "text/csv")));
+
+            config.Formatters.Add(new XlsxFormat(new QueryStringMapping("format", "xlsx", "text/xlsx")));
+
+            config.Formatters.Add(new PdfFormat(new QueryStringMapping("format", "pdf", "application/pdf")));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
