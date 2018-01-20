@@ -19,6 +19,16 @@ namespace BusinessLayer.Concrete
             return _companyDal.GetList();
         }
 
+        public List<Company> GetListPagination(int offset, int limit)
+        {
+            return _companyDal.GetListPagination(offset, limit);
+        }
+
+        public int GetCount()
+        {
+            return _companyDal.GetCount();
+        }
+
         public Company GetById(int Id)
         {
             return _companyDal.Get(Id);

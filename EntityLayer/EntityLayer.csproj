@@ -46,6 +46,7 @@
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SarfYeriDto.cs" />
+    <Compile Include="ComplexTypes\ParameterModel\PagingParameterModel.cs" />
     <Compile Include="Concrete\ArizaCozumu.cs" />
     <Compile Include="Concrete\ArizaNedeni.cs" />
     <Compile Include="Concrete\ArizaNedeniGrubu.cs" />
@@ -91,9 +92,7 @@
     <Compile Include="Concrete\Verify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ComplexTypes\ParameterModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{96ED9C67-FF68-4675-81A5-3DF6789E433D}</Project>

@@ -16,5 +16,9 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        List<Company> GetListPagination(int offset, int limit);
+
+        int GetCount();
     }
 }

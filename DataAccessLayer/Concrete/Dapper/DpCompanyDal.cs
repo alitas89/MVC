@@ -13,6 +13,12 @@ namespace DataAccessLayer.Concrete.Dapper
             return GetListQuery("select * from Company where Silindi=0", new { });
         }
 
+        public List<Company> GetListPagination(int offset, int limit)
+        {
+            return GetListQuery($@"SELECT * FROM Company where Silindi=0 ORDER BY CompanyId
+                                    OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY", new { });
+        }
+
         public Company Get(int Id)
         {
             return GetQuery("select * from Company where CompanyId= @Id and Silindi=0", new { Id });
@@ -36,6 +42,11 @@ namespace DataAccessLayer.Concrete.Dapper
         public int DeleteSoft(int Id)
         {
             return UpdateQuery("update Company set Silindi = 1 where CompanyId=@Id", new { Id });
+        }
+
+        public int GetCount()
+        {
+            return CountQuery("Company");
         }
     }
 }

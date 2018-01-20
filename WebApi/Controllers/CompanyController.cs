@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using BusinessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
+using Newtonsoft.Json;
 
 namespace WebApi.Controllers
 {
@@ -18,9 +23,20 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public IEnumerable<Company> Get()
+        public HttpResponseMessage Get(int? offset=0, int? limit=100)
         {
-            return _companyService.GetList();
+            int limitVal = limit ?? 100;
+            int offSetVal = offset ?? 0;
+            
+            int total = _companyService.GetCount();
+
+            var d= _companyService.GetListPagination(offSetVal, limitVal);
+            var response = Request.CreateResponse(HttpStatusCode.OK, d);
+            response.Headers.Add("offset", offset+"");
+            response.Headers.Add("limit", limit+"");
+            response.Headers.Add("total", total+"");
+
+            return response;
         }
 
         // GET api/<controller>/5

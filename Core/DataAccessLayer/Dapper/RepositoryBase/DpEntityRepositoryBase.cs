@@ -93,5 +93,24 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
                 return count;
             }
         }
+
+        public int CountQuery(string tableName, string where="", object whereParams=null)
+        {
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                string query = $"Select count(*) from {tableName} {where}";
+
+                var strCount = connection.ExecuteScalar(query, whereParams)+"";
+
+                int.TryParse(strCount, out int count);
+
+                return count;
+            }
+        }
     }
 }
