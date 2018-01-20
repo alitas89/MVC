@@ -53,7 +53,7 @@ namespace WebApi.MediaTypes
         public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)
         {
             base.SetDefaultContentHeaders(type, headers, mediaType);
-            headers.Add("Content-Disposition", "attachment; filename=" + Guid.NewGuid().ToString() + ".pdf");
+            headers.Add("Content-Disposition", "attachment; filename=" + Guid.NewGuid() + ".pdf");
         }
 
         public override Task WriteToStreamAsync(Type type, object value, Stream stream, HttpContent content, TransportContext transportContext)
@@ -74,7 +74,7 @@ namespace WebApi.MediaTypes
             //Create a base font object making sure to specify IDENTITY-H
             BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
             //Create a specific font object
-            Font NormalFont = new Font(bf, 8, Font.NORMAL);
+            Font NormalFont = new Font(bf, 6, Font.NORMAL);
 
 
             using (PdfWriter myPDFWriter = PdfWriter.GetInstance(myDocument, myMemoryStream))
@@ -95,7 +95,7 @@ namespace WebApi.MediaTypes
                 table.AddCell(header);
 
                 //Başlıklar oluşturulur
-                Font HeaderFont = new Font(bf, 8, Font.NORMAL, BaseColor.WHITE);
+                Font HeaderFont = new Font(bf, 6, Font.NORMAL, BaseColor.WHITE);
                 foreach (var itemHeader in itemHeaders)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(itemHeader, HeaderFont));

@@ -32,6 +32,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<ITestService>().To<TestManager>().InSingletonScope();
             Bind<ITestDal>().To<DpTestDal>();
 
+            Bind<ICompanyService>().To<CompanyManager>();
+            Bind<ICompanyDal>().To<DpCompanyDal>();
+
             Bind<IProductService>().To<ProductManager>();
             Bind<IProductDal>().To<DpProductDal>();
             //Multi2
