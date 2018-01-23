@@ -23,18 +23,23 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int? offset=0, int? limit=100)
+        public IEnumerable<Company> Get()
+        {
+            return _companyService.GetList();
+        }
+
+        // GET api/<controller>
+        public HttpResponseMessage Get(int? offset, int? limit)
         {
             int limitVal = limit ?? 100;
             int offSetVal = offset ?? 0;
-            
             int total = _companyService.GetCount();
 
-            var d= _companyService.GetListPagination(offSetVal, limitVal);
+            var d = _companyService.GetListPagination(offSetVal, limitVal);
             var response = Request.CreateResponse(HttpStatusCode.OK, d);
-            response.Headers.Add("offset", offset+"");
-            response.Headers.Add("limit", limit+"");
-            response.Headers.Add("total", total+"");
+
+            response.Headers.Add("total", total + "");
+            response.Headers.Add("Access-Control-Expose-Headers", "total");
 
             return response;
         }
@@ -62,7 +67,7 @@ namespace WebApi.Controllers
             return _companyService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/company/deletehard/{id}")]
+        [Route("api/company/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _companyService.Delete(id);

@@ -18,7 +18,7 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
-            //Kors izinleri startupta verildi!
+            //Cors izinleri startupta verildi!
             //Komple cors uygulaması
             //EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*"); //params=> origins, headers, methods
             //*, *, * olsaydı tüm herşeye izin vermiş olurduk.
@@ -29,6 +29,7 @@ namespace WebApi
             // Web API configuration and services
             // Web API routes
             config.MapHttpAttributeRoutes();
+
             //new QueryStringMapping("format", "csv", "text/csv")
             config.Formatters.Add(new CsvFormat(new QueryStringMapping("format", "csv", "text/csv")));
 
