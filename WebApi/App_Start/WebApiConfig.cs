@@ -50,13 +50,16 @@ namespace WebApi
 
             config.Routes.MapHttpRoute(
                 name: "ExportApi",
-                routeTemplate: "api/{controller}/export/{format}",
-                defaults: new { format = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{offset}/{limit}/export/{format}",
+                defaults: new
+                {
+                    offset = RouteParameter.Optional,
+                    limit = RouteParameter.Optional,
+                    format = RouteParameter.Optional
+                }
             );
 
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
-
-
         }
     }
 }
