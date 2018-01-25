@@ -48,13 +48,16 @@ namespace WebApi
                     )
             );
 
+            //Filtrelemeye ve belirli büyüklükte parçalara göre export yapmaya yarayan routing
             config.Routes.MapHttpRoute(
                 name: "ExportApi",
-                routeTemplate: "api/{controller}/{offset}/{limit}/export/{format}",
+                routeTemplate: "api/{controller}/{offset}/{limit}/{filterCol}/{filterVal}/export/{format}",
                 defaults: new
                 {
                     offset = RouteParameter.Optional,
                     limit = RouteParameter.Optional,
+                    filterCol = RouteParameter.Optional,
+                    filterVal = RouteParameter.Optional,
                     format = RouteParameter.Optional
                 }
             );

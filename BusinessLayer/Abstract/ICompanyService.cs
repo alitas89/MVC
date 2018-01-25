@@ -17,7 +17,7 @@ namespace BusinessLayer.Abstract
 
         int DeleteSoft(int Id);
 
-        List<Company> GetListPagination(int offset, int limit);
+        List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal);
 
         int GetCount();
     }

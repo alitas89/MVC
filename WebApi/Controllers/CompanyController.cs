@@ -29,13 +29,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int? offset, int? limit)
+        public HttpResponseMessage Get(int? offset, int? limit, string filterCol="", string filterVal="")
         {
             int limitVal = limit ?? 100;
             int offSetVal = offset ?? 0;
             int total = _companyService.GetCount();
 
-            var d = _companyService.GetListPagination(offSetVal, limitVal);
+            var d = _companyService.GetListPagination(offSetVal, limitVal, filterCol, filterVal);
             var response = Request.CreateResponse(HttpStatusCode.OK, d);
 
             response.Headers.Add("total", total + "");

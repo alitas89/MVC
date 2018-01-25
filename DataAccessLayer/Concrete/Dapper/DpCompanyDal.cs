@@ -13,10 +13,17 @@ namespace DataAccessLayer.Concrete.Dapper
             return GetListQuery("select * from Company where Silindi=0", new { });
         }
 
-        public List<Company> GetListPagination(int offset, int limit)
+        public List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal)
         {
-            return GetListQuery($@"SELECT * FROM Company where Silindi=0 ORDER BY CompanyId
-                                    OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY", new { });
+            string filterQuery = "";
+            if (filterCol.Length != 0 && filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filterQuery = $"and {filterCol} like @filterVal";
+            }
+            return GetListQuery($@"SELECT * FROM Company where Silindi=0 {filterQuery} ORDER BY CompanyId
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY", new { filterVal, offset, limit });
         }
 
         public Company Get(int Id)
