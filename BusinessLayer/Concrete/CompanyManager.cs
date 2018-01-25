@@ -24,9 +24,9 @@ namespace BusinessLayer.Concrete
             return _companyDal.GetListPagination(offset, limit, filterCol, filterVal);
         }
 
-        public int GetCount()
+        public int GetCount(string filterCol="", string filterVal="")
         {
-            return _companyDal.GetCount();
+            return _companyDal.GetCount(filterCol, filterVal);
         }
 
         public Company GetById(int Id)

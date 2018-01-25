@@ -19,10 +19,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>01/25/2018 11:43:05</publishTime>
+      <publishTime>01/25/2018 13:38:17</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>01/25/2018 11:43:05</publishTime>
+      <publishTime>01/25/2018 13:38:17</publishTime>
     </File>
     <File Include="bin/Core.dll">
       <publishTime>01/24/2018 11:17:42</publishTime>
@@ -43,10 +43,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/25/2018 11:42:56</publishTime>
+      <publishTime>01/25/2018 13:38:07</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/25/2018 11:42:56</publishTime>
+      <publishTime>01/25/2018 13:38:07</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
       <publishTime>01/24/2018 11:17:42</publishTime>
@@ -232,10 +232,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>01/25/2018 11:44:13</publishTime>
+      <publishTime>01/25/2018 13:39:26</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>01/25/2018 11:44:13</publishTime>
+      <publishTime>01/25/2018 13:39:26</publishTime>
     </File>
     <File Include="bin/WebApiContrib.dll">
       <publishTime>02/17/2016 14:29:24</publishTime>

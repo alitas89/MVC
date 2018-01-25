@@ -29,11 +29,14 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int? offset, int? limit, string filterCol="", string filterVal="")
+        public HttpResponseMessage Get(int? offset, int? limit, string filterCol = "", string filterVal = "")
         {
             int limitVal = limit ?? 100;
             int offSetVal = offset ?? 0;
-            int total = _companyService.GetCount();
+
+            //toplam kayıt sayısı alınırken arama durumuda dikkate alınır
+            int total = 0;
+            total = filterVal.Length != 0 ? _companyService.GetCount(filterCol, filterVal) : _companyService.GetCount();
 
             var d = _companyService.GetListPagination(offSetVal, limitVal, filterCol, filterVal);
             var response = Request.CreateResponse(HttpStatusCode.OK, d);

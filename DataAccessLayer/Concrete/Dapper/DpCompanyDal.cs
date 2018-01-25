@@ -16,7 +16,7 @@ namespace DataAccessLayer.Concrete.Dapper
         public List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal)
         {
             string filterQuery = "";
-            if (filterCol.Length != 0 && filterVal.Length != 0)
+            if (filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
@@ -51,9 +51,18 @@ namespace DataAccessLayer.Concrete.Dapper
             return UpdateQuery("update Company set Silindi = 1 where CompanyId=@Id", new { Id });
         }
 
-        public int GetCount()
+        public int GetCount(string filterCol = "", string filterVal = "")
         {
-            return CountQuery("Company");
+            string where = "";
+            object whereParams = null;
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                where = $" where {filterCol} like @filterVal";
+                whereParams = new {filterVal};
+            }
+            return CountQuery("Company", where, whereParams);
         }
     }
 }

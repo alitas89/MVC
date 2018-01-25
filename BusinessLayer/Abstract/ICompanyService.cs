@@ -19,6 +19,6 @@ namespace BusinessLayer.Abstract
 
         List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal);
 
-        int GetCount();
+        int GetCount(string filterCol="", string filterVal="");
     }
 }
