@@ -46,7 +46,7 @@
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SarfYeriDto.cs" />
-    <Compile Include="ComplexTypes\ParameterModel\PagingParameterModel.cs" />
+    <Compile Include="ComplexTypes\ParameterModel\PagingParams.cs" />
     <Compile Include="Concrete\ArizaCozumu.cs" />
     <Compile Include="Concrete\ArizaNedeni.cs" />
     <Compile Include="Concrete\ArizaNedeniGrubu.cs" />

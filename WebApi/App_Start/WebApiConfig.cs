@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
+using System.Web.Routing;
 using WebApi.MediaTypes;
 using WebApi.MessageHandlers;
 using WebApiContrib.Formatting;
@@ -51,13 +52,11 @@ namespace WebApi
             //Filtrelemeye ve belirli büyüklükte parçalara göre export yapmaya yarayan routing
             config.Routes.MapHttpRoute(
                 name: "ExportApi",
-                routeTemplate: "api/{controller}/{offset}/{limit}/{filterCol}/{filterVal}/export/{format}",
+                routeTemplate: "api/{controller}/{offset}/{limit}/export/{format}",
                 defaults: new
                 {
                     offset = RouteParameter.Optional,
                     limit = RouteParameter.Optional,
-                    filterCol = RouteParameter.Optional,
-                    filterVal = RouteParameter.Optional,
                     format = RouteParameter.Optional
                 }
             );
