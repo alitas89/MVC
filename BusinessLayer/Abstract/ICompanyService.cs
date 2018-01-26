@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
@@ -17,8 +18,8 @@ namespace BusinessLayer.Abstract
 
         int DeleteSoft(int Id);
 
-        List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal);
+        List<Company> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol="", string filterVal="");
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

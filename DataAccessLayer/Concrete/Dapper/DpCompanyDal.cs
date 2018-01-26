@@ -2,6 +2,7 @@
 using Core.DataAccessLayer.Dapper;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
@@ -13,17 +14,26 @@ namespace DataAccessLayer.Concrete.Dapper
             return GetListQuery("select * from Company where Silindi=0", new { });
         }
 
-        public List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal)
+        public List<Company> GetListPagination(PagingParams pagingParams)
         {
             string filterQuery = "";
-            if (filterVal.Length != 0)
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                filterQuery = $"and {filterCol} like @filterVal";
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
             }
-            return GetListQuery($@"SELECT * FROM Company where Silindi=0 {filterQuery} ORDER BY CompanyId
-                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY", new { filterVal, offset, limit });
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            return GetListQuery($@"SELECT * FROM Company where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY", 
+                                    new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
         public Company Get(int Id)
@@ -60,7 +70,7 @@ namespace DataAccessLayer.Concrete.Dapper
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
                 where = $" where {filterCol} like @filterVal";
-                whereParams = new {filterVal};
+                whereParams = new { filterVal };
             }
             return CountQuery("Company", where, whereParams);
         }

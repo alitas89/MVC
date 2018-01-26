@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -19,9 +20,9 @@ namespace BusinessLayer.Concrete
             return _companyDal.GetList();
         }
 
-        public List<Company> GetListPagination(int offset, int limit, string filterCol, string filterVal)
+        public List<Company> GetListPagination(PagingParams pagingParams)
         {
-            return _companyDal.GetListPagination(offset, limit, filterCol, filterVal);
+            return _companyDal.GetListPagination(pagingParams);
         }
 
         public int GetCount(string filterCol="", string filterVal="")
