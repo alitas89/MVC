@@ -8,6 +8,7 @@ namespace EntityLayer.ComplexTypes.ParameterModel
 {
     public class PagingParams
     {
+
         public int? offset { get; set; }
         public int? limit { get; set; }
         public string filterCol { get; set; }
