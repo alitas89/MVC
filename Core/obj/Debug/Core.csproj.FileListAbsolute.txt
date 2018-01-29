@@ -66,3 +66,5 @@ C:\Users\EREN\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 C:\Users\EREN\MVC\mvcprojesi\Core\obj\Debug\Core.dll.postsharp
 C:\Users\EREN\MVC\mvcprojesi\Core\obj\Debug\Core.dll
 C:\Users\EREN\MVC\mvcprojesi\Core\obj\Debug\Core.pdb
+C:\Users\EREN\MVC\mvcprojesi\Core\bin\Debug\EntityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\Core\bin\Debug\EntityLayer.pdb

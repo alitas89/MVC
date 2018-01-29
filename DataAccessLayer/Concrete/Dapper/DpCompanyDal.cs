@@ -14,28 +14,6 @@ namespace DataAccessLayer.Concrete.Dapper
             return GetListQuery("select * from Company where Silindi=0", new { });
         }
 
-        public List<Company> GetListPagination(PagingParams pagingParams)
-        {
-            string filterQuery = "";
-            string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
-
-            if (pagingParams.order.Length != 0)
-            {
-                var arrOrder = pagingParams.order.Split('~');
-                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
-            }
-
-            return GetListQuery($@"SELECT * FROM Company where Silindi=0 {filterQuery} {orderQuery}
-                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY", 
-                                    new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
-        }
-
         public Company Get(int Id)
         {
             return GetQuery("select * from Company where CompanyId= @Id and Silindi=0", new { Id });
@@ -61,18 +39,42 @@ namespace DataAccessLayer.Concrete.Dapper
             return UpdateQuery("update Company set Silindi = 1 where CompanyId=@Id", new { Id });
         }
 
+        public List<Company> GetListPagination(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            return GetListQuery($@"SELECT * FROM Company where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             string where = "";
-            object whereParams = null;
             if (filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
                 where = $" where {filterCol} like @filterVal";
-                whereParams = new { filterVal };
             }
-            return CountQuery("Company", where, whereParams);
+
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Company {where}", new { filterVal })+ "";
+
+            int.TryParse(strCount, out int count);
+            return count;
         }
     }
 }

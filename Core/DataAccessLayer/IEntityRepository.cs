@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Core.EntityLayer;
 using DapperExtensions;
+using EntityLayer.ComplexTypes.ParameterModel;
 
 namespace Core.DataAccessLayer
 {

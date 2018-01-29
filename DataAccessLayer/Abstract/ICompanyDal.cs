@@ -9,6 +9,6 @@ namespace DataAccessLayer.Abstract
     {
         List<Company> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol="", string filterVal="");
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

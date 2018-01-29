@@ -94,7 +94,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
             }
         }
 
-        public int CountQuery(string tableName, string where="", object whereParams=null)
+        public object GetScalarQuery(string query, object param)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -103,13 +103,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
                     connection.Open();
                 }
 
-                string query = $"Select count(*) from {tableName} {where}";
-
-                var strCount = connection.ExecuteScalar(query, whereParams)+"";
-
-                int.TryParse(strCount, out int count);
-
-                return count;
+                return connection.ExecuteScalar(query, param)+"";
             }
         }
     }

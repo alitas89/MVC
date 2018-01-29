@@ -82,3 +82,5 @@ C:\Users\ereng\MVC\mvcprojesi\Core\obj\Release\Core.csproj.CoreCompileInputs.cac
 C:\Users\ereng\MVC\mvcprojesi\Core\obj\Release\Core.dll.postsharp
 C:\Users\ereng\MVC\mvcprojesi\Core\obj\Release\Core.dll
 C:\Users\ereng\MVC\mvcprojesi\Core\obj\Release\Core.pdb
+C:\Users\EREN\MVC\mvcprojesi\Core\bin\Release\EntityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\Core\bin\Release\EntityLayer.pdb
