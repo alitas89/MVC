@@ -11,6 +11,7 @@ using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -72,6 +73,16 @@ namespace BusinessLayer.Concrete
         public int DeleteSoft(int Id)
         {
             return _kisimDal.DeleteSoft(Id);
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<Kisim> GetListPagination(PagingParams pagingParams)
+        {
+            return _kisimDal.GetListPagination(pagingParams);
+        }
+        public int GetCount(string filterCol = "", string filterVal = "")
+        {
+            return _kisimDal.GetCount(filterCol, filterVal);
         }
     }
 }

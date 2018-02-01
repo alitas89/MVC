@@ -20,5 +20,9 @@ namespace Core.DataAccessLayer
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        List<T> GetListPagination(PagingParams pagingParams);
+
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

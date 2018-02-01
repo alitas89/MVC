@@ -96,9 +96,7 @@
     <Compile Include="Concrete\Dapper\DpBilgilendirmeGrubuDal.cs" />
     <Compile Include="Concrete\Dapper\DpBilgilendirmeTuruDal.cs" />
     <Compile Include="Concrete\Dapper\DpBirimDal.cs" />
-    <Compile Include="Concrete\Dapper\DpCategoryDal.cs" />
     <Compile Include="Concrete\Dapper\DpCompanyDal.cs" />
-    <Compile Include="Concrete\Dapper\DpConsumptionPlaceDal.cs" />
     <Compile Include="Concrete\Dapper\DpDurusKismiDal.cs" />
     <Compile Include="Concrete\Dapper\DpDurusNedeniDal.cs" />
     <Compile Include="Concrete\Dapper\DpEtkiYeriDal.cs" />
@@ -115,15 +113,11 @@
     <Compile Include="Concrete\Dapper\DpModelDal.cs" />
     <Compile Include="Concrete\Dapper\DpOncelikDal.cs" />
     <Compile Include="Concrete\Dapper\DpParaBirimDal.cs" />
-    <Compile Include="Concrete\Dapper\DpProductCategoryCompanyDal.cs" />
-    <Compile Include="Concrete\Dapper\DpProductCategoryDal.cs" />
-    <Compile Include="Concrete\Dapper\DpProductDal.cs" />
     <Compile Include="Concrete\Dapper\DpRiskTipiDal.cs" />
     <Compile Include="Concrete\Dapper\DpRolDal.cs" />
     <Compile Include="Concrete\Dapper\DpSarfYeriDal.cs" />
     <Compile Include="Concrete\Dapper\DpStatuDal.cs" />
     <Compile Include="Concrete\Dapper\DpStatuTipiDal.cs" />
-    <Compile Include="Concrete\Dapper\DpTestDal.cs" />
     <Compile Include="Concrete\Dapper\DpUretimTipiDal.cs" />
     <Compile Include="Concrete\Dapper\DpUrunDal.cs" />
     <Compile Include="Concrete\Dapper\DpVarlikDurumuDal.cs" />

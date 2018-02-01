@@ -214,7 +214,6 @@
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
-    <Compile Include="Controllers\ConsumptionPlaceController.cs" />
     <Compile Include="Controllers\DurusKismiController.cs" />
     <Compile Include="Controllers\DurusNedeniController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />
@@ -229,12 +228,10 @@
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\OncelikController.cs" />
     <Compile Include="Controllers\ParaBirimController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
     <Compile Include="Controllers\SarfYeriController.cs" />
     <Compile Include="Controllers\StatuController.cs" />
     <Compile Include="Controllers\StatuTipiController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UretimTipiController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\VarlikDurumuController.cs" />

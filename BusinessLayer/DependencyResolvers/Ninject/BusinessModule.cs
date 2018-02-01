@@ -26,23 +26,8 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IRolService>().To<RolManager>().InSingletonScope();
             Bind<IRolDal>().To<DpRolDal>();
 
-            Bind<IConsumptionPlaceService>().To<ConsumptionPlaceManager>().InSingletonScope();
-            Bind<IConsumptionPlaceDal>().To<DpConsumptionPlaceDal>();
-
-            Bind<ITestService>().To<TestManager>().InSingletonScope();
-            Bind<ITestDal>().To<DpTestDal>();
-
             Bind<ICompanyService>().To<CompanyManager>();
             Bind<ICompanyDal>().To<DpCompanyDal>();
-
-            Bind<IProductService>().To<ProductManager>();
-            Bind<IProductDal>().To<DpProductDal>();
-            //Multi2
-            Bind<IProductCategoryDal>().To<DpProductCategoryDal>();
-            //Multi3
-            Bind<IProductCategoryCompanyDal>().To<DpProductCategoryCompanyDal>();
-
-
 
             //*****Asıl tablolar
 

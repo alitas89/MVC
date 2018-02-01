@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
@@ -17,6 +18,9 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
-        
+
+        List<IsTipi> GetListPagination(PagingParams pagingParams);
+
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

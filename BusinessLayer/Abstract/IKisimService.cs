@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
@@ -19,5 +20,9 @@ namespace BusinessLayer.Abstract
         int DeleteSoft(int Id);
 
         List<KisimDto> GetListDto();
+
+        List<Kisim> GetListPagination(PagingParams pagingParams);
+
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

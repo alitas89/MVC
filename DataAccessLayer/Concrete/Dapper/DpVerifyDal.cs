@@ -3,6 +3,7 @@ using Core.DataAccessLayer;
 using Core.DataAccessLayer.Dapper;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
@@ -20,6 +21,16 @@ namespace DataAccessLayer.Concrete.Dapper
         }
 
         public int DeleteSoft(int Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Verify> GetListPagination(PagingParams pagingParams)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int GetCount(string filterCol = "", string filterVal = "")
         {
             throw new System.NotImplementedException();
         }

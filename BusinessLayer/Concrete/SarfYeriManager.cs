@@ -11,6 +11,7 @@ using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.DataAccessLayer.Abstract;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -73,5 +74,16 @@ namespace BusinessLayer.Concrete
         {
             return _sarfyeriDal.DeleteSoft(Id);
         }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<SarfYeri> GetListPagination(PagingParams pagingParams)
+        {
+            return _sarfyeriDal.GetListPagination(pagingParams);
+        }
+        public int GetCount(string filterCol = "", string filterVal = "")
+        {
+            return _sarfyeriDal.GetCount(filterCol, filterVal);
+        }
+
     }
 }

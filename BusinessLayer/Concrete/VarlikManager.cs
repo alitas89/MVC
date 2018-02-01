@@ -8,6 +8,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Concrete
@@ -62,6 +63,16 @@ namespace BusinessLayer.Concrete
         public int DeleteSoft(int Id)
         {
             return _varlikdurumuDal.DeleteSoft(Id);
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<VarlikDurumu> GetListPagination(PagingParams pagingParams)
+        {
+            return _varlikdurumuDal.GetListPagination(pagingParams);
+        }
+        public int GetCount(string filterCol = "", string filterVal = "")
+        {
+            return _varlikdurumuDal.GetCount(filterCol, filterVal);
         }
     }
 }

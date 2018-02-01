@@ -74,9 +74,7 @@
     <Compile Include="Abstract\IBilgilendirmeGrubuService.cs" />
     <Compile Include="Abstract\IBilgilendirmeTuruService.cs" />
     <Compile Include="Abstract\IBirimService.cs" />
-    <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\ICompanyService.cs" />
-    <Compile Include="Abstract\IConsumptionPlaceService.cs" />
     <Compile Include="Abstract\IDurusKismiService.cs" />
     <Compile Include="Abstract\IDurusNedeniService.cs" />
     <Compile Include="Abstract\IEtkiYeriService.cs" />
@@ -99,7 +97,6 @@
     <Compile Include="Abstract\ISarfYeriService.cs" />
     <Compile Include="Abstract\IStatuService.cs" />
     <Compile Include="Abstract\IStatuTipiService.cs" />
-    <Compile Include="Abstract\ITestService.cs" />
     <Compile Include="Abstract\IUretimTipiService.cs" />
     <Compile Include="Abstract\IUrunService.cs" />
     <Compile Include="Abstract\IVarlikDurumuService.cs" />
@@ -117,9 +114,7 @@
     <Compile Include="Concrete\BilgilendirmeGrubuManager.cs" />
     <Compile Include="Concrete\BilgilendirmeTuruManager.cs" />
     <Compile Include="Concrete\BirimManager.cs" />
-    <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\CompanyManager.cs" />
-    <Compile Include="Concrete\ConsumptionPlaceManager.cs" />
     <Compile Include="Concrete\DurusKismiManager.cs" />
     <Compile Include="Concrete\DurusNedeniManager.cs" />
     <Compile Include="Concrete\EtkiYeriManager.cs" />
@@ -136,13 +131,11 @@
     <Compile Include="Concrete\ModelManager.cs" />
     <Compile Include="Concrete\OncelikManager.cs" />
     <Compile Include="Concrete\ParaBirimManager.cs" />
-    <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\RiskTipiManager.cs" />
     <Compile Include="Concrete\RolManager.cs" />
     <Compile Include="Concrete\SarfYeriManager.cs" />
     <Compile Include="Concrete\StatuManager.cs" />
     <Compile Include="Concrete\StatuTipiManager.cs" />
-    <Compile Include="Concrete\TestManager.cs" />
     <Compile Include="Concrete\UretimTipiManager.cs" />
     <Compile Include="Concrete\UrunManager.cs" />
     <Compile Include="Concrete\VarlikGrupManager.cs" />

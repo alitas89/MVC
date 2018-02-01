@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace BusinessLayer.Abstract
@@ -16,5 +17,9 @@ namespace BusinessLayer.Abstract
         int Delete(int Id);
 
         int DeleteSoft(int Id);
+
+        List<VarlikDurumu> GetListPagination(PagingParams pagingParams);
+
+        int GetCount(string filterCol = "", string filterVal = "");
     }
 }

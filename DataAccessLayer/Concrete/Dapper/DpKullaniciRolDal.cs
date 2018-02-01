@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 
 namespace DataAccessLayer.Concrete.Dapper
@@ -39,6 +40,16 @@ namespace DataAccessLayer.Concrete.Dapper
         public int DeleteSoft(int Id)
         {
             return UpdateQuery("update KullaniciRol set Silindi = 1 where RolId=@Id", new { Id });
+        }
+
+        public List<KullaniciRol> GetListPagination(PagingParams pagingParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCount(string filterCol = "", string filterVal = "")
+        {
+            throw new NotImplementedException();
         }
     }
 }
