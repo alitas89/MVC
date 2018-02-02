@@ -5,9 +5,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract;
+using BusinessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
+using EntityLayer.Concrete.Varlik;
 
 namespace WebApi.Controllers
 {

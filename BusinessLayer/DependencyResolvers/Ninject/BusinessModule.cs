@@ -4,11 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Abstract;
+using BusinessLayer.Abstract.Bakim;
+using BusinessLayer.Abstract.Genel;
+using BusinessLayer.Abstract.Varlik;
 using BusinessLayer.Concrete;
+using BusinessLayer.Concrete.Bakim;
+using BusinessLayer.Concrete.Genel;
+using BusinessLayer.Concrete.Varlik;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.Abstract.DataAccessLayer.Abstract;
+using DataAccessLayer.Abstract.Bakim;
+using DataAccessLayer.Abstract.Genel;
+using DataAccessLayer.Abstract.Varlik;
+using DataAccessLayer.Abstract.Varlik.DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.Dapper;
+using DataAccessLayer.Concrete.Dapper.Bakim;
+using DataAccessLayer.Concrete.Dapper.Genel;
+using DataAccessLayer.Concrete.Dapper.Varlik;
 using Ninject.Modules;
 
 namespace BusinessLayer.DependencyResolvers.Ninject

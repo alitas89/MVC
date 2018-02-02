@@ -13,8 +13,8 @@ namespace BusinessLayer.Mappings.AutoMapper.Profiles
     {
         public BusinessProfile()
         {
-            CreateMap<Product, ProductCategoryNamesDto>();
-            CreateMap<Product, Product>();
+            //CreateMap<Product, ProductCategoryNamesDto>();
+            //CreateMap<Product, Product>();
         }
     }
 }

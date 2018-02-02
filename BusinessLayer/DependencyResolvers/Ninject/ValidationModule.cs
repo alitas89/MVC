@@ -14,8 +14,8 @@ namespace BusinessLayer.DependencyResolvers.Ninject
     {
         public override void Load()
         {
-            Bind<IValidator<ConsumptionPlace>>().To<ConsumptionPlaceValidator>().InSingletonScope();
-            Bind<IValidator<Product>>().To<ProductValidator>().InSingletonScope();
+            //Bind<IValidator<ConsumptionPlace>>().To<ConsumptionPlaceValidator>().InSingletonScope();
+            //Bind<IValidator<Product>>().To<ProductValidator>().InSingletonScope();
         }
     }
 }

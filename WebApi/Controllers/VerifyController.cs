@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BusinessLayer.Abstract.Genel;
+using EntityLayer.Concrete.Genel;
 
 namespace WebApi.Controllers
 {
