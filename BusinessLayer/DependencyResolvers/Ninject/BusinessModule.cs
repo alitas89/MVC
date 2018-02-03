@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using BusinessLayer.Abstract.Genel;
+using BusinessLayer.Abstract.Malzeme;
+using BusinessLayer.Abstract.Personel;
 using BusinessLayer.Abstract.Varlik;
 using BusinessLayer.Concrete;
 using BusinessLayer.Concrete.Bakim;
 using BusinessLayer.Concrete.Genel;
+using BusinessLayer.Concrete.Malzeme;
+using BusinessLayer.Concrete.Personel;
 using BusinessLayer.Concrete.Varlik;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using DataAccessLayer.Abstract.Genel;
+using DataAccessLayer.Abstract.Malzeme;
+using DataAccessLayer.Abstract.Personel;
 using DataAccessLayer.Abstract.Varlik;
 using DataAccessLayer.Abstract.Varlik.DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.Dapper;
 using DataAccessLayer.Concrete.Dapper.Bakim;
 using DataAccessLayer.Concrete.Dapper.Genel;
+using DataAccessLayer.Concrete.Dapper.Malzeme;
+using DataAccessLayer.Concrete.Dapper.Personel;
 using DataAccessLayer.Concrete.Dapper.Varlik;
 using Ninject.Modules;
 
 namespace BusinessLayer.DependencyResolvers.Ninject
 {
-    public class BusinessModule: NinjectModule
+    public class BusinessModule : NinjectModule
     {
         public override void Load()
         {
@@ -146,6 +154,52 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IBirimService>().To<BirimManager>().InSingletonScope();
             Bind<IBirimDal>().To<DpBirimDal>();
+
+            //#MalzemeModul
+            Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
+            Bind<IAmbarDal>().To<DpAmbarDal>();
+
+            Bind<IMalzemeGrupService>().To<MalzemeGrupManager>().InSingletonScope();
+            Bind<IMalzemeGrupDal>().To<DpMalzemeGrupDal>();
+
+            Bind<IMalzemeAltGrupService>().To<MalzemeAltGrupManager>().InSingletonScope();
+            Bind<IMalzemeAltGrupDal>().To<DpMalzemeAltGrupDal>();
+
+            Bind<IMalzemeSeriNoService>().To<MalzemeSeriNoManager>().InSingletonScope();
+            Bind<IMalzemeSeriNoDal>().To<DpMalzemeSeriNoDal>();
+
+            Bind<IMalzemeStatuService>().To<MalzemeStatuManager>().InSingletonScope();
+            Bind<IMalzemeStatuDal>().To<DpMalzemeStatuDal>();
+
+            Bind<IOlcuBirimService>().To<OlcuBirimManager>().InSingletonScope();
+            Bind<IOlcuBirimDal>().To<DpOlcuBirimDal>();
+
+            Bind<IMuhasebeHesapService>().To<MuhasebeHesapManager>().InSingletonScope();
+            Bind<IMuhasebeHesapDal>().To<DpMuhasebeHesapDal>();
+
+            //#PersonelModul
+            Bind<IKaynakSinifiService>().To<KaynakSinifiManager>().InSingletonScope();
+            Bind<IKaynakSinifiDal>().To<DpKaynakSinifiDal>();
+
+            Bind<IVardiyaSinifiService>().To<VardiyaSinifiManager>().InSingletonScope();
+            Bind<IVardiyaSinifiDal>().To<DpVardiyaSinifiDal>();
+
+            Bind<IMesaiService>().To<MesaiManager>().InSingletonScope();
+            Bind<IMesaiDal>().To<DpMesaiDal>();
+
+            Bind<IMesaiTuruService>().To<MesaiTuruManager>().InSingletonScope();
+            Bind<IMesaiTuruDal>().To<DpMesaiTuruDal>();
+
+            Bind<IVardiyaService>().To<VardiyaManager>().InSingletonScope();
+            Bind<IVardiyaDal>().To<DpVardiyaDal>();
+
+            Bind<IKaynakPozisyonuService>().To<KaynakPozisyonuManager>().InSingletonScope();
+            Bind<IKaynakPozisyonuDal>().To<DpKaynakPozisyonuDal>();
+
+            Bind<IEgitimService>().To<EgitimManager>().InSingletonScope();
+            Bind<IEgitimDal>().To<DpEgitimDal>();
+
+
         }
     }
 }
