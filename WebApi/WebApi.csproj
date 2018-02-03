@@ -202,6 +202,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bearer\AuthorizationServerProvider.cs" />
+    <Compile Include="Controllers\AmbarController.cs" />
     <Compile Include="Controllers\ArizaCozumuController.cs" />
     <Compile Include="Controllers\ArizaNedeniController.cs" />
     <Compile Include="Controllers\ArizaNedeniGrubuController.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\DurusKismiController.cs" />
     <Compile Include="Controllers\DurusNedeniController.cs" />
+    <Compile Include="Controllers\EgitimController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />
     <Compile Include="Controllers\GecikmeNedeniController.cs" />
     <Compile Include="Controllers\GonderimFormatiController.cs" />
@@ -223,9 +225,19 @@
     <Compile Include="Controllers\HurdaController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
+    <Compile Include="Controllers\KaynakPozisyonuController.cs" />
+    <Compile Include="Controllers\KaynakSinifiController.cs" />
     <Compile Include="Controllers\KisimController.cs" />
+    <Compile Include="Controllers\MalzemeAltGrupController.cs" />
+    <Compile Include="Controllers\MalzemeGrupController.cs" />
+    <Compile Include="Controllers\MalzemeSeriNoController.cs" />
+    <Compile Include="Controllers\MalzemeStatuController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
+    <Compile Include="Controllers\MesaiController.cs" />
+    <Compile Include="Controllers\MesaiTuruController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
+    <Compile Include="Controllers\MuhasebeHesapController.cs" />
+    <Compile Include="Controllers\OlcuBirimController.cs" />
     <Compile Include="Controllers\OncelikController.cs" />
     <Compile Include="Controllers\ParaBirimController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
@@ -234,6 +246,8 @@
     <Compile Include="Controllers\StatuTipiController.cs" />
     <Compile Include="Controllers\UretimTipiController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Controllers\VardiyaController.cs" />
+    <Compile Include="Controllers\VardiyaSinifiController.cs" />
     <Compile Include="Controllers\VarlikDurumuController.cs" />
     <Compile Include="Controllers\VarlikGrupController.cs" />
     <Compile Include="Controllers\VarlikTuruController.cs" />
@@ -269,7 +283,21 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Ambar\" />
     <Folder Include="Views\Company\" />
+    <Folder Include="Views\Egitim\" />
+    <Folder Include="Views\KaynakPozisyonu\" />
+    <Folder Include="Views\KaynakSinifi\" />
+    <Folder Include="Views\MalzemeAltGrup\" />
+    <Folder Include="Views\MalzemeGrup\" />
+    <Folder Include="Views\MalzemeSeriNo\" />
+    <Folder Include="Views\MalzemeStatu\" />
+    <Folder Include="Views\MesaiTuru\" />
+    <Folder Include="Views\Mesai\" />
+    <Folder Include="Views\MuhasebeHesap\" />
+    <Folder Include="Views\OlcuBirim\" />
+    <Folder Include="Views\VardiyaSinifi\" />
+    <Folder Include="Views\Vardiya\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
