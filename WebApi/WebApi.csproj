@@ -211,6 +211,7 @@
     <Compile Include="Controllers\BakimOncelikController.cs" />
     <Compile Include="Controllers\BakimRiskiController.cs" />
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
+    <Compile Include="Controllers\BelgeTuruController.cs" />
     <Compile Include="Controllers\BilgilendirmeGrubuController.cs" />
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
+    <Compile Include="Controllers\IsSektoruController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
     <Compile Include="Controllers\KaynakPozisyonuController.cs" />
     <Compile Include="Controllers\KaynakSinifiController.cs" />
@@ -233,10 +235,12 @@
     <Compile Include="Controllers\MalzemeSeriNoController.cs" />
     <Compile Include="Controllers\MalzemeStatuController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
+    <Compile Include="Controllers\MasrafTuruController.cs" />
     <Compile Include="Controllers\MesaiController.cs" />
     <Compile Include="Controllers\MesaiTuruController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
     <Compile Include="Controllers\MuhasebeHesapController.cs" />
+    <Compile Include="Controllers\OdemeSekliController.cs" />
     <Compile Include="Controllers\OlcuBirimController.cs" />
     <Compile Include="Controllers\OncelikController.cs" />
     <Compile Include="Controllers\ParaBirimController.cs" />
@@ -244,6 +248,10 @@
     <Compile Include="Controllers\SarfYeriController.cs" />
     <Compile Include="Controllers\StatuController.cs" />
     <Compile Include="Controllers\StatuTipiController.cs" />
+    <Compile Include="Controllers\TeklifIstemeSablonController.cs" />
+    <Compile Include="Controllers\TeminSuresiController.cs" />
+    <Compile Include="Controllers\TeslimSekliController.cs" />
+    <Compile Include="Controllers\TeslimYeriController.cs" />
     <Compile Include="Controllers\UretimTipiController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\VardiyaController.cs" />

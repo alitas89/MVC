@@ -71,6 +71,14 @@
     <Compile Include="Concrete\Personel\MesaiTuru.cs" />
     <Compile Include="Concrete\Personel\Vardiya.cs" />
     <Compile Include="Concrete\Personel\VardiyaSinifi.cs" />
+    <Compile Include="Concrete\Satinalma\BelgeTuru.cs" />
+    <Compile Include="Concrete\Satinalma\IsSektoru.cs" />
+    <Compile Include="Concrete\Satinalma\MasrafTuru.cs" />
+    <Compile Include="Concrete\Satinalma\OdemeSekli.cs" />
+    <Compile Include="Concrete\Satinalma\TeklifIstemeSablon.cs" />
+    <Compile Include="Concrete\Satinalma\TeminSuresi.cs" />
+    <Compile Include="Concrete\Satinalma\TeslimSekli.cs" />
+    <Compile Include="Concrete\Satinalma\TeslimYeri.cs" />
     <Compile Include="Concrete\Varlik\Birim.cs" />
     <Compile Include="Concrete\Genel\Company.cs" />
     <Compile Include="Concrete\Varlik\DurusKismi.cs" />
@@ -102,7 +110,9 @@
     <Compile Include="Concrete\Genel\Verify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Concrete\Enerji\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{96ED9C67-FF68-4675-81A5-3DF6789E433D}</Project>
