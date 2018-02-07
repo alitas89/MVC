@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _vardiyaService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/vardiya/deletehard/{id}")]
+        [Route("api/vardiya/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _vardiyaService.Delete(id);

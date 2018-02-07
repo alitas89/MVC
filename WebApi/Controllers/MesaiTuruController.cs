@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _mesaiTuruService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/mesaituru/deletehard/{id}")]
+        [Route("api/mesaituru/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _mesaiTuruService.Delete(id);

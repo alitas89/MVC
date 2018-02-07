@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _kaynakSinifiService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/kaynaksinifi/deletehard/{id}")]
+        [Route("api/kaynaksinifi/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _kaynakSinifiService.Delete(id);

@@ -57,6 +57,7 @@
     <Compile Include="Concrete\Bakim\BeklemeIptalNedeni.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeGrubu.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeTuru.cs" />
+    <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Malzeme\Ambar.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
@@ -110,9 +111,7 @@
     <Compile Include="Concrete\Genel\Verify.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Concrete\Enerji\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{96ED9C67-FF68-4675-81A5-3DF6789E433D}</Project>

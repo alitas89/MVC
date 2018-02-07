@@ -61,14 +61,14 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int GetCount(string filterCol = "", string filterVal = "")
         {
-            string where = "";
+            string filter = "";
             if (filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
-                where = $" where {filterCol} like @filterVal";
+                filter = $"and {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM StatuTipi {where}", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM StatuTipi where Silindi=0 {filter} ", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

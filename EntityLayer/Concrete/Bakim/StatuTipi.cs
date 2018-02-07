@@ -6,5 +6,6 @@ namespace EntityLayer.Concrete.Bakim
     {
         public int StatuTipiID { get; set; }
         public string StatuTipiAd { get; set; }
+        public bool Silindi { get; set; }
     }
 }

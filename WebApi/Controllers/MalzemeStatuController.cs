@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _malzemeStatuService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/malzemestatu/deletehard/{id}")]
+        [Route("api/malzemestatu/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _malzemeStatuService.Delete(id);

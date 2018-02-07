@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _muhasebeHesapService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/muhasebehesap/deletehard/{id}")]
+        [Route("api/muhasebehesap/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _muhasebeHesapService.Delete(id);

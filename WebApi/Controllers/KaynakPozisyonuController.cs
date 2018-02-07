@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _kaynakPozisyonuService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/kaynakpozisyonu/deletehard/{id}")]
+        [Route("api/kaynakpozisyonu/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _kaynakPozisyonuService.Delete(id);

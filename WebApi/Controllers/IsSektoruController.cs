@@ -64,7 +64,7 @@ namespace WebApi.Controllers
             return _isSektoruService.DeleteSoft(id);
         }
 
-        [Route("api/ıssektoru/deletehard/{id}")]
+        [Route("api/issektoru/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _isSektoruService.Delete(id);

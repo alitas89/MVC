@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _olcuBirimService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/olcubirim/deletehard/{id}")]
+        [Route("api/olcubirim/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _olcuBirimService.Delete(id);

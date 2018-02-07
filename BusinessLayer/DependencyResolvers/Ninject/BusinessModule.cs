@@ -30,6 +30,10 @@ using DataAccessLayer.Concrete.Dapper.Malzeme;
 using DataAccessLayer.Concrete.Dapper.Personel;
 using DataAccessLayer.Concrete.Dapper.Varlik;
 using Ninject.Modules;
+using BusinessLayer.Abstract.Satinalma;
+using DataAccessLayer.Abstract.Satinalma;
+using BusinessLayer.Concrete.Satinalma;
+using DataAccessLayer.Concrete.Dapper.Satinalma;
 
 namespace BusinessLayer.DependencyResolvers.Ninject
 {
@@ -131,6 +135,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IHizmetService>().To<HizmetManager>().InSingletonScope();
             Bind<IHizmetDal>().To<DpHizmetDal>();
 
+            Bind<IIsEmriTuruService>().To<IsEmriTuruManager>().InSingletonScope();
+            Bind<IIsEmriTuruDal>().To<DpIsEmriTuruDal>();
+
             Bind<IRiskTipiService>().To<RiskTipiManager>().InSingletonScope();
             Bind<IRiskTipiDal>().To<DpRiskTipiDal>();
 
@@ -199,7 +206,30 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IEgitimService>().To<EgitimManager>().InSingletonScope();
             Bind<IEgitimDal>().To<DpEgitimDal>();
 
+            //#Satinalma
+            Bind<IBelgeTuruService>().To<BelgeTuruManager>().InSingletonScope();
+            Bind<IBelgeTuruDal>().To<DpBelgeTuruDal>();
 
+            Bind<IIsSektoruService>().To<IsSektoruManager>().InSingletonScope();
+            Bind<IIsSektoruDal>().To<DpIsSektoruDal>();
+
+            Bind<IMasrafTuruService>().To<MasrafTuruManager>().InSingletonScope();
+            Bind<IMasrafTuruDal>().To<DpMasrafTuruDal>();
+
+            Bind<IOdemeSekliService>().To<OdemeSekliManager>().InSingletonScope();
+            Bind<IOdemeSekliDal>().To<DpOdemeSekliDal>();
+
+            Bind<ITeklifIstemeSablonService>().To<TeklifIstemeSablonManager>().InSingletonScope();
+            Bind<ITeklifIstemeSablonDal>().To<DpTeklifIstemeSablonDal>();
+
+            Bind<ITeminSuresiService>().To<TeminSuresiManager>().InSingletonScope();
+            Bind<ITeminSuresiDal>().To<DpTeminSuresiDal>();
+
+            Bind<ITeslimSekliService>().To<TeslimSekliManager>().InSingletonScope();
+            Bind<ITeslimSekliDal>().To<DpTeslimSekliDal>();
+
+            Bind<ITeslimYeriService>().To<TeslimYeriManager>().InSingletonScope();
+            Bind<ITeslimYeriDal>().To<DpTeslimYeriDal>();
         }
     }
 }

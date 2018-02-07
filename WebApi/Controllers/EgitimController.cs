@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _egitimService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/egitim/deletehard/{id}")]
+        [Route("api/egitim/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _egitimService.Delete(id);

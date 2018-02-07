@@ -64,7 +64,7 @@ namespace WebApi.Controllers
             return _ambarService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/ambar/deletehard/{id}")]
+        [Route("api/ambar/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _ambarService.Delete(id);

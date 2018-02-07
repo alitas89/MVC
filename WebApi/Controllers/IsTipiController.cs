@@ -69,7 +69,7 @@ namespace WebApi.Controllers
             return _isTipiService.DeleteSoft(id);
         }
 
-        [Route("api/ıstipi/deletehard/{id}")]
+        [Route("api/istipi/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _isTipiService.Delete(id);

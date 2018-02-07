@@ -50,6 +50,7 @@
     <Compile Include="Abstract\Bakim\IBeklemeIptalNedeniDal.cs" />
     <Compile Include="Abstract\Bakim\IBilgilendirmeGrubuDal.cs" />
     <Compile Include="Abstract\Bakim\IBilgilendirmeTuruDal.cs" />
+    <Compile Include="Abstract\Bakim\IIsEmriTuruDal.cs" />
     <Compile Include="Abstract\Malzeme\IAmbarDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeGrupDal.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpBilgilendirmeGrubuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBilgilendirmeTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBirimDal.cs" />
+    <Compile Include="Concrete\Dapper\Bakim\DpIsEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Genel\DpCompanyDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpAmbarDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeAltGrupDal.cs" />

@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper.Malzeme
 
         public MalzemeAltGrup Get(int Id)
         {
-            return GetQuery("select * from MalzemeAltGrup where MalzemeAltGrupId= @Id and Silindi=0", new { Id });
+            return GetQuery("select * from MalzemeAltGrup where MalzemeAltGrupID= @Id and Silindi=0", new { Id });
         }
 
         public int Add(MalzemeAltGrup malzemealtgrup)
@@ -29,17 +29,17 @@ namespace DataAccessLayer.Concrete.Dapper.Malzeme
 
         public int Update(MalzemeAltGrup malzemealtgrup)
         {
-            return UpdateQuery("update MalzemeAltGrup set Kod=@Kod,Ad=@Ad,Aciklama=@Aciklama,Silindi=@Silindi where MalzemeAltGrupId=@MalzemeAltGrupId", malzemealtgrup);
+            return UpdateQuery("update MalzemeAltGrup set Kod=@Kod,Ad=@Ad,Aciklama=@Aciklama,Silindi=@Silindi where MalzemeAltGrupID=@MalzemeAltGrupID", malzemealtgrup);
         }
 
         public int Delete(int Id)
         {
-            return DeleteQuery("delete from MalzemeAltGrup where MalzemeAltGrupId=@Id ", new { Id });
+            return DeleteQuery("delete from MalzemeAltGrup where MalzemeAltGrupID=@Id ", new { Id });
         }
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update MalzemeAltGrup set Silindi = 1 where MalzemeAltGrupId=@Id", new { Id });
+            return UpdateQuery("update MalzemeAltGrup set Silindi = 1 where MalzemeAltGrupID=@Id", new { Id });
         }
 
         public List<MalzemeAltGrup> GetListPagination(PagingParams pagingParams)
@@ -66,14 +66,14 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public int GetCount(string filterCol = "", string filterVal = "")
         {
-            string where = "";
+            string filter = "";
             if (filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
-                where = $" where {filterCol} like @filterVal";
+                filter = $"and {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM MalzemeAltGrup {where}", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM MalzemeAltGrup where Silindi=0 {filter} ", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

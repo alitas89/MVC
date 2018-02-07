@@ -74,6 +74,7 @@
     <Compile Include="Abstract\Bakim\IBilgilendirmeGrubuService.cs" />
     <Compile Include="Abstract\Bakim\IBilgilendirmeTuruService.cs" />
     <Compile Include="Abstract\Bakim\IBirimService.cs" />
+    <Compile Include="Abstract\Bakim\IIsEmriTuruService.cs" />
     <Compile Include="Abstract\Genel\ICompanyService.cs" />
     <Compile Include="Abstract\Malzeme\IAmbarService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupService.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Concrete\Bakim\BilgilendirmeGrubuManager.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeTuruManager.cs" />
     <Compile Include="Concrete\Bakim\BirimManager.cs" />
+    <Compile Include="Concrete\Bakim\IsEmriTuruManager.cs" />
     <Compile Include="Concrete\Genel\CompanyManager.cs" />
     <Compile Include="Concrete\Malzeme\AmbarManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrupManager.cs" />
