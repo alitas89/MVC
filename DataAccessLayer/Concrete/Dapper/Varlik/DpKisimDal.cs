@@ -14,6 +14,11 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             return GetListQuery($"select * from Kisim where Silindi=0", new { });
         }
 
+        public List<Kisim> GetList(int SarfYeriID)
+        {
+            return GetListQuery($"select * from Kisim where Silindi=0 and SarfYeriID=@SarfYeriID", new { SarfYeriID });
+        }
+
         public Kisim Get(int Id)
         {
             return GetQuery("select * from Kisim where KisimID= @Id and Silindi=0", new { Id });
@@ -43,6 +48,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         {
             return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery("select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID", new { });
         }
+
         public List<Kisim> GetListPagination(PagingParams pagingParams)
         {
             string filterQuery = "";

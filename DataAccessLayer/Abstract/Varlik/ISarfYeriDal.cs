@@ -10,6 +10,8 @@ namespace DataAccessLayer.Abstract.Varlik
         public interface ISarfYeriDal : IEntityRepository<SarfYeri>
         {
             List<SarfYeriDto> GetListDto();
+
+            List<SarfYeri> GetList(int IsletmeID);
         }
     }
 }

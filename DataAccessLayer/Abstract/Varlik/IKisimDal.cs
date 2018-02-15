@@ -8,5 +8,7 @@ namespace DataAccessLayer.Abstract.Varlik
     public interface IKisimDal : IEntityRepository<Kisim>
     {
         List<KisimDto> GetListDto();
+
+        List<Kisim> GetList(int SarfYeriID);
     }
 }

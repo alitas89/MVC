@@ -27,6 +27,16 @@ namespace WebApi.Controllers
         {
             return _kisimService.GetListDto();
         }
+
+
+        // GET api/<controller>
+        [Route("api/kisim/getlistbysarfyeri/{SarfYeriID}")]
+        [HttpGet]
+        public IEnumerable<Kisim> GetListBySarfYeri(int SarfYeriID)
+        {
+            return _kisimService.GetList(SarfYeriID);
+        }
+
         // GET api/<controller>
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {

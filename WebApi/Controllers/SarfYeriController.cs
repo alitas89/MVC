@@ -27,6 +27,15 @@ namespace WebApi.Controllers
         {
             return _sarfYeriService.GetListDto();
         }
+
+        // GET api/<controller>
+        [Route("api/sarfyeri/getlistbyisletme/{IsletmeID}")]
+        [HttpGet]
+        public IEnumerable<SarfYeri> GetListByIsletme(int IsletmeID)
+        {
+            return _sarfYeriService.GetList(IsletmeID);
+        }
+
         // GET api/<controller>
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {

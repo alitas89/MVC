@@ -9,6 +9,8 @@ namespace BusinessLayer.Abstract.Varlik
     {
         List<Kisim> GetList();
 
+        List<Kisim> GetList(int SarfYeriID);
+
         Kisim GetById(int id);
 
         int Add(Kisim kisim);

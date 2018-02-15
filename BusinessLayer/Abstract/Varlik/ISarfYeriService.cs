@@ -9,6 +9,8 @@ namespace BusinessLayer.Abstract.Varlik
     {
         List<SarfYeri> GetList();
 
+        List<SarfYeri> GetList(int IsletmeID);
+
         SarfYeri GetById(int id);
 
         int Add(SarfYeri sarfyeri);

@@ -30,6 +30,13 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
+        public List<SarfYeri> GetList(int IsletmeID)
+        {
+            return _sarfyeriDal.GetList(IsletmeID);
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<SarfYeriDto> GetListDto()
         {
             return _sarfyeriDal.GetListDto();

@@ -30,6 +30,13 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
+        public List<Kisim> GetList(int SarfYeriID)
+        {
+            return _kisimDal.GetList(SarfYeriID);
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<KisimDto> GetListDto()
         {
             return _kisimDal.GetListDto();

@@ -14,6 +14,11 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             return GetListQuery($"select * from SarfYeri where Silindi=0", new { });
         }
 
+        public List<SarfYeri> GetList(int IsletmeID)
+        {
+            return GetListQuery($"select * from SarfYeri where Silindi=0 and IsletmeID=@IsletmeID", new { IsletmeID });
+        }
+
         public SarfYeri Get(int Id)
         {
             return GetQuery("select * from SarfYeri where SarfYeriID= @Id and Silindi=0", new { Id });
