@@ -15,6 +15,8 @@ namespace DataAccessLayer.Abstract.Varlik
             List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams);
 
             List<SarfYeri> GetList(int IsletmeID);
+
+            bool IsKodDefined(string Kod);
         }
     }
 }

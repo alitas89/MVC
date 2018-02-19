@@ -38,7 +38,8 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(Isletme isletme)
         {
-            return _isletmeDal.Add(isletme);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _isletmeDal.IsKodDefined(isletme.Kod) ? 0 : _isletmeDal.Add(isletme);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -46,7 +47,8 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Isletme isletme)
         {
-            return _isletmeDal.Update(isletme);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
+            return _isletmeDal.IsKodDefined(isletme.Kod) ? 0 : _isletmeDal.Update(isletme);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

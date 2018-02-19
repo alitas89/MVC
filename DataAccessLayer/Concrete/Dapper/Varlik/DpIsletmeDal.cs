@@ -72,5 +72,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public bool IsKodDefined(string Kod)
+        {
+            var result = GetScalarQuery("select Count(*) from Isletme where Kod= @Kod and Silindi=0", new { Kod }) + "";
+            int.TryParse(result, out int count);
+            return count > 0;
+        }
     }
 }
