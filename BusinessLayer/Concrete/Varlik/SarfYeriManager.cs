@@ -53,7 +53,8 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(SarfYeri sarfyeri)
         {
-            return _sarfyeriDal.Add(sarfyeri);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _sarfyeriDal.IsKodDefined(sarfyeri.Kod) ? 0 : _sarfyeriDal.Add(sarfyeri);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -61,7 +62,8 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(SarfYeri sarfyeri)
         {
-            return _sarfyeriDal.Update(sarfyeri);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _sarfyeriDal.IsKodDefined(sarfyeri.Kod) ? 0 : _sarfyeriDal.Update(sarfyeri);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
