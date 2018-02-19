@@ -42,7 +42,7 @@ namespace WebApi.Controllers
         {
             int total = 0;
             total = filterVal.Length != 0 ? _kisimService.GetCount(filterCol, filterVal) : _kisimService.GetCount();
-            var d = _kisimService.GetListPagination(new PagingParams()
+            var d = _kisimService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

@@ -41,7 +41,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<VarlikGrupDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery("select VG.*, IT.IsTipiAd as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID", new { });
+            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery("select VG.*, IT.Ad as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID", new { });
         }
 
         public List<VarlikGrup> GetListPagination(PagingParams pagingParams)

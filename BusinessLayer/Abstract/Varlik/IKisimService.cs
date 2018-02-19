@@ -25,6 +25,8 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<Kisim> GetListPagination(PagingParams pagingParams);
 
+        List<KisimDto> GetListPaginationDto(PagingParams pagingParams);
+
         int GetCount(string filterCol = "", string filterVal = "");
     }
 }

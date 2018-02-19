@@ -21,12 +21,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(Model model)
         {
-            return AddQuery("insert into Model(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama)", model);
+            return AddQuery("insert into Model(Kod,Ad,Aciklama,MarkaID) values (@Kod,@Ad,@Aciklama,@MarkaID)", model);
         }
 
         public int Update(Model model)
         {
-            return UpdateQuery("update Model set Kod=@Kod,Ad=@Ad,Aciklama=@Aciklama where ModelID=@ModelID", model);
+            return UpdateQuery("update Model set Kod=@Kod,Ad=@Ad,Aciklama=@Aciklama,MarkaID=@MarkaID where ModelID=@ModelID", model);
         }
 
         public int Delete(int Id)

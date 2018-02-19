@@ -41,7 +41,7 @@ namespace WebApi.Controllers
         {
             int total = 0;
             total = filterVal.Length != 0 ? _sarfYeriService.GetCount(filterCol, filterVal) : _sarfYeriService.GetCount();
-            var d = _sarfYeriService.GetListPagination(new PagingParams()
+            var d = _sarfYeriService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

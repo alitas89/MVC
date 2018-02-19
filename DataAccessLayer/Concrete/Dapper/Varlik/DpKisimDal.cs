@@ -46,7 +46,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<KisimDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery("select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID", new { });
+            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery("select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID where KM.Silindi=0", new { });
         }
 
         public List<Kisim> GetListPagination(PagingParams pagingParams)
@@ -67,6 +67,42 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             }
 
             return GetListQuery($@"SELECT * FROM Kisim where Silindi=0 {filterQuery} {orderQuery}
+OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public List<KisimDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                if (pagingParams.filterCol.Equals("SarfYeriAd"))
+                {
+                    filterQuery = $"and SY.{pagingParams.filterCol} like @filterVal";
+                }
+                else
+                {
+                    filterQuery = $"and KM.{pagingParams.filterCol} like @filterVal";
+                }
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                if (arrOrder[0].ToString().Equals("SarfYeriAd"))
+                {
+                    orderQuery = $"ORDER BY SY.{arrOrder[0]} {arrOrder[1]}";
+                }
+                else
+                {
+                    orderQuery = $"ORDER BY KM.{arrOrder[0]} {arrOrder[1]}";
+                }
+            }
+
+            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery($@"select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID where KM.Silindi=0 {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }

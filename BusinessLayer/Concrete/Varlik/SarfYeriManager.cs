@@ -83,6 +83,12 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _sarfyeriDal.GetListPagination(pagingParams);
         }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _sarfyeriDal.GetListPaginationDto(pagingParams);
+        }
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _sarfyeriDal.GetCount(filterCol, filterVal);

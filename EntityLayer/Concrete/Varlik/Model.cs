@@ -8,5 +8,6 @@ namespace EntityLayer.Concrete.Varlik
         public string Kod { get; set; }
         public string Ad { get; set; }
         public string Aciklama { get; set; }
+        public int MarkaID { get; set; }
     }
 }

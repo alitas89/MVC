@@ -83,6 +83,11 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _kisimDal.GetListPagination(pagingParams);
         }
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<KisimDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _kisimDal.GetListPaginationDto(pagingParams);
+        }
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _kisimDal.GetCount(filterCol, filterVal);

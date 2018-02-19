@@ -25,6 +25,8 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<SarfYeri> GetListPagination(PagingParams pagingParams);
 
+        List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams);
+
         int GetCount(string filterCol = "", string filterVal = "");
     }
 }
