@@ -52,8 +52,9 @@ namespace BusinessLayer.Concrete.Varlik
         [FluentValidationAspect(typeof(KisimValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(Kisim kisim)
-        {
-            return _kisimDal.Add(kisim);
+        {            
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _kisimDal.IsKodDefined(kisim.Kod) ? 0 : _kisimDal.Add(kisim);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -61,7 +62,8 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Kisim kisim)
         {
-            return _kisimDal.Update(kisim);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _kisimDal.IsKodDefined(kisim.Kod) ? 0 : _kisimDal.Update(kisim);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

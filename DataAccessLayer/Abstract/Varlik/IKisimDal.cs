@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<KisimDto> GetListPaginationDto(PagingParams pagingParams);
 
         List<Kisim> GetList(int SarfYeriID);
+
+        bool IsKodDefined(string Kod);
     }
 }

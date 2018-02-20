@@ -5,6 +5,6 @@ namespace DataAccessLayer.Abstract.Varlik
 {
     public interface IBirimDal : IEntityRepository<Birim>
     {
-
+ 
     }
 }

@@ -14,18 +14,18 @@ namespace WebApi.Controllers
 {
     public class IsletmeController : ApiController
     {
-            IIsletmeService _isletmeService;
+        IIsletmeService _isletmeService;
 
-            public IsletmeController(IIsletmeService isletmeService)
-            {
-                _isletmeService = isletmeService;
-            }
+        public IsletmeController(IIsletmeService isletmeService)
+        {
+            _isletmeService = isletmeService;
+        }
 
-            // GET api/<controller>
-            public IEnumerable<Isletme> Get()
-            {
-                return _isletmeService.GetList();
-            }
+        // GET api/<controller>
+        public IEnumerable<Isletme> Get()
+        {
+            return _isletmeService.GetList();
+        }
         // GET api/<controller>
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
@@ -46,31 +46,31 @@ namespace WebApi.Controllers
         }
         // GET api/<controller>/5
         public Isletme Get(int id)
-            {
-                return _isletmeService.GetById(id);
-            }
-
-            // POST api/<controller>
-            public int Post([FromBody]Isletme isletme)
-            {
-                return _isletmeService.Add(isletme);
-            }
-
-            // PUT api/<controller>/5
-            public int Put([FromBody]Isletme isletme)
-            {
-                return _isletmeService.Update(isletme);
-            }
-
-            public int Delete(int id)
-            {
-                return _isletmeService.DeleteSoft(id);
-            }
-
-            [Route("api/ısletme/deletehard/{id}")]
-            public int DeleteHard(int id)
-            {
-                return _isletmeService.Delete(id);
-            }
+        {
+            return _isletmeService.GetById(id);
         }
+
+        // POST api/<controller>
+        public int Post([FromBody]Isletme isletme)
+        {
+            return _isletmeService.Add(isletme);
+        }
+
+        // PUT api/<controller>/5
+        public int Put([FromBody]Isletme isletme)
+        {
+            return _isletmeService.Update(isletme);
+        }
+
+        public int Delete(int id)
+        {
+            return _isletmeService.DeleteSoft(id);
+        }
+
+        [Route("api/ısletme/deletehard/{id}")]
+        public int DeleteHard(int id)
+        {
+            return _isletmeService.Delete(id);
+        }
+    }
 }

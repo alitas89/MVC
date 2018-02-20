@@ -120,5 +120,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
+
+        public bool IsKodDefined(string Kod)
+        {
+            var result = GetScalarQuery("select Count(*) from SarfYeri where Kod= @Kod and Silindi=0", new { Kod }) + "";
+            int.TryParse(result, out int count);
+            return count > 0;
+        }
     }
 }
