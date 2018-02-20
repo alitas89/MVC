@@ -79,5 +79,41 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public List<ModelDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                if (pagingParams.filterCol.Equals("MarkaAd"))
+                {
+                    filterQuery = $"and MA.{pagingParams.filterCol} like @filterVal";
+                }
+                else
+                {
+                    filterQuery = $"and M.{pagingParams.filterCol} like @filterVal";
+                }
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                if (arrOrder[0].ToString().Equals("MarkaAd"))
+                {
+                    orderQuery = $"ORDER BY MA.{arrOrder[0]} {arrOrder[1]}";
+                }
+                else
+                {
+                    orderQuery = $"ORDER BY M.{arrOrder[0]} {arrOrder[1]}";
+                }
+            }
+
+            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery($@"select M.*, MA.Ad as MarkaAd from Model M inner join Marka MA on MA.MarkaID = M.MarkaID where M.Silindi=0 {filterQuery} {orderQuery}
+                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
     }
 }

@@ -5,9 +5,7 @@ using EntityLayer.Concrete.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 
 namespace DataAccessLayer.Abstract.Varlik
-{
-    namespace DataAccessLayer.Abstract
-    {
+{    
         public interface ISarfYeriDal : IEntityRepository<SarfYeri>
         {
             List<SarfYeriDto> GetListDto();
@@ -15,6 +13,5 @@ namespace DataAccessLayer.Abstract.Varlik
             List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams);
 
             List<SarfYeri> GetList(int IsletmeID);
-        }
-    }
+        }    
 }

@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         {
             int total = 0;
             total = filterVal.Length != 0 ? _modelService.GetCount(filterCol, filterVal) : _modelService.GetCount();
-            var d = _modelService.GetListPagination(new PagingParams()
+            var d = _modelService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

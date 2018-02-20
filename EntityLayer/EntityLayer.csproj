@@ -105,6 +105,7 @@
     <Compile Include="Concrete\Bakim\StatuTipi.cs" />
     <Compile Include="Concrete\Bakim\UretimTipi.cs" />
     <Compile Include="Concrete\Varlik\Urun.cs" />
+    <Compile Include="Concrete\Varlik\Varlik.cs" />
     <Compile Include="Concrete\Varlik\VarlikDurumu.cs" />
     <Compile Include="Concrete\Varlik\VarlikGrup.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />

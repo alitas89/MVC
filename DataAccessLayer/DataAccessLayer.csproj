@@ -98,6 +98,7 @@
     <Compile Include="Abstract\Bakim\IStatuTipiDal.cs" />
     <Compile Include="Abstract\Bakim\IUretimTipiDal.cs" />
     <Compile Include="Abstract\Varlik\IUrunDal.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikDurumuDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikGrupDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruDal.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpStatuTipiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpUretimTipiDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpUrunDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpVarlikDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikDurumuDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTuruDal.cs" />

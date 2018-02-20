@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         {
             int total = 0;
             total = filterVal.Length != 0 ? _varlikGrupService.GetCount(filterCol, filterVal) : _varlikGrupService.GetCount();
-            var d = _varlikGrupService.GetListPagination(new PagingParams()
+            var d = _varlikGrupService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

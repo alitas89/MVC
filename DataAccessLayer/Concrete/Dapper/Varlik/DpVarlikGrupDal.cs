@@ -79,5 +79,41 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<VarlikGrupDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                if (pagingParams.filterCol.Equals("IsTipiAd"))
+                {
+                    filterQuery = $"and IT.{pagingParams.filterCol} like @filterVal";
+                }
+                else
+                {
+                    filterQuery = $"and VG.{pagingParams.filterCol} like @filterVal";
+                }
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                if (arrOrder[0].ToString().Equals("IsTipiAd"))
+                {
+                    orderQuery = $"ORDER BY IT.{arrOrder[0]} {arrOrder[1]}";
+                }
+                else
+                {
+                    orderQuery = $"ORDER BY VG.{arrOrder[0]} {arrOrder[1]}";
+                }
+            }
+
+            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery($@"select VG.*, IT.Ad as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID where VG.Silindi=0 {filterQuery} {orderQuery}
+                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
     }
 }

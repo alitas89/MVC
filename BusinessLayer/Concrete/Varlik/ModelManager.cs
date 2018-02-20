@@ -74,6 +74,13 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _modelDal.GetListPagination(pagingParams);
         }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<ModelDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _modelDal.GetListPaginationDto(pagingParams);
+        }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _modelDal.GetCount(filterCol, filterVal);
