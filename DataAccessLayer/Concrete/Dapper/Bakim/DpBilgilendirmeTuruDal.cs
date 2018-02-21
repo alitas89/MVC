@@ -2,6 +2,7 @@
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
@@ -75,6 +76,5 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             int.TryParse(strCount, out int count);
             return count;
         }
-
     }
 }

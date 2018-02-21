@@ -11,6 +11,7 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
@@ -73,6 +74,16 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _isTipiDal.GetCount(filterCol, filterVal);
+        }
+
+        public List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _isTipiDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _isTipiDal.GetCountDto(filterCol, filterVal);
         }
     }
 }

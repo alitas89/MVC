@@ -40,13 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComplexTypes\DtoModel\VarlikDto.cs" />
-    <Compile Include="ComplexTypes\DtoModel\VarlikGrupDto.cs" />
-    <Compile Include="ComplexTypes\DtoModel\KisimDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\BakimArizaKoduDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\KisimDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ModelDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
-    <Compile Include="ComplexTypes\DtoModel\SarfYeriDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\SarfYeriDto.cs" />
     <Compile Include="ComplexTypes\ParameterModel\PagingParams.cs" />
     <Compile Include="Concrete\Bakim\ArizaCozumu.cs" />
     <Compile Include="Concrete\Bakim\ArizaNedeni.cs" />

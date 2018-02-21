@@ -6,6 +6,7 @@ using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
@@ -67,6 +68,16 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _bilgilendirmegrubuDal.GetCount(filterCol, filterVal);
+        }
+
+        public List<BilgilendirmeGrubuDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _bilgilendirmegrubuDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _bilgilendirmegrubuDal.GetCountDto(filterCol, filterVal);
         }
     }
 }

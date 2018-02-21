@@ -7,6 +7,7 @@ using System.Web.Http;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Varlik;

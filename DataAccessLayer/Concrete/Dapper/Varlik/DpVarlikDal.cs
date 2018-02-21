@@ -5,6 +5,7 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper
 {

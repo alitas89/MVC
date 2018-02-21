@@ -30,8 +30,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _bilgilendirmeGrubuService.GetCount(filterCol, filterVal) : _bilgilendirmeGrubuService.GetCount();
-            var d = _bilgilendirmeGrubuService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _bilgilendirmeGrubuService.GetCountDto(filterCol, filterVal) : _bilgilendirmeGrubuService.GetCountDto();
+            var d = _bilgilendirmeGrubuService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,
