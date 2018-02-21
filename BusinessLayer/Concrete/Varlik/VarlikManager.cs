@@ -4,71 +4,89 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.ParameterModel;
-using EntityLayer.Concrete.Varlik;
 
 namespace BusinessLayer.Concrete.Varlik
 {
-    public class VarlikDurumuManager : IVarlikDurumuService
+    public class VarlikManager : IVarlikService
     {
-        IVarlikDurumuDal _varlikdurumuDal;
+        IVarlikDal _varlikDal;
 
-        public VarlikDurumuManager(IVarlikDurumuDal varlikdurumuDal)
+        public VarlikManager(IVarlikDal varlikDal)
         {
-            _varlikdurumuDal = varlikdurumuDal;
+            _varlikDal = varlikDal;
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
-        public List<VarlikDurumu> GetList()
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetList()
         {
-            return _varlikdurumuDal.GetList();
+            return _varlikDal.GetList();
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
-        public VarlikDurumu GetById(int Id)
+        public EntityLayer.Concrete.Varlik.Varlik GetById(int Id)
         {
-            return _varlikdurumuDal.Get(Id);
+            return _varlikDal.Get(Id);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
-        public int Add(VarlikDurumu varlikdurumu)
+        public int Add(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
-            return _varlikdurumuDal.Add(varlikdurumu);
+            return _varlikDal.Add(varlik);
         }
 
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
-        public int Update(VarlikDurumu varlikdurumu)
+        public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
-            return _varlikdurumuDal.Update(varlikdurumu);
+            return _varlikDal.Update(varlik);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Delete(int Id)
         {
-            return _varlikdurumuDal.Delete(Id);
+            return _varlikDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int DeleteSoft(int Id)
         {
-            return _varlikdurumuDal.DeleteSoft(Id);
+            return _varlikDal.DeleteSoft(Id);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
-        public List<VarlikDurumu> GetListPagination(PagingParams pagingParams)
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetListPagination(PagingParams pagingParams)
         {
-            return _varlikdurumuDal.GetListPagination(pagingParams);
+            return _varlikDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
-            return _varlikdurumuDal.GetCount(filterCol, filterVal);
+            return _varlikDal.GetCount(filterCol, filterVal);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _varlikDal.GetCountDto(filterCol, filterVal);
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<VarlikDto> GetListDto()
+        {
+            return _varlikDal.GetListDto();
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<VarlikDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _varlikDal.GetListPaginationDto(pagingParams);
         }
     }
 }

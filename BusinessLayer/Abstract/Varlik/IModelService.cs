@@ -26,5 +26,7 @@ namespace BusinessLayer.Abstract.Varlik
         List<ModelDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

@@ -21,7 +21,6 @@ using DataAccessLayer.Abstract.Genel;
 using DataAccessLayer.Abstract.Malzeme;
 using DataAccessLayer.Abstract.Personel;
 using DataAccessLayer.Abstract.Varlik;
-using DataAccessLayer.Abstract.Varlik.DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.Dapper;
 using DataAccessLayer.Concrete.Dapper.Bakim;
@@ -91,6 +90,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IVarlikTuruService>().To<VarlikTuruManager>().InSingletonScope();
             Bind<IVarlikTuruDal>().To<DpVarlikTuruDal>();
+
+            Bind<IVarlikService>().To<VarlikManager>().InSingletonScope();
+            Bind<IVarlikDal>().To<DpVarlikDal>();
 
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();

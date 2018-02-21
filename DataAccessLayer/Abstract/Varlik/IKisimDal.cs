@@ -15,5 +15,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<Kisim> GetList(int SarfYeriID);
 
         bool IsKodDefined(string Kod);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

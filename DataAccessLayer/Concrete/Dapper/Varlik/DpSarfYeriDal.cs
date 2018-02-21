@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
-using DataAccessLayer.Abstract.Varlik.DataAccessLayer.Abstract;
+using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -46,7 +46,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<SarfYeriDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery("select SY.*, I.Ad as IsletmeAd from SarfYeri as SY inner join Isletme as I ON SY.IsletmeID = I.IsletmeID where SY.Silindi=0", new { });
+            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery("select SY.*, I.Ad as IsletmeAd from SarfYeri as SY left join Isletme as I ON SY.IsletmeID = I.IsletmeID where SY.Silindi=0", new { });
         }
 
         public List<SarfYeri> GetListPagination(PagingParams pagingParams)
@@ -93,32 +93,32 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             {
                 //Filtreleme yapılacaktır.
                 pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                if (pagingParams.filterCol.Equals("IsletmeAd"))
-                {
-                    filterQuery = $"and I.{pagingParams.filterCol} like @filterVal";
-                }
-                else
-                {
-                    filterQuery = $"and SY.{pagingParams.filterCol} like @filterVal";
-                } 
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
             }
 
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
-                if (arrOrder[0].ToString().Equals("IsletmeAd"))
-                {
-                    orderQuery = $"ORDER BY I.{arrOrder[0]} {arrOrder[1]}";
-                }
-                else
-                {
-                    orderQuery = $"ORDER BY SY.{arrOrder[0]} {arrOrder[1]}";
-                }
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery($@"select SY.*, I.Ad as IsletmeAd from SarfYeri as SY inner join Isletme as I ON SY.IsletmeID = I.IsletmeID where SY.Silindi=0 {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery($@"SELECT * FROM View_SarfYeriDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_SarfYeriDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
         }
 
         public bool IsKodDefined(string Kod)

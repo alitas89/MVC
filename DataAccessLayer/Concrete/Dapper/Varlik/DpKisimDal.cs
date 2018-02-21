@@ -46,7 +46,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<KisimDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery("select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID where KM.Silindi=0", new { });
+            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery("select KM.*, SY.Ad as SarfYeriAd from kisim KM left join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID where KM.Silindi=0", new { });
         }
 
         public List<Kisim> GetListPagination(PagingParams pagingParams)
@@ -67,7 +67,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             }
 
             return GetListQuery($@"SELECT * FROM Kisim where Silindi=0 {filterQuery} {orderQuery}
-OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                                                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
@@ -79,31 +79,17 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             {
                 //Filtreleme yapılacaktır.
                 pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                if (pagingParams.filterCol.Equals("SarfYeriAd"))
-                {
-                    filterQuery = $"and SY.{pagingParams.filterCol} like @filterVal";
-                }
-                else
-                {
-                    filterQuery = $"and KM.{pagingParams.filterCol} like @filterVal";
-                }
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
             }
 
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
-                if (arrOrder[0].ToString().Equals("SarfYeriAd"))
-                {
-                    orderQuery = $"ORDER BY SY.{arrOrder[0]} {arrOrder[1]}";
-                }
-                else
-                {
-                    orderQuery = $"ORDER BY KM.{arrOrder[0]} {arrOrder[1]}";
-                }
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery($@"select KM.*, SY.Ad as SarfYeriAd from kisim KM inner join SarfYeri SY on KM.SarfYeriID = SY.SarfYeriID where KM.Silindi=0 {filterQuery} {orderQuery}
-OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            return new DpDtoRepositoryBase<KisimDto>().GetListDtoQuery($@"SELECT * FROM View_KisimDto where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
@@ -126,6 +112,20 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var result = GetScalarQuery("select Count(*) from Kisim where Kod= @Kod and Silindi=0", new { Kod }) + "";
             int.TryParse(result, out int count);
             return count > 0;
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_KisimDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
         }
     }
 }

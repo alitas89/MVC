@@ -40,7 +40,7 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _sarfYeriService.GetCount(filterCol, filterVal) : _sarfYeriService.GetCount();
+            total = filterVal.Length != 0 ? _sarfYeriService.GetCountDto(filterCol, filterVal) : _sarfYeriService.GetCountDto();
             var d = _sarfYeriService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,

@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _varlikGrupService.GetCount(filterCol, filterVal) : _varlikGrupService.GetCount();
+            total = filterVal.Length != 0 ? _varlikGrupService.GetCountDto(filterCol, filterVal) : _varlikGrupService.GetCountDto();
             var d = _varlikGrupService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,

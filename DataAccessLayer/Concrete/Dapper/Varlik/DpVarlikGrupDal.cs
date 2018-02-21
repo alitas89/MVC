@@ -41,7 +41,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<VarlikGrupDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery("select VG.*, IT.Ad as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID", new { });
+            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery("select VG.*, IT.Ad as IsTipiAd from VarlikGrup VG left join IsTipi IT on IT.IsTipiID = VG.IsTipiID", new { });
         }
 
         public List<VarlikGrup> GetListPagination(PagingParams pagingParams)
@@ -88,32 +88,32 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             {
                 //Filtreleme yapılacaktır.
                 pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                if (pagingParams.filterCol.Equals("IsTipiAd"))
-                {
-                    filterQuery = $"and IT.{pagingParams.filterCol} like @filterVal";
-                }
-                else
-                {
-                    filterQuery = $"and VG.{pagingParams.filterCol} like @filterVal";
-                }
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
             }
 
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
-                if (arrOrder[0].ToString().Equals("IsTipiAd"))
-                {
-                    orderQuery = $"ORDER BY IT.{arrOrder[0]} {arrOrder[1]}";
-                }
-                else
-                {
-                    orderQuery = $"ORDER BY VG.{arrOrder[0]} {arrOrder[1]}";
-                }
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery($@"select VG.*, IT.Ad as IsTipiAd from VarlikGrup VG inner join IsTipi IT on IT.IsTipiID = VG.IsTipiID where VG.Silindi=0 {filterQuery} {orderQuery}
-                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            return new DpDtoRepositoryBase<VarlikGrupDto>().GetListDtoQuery($@"SELECT * FROM View_VarlikGrupDto where Silindi=0 {filterQuery} {orderQuery}
+            OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VarlikGrupDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
         }
     }
 }
