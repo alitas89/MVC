@@ -258,6 +258,7 @@
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\VardiyaController.cs" />
     <Compile Include="Controllers\VardiyaSinifiController.cs" />
+    <Compile Include="Controllers\VarlikController.cs" />
     <Compile Include="Controllers\VarlikDurumuController.cs" />
     <Compile Include="Controllers\VarlikGrupController.cs" />
     <Compile Include="Controllers\VarlikTuruController.cs" />
@@ -309,6 +310,7 @@
     <Folder Include="Views\OlcuBirim\" />
     <Folder Include="Views\VardiyaSinifi\" />
     <Folder Include="Views\Vardiya\" />
+    <Folder Include="Views\Varlik\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

@@ -31,8 +31,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _bakimArizaKoduService.GetCount(filterCol, filterVal) : _bakimArizaKoduService.GetCount();
-            var d = _bakimArizaKoduService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _bakimArizaKoduService.GetCountDto(filterCol, filterVal) : _bakimArizaKoduService.GetCountDto();
+            var d = _bakimArizaKoduService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,
@@ -74,5 +74,7 @@ namespace WebApi.Controllers
         {
             return _bakimArizaKoduService.Delete(id);
         }
+
+
     }
 }

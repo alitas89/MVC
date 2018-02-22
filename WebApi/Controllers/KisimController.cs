@@ -41,7 +41,7 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _kisimService.GetCount(filterCol, filterVal) : _kisimService.GetCount();
+            total = filterVal.Length != 0 ? _kisimService.GetCountDto(filterCol, filterVal) : _kisimService.GetCountDto();
             var d = _kisimService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,

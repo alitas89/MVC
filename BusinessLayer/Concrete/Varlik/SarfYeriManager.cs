@@ -5,8 +5,9 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
-using DataAccessLayer.Abstract.Varlik.DataAccessLayer.Abstract;
+using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -91,10 +92,15 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _sarfyeriDal.GetListPaginationDto(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _sarfyeriDal.GetCount(filterCol, filterVal);
         }
 
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _sarfyeriDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }

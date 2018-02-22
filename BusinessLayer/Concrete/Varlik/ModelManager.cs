@@ -85,5 +85,10 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _modelDal.GetCount(filterCol, filterVal);
         }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _modelDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }

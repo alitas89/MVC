@@ -9,13 +9,13 @@ namespace EntityLayer.Concrete.Bakim
         public bool GenelKod { get; set; }
         public string Ad { get; set; }
         public int IsTipiID { get; set; }
-        public int BakimOnceligiID { get; set; }
+        public int BakimOncelikID { get; set; }
         public int TalimatKoduID { get; set; }
-        public int RiskKoduID { get; set; }
+        public int RiskTipiID { get; set; }
         public int BakimPeriyodu { get; set; }
         public int BirimID { get; set; }
         public int BakimSuresi { get; set; }
-        public int BakimPuanı { get; set; }
+        public int BakimPuani { get; set; }
         public string Etiket { get; set; }
         public bool SurecPerformansinaDahil { get; set; }
         public string Aciklama { get; set; }

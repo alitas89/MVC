@@ -7,6 +7,7 @@ using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -86,6 +87,11 @@ namespace BusinessLayer.Concrete.Varlik
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _varlikgrupDal.GetCount(filterCol, filterVal);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _varlikgrupDal.GetCountDto(filterCol, filterVal);
         }
     }
 }

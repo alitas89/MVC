@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -36,7 +37,7 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _sarfYeriService.GetCount(filterCol, filterVal) : _sarfYeriService.GetCount();
+            total = filterVal.Length != 0 ? _sarfYeriService.GetCountDto(filterCol, filterVal) : _sarfYeriService.GetCountDto();
             var d = _sarfYeriService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,

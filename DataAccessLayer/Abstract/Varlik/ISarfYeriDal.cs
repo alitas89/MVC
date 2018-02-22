@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.Concrete.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 
@@ -15,6 +16,8 @@ namespace DataAccessLayer.Abstract.Varlik
             List<SarfYeri> GetList(int IsletmeID);            
 
             bool IsKodDefined(string Kod);
-        }
+
+            int GetCountDto(string filterCol = "", string filterVal = "");
+    }
     
 }

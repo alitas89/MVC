@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.Concrete.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 
@@ -11,5 +12,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<VarlikGrupDto> GetListDto();
 
         List<VarlikGrupDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

@@ -4,6 +4,8 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper
 {
@@ -61,6 +63,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             string filter = "";
@@ -71,6 +74,47 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 filter = $"and {filterCol} like @filterVal";
             }
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Varlik where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
+
+        public List<VarlikDto> GetListDto()
+        {
+            return new DpDtoRepositoryBase<VarlikDto>().GetListDtoQuery("SELECT * FROM View_VarlikDto where Silindi=0", new { });
+        }
+
+        public List<VarlikDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+            
+            return new DpDtoRepositoryBase<VarlikDto>().GetListDtoQuery($@"SELECT * FROM View_VarlikDto where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VarlikDto where Silindi=0 {filter} ", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

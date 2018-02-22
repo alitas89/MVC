@@ -41,7 +41,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<ModelDto> GetListDto()
         {
-            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery("select M.*, MA.Ad as MarkaAd from Model M inner join Marka MA on MA.MarkaID = M.MarkaID", new { });
+            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery("select M.*, MA.Ad as MarkaAd from Model M left join Marka MA on MA.MarkaID = M.MarkaID", new { });
         }
         public List<Model> GetListPagination(PagingParams pagingParams)
         {
@@ -87,33 +87,32 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             {
                 //Filtreleme yapılacaktır.
                 pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                if (pagingParams.filterCol.Equals("MarkaAd"))
-                {
-                    filterQuery = $"and MA.{pagingParams.filterCol} like @filterVal";
-                }
-                else
-                {
-                    filterQuery = $"and M.{pagingParams.filterCol} like @filterVal";
-                }
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
             }
 
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
-                if (arrOrder[0].ToString().Equals("MarkaAd"))
-                {
-                    orderQuery = $"ORDER BY MA.{arrOrder[0]} {arrOrder[1]}";
-                }
-                else
-                {
-                    orderQuery = $"ORDER BY M.{arrOrder[0]} {arrOrder[1]}";
-                }
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery($@"select M.*, MA.Ad as MarkaAd from Model M inner join Marka MA on MA.MarkaID = M.MarkaID where M.Silindi=0 {filterQuery} {orderQuery}
-                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery($@"SELECT * FROM View_ModelDto where Silindi=0 {filterQuery} {orderQuery}
+                                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_ModelDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
     }
 }

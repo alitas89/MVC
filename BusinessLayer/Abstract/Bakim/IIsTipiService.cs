@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 
@@ -21,5 +23,9 @@ namespace BusinessLayer.Abstract.Bakim
         List<IsTipi> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

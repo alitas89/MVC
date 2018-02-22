@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel;
 
 namespace DataAccessLayer.Concrete.Dapper.Bakim
 {
