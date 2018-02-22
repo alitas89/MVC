@@ -65,11 +65,13 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bilgilendirmegrubuDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _bilgilendirmegrubuDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<BilgilendirmeGrubuDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _bilgilendirmegrubuDal.GetListPaginationDto(pagingParams);

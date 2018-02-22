@@ -8,6 +8,8 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Malzeme;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 
@@ -73,6 +75,17 @@ namespace BusinessLayer.Concrete.Malzeme
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _ambarDal.GetCount(filterCol, filterVal);
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<AmbarDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _ambarDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _ambarDal.GetCountDto(filterCol, filterVal);
         }
 
     }

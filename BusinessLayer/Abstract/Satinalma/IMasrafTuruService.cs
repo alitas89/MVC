@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.SatinAlma;
 using EntityLayer.Concrete.Satinalma;
 using EntityLayer.ComplexTypes.ParameterModel;
 
@@ -21,5 +23,9 @@ namespace BusinessLayer.Abstract.Satinalma
         List<MasrafTuru> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<MasrafTuruDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

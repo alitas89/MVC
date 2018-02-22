@@ -71,11 +71,13 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isTipiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _isTipiDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _isTipiDal.GetListPaginationDto(pagingParams);

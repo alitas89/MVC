@@ -6,6 +6,7 @@ using DataAccessLayer.Abstract.Satinalma;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Satinalma;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.SatinAlma;
 
 namespace BusinessLayer.Concrete.Satinalma
 {
@@ -66,11 +67,22 @@ namespace BusinessLayer.Concrete.Satinalma
         {
             return _teklifIstemesablonDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _teklifIstemesablonDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<TeklifIstemeSablonDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _teklifIstemesablonDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _teklifIstemesablonDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }
 

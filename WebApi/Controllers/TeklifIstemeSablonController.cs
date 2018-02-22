@@ -27,8 +27,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _teklifIstemeSablonService.GetCount(filterCol, filterVal) : _teklifIstemeSablonService.GetCount();
-            var d = _teklifIstemeSablonService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _teklifIstemeSablonService.GetCountDto(filterCol, filterVal) : _teklifIstemeSablonService.GetCountDto();
+            var d = _teklifIstemeSablonService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

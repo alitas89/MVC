@@ -27,8 +27,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _masrafTuruService.GetCount(filterCol, filterVal) : _masrafTuruService.GetCount();
-            var d = _masrafTuruService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _masrafTuruService.GetCountDto(filterCol, filterVal) : _masrafTuruService.GetCountDto();
+            var d = _masrafTuruService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,
