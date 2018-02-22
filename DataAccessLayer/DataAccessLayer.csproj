@@ -73,6 +73,7 @@
     <Compile Include="Abstract\Satinalma\ITeminSuresiDal.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimSekliDal.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimYeriDal.cs" />
+    <Compile Include="Abstract\Varlik\IAracServisDal.cs" />
     <Compile Include="Abstract\Varlik\IBirimDal.cs" />
     <Compile Include="Abstract\Genel\ICompanyDal.cs" />
     <Compile Include="Abstract\Varlik\IDurusKismiDal.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Concrete\Dapper\Satinalma\DpTeminSuresiDal.cs" />
     <Compile Include="Concrete\Dapper\Satinalma\DpTeslimSekliDal.cs" />
     <Compile Include="Concrete\Dapper\Satinalma\DpTeslimYeriDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpAracServisDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpDurusKismiDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpDurusNedeniDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpEtkiYeriDal.cs" />

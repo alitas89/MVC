@@ -80,6 +80,7 @@
     <Compile Include="Concrete\Satinalma\TeminSuresi.cs" />
     <Compile Include="Concrete\Satinalma\TeslimSekli.cs" />
     <Compile Include="Concrete\Satinalma\TeslimYeri.cs" />
+    <Compile Include="Concrete\Varlik\AracServis.cs" />
     <Compile Include="Concrete\Varlik\Birim.cs" />
     <Compile Include="Concrete\Genel\Company.cs" />
     <Compile Include="Concrete\Varlik\DurusKismi.cs" />

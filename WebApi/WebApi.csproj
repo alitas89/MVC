@@ -203,6 +203,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bearer\AuthorizationServerProvider.cs" />
     <Compile Include="Controllers\AmbarController.cs" />
+    <Compile Include="Controllers\AracServisController.cs" />
     <Compile Include="Controllers\ArizaCozumuController.cs" />
     <Compile Include="Controllers\ArizaNedeniController.cs" />
     <Compile Include="Controllers\ArizaNedeniGrubuController.cs" />
@@ -293,6 +294,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Ambar\" />
+    <Folder Include="Views\AracServis\" />
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Egitim\" />
     <Folder Include="Views\KaynakPozisyonu\" />
