@@ -98,6 +98,7 @@
     <Compile Include="Abstract\Satinalma\ITeminSuresiService.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimSekliService.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimYeriService.cs" />
+    <Compile Include="Abstract\Varlik\IAkaryakitAlimFisService.cs" />
     <Compile Include="Abstract\Varlik\IAracServisService.cs" />
     <Compile Include="Abstract\Varlik\IDurusKismiService.cs" />
     <Compile Include="Abstract\Varlik\IDurusNedeniService.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Concrete\Satinalma\TeminSuresiManager.cs" />
     <Compile Include="Concrete\Satinalma\TeslimSekliManager.cs" />
     <Compile Include="Concrete\Satinalma\TeslimYeriManager.cs" />
+    <Compile Include="Concrete\Varlik\AkaryakitAlimFisManager.cs" />
     <Compile Include="Concrete\Varlik\AracServisManager.cs" />
     <Compile Include="Concrete\Varlik\DurusKismiManager.cs" />
     <Compile Include="Concrete\Varlik\DurusNedeniManager.cs" />
