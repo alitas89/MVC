@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 
@@ -21,5 +23,9 @@ namespace BusinessLayer.Abstract.Malzeme
         List<Ambar> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<AmbarDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

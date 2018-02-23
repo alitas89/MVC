@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 
@@ -21,5 +22,9 @@ namespace BusinessLayer.Abstract.Personel
         List<Vardiya> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<VardiyaDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
     }
 }

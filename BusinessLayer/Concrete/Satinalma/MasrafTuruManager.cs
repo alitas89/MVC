@@ -4,6 +4,8 @@ using DataAccessLayer.Abstract.Satinalma;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.SatinAlma;
 using EntityLayer.Concrete.Satinalma;
 using EntityLayer.ComplexTypes.ParameterModel;
 
@@ -66,10 +68,21 @@ namespace BusinessLayer.Concrete
         {
             return _masrafturuDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _masrafturuDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<MasrafTuruDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _masrafturuDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _masrafturuDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }

@@ -29,8 +29,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _teslimYeriService.GetCount(filterCol, filterVal) : _teslimYeriService.GetCount();
-            var d = _teslimYeriService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _teslimYeriService.GetCountDto(filterCol, filterVal) : _teslimYeriService.GetCountDto();
+            var d = _teslimYeriService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

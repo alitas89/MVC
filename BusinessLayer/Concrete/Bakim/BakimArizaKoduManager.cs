@@ -77,6 +77,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _bakimarizakoduDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<BakimArizaKoduDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _bakimarizakoduDal.GetListPaginationDto(pagingParams);

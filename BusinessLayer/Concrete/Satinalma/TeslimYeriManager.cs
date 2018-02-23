@@ -5,6 +5,7 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.Aspects.Postsharp.CacheAspects;
 using EntityLayer.Concrete.Satinalma;
 using Core.Aspects.Postsharp.AuthorizationAspects;
+using EntityLayer.ComplexTypes.DtoModel.SatinAlma;
 using EntityLayer.ComplexTypes.ParameterModel;
 
 namespace BusinessLayer.Concrete.Satinalma
@@ -69,6 +70,17 @@ namespace BusinessLayer.Concrete.Satinalma
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _teslimyeriDal.GetCount(filterCol, filterVal);
+        }
+
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<TeslimYeriDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _teslimyeriDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _teslimyeriDal.GetCountDto(filterCol, filterVal);
         }
     }
 }

@@ -7,7 +7,7 @@ using EntityLayer.Concrete.Bakim;
 
 namespace EntityLayer.ComplexTypes.DtoModel.Bakim
 {
-    public class BilgilendirmeGrubuDto: BilgilendirmeTuru
+    public class BilgilendirmeGrubuDto: BilgilendirmeGrubu
     {
         public string BilgilendirmeTuruAd { get; set; }
     }

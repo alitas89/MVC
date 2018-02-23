@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract.Satinalma;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Satinalma;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.SatinAlma;
 
 namespace DataAccessLayer.Concrete.Dapper.Satinalma
 {
@@ -74,5 +75,41 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+
+        public List<TeslimYeriDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            return new DpDtoRepositoryBase<TeslimYeriDto>().GetListDtoQuery($@"SELECT * FROM View_TeslimYeriDto where Silindi=0 {filterQuery} {orderQuery}
+                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_TeslimYeriDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
     }
 }

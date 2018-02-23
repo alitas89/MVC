@@ -30,8 +30,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _vardiyaService.GetCount(filterCol, filterVal) : _vardiyaService.GetCount();
-            var d = _vardiyaService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _vardiyaService.GetCountDto(filterCol, filterVal) : _vardiyaService.GetCountDto();
+            var d = _vardiyaService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,
