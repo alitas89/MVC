@@ -48,6 +48,7 @@
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\MasrafTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\TeklifIstemeSablonDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\TeslimYeriDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\AracServisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
