@@ -94,6 +94,8 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IVarlikService>().To<VarlikManager>().InSingletonScope();
             Bind<IVarlikDal>().To<DpVarlikDal>();
 
+            Bind<IAracServisService>().To<AracServisManager>().InSingletonScope();
+            Bind<IAracServisDal>().To<DpAracServisDal>();
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
             Bind<IIsTipiDal>().To<DpIsTipiDal>();

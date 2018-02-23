@@ -45,6 +45,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\StatuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Personel\VardiyaDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\MasrafTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\TeklifIstemeSablonDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\TeslimYeriDto.cs" />
