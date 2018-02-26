@@ -24,5 +24,7 @@ namespace EntityLayer.Concrete.Varlik
         public decimal AracKm { get; set; }
         public string Aciklama { get; set; }
         public bool Silindi { get; set; }
+        public string FisNo { get; set; }
+        public decimal ToplamAkaryakitTutari { get; set; }
     }
 }

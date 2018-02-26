@@ -37,15 +37,17 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
-            return _varlikDal.Add(varlik);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            return _varlikDal.IsKodDefined(varlik.Kod) ? 0 : _varlikDal.Add(varlik);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
-        {
-            return _varlikDal.Update(varlik);
+        {     
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
+            return _varlikDal.IsKodDefined(varlik.Kod) ? 0 : _varlikDal.Update(varlik);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

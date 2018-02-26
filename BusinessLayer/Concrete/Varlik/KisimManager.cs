@@ -63,7 +63,7 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Kisim kisim)
         {
-            //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
             return _kisimDal.IsKodDefined(kisim.Kod) ? 0 : _kisimDal.Update(kisim);
         }
 

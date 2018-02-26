@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return _varlikService.DeleteSoft(id);
         }
 
-        [System.Web.Mvc.Route("api/varlik/deletehard/{id}")]
+        [Route("api/varlik/deletehard/{id}")]
         public int DeleteHard(int id)
         {
             return _varlikService.Delete(id);

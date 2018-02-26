@@ -119,5 +119,11 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public bool IsKodDefined(string Kod)
+        {
+            var result = GetScalarQuery("select Count(*) from Varlik where Kod= @Kod and Silindi=0", new { Kod }) + "";
+            int.TryParse(result, out int count);
+            return count > 0;
+        }
     }
 }

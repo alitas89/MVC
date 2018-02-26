@@ -105,6 +105,8 @@
     <Compile Include="Abstract\Varlik\IVarlikGrupDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruDal.cs" />
     <Compile Include="Abstract\Genel\IVerifyDal.cs" />
+    <Compile Include="Abstract\Varlik\IZimmetTransferDal.cs" />
+    <Compile Include="Abstract\Varlik\IZimmetTransferDetayDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpArizaCozumuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpArizaNedeniDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpArizaNedeniGrubuDal.cs" />
@@ -170,6 +172,8 @@
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Genel\DpVerifyDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDetayDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

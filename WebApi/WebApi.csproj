@@ -264,6 +264,8 @@
     <Compile Include="Controllers\VarlikGrupController.cs" />
     <Compile Include="Controllers\VarlikTuruController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
+    <Compile Include="Controllers\ZimmetTransferController.cs" />
+    <Compile Include="Controllers\ZimmetTransferDetayController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

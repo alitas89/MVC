@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<VarlikDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filterCol = "", string filterVal = "");
+
+        bool IsKodDefined(string Kod);
     }
 }

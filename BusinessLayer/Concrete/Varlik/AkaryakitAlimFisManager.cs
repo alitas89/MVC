@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace BusinessLayer.Concrete.Varlik
 {
@@ -70,10 +72,21 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _akaryakitalimfisDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _akaryakitalimfisDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<AkaryakitAlimFisDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _akaryakitalimfisDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _akaryakitalimfisDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }
