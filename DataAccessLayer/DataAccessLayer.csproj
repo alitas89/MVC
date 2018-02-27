@@ -103,6 +103,7 @@
     <Compile Include="Abstract\Varlik\IVarlikDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikDurumuDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikGrupDal.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikTransferDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruDal.cs" />
     <Compile Include="Abstract\Genel\IVerifyDal.cs" />
     <Compile Include="Abstract\Varlik\IZimmetTransferDal.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikDurumuDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikGrupDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpVarlikTransferDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Genel\DpVerifyDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDal.cs" />

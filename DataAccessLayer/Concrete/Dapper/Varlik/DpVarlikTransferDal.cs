@@ -1,46 +1,46 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
-    public class DpZimmetTransferDal : DpEntityRepositoryBase<ZimmetTransfer>, IZimmetTransferDal
+    public class DpVarlikTransferDal : DpEntityRepositoryBase<VarlikTransfer>, IVarlikTransferDal
     {
-        public List<ZimmetTransfer> GetList()
+        public List<VarlikTransfer> GetList()
         {
-            return GetListQuery("select * from ZimmetTransfer where Silindi=0", new { });
+            return GetListQuery("select * from VarlikTransfer where Silindi=0", new { });
         }
 
-        public ZimmetTransfer Get(int Id)
+        public VarlikTransfer Get(int Id)
         {
-            return GetQuery("select * from ZimmetTransfer where ZimmetTransferID= @Id and Silindi=0", new { Id });
+            return GetQuery("select * from VarlikTransfer where VarlikTransferID= @Id and Silindi=0", new { Id });
         }
 
-        public int Add(ZimmetTransfer zimmettransfer)
+        public int Add(VarlikTransfer varliktransfer)
         {
-            return AddQuery("insert into ZimmetTransfer(TransferNo,TeslimTarih,TeslimSaat,ZimmetVerenID,ZimmetAlanID,UstVarlikID,YeniKisimID,Aciklama,Silindi) values (@TransferNo,@TeslimTarih,@TeslimSaat,@ZimmetVerenID,@ZimmetAlanID,@UstVarlikID,@YeniKisimID,@Aciklama,@Silindi); "+
-                " SELECT CAST(SCOPE_IDENTITY() as int)", zimmettransfer, true);
+            return AddQuery("insert into VarlikTransfer(TransferNo,VarlikID,MevcutKisimID,MevcutSahipVarlikID,YeniSahipVarlikID,YeniKisimID,IslemiYapanID,Tarih,Saat,Aciklama,Silindi) values (@TransferNo,@VarlikID,@MevcutKisimID,@MevcutSahipVarlikID,@YeniSahipVarlikID,@YeniKisimID,@IslemiYapanID,@Tarih,@Saat,@Aciklama,@Silindi)", varliktransfer);
         }
 
-        public int Update(ZimmetTransfer zimmettransfer)
+        public int Update(VarlikTransfer varliktransfer)
         {
-            return UpdateQuery("update ZimmetTransfer set TransferNo=@TransferNo,TeslimTarih=@TeslimTarih,TeslimSaat=@TeslimSaat,ZimmetVerenID=@ZimmetVerenID,ZimmetAlanID=@ZimmetAlanID,UstVarlikID=@UstVarlikID,YeniKisimID=@YeniKisimID,Aciklama=@Aciklama,Silindi=@Silindi where ZimmetTransferID=@ZimmetTransferID", zimmettransfer);
+            return UpdateQuery("update VarlikTransfer set TransferNo=@TransferNo,VarlikID=@VarlikID,MevcutKisimID=@MevcutKisimID,MevcutSahipVarlikID=@MevcutSahipVarlikID,YeniSahipVarlikID=@YeniSahipVarlikID,YeniKisimID=@YeniKisimID,IslemiYapanID=@IslemiYapanID,Tarih=@Tarih,Saat=@Saat,Aciklama=@Aciklama,Silindi=@Silindi where VarlikTransferID=@VarlikTransferID", varliktransfer);
         }
 
         public int Delete(int Id)
         {
-            return DeleteQuery("delete from ZimmetTransfer where ZimmetTransferID=@Id ", new { Id });
+            return DeleteQuery("delete from VarlikTransfer where VarlikTransferID=@Id ", new { Id });
         }
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update ZimmetTransfer set Silindi = 1 where ZimmetTransferID=@Id", new { Id });
+            return UpdateQuery("update VarlikTransfer set Silindi = 1 where VarlikTransferID=@Id", new { Id });
         }
 
-        public List<ZimmetTransfer> GetListPagination(PagingParams pagingParams)
+        public List<VarlikTransfer> GetListPagination(PagingParams pagingParams)
         {
             string filterQuery = "";
             string orderQuery = "ORDER BY 1";
@@ -57,8 +57,8 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM ZimmetTransfer where Silindi=0 {filterQuery} {orderQuery}
-                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            return GetListQuery($@"SELECT * FROM VarlikTransfer where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
@@ -71,12 +71,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 filterVal = '%' + filterVal + '%';
                 where = $" where {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ZimmetTransfer {where}", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM VarlikTransfer {where}", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
 
-        public List<ZimmetTransferDto> GetListPaginationDto(PagingParams pagingParams)
+        public List<VarlikTransferDto> GetListPaginationDto(PagingParams pagingParams)
         {
             string filterQuery = "";
             string orderQuery = "ORDER BY 1";
@@ -93,7 +93,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<ZimmetTransferDto>().GetListDtoQuery($@"SELECT * FROM View_ZimmetTransferDto where Silindi=0 {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<VarlikTransferDto>().GetListDtoQuery($@"SELECT * FROM View_VarlikTransferDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
@@ -107,7 +107,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 filterVal = '%' + filterVal + '%';
                 filter = $"and {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_ZimmetTransferDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_BakimArizaKoduDto where Silindi=0 {filter} ", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

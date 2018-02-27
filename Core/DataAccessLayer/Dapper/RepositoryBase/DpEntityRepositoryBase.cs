@@ -38,7 +38,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
             }
         }
 
-        public int AddQuery(string query, object parameters)
+        public int AddQuery(string query, object parameters, bool isScopeIdentity=false)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -47,7 +47,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
                     connection.Open();
                 }
 
-                var count = connection.Execute(query, parameters);
+                var count = isScopeIdentity ? connection.Query<int>(query, parameters).Single() : connection.Execute(query, parameters);
                 return count;
             }
         }

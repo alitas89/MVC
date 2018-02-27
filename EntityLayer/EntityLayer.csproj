@@ -59,6 +59,7 @@
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\SarfYeriDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikTransferDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDto.cs" />
     <Compile Include="ComplexTypes\ParameterModel\PagingParams.cs" />
     <Compile Include="Concrete\Bakim\ArizaCozumu.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Concrete\Varlik\Varlik.cs" />
     <Compile Include="Concrete\Varlik\VarlikDurumu.cs" />
     <Compile Include="Concrete\Varlik\VarlikGrup.cs" />
+    <Compile Include="Concrete\Varlik\VarlikTransfer.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />
     <Compile Include="Concrete\Genel\Verify.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransfer.cs" />

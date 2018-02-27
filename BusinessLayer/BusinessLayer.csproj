@@ -126,6 +126,7 @@
     <Compile Include="Abstract\Varlik\IVarlikDurumuService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikGrupService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikService.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikTransferService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruService.cs" />
     <Compile Include="Abstract\Genel\IVerifyService.cs" />
     <Compile Include="Abstract\Varlik\IZimmetTransferDetayService.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Concrete\Varlik\VarlikGrupManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikDurumuManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikManager.cs" />
+    <Compile Include="Concrete\Varlik\VarlikTransferManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuruManager.cs" />
     <Compile Include="Concrete\Genel\VerifyManager.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransferDetayManager.cs" />

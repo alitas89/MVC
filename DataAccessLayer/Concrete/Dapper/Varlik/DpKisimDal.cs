@@ -27,7 +27,8 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(Kisim kisim)
         {
-            return AddQuery("insert into Kisim(Kod,Ad,Butce,HedeflenenButce,VardiyaSinifID,SarfYeriID,Aciklama) values (@Kod,@Ad,@Butce,@HedeflenenButce,@VardiyaSinifID,@SarfYeriID,@Aciklama)", kisim);
+            return AddQuery("insert into Kisim(Kod,Ad,Butce,HedeflenenButce,VardiyaSinifID,SarfYeriID,Aciklama) values (@Kod,@Ad,@Butce,@HedeflenenButce,@VardiyaSinifID,@SarfYeriID,@Aciklama); " +
+                " SELECT CAST(SCOPE_IDENTITY() as int)", kisim, true);
         }
 
         public int Update(Kisim kisim)

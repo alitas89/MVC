@@ -96,7 +96,7 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IAracServisService>().To<AracServisManager>().InSingletonScope();
             Bind<IAracServisDal>().To<DpAracServisDal>();
-            
+
             Bind<IAkaryakitAlimFisService>().To<AkaryakitAlimFisManager>().InSingletonScope();
             Bind<IAkaryakitAlimFisDal>().To<DpAkaryakitAlimFisDal>();
 
@@ -105,6 +105,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IZimmetTransferDetayService>().To<ZimmetTransferDetayManager>().InSingletonScope();
             Bind<IZimmetTransferDetayDal>().To<DpZimmetTransferDetayDal>();
+
+            Bind<IVarlikTransferService>().To<VarlikTransferManager>().InSingletonScope();
+            Bind<IVarlikTransferDal>().To<DpVarlikTransferDal>();
 
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();

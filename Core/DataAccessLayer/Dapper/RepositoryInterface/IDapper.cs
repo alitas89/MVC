@@ -9,7 +9,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryInterface
 
         T GetQuery(string query, object parameters);
 
-        int AddQuery(string query, object parameters);
+        int AddQuery(string query, object parameters, bool isScopeIdentity);
 
         int UpdateQuery(string query, object parameters);
 
