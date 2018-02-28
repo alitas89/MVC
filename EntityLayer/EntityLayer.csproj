@@ -60,6 +60,7 @@
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\SarfYeriDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikTransferDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDetayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDto.cs" />
     <Compile Include="ComplexTypes\ParameterModel\PagingParams.cs" />
     <Compile Include="Concrete\Bakim\ArizaCozumu.cs" />

@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>02/26/2018 16:50:53</publishTime>
+      <publishTime>02/28/2018 10:20:30</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>02/26/2018 16:50:53</publishTime>
+      <publishTime>02/28/2018 10:20:30</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>02/26/2018 16:50:34</publishTime>
+      <publishTime>02/28/2018 10:20:10</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>02/26/2018 16:50:34</publishTime>
+      <publishTime>02/28/2018 10:20:10</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -43,16 +43,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>02/26/2018 16:50:35</publishTime>
+      <publishTime>02/28/2018 10:20:11</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>02/26/2018 16:50:35</publishTime>
+      <publishTime>02/28/2018 10:20:11</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>02/26/2018 16:50:35</publishTime>
+      <publishTime>02/28/2018 10:20:10</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>02/26/2018 16:50:35</publishTime>
+      <publishTime>02/28/2018 10:20:10</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>04/14/2013 08:36:28</publishTime>
@@ -73,7 +73,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Cors.dll">
-      <publishTime>05/04/2017 11:53:36</publishTime>
+      <publishTime>04/05/2017 11:53:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
       <publishTime>12/18/2017 15:43:34</publishTime>
@@ -232,10 +232,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>02/26/2018 16:53:22</publishTime>
+      <publishTime>02/28/2018 10:22:41</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>02/26/2018 16:53:22</publishTime>
+      <publishTime>02/28/2018 10:22:41</publishTime>
     </File>
     <File Include="bin/WebApiContrib.dll">
       <publishTime>02/17/2016 14:29:24</publishTime>

@@ -7,13 +7,18 @@ using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
-namespace DataAccessLayer.Concrete.Dapper
+namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
     public class DpVarlikDal : DpEntityRepositoryBase<EntityLayer.Concrete.Varlik.Varlik>, IVarlikDal
     {
         public List<EntityLayer.Concrete.Varlik.Varlik> GetList()
         {
             return GetListQuery("select * from Varlik where Silindi=0", new { });
+        }
+
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID)
+        {
+            return GetListQuery($"select * from Varlik where Silindi=0 and KisimID=@KisimID", new { KisimID });
         }
 
         public EntityLayer.Concrete.Varlik.Varlik Get(int Id)

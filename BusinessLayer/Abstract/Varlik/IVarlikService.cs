@@ -13,6 +13,8 @@ namespace BusinessLayer.Abstract.Varlik
     {
         List<EntityLayer.Concrete.Varlik.Varlik> GetList();
 
+        List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID);
+
         EntityLayer.Concrete.Varlik.Varlik GetById(int id);
 
         int Add(EntityLayer.Concrete.Varlik.Varlik varlik);

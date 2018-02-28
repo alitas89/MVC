@@ -7,5 +7,6 @@ namespace EntityLayer.Concrete.Varlik
         public int ZimmetTransferDetayID { get; set; }
         public int VarlikID { get; set; }
         public int ZimmetTransferID { get; set; }
+        public bool Silindi { get; set; }
     }
 }

@@ -27,6 +27,14 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
+        [Route("api/varlik/getlistbykisim/{KisimID}")]
+        [HttpGet]
+        public IEnumerable<Varlik> GetListBySarfYeri(int KisimID)
+        {
+            return _varlikService.GetList(KisimID);
+        }
+
+        // GET api/<controller>
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;

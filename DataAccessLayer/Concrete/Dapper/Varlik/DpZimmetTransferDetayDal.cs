@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -20,12 +21,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(ZimmetTransferDetay zimmettransferdetay)
         {
-            return AddQuery("insert into ZimmetTransferDetay(VarlikID,ZimmetTransferID) values (@VarlikID,@ZimmetTransferID)", zimmettransferdetay);
+            return AddQuery("insert into ZimmetTransferDetay(VarlikID,ZimmetTransferID,Silindi) values (@VarlikID,@ZimmetTransferID,@Silindi)", zimmettransferdetay);
         }
 
         public int Update(ZimmetTransferDetay zimmettransferdetay)
         {
-            return UpdateQuery("update ZimmetTransferDetay set VarlikID=@VarlikID,ZimmetTransferID=@ZimmetTransferID where ZimmetTransferDetayID=@ZimmetTransferDetayID", zimmettransferdetay);
+            return UpdateQuery("update ZimmetTransferDetay set VarlikID=@VarlikID,ZimmetTransferID=@ZimmetTransferID,Silindi=@Silindi where ZimmetTransferDetayID=@ZimmetTransferDetayID", zimmettransferdetay);
         }
 
         public int Delete(int Id)
@@ -56,7 +57,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             }
 
             return GetListQuery($@"SELECT * FROM ZimmetTransferDetay where Silindi=0 {filterQuery} {orderQuery}
-                        OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
@@ -74,5 +75,46 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             return count;
         }
 
+        public List<ZimmetTransferDetayDto> GetList(int ZimmetTransferID)
+        {
+            return new DpDtoRepositoryBase<ZimmetTransferDetayDto>().GetListDtoQuery("select * from View_ZimmetTransferDetayDto where ZimmetTransferID= @ZimmetTransferID and Silindi=0", new { ZimmetTransferID });
+        }
+
+        public List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams)
+        {
+            string filterQuery = "";
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
+                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
+            }
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            return new DpDtoRepositoryBase<ZimmetTransferDetayDto>().GetListDtoQuery($@"SELECT * FROM View_ZimmetTransferDetayDto where Silindi=0 and ZimmetTransferID=@ZimmetTransferID {filterQuery} {orderQuery}
+                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { ZimmetTransferID, pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+        }
+
+        public int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "")
+        {
+            string filter = "";
+            if (filterVal.Length != 0)
+            {
+                //Filtreleme yapılacaktır.
+                filterVal = '%' + filterVal + '%';
+                filter = $"and {filterCol} like @filterVal";
+            }
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_ZimmetTransferDetayDto where Silindi=0 and ZimmetTransferID=@ZimmetTransferID {filter} ", new { ZimmetTransferID, filterVal }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
     }
 }
+       

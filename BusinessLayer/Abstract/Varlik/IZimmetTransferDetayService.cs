@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -7,6 +8,8 @@ namespace BusinessLayer.Abstract.Varlik
     public interface IZimmetTransferDetayService
     {
         List<ZimmetTransferDetay> GetList();
+
+        List<ZimmetTransferDetayDto> GetList(int ZimmetTransferID);
 
         ZimmetTransferDetay GetById(int id);
 
@@ -21,5 +24,9 @@ namespace BusinessLayer.Abstract.Varlik
         List<ZimmetTransferDetay> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams);
+
+        int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "");
     }
 }

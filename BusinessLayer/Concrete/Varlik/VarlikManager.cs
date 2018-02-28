@@ -26,6 +26,13 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetList();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID)
+        {
+            return _varlikDal.GetList(KisimID);
+        }
+
         [SecuredOperation(Roles = "Admin,Editor")]
         public EntityLayer.Concrete.Varlik.Varlik GetById(int Id)
         {

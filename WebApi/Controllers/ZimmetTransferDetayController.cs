@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -26,14 +27,22 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "",
+        [Route("api/zimmettransferdetay/getlistbyzimmettransferid/{ZimmetTransferID}")]
+        [HttpGet]
+        public IEnumerable<ZimmetTransferDetayDto> GetListByZimmetTransferID(int ZimmetTransferID)
+        {
+            return _zimmetTransferDetayService.GetList(ZimmetTransferID);
+        }
+
+        // GET api/<controller>
+        public HttpResponseMessage Get(int ZimmetTransferID, int offset, int limit, string filterCol = "", string filterVal = "",
             string order = "")
         {
             int total = 0;
             total = filterVal.Length != 0
-                ? _zimmetTransferDetayService.GetCount(filterCol, filterVal)
-                : _zimmetTransferDetayService.GetCount();
-            var d = _zimmetTransferDetayService.GetListPagination(new PagingParams()
+                ? _zimmetTransferDetayService.GetCountDto(ZimmetTransferID, filterCol, filterVal)
+                : _zimmetTransferDetayService.GetCountDto(ZimmetTransferID);
+            var d = _zimmetTransferDetayService.GetListPaginationDto(ZimmetTransferID, new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

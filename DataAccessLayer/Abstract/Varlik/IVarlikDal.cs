@@ -12,6 +12,8 @@ namespace DataAccessLayer.Abstract.Varlik
 
         List<VarlikDto> GetListPaginationDto(PagingParams pagingParams);
 
+        List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID);
+
         int GetCountDto(string filterCol = "", string filterVal = "");
 
         bool IsKodDefined(string Kod);
