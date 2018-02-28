@@ -59,6 +59,7 @@
     <Compile Include="Abstract\Malzeme\IOlcuBirimDal.cs" />
     <Compile Include="Abstract\Malzeme\IMuhasebeHesapDal.cs" />
     <Compile Include="Abstract\Personel\IEgitimDal.cs" />
+    <Compile Include="Abstract\Personel\IKaynakDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakPozisyonuDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakSinifiDal.cs" />
     <Compile Include="Abstract\Personel\IMesaiDal.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Concrete\Dapper\Malzeme\DpMuhasebeHesapDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpOlcuBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpEgitimDal.cs" />
+    <Compile Include="Concrete\Dapper\Personel\DpKaynakDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpKaynakPozisyonuDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpKaynakSinifiDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpMesaiDal.cs" />

@@ -82,6 +82,7 @@
     <Compile Include="Concrete\Malzeme\MuhasebeHesap.cs" />
     <Compile Include="Concrete\Malzeme\OlcuBirim.cs" />
     <Compile Include="Concrete\Personel\Egitim.cs" />
+    <Compile Include="Concrete\Personel\Kaynak.cs" />
     <Compile Include="Concrete\Personel\KaynakPozisyonu.cs" />
     <Compile Include="Concrete\Personel\KaynakSinifi.cs" />
     <Compile Include="Concrete\Personel\Mesai.cs" />

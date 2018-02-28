@@ -230,6 +230,7 @@
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsSektoruController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
+    <Compile Include="Controllers\KaynakController.cs" />
     <Compile Include="Controllers\KaynakPozisyonuController.cs" />
     <Compile Include="Controllers\KaynakSinifiController.cs" />
     <Compile Include="Controllers\KisimController.cs" />
@@ -305,6 +306,7 @@
     <Folder Include="Views\Egitim\" />
     <Folder Include="Views\KaynakPozisyonu\" />
     <Folder Include="Views\KaynakSinifi\" />
+    <Folder Include="Views\Kaynak\" />
     <Folder Include="Views\MalzemeAltGrup\" />
     <Folder Include="Views\MalzemeGrup\" />
     <Folder Include="Views\MalzemeSeriNo\" />

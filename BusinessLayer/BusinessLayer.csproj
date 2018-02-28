@@ -85,6 +85,7 @@
     <Compile Include="Abstract\Malzeme\IOlcuBirimService.cs" />
     <Compile Include="Abstract\Personel\IEgitimService.cs" />
     <Compile Include="Abstract\Personel\IKaynakPozisyonuService.cs" />
+    <Compile Include="Abstract\Personel\IKaynakService.cs" />
     <Compile Include="Abstract\Personel\IKaynakSinifiService.cs" />
     <Compile Include="Abstract\Personel\IMesaiService.cs" />
     <Compile Include="Abstract\Personel\IMesaiTuruService.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Concrete\Malzeme\MuhasebeHesapManager.cs" />
     <Compile Include="Concrete\Malzeme\OlcuBirimManager.cs" />
     <Compile Include="Concrete\Personel\EgitimManager.cs" />
+    <Compile Include="Concrete\Personel\KaynakManager.cs" />
     <Compile Include="Concrete\Personel\KaynakPozisyonuManager.cs" />
     <Compile Include="Concrete\Personel\KaynakSinifiManager.cs" />
     <Compile Include="Concrete\Personel\MesaiManager.cs" />
