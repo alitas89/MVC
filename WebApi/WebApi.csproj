@@ -231,8 +231,11 @@
     <Compile Include="Controllers\IsSektoruController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
     <Compile Include="Controllers\KaynakController.cs" />
+    <Compile Include="Controllers\KaynakDurumuController.cs" />
     <Compile Include="Controllers\KaynakPozisyonuController.cs" />
     <Compile Include="Controllers\KaynakSinifiController.cs" />
+    <Compile Include="Controllers\KaynakTipiController.cs" />
+    <Compile Include="Controllers\KaynakTuruController.cs" />
     <Compile Include="Controllers\KisimController.cs" />
     <Compile Include="Controllers\MalzemeAltGrupController.cs" />
     <Compile Include="Controllers\MalzemeGrupController.cs" />

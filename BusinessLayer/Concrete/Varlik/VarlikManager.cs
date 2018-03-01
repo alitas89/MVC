@@ -52,9 +52,17 @@ namespace BusinessLayer.Concrete.Varlik
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
-        {     
-            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
-            return _varlikDal.IsKodDefined(varlik.Kod) ? 0 : _varlikDal.Update(varlik);
+        {
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
+            if (_varlikDal.IsKodDefined(varlik.Kod))
+            {
+                //Var olan kod kendi kodu mu?
+                return _varlikDal.Get(varlik.VarlikID).Kod == varlik.Kod ? _varlikDal.Update(varlik) : 0;
+            }
+            else
+            {
+                return _varlikDal.Update(varlik);
+            }
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

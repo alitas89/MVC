@@ -6,6 +6,7 @@ using DataAccessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace BusinessLayer.Concrete.Personel
 {
@@ -66,10 +67,21 @@ namespace BusinessLayer.Concrete.Personel
         {
             return _kaynakDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filterCol = "", string filterVal = "")
         {
             return _kaynakDal.GetCount(filterCol, filterVal);
         }
 
+        [SecuredOperation(Roles = "Admin,Editor")]
+        public List<KaynakDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _kaynakDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filterCol = "", string filterVal = "")
+        {
+            return _kaynakDal.GetCountDto(filterCol, filterVal);
+        }
     }
 }

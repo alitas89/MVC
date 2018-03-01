@@ -63,8 +63,16 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(Kisim kisim)
         {
-            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
-            return _kisimDal.IsKodDefined(kisim.Kod) ? 0 : _kisimDal.Update(kisim);
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
+            if (_kisimDal.IsKodDefined(kisim.Kod))
+            {
+                //Var olan kod kendi kodu mu?
+                return _kisimDal.Get(kisim.KisimID).Kod == kisim.Kod ? _kisimDal.Update(kisim) : 0;
+            }
+            else
+            {
+                return _kisimDal.Update(kisim);
+            }
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

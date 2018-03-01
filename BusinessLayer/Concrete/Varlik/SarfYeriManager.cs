@@ -62,9 +62,17 @@ namespace BusinessLayer.Concrete.Varlik
         [FluentValidationAspect(typeof(SarfYeriValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(SarfYeri sarfyeri)
-        {
-            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz!
-            return _sarfyeriDal.IsKodDefined(sarfyeri.Kod) ? 0 : _sarfyeriDal.Update(sarfyeri);
+        {    
+            //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
+            if (_sarfyeriDal.IsKodDefined(sarfyeri.Kod))
+            {
+                //Var olan kod kendi kodu mu?
+                return _sarfyeriDal.Get(sarfyeri.SarfYeriID).Kod == sarfyeri.Kod ? _sarfyeriDal.Update(sarfyeri) : 0;
+            }
+            else
+            {
+                return _sarfyeriDal.Update(sarfyeri);
+            }
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

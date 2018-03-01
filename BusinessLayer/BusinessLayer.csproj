@@ -110,6 +110,9 @@
     <Compile Include="Abstract\Varlik\IHurdaService.cs" />
     <Compile Include="Abstract\Varlik\IIsletmeService.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiService.cs" />
+    <Compile Include="Abstract\Varlik\IKaynakDurumuService.cs" />
+    <Compile Include="Abstract\Varlik\IKaynakTipiService.cs" />
+    <Compile Include="Abstract\Varlik\IKaynakTuruService.cs" />
     <Compile Include="Abstract\Varlik\IKisimService.cs" />
     <Compile Include="Abstract\Genel\IKullaniciRolService.cs" />
     <Compile Include="Abstract\Genel\IKullaniciService.cs" />
@@ -179,6 +182,9 @@
     <Compile Include="Concrete\Varlik\HurdaManager.cs" />
     <Compile Include="Concrete\Varlik\IsletmeManager.cs" />
     <Compile Include="Concrete\Bakim\IsTipiManager.cs" />
+    <Compile Include="Concrete\Varlik\KaynakDurumuManager.cs" />
+    <Compile Include="Concrete\Varlik\KaynakTipiManager.cs" />
+    <Compile Include="Concrete\Varlik\KaynakTuruManager.cs" />
     <Compile Include="Concrete\Varlik\KisimManager.cs" />
     <Compile Include="Concrete\Genel\KullaniciManager.cs" />
     <Compile Include="Concrete\Genel\KullaniciRolManager.cs" />

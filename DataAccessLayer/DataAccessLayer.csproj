@@ -51,6 +51,7 @@
     <Compile Include="Abstract\Bakim\IBilgilendirmeGrubuDal.cs" />
     <Compile Include="Abstract\Bakim\IBilgilendirmeTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriTuruDal.cs" />
+    <Compile Include="Abstract\Personel\IKaynakDurumuDal.cs" />
     <Compile Include="Abstract\Malzeme\IAmbarDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeGrupDal.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="Abstract\Personel\IKaynakDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakPozisyonuDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakSinifiDal.cs" />
+    <Compile Include="Abstract\Personel\IKaynakTipiDal.cs" />
+    <Compile Include="Abstract\Personel\IKaynakTuruDal.cs" />
     <Compile Include="Abstract\Personel\IMesaiDal.cs" />
     <Compile Include="Abstract\Personel\IMesaiTuruDal.cs" />
     <Compile Include="Abstract\Personel\IVardiyaDal.cs" />
@@ -131,8 +134,11 @@
     <Compile Include="Concrete\Dapper\Malzeme\DpOlcuBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpEgitimDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpKaynakDal.cs" />
+    <Compile Include="Concrete\Dapper\Personel\DpKaynakDurumuDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpKaynakPozisyonuDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpKaynakSinifiDal.cs" />
+    <Compile Include="Concrete\Dapper\Personel\DpKaynakTipiDal.cs" />
+    <Compile Include="Concrete\Dapper\Personel\DpKaynakTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpMesaiDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpMesaiTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Personel\DpVardiyaDal.cs" />

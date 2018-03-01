@@ -27,8 +27,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _kaynakService.GetCount(filterCol, filterVal) : _kaynakService.GetCount();
-            var d = _kaynakService.GetListPagination(new PagingParams()
+            total = filterVal.Length != 0 ? _kaynakService.GetCountDto(filterCol, filterVal) : _kaynakService.GetCountDto();
+            var d = _kaynakService.GetListPaginationDto(new PagingParams()
             {
                 filterCol = filterCol,
                 filterVal = filterVal,

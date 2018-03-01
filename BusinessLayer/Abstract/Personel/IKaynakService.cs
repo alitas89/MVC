@@ -1,6 +1,7 @@
 ﻿using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace BusinessLayer.Abstract.Personel
 {
@@ -21,5 +22,10 @@ namespace BusinessLayer.Abstract.Personel
         List<Kaynak> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filterCol = "", string filterVal = "");
+
+        List<KaynakDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filterCol = "", string filterVal = "");
+
     }
 }

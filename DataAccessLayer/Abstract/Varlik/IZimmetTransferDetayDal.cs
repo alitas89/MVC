@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams);
 
         int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "");
+
+        int UpdateVarlikZimmet(int ZimmetTransferID, int VarlikID);
     }
 }

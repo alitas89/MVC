@@ -52,6 +52,7 @@
     <Compile Include="ComplexTypes\DtoModel\Varlik\AkaryakitAlimFisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\AracServisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\KaynakDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\KisimDto.cs" />
@@ -83,8 +84,11 @@
     <Compile Include="Concrete\Malzeme\OlcuBirim.cs" />
     <Compile Include="Concrete\Personel\Egitim.cs" />
     <Compile Include="Concrete\Personel\Kaynak.cs" />
+    <Compile Include="Concrete\Personel\KaynakDurumu.cs" />
     <Compile Include="Concrete\Personel\KaynakPozisyonu.cs" />
     <Compile Include="Concrete\Personel\KaynakSinifi.cs" />
+    <Compile Include="Concrete\Personel\KaynakTipi.cs" />
+    <Compile Include="Concrete\Personel\KaynakTuru.cs" />
     <Compile Include="Concrete\Personel\Mesai.cs" />
     <Compile Include="Concrete\Personel\MesaiTuru.cs" />
     <Compile Include="Concrete\Personel\Vardiya.cs" />

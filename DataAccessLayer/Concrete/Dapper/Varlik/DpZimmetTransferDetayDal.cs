@@ -115,6 +115,11 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public int UpdateVarlikZimmet(int VarlikID, int ZimmetliPersonelID)
+        {
+            return UpdateQuery("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { ZimmetliPersonelID, VarlikID });
+        }
     }
 }
        
