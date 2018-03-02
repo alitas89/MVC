@@ -22,12 +22,12 @@ namespace DataAccessLayer.Concrete.Dapper.Personel
 
         public int Add(Kaynak kaynak)
         {
-            return AddQuery("insert into Kaynak(Kod,Ad,KisimID,SarfyeriID,IsletmeID,VarlikID,EkipID,KaynakSinifID,VardiyaID,StatuID,AmbarID,KaynakPozisyonuID,DurusIsTipiID,KaynakTipi,KaynakDurumu,KaynakTuru,Email,TelefonNo,Silindi) values (@Kod,@Ad,@KisimID,@SarfyeriID,@IsletmeID,@VarlikID,@EkipID,@KaynakSinifID,@VardiyaID,@StatuID,@AmbarID,@KaynakPozisyonuID,@DurusIsTipiID,@KaynakTipi,@KaynakDurumu,@KaynakTuru,@Email,@TelefonNo,@Silindi)", kaynak);
+            return AddQuery("insert into Kaynak(Kod,Ad,KisimID,SarfyeriID,IsletmeID,VarlikID,EkipID,KaynakSinifID,VardiyaID,StatuID,AmbarID,KaynakPozisyonuID,DurusIsTipiID,KaynakTipiID,KaynakDurumuID,KaynakTuruID,Email,TelefonNo,Silindi) values (@Kod,@Ad,@KisimID,@SarfyeriID,@IsletmeID,@VarlikID,@EkipID,@KaynakSinifID,@VardiyaID,@StatuID,@AmbarID,@KaynakPozisyonuID,@DurusIsTipiID,@KaynakTipiID,@KaynakDurumuID,@KaynakTuruID,@Email,@TelefonNo,@Silindi)", kaynak);
         }
 
         public int Update(Kaynak kaynak)
         {
-            return UpdateQuery("update Kaynak set Kod=@Kod,Ad=@Ad,KisimID=@KisimID,SarfyeriID=@SarfyeriID,IsletmeID=@IsletmeID,VarlikID=@VarlikID,EkipID=@EkipID,KaynakSinifID=@KaynakSinifID,VardiyaID=@VardiyaID,StatuID=@StatuID,AmbarID=@AmbarID,KaynakPozisyonuID=@KaynakPozisyonuID,DurusIsTipiID=@DurusIsTipiID,KaynakTipi=@KaynakTipi,KaynakDurumu=@KaynakDurumu,KaynakTuru=@KaynakTuru,Email=@Email,TelefonNo=@TelefonNo,Silindi=@Silindi where KaynakID=@KaynakID", kaynak);
+            return UpdateQuery("update Kaynak set Kod=@Kod,Ad=@Ad,KisimID=@KisimID,SarfyeriID=@SarfyeriID,IsletmeID=@IsletmeID,VarlikID=@VarlikID,EkipID=@EkipID,KaynakSinifID=@KaynakSinifID,VardiyaID=@VardiyaID,StatuID=@StatuID,AmbarID=@AmbarID,KaynakPozisyonuID=@KaynakPozisyonuID,DurusIsTipiID=@DurusIsTipiID,KaynakTipiID=@KaynakTipiID,KaynakDurumuID=@KaynakDurumuID,KaynakTuruID=@KaynakTuruID,Email=@Email,TelefonNo=@TelefonNo,Silindi=@Silindi where KaynakID=@KaynakID", kaynak);
         }
 
         public int Delete(int Id)
@@ -64,14 +64,14 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public int GetCount(string filterCol = "", string filterVal = "")
         {
-            string filter = "";
+            string where = "";
             if (filterVal.Length != 0)
             {
                 //Filtreleme yapılacaktır.
                 filterVal = '%' + filterVal + '%';
-                filter = $"and {filterCol} like @filterVal";
+                where = $" where {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Kaynak where Silindi=0 {filter} ", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Kaynak {where}", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
@@ -111,5 +111,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(strCount, out int count);
             return count;
         }
+
     }
 }
+       

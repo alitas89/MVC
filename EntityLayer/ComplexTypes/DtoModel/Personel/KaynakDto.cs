@@ -1,6 +1,6 @@
 ﻿using EntityLayer.Concrete.Personel;
 
-namespace EntityLayer.ComplexTypes.DtoModel.Varlik
+namespace EntityLayer.ComplexTypes.DtoModel.Personel
 {
     public class KaynakDto:Kaynak
     {

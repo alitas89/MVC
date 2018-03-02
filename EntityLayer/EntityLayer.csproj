@@ -52,7 +52,7 @@
     <Compile Include="ComplexTypes\DtoModel\Varlik\AkaryakitAlimFisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\AracServisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
-    <Compile Include="ComplexTypes\DtoModel\Varlik\KaynakDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Personel\KaynakDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\KisimDto.cs" />

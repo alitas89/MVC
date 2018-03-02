@@ -18,11 +18,12 @@ namespace EntityLayer.Concrete.Personel
         public int AmbarID { get; set; }
         public int KaynakPozisyonuID { get; set; }
         public int DurusIsTipiID { get; set; }
-        public string KaynakTipi { get; set; }
-        public string KaynakDurumu { get; set; }
-        public string KaynakTuru { get; set; }
+        public int KaynakTipiID { get; set; }
+        public int KaynakDurumuID { get; set; }
+        public int KaynakTuruID { get; set; }
         public string Email { get; set; }
         public string TelefonNo { get; set; }
         public bool Silindi { get; set; }
     }
+
 }
