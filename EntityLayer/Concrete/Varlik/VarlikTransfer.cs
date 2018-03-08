@@ -8,8 +8,8 @@ namespace EntityLayer.Concrete.Varlik
         public int VarlikTransferID { get; set; }
         public int TransferNo { get; set; }
         public int VarlikID { get; set; }
-        public int MevcutKisimID { get; set; }
-        public int MevcutSahipVarlikID { get; set; }
+        public int EskiKisimID { get; set; }
+        public int EskiSahipVarlikID { get; set; }
         public int YeniSahipVarlikID { get; set; }
         public int YeniKisimID { get; set; }
         public int IslemiYapanID { get; set; }

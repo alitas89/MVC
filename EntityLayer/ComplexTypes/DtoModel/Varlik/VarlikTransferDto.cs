@@ -10,8 +10,8 @@ namespace EntityLayer.ComplexTypes.DtoModel.Varlik
     public class VarlikTransferDto: VarlikTransfer
     {
         public string VarlikAd { get; set; }
-        public string MevcutKisimAd { get; set; }
-        public string MevcutSahipVarlikAd { get; set; }
+        public string EskiKisimAd { get; set; }
+        public string EskiSahipVarlikAd { get; set; }
         public string YeniSahipVarlikAd { get; set; }
         public string YeniKisimAd { get; set; }
     }
