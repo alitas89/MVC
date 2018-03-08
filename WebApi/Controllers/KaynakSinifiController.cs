@@ -8,6 +8,7 @@ using System.Web.Http;
 using BusinessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
+using System.Linq.Dynamic;
 
 namespace WebApi.Controllers
 {
@@ -27,7 +28,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "")
+        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filterVal.Length != 0 ? _kaynakSinifiService.GetCount(filterCol, filterVal) : _kaynakSinifiService.GetCount();
@@ -37,9 +38,12 @@ namespace WebApi.Controllers
                 filterVal = filterVal,
                 limit = limit,
                 offset = offset,
-                order = order
+                order = order,
+                columns = columns
             });
-            var response = Request.CreateResponse(HttpStatusCode.OK, d);
+            var response = columns.Length > 0 ?
+                Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
+                : Request.CreateResponse(HttpStatusCode.OK, d);
             response.Headers.Add("total", total + "");
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;

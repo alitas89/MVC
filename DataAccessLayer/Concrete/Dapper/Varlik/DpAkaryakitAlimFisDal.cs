@@ -56,10 +56,18 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM AkaryakitAlimFis where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT {columnsQuery} FROM AkaryakitAlimFis where Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
+
 
         public int GetCount(string filterCol = "", string filterVal = "")
         {
@@ -92,7 +100,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<AkaryakitAlimFisDto>().GetListDtoQuery($@"SELECT * FROM View_AkaryakitAlimFisDto where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<AkaryakitAlimFisDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_AkaryakitAlimFisDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
@@ -114,4 +129,3 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
     }
 }
 
-       

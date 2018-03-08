@@ -57,7 +57,14 @@ namespace DataAccessLayer.Concrete.Dapper.Personel
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM Kaynak where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT {columnsQuery} FROM Kaynak where Silindi=0 {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
@@ -93,7 +100,14 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<KaynakDto>().GetListDtoQuery($@"SELECT * FROM View_KaynakDto where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<KaynakDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_KaynakDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }

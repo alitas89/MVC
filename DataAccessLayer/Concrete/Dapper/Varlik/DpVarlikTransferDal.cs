@@ -22,7 +22,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(VarlikTransfer varliktransfer)
         {
-            return AddQuery("insert into VarlikTransfer(TransferNo,VarlikID,EskiKisimID,EskiSahipVarlikID,YeniSahipVarlikID,YeniKisimID,IslemiYapanID,Tarih,Saat,Aciklama,Silindi) values (@TransferNo,@VarlikID,@MevcutKisimID,@MevcutSahipVarlikID,@YeniSahipVarlikID,@YeniKisimID,@IslemiYapanID,@Tarih,@Saat,@Aciklama,@Silindi)", varliktransfer);
+            return AddQuery("insert into VarlikTransfer(TransferNo,VarlikID,EskiKisimID,EskiSahipVarlikID,YeniSahipVarlikID,YeniKisimID,IslemiYapanID,Tarih,Saat,Aciklama,Silindi) values (@TransferNo,@VarlikID,@EskiKisimID,@EskiSahipVarlikID,@YeniSahipVarlikID,@YeniKisimID,@IslemiYapanID,@Tarih,@Saat,@Aciklama,@Silindi)", varliktransfer);
         }
 
         public int Update(VarlikTransfer varliktransfer)
@@ -57,8 +57,15 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM VarlikTransfer where Silindi=0 {filterQuery} {orderQuery}
-                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT {columnsQuery} FROM VarlikTransfer where Silindi=0 {filterQuery} {orderQuery}
+OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
 
@@ -93,7 +100,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<VarlikTransferDto>().GetListDtoQuery($@"SELECT * FROM View_VarlikTransferDto where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<VarlikTransferDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_VarlikTransferDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }

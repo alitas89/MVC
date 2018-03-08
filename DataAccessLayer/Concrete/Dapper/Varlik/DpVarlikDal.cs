@@ -63,7 +63,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM Varlik where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT {columnsQuery} FROM Varlik where Silindi=0 {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
@@ -104,8 +111,15 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 var arrOrder = pagingParams.order.Split('~');
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
-            
-            return new DpDtoRepositoryBase<VarlikDto>().GetListDtoQuery($@"SELECT * FROM View_VarlikDto where Silindi=0 {filterQuery} {orderQuery}
+
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<VarlikDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_VarlikDto where Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }

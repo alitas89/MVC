@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
-using System.Net.Http;
-using System.Reflection;
-using System.Web.Http;
-using System.Linq.Dynamic;
-using System.Web.Script.Serialization;
-using System.Xml;
-using BusinessLayer.Abstract.Varlik;
-using EntityLayer.ComplexTypes.DtoModel;
+﻿using BusinessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
-using UtilityLayer.Tools;
-using DynamicExpression = System.Linq.Dynamic.DynamicExpression;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Linq.Dynamic;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Linq.Dynamic;
 
 namespace WebApi.Controllers
 {
@@ -60,11 +51,8 @@ namespace WebApi.Controllers
                 columns = columns
             });
 
-            //"new(Ad as Ad,Kod as Kod)"
-            //Dynamic Linq ile Export alınacak yapı hazırlanır
-            var resultDynamicLinq = d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList();
-
-            var response = columns.Length > 0 ? Request.CreateResponse(HttpStatusCode.OK, resultDynamicLinq)
+            var response = columns.Length > 0 ? 
+                Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
                 : Request.CreateResponse(HttpStatusCode.OK, d);
 
             response.Headers.Add("total", total + "");

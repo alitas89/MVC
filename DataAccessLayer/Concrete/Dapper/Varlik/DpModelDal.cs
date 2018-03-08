@@ -96,7 +96,14 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery($@"SELECT * FROM View_ModelDto where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+            
+            return new DpDtoRepositoryBase<ModelDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_ModelDto where Silindi=0 {filterQuery} {orderQuery}
                                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
