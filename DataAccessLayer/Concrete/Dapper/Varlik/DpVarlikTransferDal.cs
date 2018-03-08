@@ -22,12 +22,12 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(VarlikTransfer varliktransfer)
         {
-            return AddQuery("insert into VarlikTransfer(TransferNo,VarlikID,MevcutKisimID,MevcutSahipVarlikID,YeniSahipVarlikID,YeniKisimID,IslemiYapanID,Tarih,Saat,Aciklama,Silindi) values (@TransferNo,@VarlikID,@MevcutKisimID,@MevcutSahipVarlikID,@YeniSahipVarlikID,@YeniKisimID,@IslemiYapanID,@Tarih,@Saat,@Aciklama,@Silindi)", varliktransfer);
+            return AddQuery("insert into VarlikTransfer(TransferNo,VarlikID,EskiKisimID,EskiSahipVarlikID,YeniSahipVarlikID,YeniKisimID,IslemiYapanID,Tarih,Saat,Aciklama,Silindi) values (@TransferNo,@VarlikID,@MevcutKisimID,@MevcutSahipVarlikID,@YeniSahipVarlikID,@YeniKisimID,@IslemiYapanID,@Tarih,@Saat,@Aciklama,@Silindi)", varliktransfer);
         }
 
         public int Update(VarlikTransfer varliktransfer)
         {
-            return UpdateQuery("update VarlikTransfer set TransferNo=@TransferNo,VarlikID=@VarlikID,MevcutKisimID=@MevcutKisimID,MevcutSahipVarlikID=@MevcutSahipVarlikID,YeniSahipVarlikID=@YeniSahipVarlikID,YeniKisimID=@YeniKisimID,IslemiYapanID=@IslemiYapanID,Tarih=@Tarih,Saat=@Saat,Aciklama=@Aciklama,Silindi=@Silindi where VarlikTransferID=@VarlikTransferID", varliktransfer);
+            return UpdateQuery("update VarlikTransfer set TransferNo=@TransferNo,VarlikID=@VarlikID,EskiKisimID=@EskiKisimID,EskiSahipVarlikID=@EskiSahipVarlikID,YeniSahipVarlikID=@YeniSahipVarlikID,YeniKisimID=@YeniKisimID,IslemiYapanID=@IslemiYapanID,Tarih=@Tarih,Saat=@Saat,Aciklama=@Aciklama,Silindi=@Silindi where VarlikTransferID=@VarlikTransferID", varliktransfer);
         }
 
         public int Delete(int Id)
