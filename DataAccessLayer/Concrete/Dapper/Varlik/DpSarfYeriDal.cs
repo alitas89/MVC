@@ -67,7 +67,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return GetListQuery($@"SELECT * FROM SarfYeri where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT {columnsQuery} FROM SarfYeri where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }
@@ -103,7 +110,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery($@"SELECT * FROM View_SarfYeriDto where Silindi=0 {filterQuery} {orderQuery}
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<SarfYeriDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SarfYeriDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
         }

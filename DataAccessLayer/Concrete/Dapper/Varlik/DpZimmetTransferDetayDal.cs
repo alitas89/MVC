@@ -116,6 +116,13 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             return count;
         }
 
+        public int GetZimmetliPersonel(int ZimmetTransferID)
+        {
+            var zimmetAlan = GetScalarQuery("select ZimmetAlanID from ZimmetTransfer where ZimmetTransferID=@ZimmetTransferID", new { ZimmetTransferID }) + "";
+            int.TryParse(zimmetAlan, out int zimmetAlanID);
+            return zimmetAlanID;
+        }
+
         public int UpdateVarlikZimmet(int VarlikID, int ZimmetliPersonelID)
         {
             return UpdateQuery("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { ZimmetliPersonelID, VarlikID });

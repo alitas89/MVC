@@ -14,5 +14,6 @@ namespace EntityLayer.ComplexTypes.ParameterModel
         public string filterCol { get; set; }
         public string filterVal { get; set; }
         public string order { get; set; }
+        public string columns { get; set; }
     }
 }

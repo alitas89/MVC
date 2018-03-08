@@ -95,6 +95,9 @@
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -338,6 +341,10 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{BC1837E1-6A55-45FB-85AB-9EA756EA609A}</Project>
       <Name>EntityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilityLayer\UtilityLayer.csproj">
+      <Project>{DAB7B400-0187-419A-8FFD-FA46879E11BA}</Project>
+      <Name>UtilityLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

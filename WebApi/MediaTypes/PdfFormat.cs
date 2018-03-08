@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -84,19 +85,37 @@ namespace WebApi.MediaTypes
                 //Başlıklar oluşturulur
                 var listHeader = itemType.GetProperties().Select(x => x.Name);
 
-                // Add to content to your PDF here...
-                var itemHeaders = listHeader as IList<string> ?? listHeader.ToList();
-                PdfPTable table = new PdfPTable(itemHeaders.Count); //sütun sayısı belirtilir
+                #region DynamicWay
+
+                var listColumns = new List<string>();
+                IList collection = (IList)value;
+                //collection'ın ilk iterasyonundan tüm columnslar çekilebilir.
+                foreach (var prop in collection[0].GetType().GetProperties())
+                {
+                    listColumns.Add(prop.Name + "");
+                }
+
+                var listCells = new List<string>();
+                for (int i = 0; i < collection.Count; i++)
+                {
+                    //Her bir iterasyondaki veriler listCells içerisine alınmalıdır
+                    foreach (var prop in collection[0].GetType().GetProperties())
+                    {
+                        String name = (String)(prop.GetValue(collection[i], null));
+                    }
+                }
+
+                PdfPTable table = new PdfPTable(listColumns.Count); //sütun sayısı belirtilir
 
                 //Ana başlık bilgisi
                 PdfPCell header = new PdfPCell(new Phrase(DateTime.Now.ToShortDateString() + " Tarihli PDF Çıktısı", NormalFont));
-                header.Colspan = itemHeaders.Count; //sütun sayısı belirtilir
+                header.Colspan = listColumns.Count; //sütun sayısı belirtilir
                 header.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right - Hücre içindeki verilerin align durumu
                 table.AddCell(header);
 
                 //Başlıklar oluşturulur
                 Font HeaderFont = new Font(bf, 6, Font.NORMAL, BaseColor.WHITE);
-                foreach (var itemHeader in itemHeaders)
+                foreach (var itemHeader in listColumns)
                 {
                     PdfPCell cell = new PdfPCell(new Phrase(itemHeader, HeaderFont));
                     cell.BackgroundColor = BaseColor.GRAY;
@@ -108,22 +127,15 @@ namespace WebApi.MediaTypes
                     table.AddCell(cell);
                 }
 
-
                 //Veriler oluşturulur
-                foreach (var obj in (IEnumerable<object>)value)
+                for (int i = 0; i < collection.Count; i++)
                 {
-
-                    var vals = obj.GetType().GetProperties().Select(
-                        pi => new
-                        {
-                            Value = pi.GetValue(obj, null)
-                        }
-                    );
-                    
-                    foreach (var val in vals)
+                    //Her bir iterasyondaki veriler listCells içerisine alınmalıdır
+                    foreach (var prop in collection[0].GetType().GetProperties())
                     {
-                        table.AddCell(val.Value != null
-                            ? new Phrase(val.Value.ToString(), NormalFont)
+                        String name = (String)(prop.GetValue(collection[i], null));
+                        table.AddCell(name != null
+                            ? new Phrase(name.ToString(), NormalFont)
                             : new Phrase("", NormalFont));
                     }
                 }
@@ -138,9 +150,64 @@ namespace WebApi.MediaTypes
                 streamWriter.Flush();
                 stream.Seek(0, SeekOrigin.Begin);
 
-            }
+                #endregion
+                
 
-           
+                // Add to content to your PDF here...
+                //var itemHeaders = listHeader as IList<string> ?? listHeader.ToList();
+                //PdfPTable table = new PdfPTable(itemHeaders.Count); //sütun sayısı belirtilir
+
+                ////Ana başlık bilgisi
+                //PdfPCell header = new PdfPCell(new Phrase(DateTime.Now.ToShortDateString() + " Tarihli PDF Çıktısı", NormalFont));
+                //header.Colspan = itemHeaders.Count; //sütun sayısı belirtilir
+                //header.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right - Hücre içindeki verilerin align durumu
+                //table.AddCell(header);
+
+                //Başlıklar oluşturulur
+                //Font HeaderFont = new Font(bf, 6, Font.NORMAL, BaseColor.WHITE);
+                //foreach (var itemHeader in itemHeaders)
+                //{
+                //    PdfPCell cell = new PdfPCell(new Phrase(itemHeader, HeaderFont));
+                //    cell.BackgroundColor = BaseColor.GRAY;
+                //    cell.HorizontalAlignment = 1;
+                //    //cell.BorderColor = new Color(255, 242, 0);
+                //    //table.AddCell(new Phrase(itemHeader, NormalFont));
+                //    cell.PaddingBottom = 4f;
+                //    cell.PaddingTop = 2f;
+                //    table.AddCell(cell);
+                //}
+
+
+                ////Veriler oluşturulur
+                //foreach (var obj in (IEnumerable<object>)value)
+                //{
+
+                //    var vals = obj.GetType().GetProperties().Select(
+                //        pi => new
+                //        {
+                //            Value = pi.GetValue(obj, null)
+                //        }
+                //    );
+
+                //    foreach (var val in vals)
+                //    {
+                //        table.AddCell(val.Value != null
+                //            ? new Phrase(val.Value.ToString(), NormalFont)
+                //            : new Phrase("", NormalFont));
+                //    }
+                //}
+
+                //myDocument.Add(table);
+                //myDocument.Close();
+
+
+                //byte[] content2 = myMemoryStream.ToArray();
+                //streamWriter.BaseStream.Write(content2, 0, content2.Length);
+
+                //streamWriter.Flush();
+                //stream.Seek(0, SeekOrigin.Begin);
+
+            }
         }
 
         private static bool IsTypeOfIEnumerable(Type type)

@@ -44,8 +44,11 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(ZimmetTransferDetay zimmettransferdetay)
         {
+            //Kişi bilgisi alınır
+            int zimmetAlanID = _zimmettransferdetayDal.GetZimmetliPersonel(zimmettransferdetay.ZimmetTransferID);
             //Varlık zimmeti güncellenmelidir.
-            int updateResult = _zimmettransferdetayDal.UpdateVarlikZimmet(zimmettransferdetay.ZimmetTransferID, zimmettransferdetay.VarlikID);
+            int updateResult = _zimmettransferdetayDal.UpdateVarlikZimmet(zimmettransferdetay.VarlikID, zimmetAlanID);
+            //Ekleme yapılır
             return updateResult > 0 ? _zimmettransferdetayDal.Add(zimmettransferdetay) : 0;
         }
 
@@ -54,8 +57,11 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(ZimmetTransferDetay zimmettransferdetay)
         {
+            //Kişi bilgisi alınır
+            int zimmetAlanID = _zimmettransferdetayDal.GetZimmetliPersonel(zimmettransferdetay.ZimmetTransferID);
             //Varlık zimmeti güncellenmelidir.
-            int updateResult = _zimmettransferdetayDal.UpdateVarlikZimmet(zimmettransferdetay.ZimmetTransferID, zimmettransferdetay.VarlikID);
+            int updateResult = _zimmettransferdetayDal.UpdateVarlikZimmet(zimmettransferdetay.VarlikID, zimmetAlanID);
+            //Güncelleme yapılır
             return updateResult > 0 ? _zimmettransferdetayDal.Update(zimmettransferdetay) : 0;
         }
 

@@ -14,6 +14,8 @@ namespace DataAccessLayer.Abstract.Varlik
 
         int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "");
 
-        int UpdateVarlikZimmet(int ZimmetTransferID, int VarlikID);
+        int UpdateVarlikZimmet(int VarlikID, int ZimmetliPersonelID);
+
+        int GetZimmetliPersonel(int ZimmetTransferID);
     }
 }

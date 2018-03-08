@@ -57,7 +57,10 @@
     <Compile Include="Filters\ExceptionResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\ActionResponse.cs" />
+    <Compile Include="Tools\DynamicEntity.cs" />
+    <Compile Include="Tools\DynamicLambda.cs" />
     <Compile Include="Tools\IpGenerator.cs" />
+    <Compile Include="Tools\MyTypeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

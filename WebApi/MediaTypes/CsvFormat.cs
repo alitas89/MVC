@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using EntityLayer.Concrete;
+using iTextSharp.text;
 using WebApiContrib.Formatting;
 
 namespace WebApi.MediaTypes
@@ -68,11 +69,29 @@ namespace WebApi.MediaTypes
 
             using (StringWriter stringWriter = new StringWriter())
             {
-                stringWriter.WriteLine(
-                    string.Join<string>(
-                        ",", itemType.GetProperties().Select(x => x.Name)
-                    )
-                );
+                #region DynamicWay
+                var listColumns = new List<string>();
+                IList collection = (IList)value;
+                //collection'ın ilk iterasyonundan tüm columnslar çekilebilir.
+                foreach (var prop in collection[0].GetType().GetProperties())
+                {
+                    listColumns.Add(prop.Name + "");
+                }
+
+                for (int i = 0; i < listColumns.Count; i++)
+                {
+                  
+                    if (i == listColumns.Count - 1)
+                    {
+                        //Sonuncu veri yeni satırda olmalı ve virgül olmamalı
+                        stringWriter.WriteLine(listColumns[i]);
+                    }
+                    else
+                    {
+                        stringWriter.Write(listColumns[i] + ",");
+                    }
+                }
+                #endregion
 
                 foreach (var obj in (IEnumerable<object>)value)
                 {

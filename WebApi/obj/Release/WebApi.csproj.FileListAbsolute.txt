@@ -428,3 +428,4 @@ D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.dll
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
