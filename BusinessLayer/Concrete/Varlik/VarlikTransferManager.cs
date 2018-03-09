@@ -37,7 +37,10 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Add(VarlikTransfer varliktransfer)
         {
-            return _varliktransferDal.Add(varliktransfer);
+            //Varlık kısım ve bağlıVarlıkKod güncellenmelidir.
+            int updateResult = _varliktransferDal.UpdateVarlikKisimBagliVarlikKod(varliktransfer.VarlikID, varliktransfer.YeniKisimID, varliktransfer.YeniSahipVarlikID);
+            //Ekleme yapılır
+            return updateResult > 0 ? _varliktransferDal.Add(varliktransfer) : 0;
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
@@ -45,7 +48,10 @@ namespace BusinessLayer.Concrete.Varlik
         [SecuredOperation(Roles = "Admin,Editor")]
         public int Update(VarlikTransfer varliktransfer)
         {
-            return _varliktransferDal.Update(varliktransfer);
+            //Varlık kısım ve bağlıVarlıkKod güncellenmelidir.
+            int updateResult = _varliktransferDal.UpdateVarlikKisimBagliVarlikKod(varliktransfer.VarlikID, varliktransfer.YeniKisimID, varliktransfer.YeniSahipVarlikID);
+            //Ekleme yapılır
+            return updateResult > 0 ? _varliktransferDal.Update(varliktransfer) : 0;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]

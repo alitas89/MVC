@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract.Varlik;
-using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -121,9 +120,18 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 filterVal = '%' + filterVal + '%';
                 filter = $"and {filterCol} like @filterVal";
             }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_BakimArizaKoduDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VarlikTransferDto where Silindi=0 {filter} ", new { filterVal }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public int UpdateVarlikKisimBagliVarlikKod(int VarlikID, int KisimID, int? BagliVarlikKod=null)
+        {
+            if (BagliVarlikKod==null)
+            {
+                return UpdateQuery("update Varlik set KisimID=@KisimID where VarlikID=@VarlikID", new { KisimID, VarlikID });
+            }
+            return UpdateQuery("update Varlik set KisimID=@KisimID, BagliVarlikKod=@BagliVarlikKod where VarlikID=@VarlikID", new { KisimID, BagliVarlikKod, VarlikID });
         }
     }
 }
