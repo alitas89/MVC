@@ -101,7 +101,7 @@ namespace WebApi.MediaTypes
                     //Her bir iterasyondaki veriler listCells içerisine alınmalıdır
                     foreach (var prop in collection[0].GetType().GetProperties())
                     {
-                        String name = (String)(prop.GetValue(collection[i], null));
+                        String name = (String)(prop.GetValue(collection[i], null)+"");
                     }
                 }
 
@@ -133,7 +133,7 @@ namespace WebApi.MediaTypes
                     //Her bir iterasyondaki veriler listCells içerisine alınmalıdır
                     foreach (var prop in collection[0].GetType().GetProperties())
                     {
-                        String name = (String)(prop.GetValue(collection[i], null));
+                        String name = prop.GetValue(collection[i], null)+"";
                         table.AddCell(name != null
                             ? new Phrase(name.ToString(), NormalFont)
                             : new Phrase("", NormalFont));
