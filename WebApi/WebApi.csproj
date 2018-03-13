@@ -232,6 +232,7 @@
     <Compile Include="Controllers\IsEmriTuruController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsSektoruController.cs" />
+    <Compile Include="Controllers\IsTalebiController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
     <Compile Include="Controllers\KaynakController.cs" />
     <Compile Include="Controllers\KaynakDurumuController.cs" />
@@ -310,6 +311,7 @@
     <Folder Include="Views\AracServis\" />
     <Folder Include="Views\Company\" />
     <Folder Include="Views\Egitim\" />
+    <Folder Include="Views\IsTalebi\" />
     <Folder Include="Views\KaynakPozisyonu\" />
     <Folder Include="Views\KaynakSinifi\" />
     <Folder Include="Views\Kaynak\" />

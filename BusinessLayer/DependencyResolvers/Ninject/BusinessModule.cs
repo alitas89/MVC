@@ -259,6 +259,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<ITeslimYeriService>().To<TeslimYeriManager>().InSingletonScope();
             Bind<ITeslimYeriDal>().To<DpTeslimYeriDal>();
+
+            Bind<IIsTalebiService>().To<IsTalebiManager>().InSingletonScope();
+            Bind<IIsTalebiDal>().To<DpIsTalebiDal>();
         }
     }
 }

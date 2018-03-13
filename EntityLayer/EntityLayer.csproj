@@ -43,6 +43,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimArizaKoduDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimRiskiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\IsTalebiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\StatuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\VardiyaDto.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Concrete\Bakim\BilgilendirmeGrubu.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeTuru.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
+    <Compile Include="Concrete\Bakim\IsTalebi.cs" />
     <Compile Include="Concrete\Malzeme\Ambar.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
