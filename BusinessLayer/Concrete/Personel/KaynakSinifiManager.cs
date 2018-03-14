@@ -70,9 +70,9 @@ namespace BusinessLayer.Concrete.Personel
         {
             return _kaynaksinifiDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _kaynaksinifiDal.GetCount(filterCol, filterVal);
+            return _kaynaksinifiDal.GetCount(filter);
         }
 
     }

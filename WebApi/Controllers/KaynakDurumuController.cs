@@ -27,14 +27,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _kaynakDurumuService.GetCount(filterCol, filterVal) : _kaynakDurumuService.GetCount();
+            total = filter.Length != 0 ? _kaynakDurumuService.GetCount(filter) : _kaynakDurumuService.GetCount();
             var d = _kaynakDurumuService.GetListPagination(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

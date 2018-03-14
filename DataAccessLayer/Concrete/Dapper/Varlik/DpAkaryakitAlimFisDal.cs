@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
+using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
@@ -41,14 +42,8 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<AkaryakitAlimFis> GetListPagination(PagingParams pagingParams)
         {
-            string filterQuery = "";
+              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
 
             if (pagingParams.order.Length != 0)
             {
@@ -65,34 +60,22 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
             return GetListQuery($@"SELECT {columnsQuery} FROM AkaryakitAlimFis where Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-            new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+            new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            string where = "";
-            if (filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                where = $" where {filterCol} like @filterVal";
-            }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM AkaryakitAlimFis {where}", new { filterVal }) + "";
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM AkaryakitAlimFis  where Silindi=0 {filterQuery}", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
 
         public List<AkaryakitAlimFisDto> GetListPaginationDto(PagingParams pagingParams)
         {
-            string filterQuery = "";
+              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
 
             if (pagingParams.order.Length != 0)
             {
@@ -109,19 +92,13 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
             return new DpDtoRepositoryBase<AkaryakitAlimFisDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_AkaryakitAlimFisDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            string filter = "";
-            if (filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                filter = $"and {filterCol} like @filterVal";
-            }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_AkaryakitAlimFisDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_AkaryakitAlimFisDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

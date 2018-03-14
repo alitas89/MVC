@@ -29,14 +29,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _beklemeIptalNedeniService.GetCount(filterCol, filterVal) : _beklemeIptalNedeniService.GetCount();
+            total = filter.Length != 0 ? _beklemeIptalNedeniService.GetCount(filter) : _beklemeIptalNedeniService.GetCount();
             var d = _beklemeIptalNedeniService.GetListPagination(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

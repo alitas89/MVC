@@ -21,6 +21,6 @@ namespace BusinessLayer.Abstract.Bakim
 
         List<ArizaNedeni> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

@@ -66,9 +66,9 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _arizanedenigrubuDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _arizanedenigrubuDal.GetCount(filterCol, filterVal);
+            return _arizanedenigrubuDal.GetCount(filter);
         }
 
 

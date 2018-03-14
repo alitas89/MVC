@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<DurusKismi> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

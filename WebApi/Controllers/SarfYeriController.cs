@@ -9,7 +9,6 @@ using System.Linq.Dynamic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Linq.Dynamic;
 
 namespace WebApi.Controllers
 {
@@ -37,14 +36,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _sarfYeriService.GetCountDto(filterCol, filterVal) : _sarfYeriService.GetCountDto();
+            total = filter.Length != 0 ? _sarfYeriService.GetCountDto(filter) : _sarfYeriService.GetCountDto();
             List<SarfYeriDto> d = _sarfYeriService.GetListPaginationDto(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

@@ -21,10 +21,10 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<AkaryakitAlimFis> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
 
         List<AkaryakitAlimFisDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

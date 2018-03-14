@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Bakim
 
         List<Oncelik> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

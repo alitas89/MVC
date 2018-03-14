@@ -85,9 +85,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _zimmettransferdetayDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _zimmettransferdetayDal.GetCount(filterCol, filterVal);
+            return _zimmettransferdetayDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -96,9 +96,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _zimmettransferdetayDal.GetListPaginationDto(ZimmetTransferID, pagingParams);
         }
 
-        public int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "")
+        public int GetCountDto(int ZimmetTransferID, string filter = "")
         {
-            return _zimmettransferdetayDal.GetCountDto(ZimmetTransferID, filterCol, filterVal);
+            return _zimmettransferdetayDal.GetCountDto(ZimmetTransferID, filter);
         }
     }
 }

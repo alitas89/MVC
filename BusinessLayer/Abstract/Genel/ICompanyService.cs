@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Genel
 
         List<Company> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

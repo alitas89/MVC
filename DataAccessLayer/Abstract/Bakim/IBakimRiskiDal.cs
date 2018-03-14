@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract.Bakim
     {
         List<BakimRiskiDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

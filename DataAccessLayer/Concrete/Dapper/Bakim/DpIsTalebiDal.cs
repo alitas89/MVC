@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 using System.Collections.Generic;
+using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace DataAccessLayer.Concrete.Dapper.Bakim
@@ -41,14 +42,8 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public List<IsTalebi> GetListPagination(PagingParams pagingParams)
         {
-            string filterQuery = "";
+              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
 
             if (pagingParams.order.Length != 0)
             {
@@ -58,33 +53,21 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
             return GetListQuery($@"SELECT * FROM IsTalebi where Silindi=0 {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-            new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+            new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            string filter = "";
-            if (filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                filter = $"and {filterCol} like @filterVal";
-            }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM IsTalebi where Silindi=0 {filter} ", new { filterVal }) + "";
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM IsTalebi where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
 
         public List<IsTalebiDto> GetListPaginationDto(PagingParams pagingParams)
         {
-            string filterQuery = "";
+              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
 
             if (pagingParams.order.Length != 0)
             {
@@ -94,19 +77,13 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
             return new DpDtoRepositoryBase<IsTalebiDto>().GetListDtoQuery($@"SELECT * FROM View_IsTalebiDto where Silindi=0 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-                new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter="")
         {
-            string filter = "";
-            if (filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                filter = $"and {filterCol} like @filterVal";
-            }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_IsTalebiDto where Silindi=0 {filter} ", new { filterVal }) + "";
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_IsTalebiDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

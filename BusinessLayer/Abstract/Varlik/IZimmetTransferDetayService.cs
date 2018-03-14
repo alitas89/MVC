@@ -23,10 +23,10 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<ZimmetTransferDetay> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
 
         List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams);
 
-        int GetCountDto(int ZimmetTransferID, string filterCol = "", string filterVal = "");
+        int GetCountDto(int ZimmetTransferID, string filter = "");
     }
 }

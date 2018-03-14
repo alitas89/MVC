@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract.Satinalma;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Satinalma;
 using System.Collections.Generic;
+using Core.Utilities.Dal;
 
 namespace DataAccessLayer.Concrete.Dapper.Satinalma
 {
@@ -40,14 +41,8 @@ namespace DataAccessLayer.Concrete.Dapper.Satinalma
 
         public List<BelgeTuru> GetListPagination(PagingParams pagingParams)
         {
-            string filterQuery = "";
+              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-            if (pagingParams.filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                pagingParams.filterVal = '%' + pagingParams.filterVal + '%';
-                filterQuery = $"and {pagingParams.filterCol} like @filterVal";
-            }
 
             if (pagingParams.order.Length != 0)
             {
@@ -64,19 +59,13 @@ namespace DataAccessLayer.Concrete.Dapper.Satinalma
 
             return GetListQuery($@"SELECT {columnsQuery} FROM BelgeTuru where Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-            new { pagingParams.filterVal, pagingParams.offset, pagingParams.limit });
+            new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            string filter = "";
-            if (filterVal.Length != 0)
-            {
-                //Filtreleme yapılacaktır.
-                filterVal = '%' + filterVal + '%';
-                filter = $"and {filterCol} like @filterVal";
-            }
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM BelgeTuru where Silindi=0 {filter} ", new { filterVal }) + "";
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM BelgeTuru where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

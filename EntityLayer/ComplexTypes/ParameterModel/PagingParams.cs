@@ -11,8 +11,7 @@ namespace EntityLayer.ComplexTypes.ParameterModel
 
         public int? offset { get; set; }
         public int? limit { get; set; }
-        public string filterCol { get; set; }
-        public string filterVal { get; set; }
+        public string filter { get; set; }
         public string order { get; set; }
         public string columns { get; set; }
     }

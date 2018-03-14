@@ -67,9 +67,9 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bakimriskiDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _bakimriskiDal.GetCount(filterCol, filterVal);
+            return _bakimriskiDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -78,9 +78,9 @@ namespace BusinessLayer.Concrete.Bakim
             return _bakimriskiDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _bakimriskiDal.GetCountDto(filterCol, filterVal);
+            return _bakimriskiDal.GetCountDto(filter);
         }
     }
 }

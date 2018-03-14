@@ -21,6 +21,7 @@ namespace WebApi.Bearer
         {
             context.Validated();
         }
+
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             IKullaniciService kullaniciService = InstanceFactory.GetInstance<IKullaniciService>();
@@ -50,6 +51,17 @@ namespace WebApi.Bearer
             {
 
             }
+        }
+
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            context.Properties.ExpiresUtc = DateTime.Now.AddDays(7);
+            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
+            {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+
+            return Task.FromResult<object>(null);
         }
     }
 }

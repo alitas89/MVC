@@ -22,10 +22,10 @@ namespace BusinessLayer.Abstract.Satinalma
 
         List<TeklifIstemeSablon> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
 
         List<TeklifIstemeSablonDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

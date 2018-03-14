@@ -28,14 +28,13 @@ namespace WebApi.Controllers
             return _modelService.GetListDto();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _modelService.GetCountDto(filterCol, filterVal) : _modelService.GetCountDto();
+            total = filter.Length != 0 ? _modelService.GetCountDto(filter) : _modelService.GetCountDto();
             var d = _modelService.GetListPaginationDto(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

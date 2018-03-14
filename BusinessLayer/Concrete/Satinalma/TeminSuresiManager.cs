@@ -66,9 +66,9 @@ namespace BusinessLayer.Concrete.Satinalma
         {
             return _teminsuresiDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _teminsuresiDal.GetCount(filterCol, filterVal);
+            return _teminsuresiDal.GetCount(filter);
         }
 
     }

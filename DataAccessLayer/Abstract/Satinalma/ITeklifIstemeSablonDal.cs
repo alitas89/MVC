@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract.Satinalma
     {
         List<TeklifIstemeSablonDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Satinalma
 
         List<BelgeTuru> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

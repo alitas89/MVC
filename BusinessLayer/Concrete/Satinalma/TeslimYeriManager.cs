@@ -67,9 +67,9 @@ namespace BusinessLayer.Concrete.Satinalma
         {
             return _teslimyeriDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _teslimyeriDal.GetCount(filterCol, filterVal);
+            return _teslimyeriDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -78,9 +78,9 @@ namespace BusinessLayer.Concrete.Satinalma
             return _teslimyeriDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _teslimyeriDal.GetCountDto(filterCol, filterVal);
+            return _teslimyeriDal.GetCountDto(filter);
         }
     }
 }

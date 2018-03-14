@@ -17,7 +17,7 @@ namespace DataAccessLayer.Abstract.Varlik
 
             bool IsKodDefined(string Kod);
 
-            int GetCountDto(string filterCol = "", string filterVal = "");
+            int GetCountDto(string filter="");
     }
     
 }

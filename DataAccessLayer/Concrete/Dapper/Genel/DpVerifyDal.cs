@@ -28,7 +28,7 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
             throw new System.NotImplementedException();
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
             throw new System.NotImplementedException();
         }

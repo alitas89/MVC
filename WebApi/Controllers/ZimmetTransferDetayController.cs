@@ -36,17 +36,16 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int ZimmetTransferID, int offset, int limit, string filterCol = "", string filterVal = "",
+        public HttpResponseMessage Get(int ZimmetTransferID, int offset, int limit, string filter="",
             string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0
-                ? _zimmetTransferDetayService.GetCountDto(ZimmetTransferID, filterCol, filterVal)
+            total = filter.Length != 0
+                ? _zimmetTransferDetayService.GetCountDto(ZimmetTransferID, filter)
                 : _zimmetTransferDetayService.GetCountDto(ZimmetTransferID);
             var d = _zimmetTransferDetayService.GetListPaginationDto(ZimmetTransferID, new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

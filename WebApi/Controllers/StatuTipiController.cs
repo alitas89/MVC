@@ -29,14 +29,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _statuTipiService.GetCount(filterCol, filterVal) : _statuTipiService.GetCount();
+            total = filter.Length != 0 ? _statuTipiService.GetCount(filter) : _statuTipiService.GetCount();
             var d = _statuTipiService.GetListPagination(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

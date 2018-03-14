@@ -13,6 +13,6 @@ namespace DataAccessLayer.Abstract.Varlik
 
         List<VarlikGrupDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

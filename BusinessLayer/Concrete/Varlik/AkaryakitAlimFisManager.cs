@@ -73,9 +73,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _akaryakitalimfisDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _akaryakitalimfisDal.GetCount(filterCol, filterVal);
+            return _akaryakitalimfisDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -84,9 +84,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _akaryakitalimfisDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _akaryakitalimfisDal.GetCountDto(filterCol, filterVal);
+            return _akaryakitalimfisDal.GetCountDto(filter);
         }
     }
 }

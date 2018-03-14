@@ -101,14 +101,14 @@ namespace BusinessLayer.Concrete.Varlik
             return _sarfyeriDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _sarfyeriDal.GetCount(filterCol, filterVal);
+            return _sarfyeriDal.GetCount(filter);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _sarfyeriDal.GetCountDto(filterCol, filterVal);
+            return _sarfyeriDal.GetCountDto(filter);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace DataAccessLayer.Abstract.Satinalma
     {
         List<MasrafTuruDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

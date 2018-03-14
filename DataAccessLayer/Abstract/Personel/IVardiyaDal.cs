@@ -12,6 +12,6 @@ namespace DataAccessLayer.Abstract.Personel
     {
         List<VardiyaDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

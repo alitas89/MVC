@@ -21,6 +21,6 @@ namespace BusinessLayer.Abstract.Bakim
 
         List<BilgilendirmeTuru> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

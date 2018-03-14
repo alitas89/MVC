@@ -72,9 +72,9 @@ namespace BusinessLayer.Concrete.Personel
             return _vardiyaDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _vardiyaDal.GetCount(filterCol, filterVal);
+            return _vardiyaDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -83,9 +83,9 @@ namespace BusinessLayer.Concrete.Personel
             return _vardiyaDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _vardiyaDal.GetCountDto(filterCol, filterVal);
+            return _vardiyaDal.GetCountDto(filter);
         }
 
     }

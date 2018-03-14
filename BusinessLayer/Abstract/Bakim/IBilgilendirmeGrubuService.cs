@@ -22,10 +22,10 @@ namespace BusinessLayer.Abstract.Bakim
 
         List<BilgilendirmeGrubu> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
 
         List<BilgilendirmeGrubuDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filterCol = "", string filterVal = "");
+        int GetCountDto(string filter = "");
     }
 }

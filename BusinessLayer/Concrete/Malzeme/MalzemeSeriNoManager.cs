@@ -70,9 +70,9 @@ namespace BusinessLayer.Concrete.Malzeme
         {
             return _malzemeserinoDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _malzemeserinoDal.GetCount(filterCol, filterVal);
+            return _malzemeserinoDal.GetCount(filter);
         }
 
     }

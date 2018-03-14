@@ -69,9 +69,9 @@ namespace BusinessLayer.Concrete.Satinalma
         {
             return _teslimSekliDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _teslimSekliDal.GetCount(filterCol, filterVal);
+            return _teslimSekliDal.GetCount(filter);
         }
 
     }

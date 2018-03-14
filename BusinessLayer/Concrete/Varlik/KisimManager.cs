@@ -99,14 +99,14 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _kisimDal.GetListPaginationDto(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _kisimDal.GetCount(filterCol, filterVal);
+            return _kisimDal.GetCount(filter);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _kisimDal.GetCountDto(filterCol, filterVal);
+            return _kisimDal.GetCountDto(filter);
         }
     }
 }

@@ -72,9 +72,9 @@ namespace BusinessLayer.Concrete.Malzeme
         {
             return _ambarDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _ambarDal.GetCount(filterCol, filterVal);
+            return _ambarDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -83,9 +83,9 @@ namespace BusinessLayer.Concrete.Malzeme
             return _ambarDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _ambarDal.GetCountDto(filterCol, filterVal);
+            return _ambarDal.GetCountDto(filter);
         }
 
     }

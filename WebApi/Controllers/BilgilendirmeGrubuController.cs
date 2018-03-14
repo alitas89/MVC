@@ -28,14 +28,13 @@ namespace WebApi.Controllers
             return _bilgilendirmeGrubuService.GetList();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _bilgilendirmeGrubuService.GetCountDto(filterCol, filterVal) : _bilgilendirmeGrubuService.GetCountDto();
+            total = filter.Length != 0 ? _bilgilendirmeGrubuService.GetCountDto(filter) : _bilgilendirmeGrubuService.GetCountDto();
             var d = _bilgilendirmeGrubuService.GetListPaginationDto(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

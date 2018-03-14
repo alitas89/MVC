@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Malzeme
 
         List<MalzemeGrup> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filterCol = "", string filterVal = "");
+        int GetCount(string filter = "");
     }
 }

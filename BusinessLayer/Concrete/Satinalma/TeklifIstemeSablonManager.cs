@@ -68,9 +68,9 @@ namespace BusinessLayer.Concrete.Satinalma
             return _teklifIstemesablonDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _teklifIstemesablonDal.GetCount(filterCol, filterVal);
+            return _teklifIstemesablonDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -79,9 +79,9 @@ namespace BusinessLayer.Concrete.Satinalma
             return _teklifIstemesablonDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _teklifIstemesablonDal.GetCountDto(filterCol, filterVal);
+            return _teklifIstemesablonDal.GetCountDto(filter);
         }
     }
 }

@@ -78,9 +78,9 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _isletmeDal.GetListPagination(pagingParams);
         }
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _isletmeDal.GetCount(filterCol, filterVal);
+            return _isletmeDal.GetCount(filter);
         }
     }
 }

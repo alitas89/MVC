@@ -27,14 +27,13 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _zimmetTransferService.GetCountDto(filterCol, filterVal) : _zimmetTransferService.GetCountDto();
+            total = filter.Length != 0 ? _zimmetTransferService.GetCountDto(filter) : _zimmetTransferService.GetCountDto();
             var d = _zimmetTransferService.GetListPaginationDto(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

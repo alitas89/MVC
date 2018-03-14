@@ -28,14 +28,13 @@ namespace WebApi.Controllers
             return _durusKismiService.GetList();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filterCol = "", string filterVal = "", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filterVal.Length != 0 ? _durusKismiService.GetCount(filterCol, filterVal) : _durusKismiService.GetCount();
+            total = filter.Length != 0 ? _durusKismiService.GetCount(filter) : _durusKismiService.GetCount();
             var d = _durusKismiService.GetListPagination(new PagingParams()
             {
-                filterCol = filterCol,
-                filterVal = filterVal,
+                filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,

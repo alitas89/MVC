@@ -69,9 +69,9 @@ namespace BusinessLayer.Concrete.Personel
             return _kaynakDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _kaynakDal.GetCount(filterCol, filterVal);
+            return _kaynakDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -80,9 +80,9 @@ namespace BusinessLayer.Concrete.Personel
             return _kaynakDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _kaynakDal.GetCountDto(filterCol, filterVal);
+            return _kaynakDal.GetCountDto(filter);
         }
     }
 }

@@ -47,9 +47,9 @@ namespace BusinessLayer.Concrete.Genel
             return _companyDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _companyDal.GetCount(filterCol, filterVal);
+            return _companyDal.GetCount(filter);
         }
     }
 }

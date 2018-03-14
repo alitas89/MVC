@@ -68,9 +68,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _aracServisDal.GetListPagination(pagingParams);
         }
 
-        public int GetCount(string filterCol = "", string filterVal = "")
+        public int GetCount(string filter = "")
         {
-            return _aracServisDal.GetCount(filterCol, filterVal);
+            return _aracServisDal.GetCount(filter);
         }
 
         [SecuredOperation(Roles = "Admin,Editor")]
@@ -79,9 +79,9 @@ namespace BusinessLayer.Concrete.Varlik
             return _aracServisDal.GetListPaginationDto(pagingParams);
         }
 
-        public int GetCountDto(string filterCol = "", string filterVal = "")
+        public int GetCountDto(string filter = "")
         {
-            return _aracServisDal.GetCountDto(filterCol, filterVal);
+            return _aracServisDal.GetCountDto(filter);
         }
     }
 }
