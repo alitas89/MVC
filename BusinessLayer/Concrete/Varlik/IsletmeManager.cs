@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, IsletmeRead, IsletmeLtd")]
         public List<Isletme> GetList()
         {
             return _isletmeDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, IsletmeRead, IsletmeLtd")]
         public Isletme GetById(int Id)
         {
             return _isletmeDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, IsletmeCreate")]
         public int Add(Isletme isletme)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, IsletmeUpdate")]
         public int Update(Isletme isletme)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
@@ -60,24 +60,25 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, IsletmeDelete")]
         public int Delete(int Id)
         {
             return _isletmeDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, IsletmeDelete")]
         public int DeleteSoft(int Id)
         {
             return _isletmeDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, IsletmeRead, IsletmeLtd")]
         public List<Isletme> GetListPagination(PagingParams pagingParams)
         {
             return _isletmeDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _isletmeDal.GetCount(filter);

@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruRead, MesaiTuruLtd")]
         public List<MesaiTuru> GetList()
         {
             return _mesaituruDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruRead, MesaiTuruLtd")]
         public MesaiTuru GetById(int Id)
         {
             return _mesaituruDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruCreate")]
         public int Add(MesaiTuru mesaituru)
         {
             return _mesaituruDal.Add(mesaituru);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruUpdate")]
         public int Update(MesaiTuru mesaituru)
         {
             return _mesaituruDal.Update(mesaituru);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruDelete")]
         public int Delete(int Id)
         {
             return _mesaituruDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruDelete")]
         public int DeleteSoft(int Id)
         {
             return _mesaituruDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiTuruRead, MesaiTuruLtd")]
         public List<MesaiTuru> GetListPagination(PagingParams pagingParams)
         {
             return _mesaituruDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _mesaituruDal.GetCount(filter);

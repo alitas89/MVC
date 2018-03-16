@@ -19,48 +19,49 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
         public List<RiskTipi> GetList()
         {
             return _risktipiDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
         public RiskTipi GetById(int Id)
         {
             return _risktipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiCreate")]
         public int Add(RiskTipi risktipi)
         {
             return _risktipiDal.Add(risktipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiUpdate")]
         public int Update(RiskTipi risktipi)
         {
             return _risktipiDal.Update(risktipi);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiDelete")]
         public int Delete(int Id)
         {
             return _risktipiDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _risktipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
         public List<RiskTipi> GetListPagination(PagingParams pagingParams)
         {
             return _risktipiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _risktipiDal.GetCount(filter);

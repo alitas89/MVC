@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
         public List<Hizmet> GetList()
         {
             return _hizmetDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
         public Hizmet GetById(int Id)
         {
             return _hizmetDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetCreate")]
         public int Add(Hizmet hizmet)
         {
             return _hizmetDal.Add(hizmet);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetUpdate")]
         public int Update(Hizmet hizmet)
         {
             return _hizmetDal.Update(hizmet);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetDelete")]
         public int Delete(int Id)
         {
             return _hizmetDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetDelete")]
         public int DeleteSoft(int Id)
         {
             return _hizmetDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
         public List<Hizmet> GetListPagination(PagingParams pagingParams)
         {
             return _hizmetDal.GetListPagination(pagingParams);

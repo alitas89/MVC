@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniRead, BeklemeIptalNedeniLtd")]
         public List<BeklemeIptalNedeni> GetList()
         {
             return _beklemeıptalnedeniDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniRead, BeklemeIptalNedeniLtd")]
         public BeklemeIptalNedeni GetById(int Id)
         {
             return _beklemeıptalnedeniDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniCreate")]
         public int Add(BeklemeIptalNedeni beklemeıptalnedeni)
         {
             return _beklemeıptalnedeniDal.Add(beklemeıptalnedeni);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniUpdate")]
         public int Update(BeklemeIptalNedeni beklemeıptalnedeni)
         {
             return _beklemeıptalnedeniDal.Update(beklemeıptalnedeni);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniDelete")]
         public int Delete(int Id)
         {
             return _beklemeıptalnedeniDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniDelete")]
         public int DeleteSoft(int Id)
         {
             return _beklemeıptalnedeniDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BeklemeIptalNedeniRead, BeklemeIptalNedeniLtd")]
         public List<BeklemeIptalNedeni> GetListPagination(PagingParams pagingParams)
         {
             return _beklemeıptalnedeniDal.GetListPagination(pagingParams);

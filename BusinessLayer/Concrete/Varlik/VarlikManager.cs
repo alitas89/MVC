@@ -20,20 +20,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetList()
         {
             return _varlikDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID)
         {
             return _varlikDal.GetList(KisimID);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public EntityLayer.Concrete.Varlik.Varlik GetById(int Id)
         {
             return _varlikDal.Get(Id);
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, VarliklarCreate")]
         public int Add(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
@@ -50,7 +50,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, VarliklarUpdate")]
         public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
@@ -66,20 +66,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, VarliklarDelete")]
         public int Delete(int Id)
         {
             return _varlikDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete VarliklarDelete")]
         public int DeleteSoft(int Id)
         {
             return _varlikDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetListPagination(PagingParams pagingParams)
         {
             return _varlikDal.GetListPagination(pagingParams);
@@ -95,13 +95,13 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetCountDto(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<VarlikDto> GetListDto()
         {
             return _varlikDal.GetListDto();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<VarlikDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _varlikDal.GetListPaginationDto(pagingParams);

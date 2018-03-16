@@ -4,8 +4,8 @@ using EntityLayer.Concrete.Genel;
 
 namespace DataAccessLayer.Abstract.Genel
 {
-    public interface IRolDal : IEntityRepository<Rol>
+    public interface IYetkiGrupKullaniciDal : IEntityRepository<YetkiGrupKullanici>
     {
-        List<Rol> GetRolByKullaniciId(int kullaniciId);
+        List<YetkiGrupKullanici> GetListByKullaniciId(int kullaniciId);
     }
 }

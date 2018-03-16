@@ -24,13 +24,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaRead, VardiyaLtd")]
         public List<Vardiya> GetList()
         {
             return _vardiyaDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaRead, VardiyaLtd")]
         public Vardiya GetById(int Id)
         {
             return _vardiyaDal.Get(Id);
@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaCreate")]
         public int Add(Vardiya vardiya)
         {
             return _vardiyaDal.Add(vardiya);
@@ -46,27 +46,27 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaUpdate")]
         public int Update(Vardiya vardiya)
         {
             return _vardiyaDal.Update(vardiya);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaDelete")]
         public int Delete(int Id)
         {
             return _vardiyaDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaDelete")]
         public int DeleteSoft(int Id)
         {
             return _vardiyaDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaRead, VardiyaLtd")]
         public List<Vardiya> GetListPagination(PagingParams pagingParams)
         {
             return _vardiyaDal.GetListPagination(pagingParams);
@@ -77,7 +77,7 @@ namespace BusinessLayer.Concrete.Personel
             return _vardiyaDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaRead, VardiyaLtd")]
         public List<VardiyaDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _vardiyaDal.GetListPaginationDto(pagingParams);

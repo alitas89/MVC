@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimRead, OlcuBirimLtd")]
         public List<OlcuBirim> GetList()
         {
             return _olcubirimDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimRead, OlcuBirimLtd")]
         public OlcuBirim GetById(int Id)
         {
             return _olcubirimDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimCreate")]
         public int Add(OlcuBirim olcubirim)
         {
             return _olcubirimDal.Add(olcubirim);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimUpdate")]
         public int Update(OlcuBirim olcubirim)
         {
             return _olcubirimDal.Update(olcubirim);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimDelete")]
         public int Delete(int Id)
         {
             return _olcubirimDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimDelete")]
         public int DeleteSoft(int Id)
         {
             return _olcubirimDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, OlcuBirimRead, OlcuBirimLtd")]
         public List<OlcuBirim> GetListPagination(PagingParams pagingParams)
         {
             return _olcubirimDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _olcubirimDal.GetCount(filter);

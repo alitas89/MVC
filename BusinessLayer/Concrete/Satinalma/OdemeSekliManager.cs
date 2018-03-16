@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, OdemeSekliRead, OdemeSekliLtd")]
         public List<OdemeSekli> GetList()
         {
             return _odemesekliDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, OdemeSekliRead, OdemeSekliLtd")]
         public OdemeSekli GetById(int Id)
         {
             return _odemesekliDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Satinalma
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaCreate, OdemeSekliCreate")]
         public int Add(OdemeSekli odemesekli)
         {
             return _odemesekliDal.Add(odemesekli);
@@ -41,31 +41,32 @@ namespace BusinessLayer.Concrete.Satinalma
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, OdemeSekliUpdate")]
         public int Update(OdemeSekli odemesekli)
         {
             return _odemesekliDal.Update(odemesekli);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, OdemeSekliDelete")]
         public int Delete(int Id)
         {
             return _odemesekliDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, OdemeSekliDelete")]
         public int DeleteSoft(int Id)
         {
             return _odemesekliDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, OdemeSekliRead, OdemeSekliLtd")]
         public List<OdemeSekli> GetListPagination(PagingParams pagingParams)
         {
             return _odemesekliDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _odemesekliDal.GetCount(filter);

@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusKismiRead, DurusKismiLtd")]
         public List<DurusKismi> GetList()
         {
             return _duruskismiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusKismiRead, DurusKismiLtd")]
         public DurusKismi GetById(int Id)
         {
             return _duruskismiDal.Get(Id);
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(DurusKismiValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, DurusKismiCreate")]
         public int Add(DurusKismi duruskismi)
         {
             return _duruskismiDal.Add(duruskismi);
@@ -44,31 +44,32 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(DurusKismiValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, DurusKismiUpdate")]
         public int Update(DurusKismi duruskismi)
         {
             return _duruskismiDal.Update(duruskismi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, DurusKismiDelete")]
         public int Delete(int Id)
         {
             return _duruskismiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, DurusKismiDelete")]
         public int DeleteSoft(int Id)
         {
             return _duruskismiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusKismiRead, DurusKismiLtd")]
         public List<DurusKismi> GetListPagination(PagingParams pagingParams)
         {
             return _duruskismiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _duruskismiDal.GetCount(filter);

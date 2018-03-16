@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriRead, EtkiYeriLtd")]
         public List<EtkiYeri> GetList()
         {
             return _etkiyeriDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriRead, EtkiYeriLtd")]
         public EtkiYeri GetById(int Id)
         {
             return _etkiyeriDal.Get(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriCreate")]
         public int Add(EtkiYeri etkiyeri)
         {
             return _etkiyeriDal.Add(etkiyeri);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriUpdate")]
         public int Update(EtkiYeri etkiyeri)
         {
             return _etkiyeriDal.Update(etkiyeri);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriDelete")]
         public int Delete(int Id)
         {
             return _etkiyeriDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriDelete")]
         public int DeleteSoft(int Id)
         {
             return _etkiyeriDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, EtkiYeriRead, EtkiYeriLtd")]
         public List<EtkiYeri> GetListPagination(PagingParams pagingParams)
         {
             return _etkiyeriDal.GetListPagination(pagingParams);

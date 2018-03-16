@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiRead, MesaiLtd")]
         public List<Mesai> GetList()
         {
             return _mesaiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiRead, MesaiLtd")]
         public Mesai GetById(int Id)
         {
             return _mesaiDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiCreate")]
         public int Add(Mesai mesai)
         {
             return _mesaiDal.Add(mesai);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiUpdate")]
         public int Update(Mesai mesai)
         {
             return _mesaiDal.Update(mesai);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiDelete")]
         public int Delete(int Id)
         {
             return _mesaiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiDelete")]
         public int DeleteSoft(int Id)
         {
             return _mesaiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MesaiRead, MesaiLtd")]
         public List<Mesai> GetListPagination(PagingParams pagingParams)
         {
             return _mesaiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _mesaiDal.GetCount(filter);

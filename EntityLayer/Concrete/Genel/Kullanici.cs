@@ -11,6 +11,5 @@ namespace EntityLayer.Concrete.Genel
         public string Soyad { get; set; }
         public string Email { get; set; }
         public bool Silindi { get; set; }
-        public Rol Rol { get; set; }
     }
 }

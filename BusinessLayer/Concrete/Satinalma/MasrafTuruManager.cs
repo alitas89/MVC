@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, MasrafTuruRead, MasrafTuruLtd")]
         public List<MasrafTuru> GetList()
         {
             return _masrafturuDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, MasrafTuruRead, MasrafTuruLtd")]
         public MasrafTuru GetById(int Id)
         {
             return _masrafturuDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaCreate, MasrafTuruCreate")]
         public int Add(MasrafTuru masrafturu)
         {
             return _masrafturuDal.Add(masrafturu);
@@ -43,27 +43,27 @@ namespace BusinessLayer.Concrete
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, MasrafTuruUpdate")]
         public int Update(MasrafTuru masrafturu)
         {
             return _masrafturuDal.Update(masrafturu);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, MasrafTuruDelete")]
         public int Delete(int Id)
         {
             return _masrafturuDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, MasrafTuruDelete")]
         public int DeleteSoft(int Id)
         {
             return _masrafturuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, MasrafTuruRead, MasrafTuruLtd")]
         public List<MasrafTuru> GetListPagination(PagingParams pagingParams)
         {
             return _masrafturuDal.GetListPagination(pagingParams);
@@ -74,7 +74,7 @@ namespace BusinessLayer.Concrete
             return _masrafturuDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, MasrafTuruRead, MasrafTuruLtd")]
         public List<MasrafTuruDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _masrafturuDal.GetListPaginationDto(pagingParams);

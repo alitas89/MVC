@@ -41,7 +41,7 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public List<Company> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)

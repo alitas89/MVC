@@ -25,7 +25,9 @@ namespace WebApi.Bearer
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             IKullaniciService kullaniciService = InstanceFactory.GetInstance<IKullaniciService>();
-            IRolService rolService = InstanceFactory.GetInstance<IRolService>();
+            IYetkiGrupKullaniciService yetkiGrupKullaniciService = InstanceFactory.GetInstance<IYetkiGrupKullaniciService>();
+            IYetkiGrupRolService yetkiGrupRol = InstanceFactory.GetInstance<IYetkiGrupRolService>();
+            IYetkiRolService yetkiRol = InstanceFactory.GetInstance<IYetkiRolService>();
 
             try
             {
@@ -33,21 +35,40 @@ namespace WebApi.Bearer
                 if (kullanici != null)
                 {
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-                    var roleArray =
-                        rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
-                    //IPrincipal principal = new GenericPrincipal(new GenericIdentity(context.UserName), rolArray);
-                    //Thread.CurrentPrincipal = principal;
-                    //HttpContext.Current.User = principal;
 
-                    identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-                    foreach (var role in roleArray)
+                    //Gelen kullanıcı üzerinden grup bilgilerine ulaşılır
+                    var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciId).Select(u => u.YetkiGrupID).Distinct().ToArray();
+
+                    //Her bir grup için bulunan rolIDleri alınır
+                    foreach (var yetkiGrupID in arrYetkiGrupID)
                     {
-                        identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                        var arrYetkiRolID = yetkiGrupRol.GetListByGrupId(yetkiGrupID).Select(x => x.YetkiRolID).Distinct().ToArray();
+                        foreach (var yetkiRolID in arrYetkiRolID)
+                        {
+                            //Her bir rolün idsi üzerinden adına ulaşılır ve claim edilir
+                            var role = yetkiRol.GetById(yetkiRolID);
+                            if (role != null)
+                            {
+                                identity.AddClaim(new Claim(ClaimTypes.Role, role.Ad));
+                            }
+                        }
                     }
+
+                    //var roleArray =
+                    //    rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
+                    ////IPrincipal principal = new GenericPrincipal(new GenericIdentity(context.UserName), rolArray);
+                    ////Thread.CurrentPrincipal = principal;
+                    ////HttpContext.Current.User = principal;
+
+                    //identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+                    //foreach (var role in roleArray)
+                    //{
+                    //    identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                    //}
                     context.Validated(identity);
                 }
             }
-            catch 
+            catch(Exception ex)
             {
 
             }

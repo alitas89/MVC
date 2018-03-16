@@ -23,27 +23,27 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<Kisim> GetList()
         {
             return _kisimDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<Kisim> GetList(int SarfYeriID)
         {
             return _kisimDal.GetList(SarfYeriID);
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<KisimDto> GetListDto()
         {
             return _kisimDal.GetListDto();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public Kisim GetById(int Id)
         {
             return _kisimDal.Get(Id);
@@ -51,7 +51,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(KisimValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, KisimCreate")]
         public int Add(Kisim kisim)
         {            
             //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
@@ -60,7 +60,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(KisimValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, KisimUpdate")]
         public int Update(Kisim kisim)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
@@ -76,29 +76,31 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, KisimDelete")]
         public int Delete(int Id)
         {
             return _kisimDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, KisimDelete")]
         public int DeleteSoft(int Id)
         {
             return _kisimDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<Kisim> GetListPagination(PagingParams pagingParams)
         {
             return _kisimDal.GetListPagination(pagingParams);
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+
+        [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<KisimDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _kisimDal.GetListPaginationDto(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _kisimDal.GetCount(filter);

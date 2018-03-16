@@ -77,6 +77,10 @@
     <Compile Include="Concrete\Bakim\BilgilendirmeTuru.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
+    <Compile Include="Concrete\Genel\YetkiGrup.cs" />
+    <Compile Include="Concrete\Genel\YetkiGrupKullanici.cs" />
+    <Compile Include="Concrete\Genel\YetkiGrupRol.cs" />
+    <Compile Include="Concrete\Genel\YetkiRol.cs" />
     <Compile Include="Concrete\Malzeme\Ambar.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
@@ -118,13 +122,11 @@
     <Compile Include="Concrete\Bakim\IsTipi.cs" />
     <Compile Include="Concrete\Varlik\Kisim.cs" />
     <Compile Include="Concrete\Genel\Kullanici.cs" />
-    <Compile Include="Concrete\Genel\KullaniciRol.cs" />
     <Compile Include="Concrete\Varlik\Marka.cs" />
     <Compile Include="Concrete\Varlik\Model.cs" />
     <Compile Include="Concrete\Bakim\Oncelik.cs" />
     <Compile Include="Concrete\Bakim\ParaBirim.cs" />
     <Compile Include="Concrete\Bakim\RiskTipi.cs" />
-    <Compile Include="Concrete\Genel\Rol.cs" />
     <Compile Include="Concrete\Varlik\SarfYeri.cs" />
     <Compile Include="Concrete\Bakim\Statu.cs" />
     <Compile Include="Concrete\Bakim\StatuTipi.cs" />

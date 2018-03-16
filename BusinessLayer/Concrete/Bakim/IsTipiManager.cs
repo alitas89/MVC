@@ -28,45 +28,47 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiRead, IsTipiLtd")]
         public List<IsTipi> GetList()
         {
             return _isTipiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiRead, IsTipiLtd")]
         public IsTipi GetById(int Id)
         {
             return _isTipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiCreate")]
         public int Add(IsTipi ıstipi)
         {
             return _isTipiDal.Add(ıstipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiUpdate")]
         public int Update(IsTipi ıstipi)
         {
             return _isTipiDal.Update(ıstipi);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiDelete")]
         public int Delete(int Id)
         {
             return _isTipiDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _isTipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiRead, IsTipiLtd")]
         public List<IsTipi> GetListPagination(PagingParams pagingParams)
         {
             return _isTipiDal.GetListPagination(pagingParams);
@@ -77,7 +79,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTipiDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTipiRead, IsTipiLtd")]
         public List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _isTipiDal.GetListPaginationDto(pagingParams);

@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, MarkaRead, MarkaLtd")]
         public List<Marka> GetList()
         {
             return _markaDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, MarkaRead, MarkaLtd")]
         public Marka GetById(int Id)
         {
             return _markaDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(MarkaValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, MarkaCreate")]
         public int Add(Marka marka)
         {
             return _markaDal.Add(marka);
@@ -43,31 +43,32 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(MarkaValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, MarkaUpdate")]
         public int Update(Marka marka)
         {
             return _markaDal.Update(marka);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, MarkaDelete")]
         public int Delete(int Id)
         {
             return _markaDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, MarkaDelete")]
         public int DeleteSoft(int Id)
         {
             return _markaDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, MarkaRead, MarkaLtd")]
         public List<Marka> GetListPagination(PagingParams pagingParams)
         {
             return _markaDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _markaDal.GetCount(filter);

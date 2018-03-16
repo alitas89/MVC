@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupRead, MalzemeAltGrupLtd")]
         public List<MalzemeAltGrup> GetList()
         {
             return _malzemealtgrupDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupRead, MalzemeAltGrupLtd")]
         public MalzemeAltGrup GetById(int Id)
         {
             return _malzemealtgrupDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupCreate")]
         public int Add(MalzemeAltGrup malzemealtgrup)
         {
             return _malzemealtgrupDal.Add(malzemealtgrup);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupUpdate")]
         public int Update(MalzemeAltGrup malzemealtgrup)
         {
             return _malzemealtgrupDal.Update(malzemealtgrup);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupDelete")]
         public int Delete(int Id)
         {
             return _malzemealtgrupDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupDelete")]
         public int DeleteSoft(int Id)
         {
             return _malzemealtgrupDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeAltGrupRead, MalzemeAltGrupLtd")]
         public List<MalzemeAltGrup> GetListPagination(PagingParams pagingParams)
         {
             return _malzemealtgrupDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _malzemealtgrupDal.GetCount(filter);

@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public List<GecikmeNedeni> GetList()
         {
             return _gecikmenedeniDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public GecikmeNedeni GetById(int Id)
         {
             return _gecikmenedeniDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniCreate")]
         public int Add(GecikmeNedeni gecikmenedeni)
         {
             return _gecikmenedeniDal.Add(gecikmenedeni);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniUpdate")]
         public int Update(GecikmeNedeni gecikmenedeni)
         {
             return _gecikmenedeniDal.Update(gecikmenedeni);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniDelete")]
         public int Delete(int Id)
         {
             return _gecikmenedeniDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniDelete")]
         public int DeleteSoft(int Id)
         {
             return _gecikmenedeniDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public List<GecikmeNedeni> GetListPagination(PagingParams pagingParams)
         {
             return _gecikmenedeniDal.GetListPagination(pagingParams);

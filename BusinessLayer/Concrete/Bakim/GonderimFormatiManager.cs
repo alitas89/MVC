@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiRead, GonderimFormatiLtd")]
         public List<GonderimFormati> GetList()
         {
             return _gonderimformatiDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiRead, GonderimFormatiLtd")]
         public GonderimFormati GetById(int Id)
         {
             return _gonderimformatiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiCreate")]
         public int Add(GonderimFormati gonderimformati)
         {
             return _gonderimformatiDal.Add(gonderimformati);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiUpdate")]
         public int Update(GonderimFormati gonderimformati)
         {
             return _gonderimformatiDal.Update(gonderimformati);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiDelete")]
         public int Delete(int Id)
         {
             return _gonderimformatiDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiDelete")]
         public int DeleteSoft(int Id)
         {
             return _gonderimformatiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, GonderimFormatiRead, GonderimFormatiLtd")]
         public List<GonderimFormati> GetListPagination(PagingParams pagingParams)
         {
             return _gonderimformatiDal.GetListPagination(pagingParams);

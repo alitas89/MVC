@@ -22,12 +22,12 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuRead, ArizaCozumuLtd")]
         public List<ArizaCozumu> GetList()
         {
             return _arizacozumuDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuRead, ArizaCozumuLtd")]
         public ArizaCozumu GetById(int Id)
         {
             return _arizacozumuDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuCreate")]
         public int Add(ArizaCozumu arizacozumu)
         {
             return _arizacozumuDal.Add(arizacozumu);
@@ -43,25 +43,25 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuUpdate")]
         public int Update(ArizaCozumu arizacozumu)
         {
             return _arizacozumuDal.Update(arizacozumu);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuDelete")]
         public int Delete(int Id)
         {
             return _arizacozumuDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, ArizaCozumuDelete")]
         public int DeleteSoft(int Id)
         {
             return _arizacozumuDal.DeleteSoft(Id);
         }
         
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin,Editor,ArizaCozumuRead, ArizaCozumuLtd")]
         public List<ArizaCozumu> GetListPagination(PagingParams pagingParams)
         {
             return _arizacozumuDal.GetListPagination(pagingParams);

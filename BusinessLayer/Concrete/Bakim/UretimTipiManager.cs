@@ -19,48 +19,49 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiRead, UretimTipiLtd")]
         public List<UretimTipi> GetList()
         {
             return _uretimtipiDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiRead, UretimTipiLtd")]
         public UretimTipi GetById(int Id)
         {
             return _uretimtipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiCreate")]
         public int Add(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Add(uretimtipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiUpdate")]
         public int Update(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Update(uretimtipi);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiDelete")]
         public int Delete(int Id)
         {
             return _uretimtipiDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _uretimtipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, UretimTipiRead, UretimTipiLtd")]
         public List<UretimTipi> GetListPagination(PagingParams pagingParams)
         {
             return _uretimtipiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _uretimtipiDal.GetCount(filter);

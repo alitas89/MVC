@@ -40,17 +40,27 @@ namespace BusinessLayer.DependencyResolvers.Ninject
     {
         public override void Load()
         {
+            //#GenelModul
             Bind<IVerifyService>().To<VerifyManager>().InSingletonScope();
             Bind<IVerifyDal>().To<DpVerifyDal>();
 
             Bind<IKullaniciService>().To<KullaniciManager>().InSingletonScope();
             Bind<IKullaniciDal>().To<DpKullaniciDal>();
 
-            Bind<IRolService>().To<RolManager>().InSingletonScope();
-            Bind<IRolDal>().To<DpRolDal>();
-
             Bind<ICompanyService>().To<CompanyManager>();
             Bind<ICompanyDal>().To<DpCompanyDal>();
+
+            Bind<IYetkiGrupKullaniciService>().To<YetkiGrupKullaniciManager>();
+            Bind<IYetkiGrupKullaniciDal>().To<DpYetkiGrupKullaniciDal>();
+
+            Bind<IYetkiGrupRolService>().To<YetkiGrupRolManager>();
+            Bind<IYetkiGrupRolDal>().To<DpYetkiGrupRolDal>();
+
+            Bind<IYetkiRolService>().To<YetkiRolManager>();
+            Bind<IYetkiRolDal>().To<DpYetkiRolDal>();
+
+            Bind<IYetkiGrupService>().To<YetkiGrupManager>();
+            Bind<IYetkiGrupDal>().To<DpYetkiGrupDal>();
 
             //*****Asıl tablolar
 

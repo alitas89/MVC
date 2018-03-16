@@ -23,44 +23,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuRead, BilgilendirmeGrubuLtd")]
         public List<BilgilendirmeGrubu> GetList()
         {
             return _bilgilendirmegrubuDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuRead, BilgilendirmeGrubuLtd")]
         public BilgilendirmeGrubu GetById(int Id)
         {
             return _bilgilendirmegrubuDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuCreate")]
         public int Add(BilgilendirmeGrubu bilgilendirmegrubu)
         {
             return _bilgilendirmegrubuDal.Add(bilgilendirmegrubu);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuUpdate")]
         public int Update(BilgilendirmeGrubu bilgilendirmegrubu)
         {
             return _bilgilendirmegrubuDal.Update(bilgilendirmegrubu);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuDelete")]
         public int Delete(int Id)
         {
             return _bilgilendirmegrubuDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuDelete")]
         public int DeleteSoft(int Id)
         {
             return _bilgilendirmegrubuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuRead, BilgilendirmeGrubuLtd")]
         public List<BilgilendirmeGrubu> GetListPagination(PagingParams pagingParams)
         {
             return _bilgilendirmegrubuDal.GetListPagination(pagingParams);
@@ -71,7 +71,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _bilgilendirmegrubuDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeGrubuRead, BilgilendirmeGrubuLtd")]
         public List<BilgilendirmeGrubuDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _bilgilendirmegrubuDal.GetListPaginationDto(pagingParams);

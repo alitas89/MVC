@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusNedeniRead, DurusNedeniLtd")]
         public List<DurusNedeni> GetList()
         {
             return _durusnedeniDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusNedeniRead, DurusNedeniLtd")]
         public DurusNedeni GetById(int Id)
         {
             return _durusnedeniDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, DurusNedeniCreate")]
         public int Add(DurusNedeni durusnedeni)
         {
             return _durusnedeniDal.Add(durusnedeni);
@@ -43,31 +43,32 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, DurusNedeniUpdate")]
         public int Update(DurusNedeni durusnedeni)
         {
             return _durusnedeniDal.Update(durusnedeni);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, DurusNedeniDelete")]
         public int Delete(int Id)
         {
             return _durusnedeniDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, DurusNedeniDelete")]
         public int DeleteSoft(int Id)
         {
             return _durusnedeniDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, DurusNedeniRead, DurusNedeniLtd")]
         public List<DurusNedeni> GetListPagination(PagingParams pagingParams)
         {
             return _durusnedeniDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _durusnedeniDal.GetCount(filter);

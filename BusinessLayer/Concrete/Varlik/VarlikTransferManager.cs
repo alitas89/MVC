@@ -20,13 +20,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikTransferRead, VarlikTransferLtd")]
         public List<VarlikTransfer> GetList()
         {
             return _varliktransferDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikTransferRead, VarlikTransferLtd")]
         public VarlikTransfer GetById(int Id)
         {
             return _varliktransferDal.Get(Id);
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikTransferCreate")]
         public int Add(VarlikTransfer varliktransfer)
         {
             //Varlık kısım ve bağlıVarlıkKod güncellenmelidir.
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikTransferUpdate")]
         public int Update(VarlikTransfer varliktransfer)
         {
             //Varlık kısım ve bağlıVarlıkKod güncellenmelidir.
@@ -55,20 +55,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikTransferDelete")]
         public int Delete(int Id)
         {
             return _varliktransferDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikTransferDelete")]
         public int DeleteSoft(int Id)
         {
             return _varliktransferDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikTransferRead, VarlikTransferLtd")]
         public List<VarlikTransfer> GetListPagination(PagingParams pagingParams)
         {
             return _varliktransferDal.GetListPagination(pagingParams);
@@ -79,7 +79,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varliktransferDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikTransferRead, VarlikTransferLtd")]
         public List<VarlikTransferDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _varliktransferDal.GetListPaginationDto(pagingParams);

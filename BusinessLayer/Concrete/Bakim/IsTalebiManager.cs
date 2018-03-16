@@ -20,13 +20,13 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiRead, IsTalebiLtd")]
         public List<IsTalebi> GetList()
         {
             return _isTalebiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiRead, IsTalebiLtd")]
         public IsTalebi GetById(int Id)
         {
             return _isTalebiDal.Get(Id);
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiCreate")]
         public int Add(IsTalebi ıstalebi)
         {
             return _isTalebiDal.Add(ıstalebi);
@@ -42,37 +42,38 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiUpdate")]
         public int Update(IsTalebi istalebi)
         {
             return _isTalebiDal.Update(istalebi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiDelete")]
         public int Delete(int Id)
         {
             return _isTalebiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiDelete")]
         public int DeleteSoft(int Id)
         {
             return _isTalebiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiRead, IsTalebiLtd")]
         public List<IsTalebi> GetListPagination(PagingParams pagingParams)
         {
             return _isTalebiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _isTalebiDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, IsTalebiRead, IsTalebiLtd")]
         public List<IsTalebiDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _isTalebiDal.GetListPaginationDto(pagingParams);

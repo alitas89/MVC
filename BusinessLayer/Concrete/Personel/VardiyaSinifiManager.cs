@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiRead, VardiyaSinifiLtd")]
         public List<VardiyaSinifi> GetList()
         {
             return _vardiyasinifiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiRead, VardiyaSinifiLtd")]
         public VardiyaSinifi GetById(int Id)
         {
             return _vardiyasinifiDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiCreate")]
         public int Add(VardiyaSinifi vardiyasinifi)
         {
             return _vardiyasinifiDal.Add(vardiyasinifi);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiUpdate")]
         public int Update(VardiyaSinifi vardiyasinifi)
         {
             return _vardiyasinifiDal.Update(vardiyasinifi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiDelete")]
         public int Delete(int Id)
         {
             return _vardiyasinifiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiDelete")]
         public int DeleteSoft(int Id)
         {
             return _vardiyasinifiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VardiyaSinifiRead, VardiyaSinifiLtd")]
         public List<VardiyaSinifi> GetListPagination(PagingParams pagingParams)
         {
             return _vardiyasinifiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _vardiyasinifiDal.GetCount(filter);

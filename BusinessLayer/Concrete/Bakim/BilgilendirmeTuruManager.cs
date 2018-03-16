@@ -22,44 +22,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruRead, BilgilendirmeTuruLtd")]
         public List<BilgilendirmeTuru> GetList()
         {
             return _bilgilendirmeturuDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruRead, BilgilendirmeTuruLtd")]
         public BilgilendirmeTuru GetById(int Id)
         {
             return _bilgilendirmeturuDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruCreate")]
         public int Add(BilgilendirmeTuru bilgilendirmeturu)
         {
             return _bilgilendirmeturuDal.Add(bilgilendirmeturu);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruUpdate")]
         public int Update(BilgilendirmeTuru bilgilendirmeturu)
         {
             return _bilgilendirmeturuDal.Update(bilgilendirmeturu);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruDelete")]
         public int Delete(int Id)
         {
             return _bilgilendirmeturuDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruDelete")]
         public int DeleteSoft(int Id)
         {
             return _bilgilendirmeturuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BilgilendirmeTuruRead, BilgilendirmeTuruLtd")]
         public List<BilgilendirmeTuru> GetListPagination(PagingParams pagingParams)
         {
             return _bilgilendirmeturuDal.GetListPagination(pagingParams);

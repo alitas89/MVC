@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeminSuresiRead, TeminSuresiLtd")]
         public List<TeminSuresi> GetList()
         {
             return _teminsuresiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeminSuresiRead, TeminSuresiLtd")]
         public TeminSuresi GetById(int Id)
         {
             return _teminsuresiDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Satinalma
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaCreate, TeminSuresiCreate")]
         public int Add(TeminSuresi teminsuresi)
         {
             return _teminsuresiDal.Add(teminsuresi);
@@ -41,31 +41,32 @@ namespace BusinessLayer.Concrete.Satinalma
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, TeminSuresiUpdate")]
         public int Update(TeminSuresi teminsuresi)
         {
             return _teminsuresiDal.Update(teminsuresi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeminSuresiDelete")]
         public int Delete(int Id)
         {
             return _teminsuresiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeminSuresiDelete")]
         public int DeleteSoft(int Id)
         {
             return _teminsuresiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeminSuresiRead, TeminSuresiLtd")]
         public List<TeminSuresi> GetListPagination(PagingParams pagingParams)
         {
             return _teminsuresiDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _teminsuresiDal.GetCount(filter);

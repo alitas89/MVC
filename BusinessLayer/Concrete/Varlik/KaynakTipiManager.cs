@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KaynakTipiRead, KaynakTipiLtd")]
         public List<KaynakTipi> GetList()
         {
             return _kaynaktipiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KaynakTipiRead, KaynakTipiLtd")]
         public KaynakTipi GetById(int Id)
         {
             return _kaynaktipiDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, KaynakTipiCreate")]
         public int Add(KaynakTipi kaynaktipi)
         {
             return _kaynaktipiDal.Add(kaynaktipi);
@@ -41,27 +41,27 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, KaynakTipiUpdate")]
         public int Update(KaynakTipi kaynaktipi)
         {
             return _kaynaktipiDal.Update(kaynaktipi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, KaynakTipiDelete")]
         public int Delete(int Id)
         {
             return _kaynaktipiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, KaynakTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _kaynaktipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, KaynakTipiRead, KaynakTipiLtd")]
         public List<KaynakTipi> GetListPagination(PagingParams pagingParams)
         {
             return _kaynaktipiDal.GetListPagination(pagingParams);

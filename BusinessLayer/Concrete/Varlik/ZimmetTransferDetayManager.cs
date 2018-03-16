@@ -20,20 +20,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetay> GetList()
         {
             return _zimmettransferdetayDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetayDto> GetList(int ZimmetTransferID)
         {
             return _zimmettransferdetayDal.GetList(ZimmetTransferID);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public ZimmetTransferDetay GetById(int Id)
         {
             return _zimmettransferdetayDal.Get(Id);
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikAdd, ZimmetTransferDetayCreate")]
         public int Add(ZimmetTransferDetay zimmettransferdetay)
         {
             //Kişi bilgisi alınır
@@ -54,7 +54,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, ZimmetTransferDetayUpdate")]
         public int Update(ZimmetTransferDetay zimmettransferdetay)
         {
             //Kişi bilgisi alınır
@@ -66,20 +66,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDetayDelete")]
         public int Delete(int Id)
         {
             return _zimmettransferdetayDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDetayDelete")]
         public int DeleteSoft(int Id)
         {
             return _zimmettransferdetayDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetay> GetListPagination(PagingParams pagingParams)
         {
             return _zimmettransferdetayDal.GetListPagination(pagingParams);
@@ -90,7 +90,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _zimmettransferdetayDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams)
         {
             return _zimmettransferdetayDal.GetListPaginationDto(ZimmetTransferID, pagingParams);

@@ -20,44 +20,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuRead, StatuLtd")]
         public List<Statu> GetList()
         {
             return _statuDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuRead, StatuLtd")]
         public Statu GetById(int Id)
         {
             return _statuDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuCreate")]
         public int Add(Statu statu)
         {
             return _statuDal.Add(statu);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuUpdate")]
         public int Update(Statu statu)
         {
             return _statuDal.Update(statu);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuDelete")]
         public int Delete(int Id)
         {
             return _statuDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuDelete")]
         public int DeleteSoft(int Id)
         {
             return _statuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuRead, StatuLtd")]
         public List<Statu> GetListPagination(PagingParams pagingParams)
         {
             return _statuDal.GetListPagination(pagingParams);
@@ -68,7 +68,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _statuDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, StatuRead, StatuLtd")]
         public List<StatuDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _statuDal.GetListPaginationDto(pagingParams);

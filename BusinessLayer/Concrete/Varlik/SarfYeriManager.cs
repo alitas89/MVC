@@ -23,27 +23,27 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeri> GetList()
         {
             return _sarfyeriDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeri> GetList(int IsletmeID)
         {
             return _sarfyeriDal.GetList(IsletmeID);
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeriDto> GetListDto()
         {
             return _sarfyeriDal.GetListDto();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public SarfYeri GetById(int Id)
         {
             return _sarfyeriDal.Get(Id);
@@ -51,7 +51,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(SarfYeriValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, SarfYeriCreate")]
         public int Add(SarfYeri sarfyeri)
         {
             //Kod Kontrolü - Aynı koda sahip kayıt varsa ekleme yapılamaz!
@@ -60,7 +60,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [FluentValidationAspect(typeof(SarfYeriValidator), AspectPriority = 1)]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, SarfYeriUpdate")]
         public int Update(SarfYeri sarfyeri)
         {    
             //Kod Kontrolü - Aynı koda sahip kayıt varsa güncelleme yapılamaz! (Kendisi dışındaki bir kod olmalı)
@@ -76,26 +76,26 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, SarfYeriDelete")]
         public int Delete(int Id)
         {
             return _sarfyeriDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, SarfYeriDelete")]
         public int DeleteSoft(int Id)
         {
             return _sarfyeriDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeri> GetListPagination(PagingParams pagingParams)
         {
             return _sarfyeriDal.GetListPagination(pagingParams);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _sarfyeriDal.GetListPaginationDto(pagingParams);

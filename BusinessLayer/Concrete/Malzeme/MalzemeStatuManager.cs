@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuRead, MalzemeStatuLtd")]
         public List<MalzemeStatu> GetList()
         {
             return _malzemestatuDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuRead, MalzemeStatuLtd")]
         public MalzemeStatu GetById(int Id)
         {
             return _malzemestatuDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuCreate")]
         public int Add(MalzemeStatu malzemestatu)
         {
             return _malzemestatuDal.Add(malzemestatu);
@@ -45,31 +45,32 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuUpdate")]
         public int Update(MalzemeStatu malzemestatu)
         {
             return _malzemestatuDal.Update(malzemestatu);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuDelete")]
         public int Delete(int Id)
         {
             return _malzemestatuDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuDelete")]
         public int DeleteSoft(int Id)
         {
             return _malzemestatuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, MalzemeStatuRead, MalzemeStatuLtd")]
         public List<MalzemeStatu> GetListPagination(PagingParams pagingParams)
         {
             return _malzemestatuDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _malzemestatuDal.GetCount(filter);

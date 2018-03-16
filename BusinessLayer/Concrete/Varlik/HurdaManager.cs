@@ -26,13 +26,13 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, HurdaRead, HurdaLtd")]
         public List<Hurda> GetList()
         {
             return _hurdaDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, HurdaRead, HurdaLtd")]
         public Hurda GetById(int Id)
         {
             return _hurdaDal.Get(Id);
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, HurdaCreate")]
         public int Add(Hurda hurda)
         {
             return _hurdaDal.Add(hurda);
@@ -48,31 +48,32 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, HurdaUpdate")]
         public int Update(Hurda hurda)
         {
             return _hurdaDal.Update(hurda);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, HurdaDelete")]
         public int Delete(int Id)
         {
             return _hurdaDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, HurdaDelete")]
         public int DeleteSoft(int Id)
         {
             return _hurdaDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, HurdaRead, HurdaLtd")]
         public List<Hurda> GetListPagination(PagingParams pagingParams)
         {
             return _hurdaDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _hurdaDal.GetCount(filter);
