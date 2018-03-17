@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, EgitimRead, EgitimLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, EgitimRead, EgitimLtd")]
         public List<Egitim> GetList()
         {
             return _egitimDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, EgitimRead, EgitimLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, EgitimRead, EgitimLtd")]
         public Egitim GetById(int Id)
         {
             return _egitimDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, EgitimCreate")]
+        [SecuredOperation(Roles = "Admin, PersonelCreate, EgitimCreate")]
         public int Add(Egitim egitim)
         {
             return _egitimDal.Add(egitim);
@@ -45,27 +45,27 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, EgitimUpdate")]
+        [SecuredOperation(Roles = "Admin, PersonelUpdate, EgitimUpdate")]
         public int Update(Egitim egitim)
         {
             return _egitimDal.Update(egitim);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, EgitimDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, EgitimDelete")]
         public int Delete(int Id)
         {
             return _egitimDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, EgitimDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, EgitimDelete")]
         public int DeleteSoft(int Id)
         {
             return _egitimDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, EgitimRead, EgitimLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, EgitimRead, EgitimLtd")]
         public List<Egitim> GetListPagination(PagingParams pagingParams)
         {
             return _egitimDal.GetListPagination(pagingParams);

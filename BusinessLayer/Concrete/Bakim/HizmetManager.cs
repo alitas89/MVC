@@ -22,48 +22,54 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, HizmetRead, HizmetLtd")]
         public List<Hizmet> GetList()
         {
             return _hizmetDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
+
+        [SecuredOperation(Roles = "Admin, BakimRead, HizmetRead, HizmetLtd")]
         public Hizmet GetById(int Id)
         {
             return _hizmetDal.Get(Id);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, HizmetCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, HizmetCreate")]
         public int Add(Hizmet hizmet)
         {
             return _hizmetDal.Add(hizmet);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, HizmetUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, HizmetUpdate")]
         public int Update(Hizmet hizmet)
         {
             return _hizmetDal.Update(hizmet);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, HizmetDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, HizmetDelete")]
         public int Delete(int Id)
         {
             return _hizmetDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, HizmetDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, HizmetDelete")]
         public int DeleteSoft(int Id)
         {
             return _hizmetDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, HizmetRead, HizmetLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, HizmetRead, HizmetLtd")]
         public List<Hizmet> GetListPagination(PagingParams pagingParams)
         {
             return _hizmetDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _hizmetDal.GetCount(filter);

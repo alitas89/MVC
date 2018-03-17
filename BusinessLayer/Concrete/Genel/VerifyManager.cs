@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Genel
         /// Herhangi bir role sahip olan kullanıcı yetkilendirilmiştir.
         /// </summary>
         /// <returns></returns>
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Authorized")]
         public List<Verify> GetList()
         {
             return _verifyDal.GetList();

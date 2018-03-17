@@ -20,7 +20,7 @@ namespace Core.Aspects.Postsharp.AuthorizationAspects
 
             for (int i = 0; i < roles.Length; i++)
             {
-                if (System.Threading.Thread.CurrentPrincipal.IsInRole(roles[i]))
+                if (System.Threading.Thread.CurrentPrincipal.IsInRole(roles[i].Trim()))
                 {
                     //Geçerli bir role sahiptir
                     isAuthorized = true;

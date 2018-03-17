@@ -22,48 +22,54 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BirimRead, BirimLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BirimRead, BirimLtd")]
         public List<Birim> GetList()
         {
             return _birimDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, BirimRead, BirimLtd")]
+
+        [SecuredOperation(Roles = "Admin, BakimRead, BirimRead, BirimLtd")]
         public Birim GetById(int Id)
         {
             return _birimDal.Get(Id);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BirimCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, BirimCreate")]
         public int Add(Birim birim)
         {
             return _birimDal.Add(birim);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BirimUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, BirimUpdate")]
         public int Update(Birim birim)
         {
             return _birimDal.Update(birim);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BirimDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BirimDelete")]
         public int Delete(int Id)
         {
             return _birimDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BirimDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BirimDelete")]
         public int DeleteSoft(int Id)
         {
             return _birimDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, BirimRead, BirimLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BirimRead, BirimLtd")]
         public List<Birim> GetListPagination(PagingParams pagingParams)
         {
             return _birimDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _birimDal.GetCount(filter);

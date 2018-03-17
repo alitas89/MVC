@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakSinifiRead, KaynakSinifiLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakSinifiRead, KaynakSinifiLtd")]
         public List<KaynakSinifi> GetList()
         {
             return _kaynaksinifiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, KaynakSinifiRead, KaynakSinifiLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakSinifiRead, KaynakSinifiLtd")]
         public KaynakSinifi GetById(int Id)
         {
             return _kaynaksinifiDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakSinifiCreate")]
+        [SecuredOperation(Roles = "Admin, PersonelCreate, KaynakSinifiCreate")]
         public int Add(KaynakSinifi kaynaksinifi)
         {
             return _kaynaksinifiDal.Add(kaynaksinifi);
@@ -45,27 +45,27 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakSinifiUpdate")]
+        [SecuredOperation(Roles = "Admin, PersonelUpdate, KaynakSinifiUpdate")]
         public int Update(KaynakSinifi kaynaksinifi)
         {
             return _kaynaksinifiDal.Update(kaynaksinifi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakSinifiDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakSinifiDelete")]
         public int Delete(int Id)
         {
             return _kaynaksinifiDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakSinifiDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakSinifiDelete")]
         public int DeleteSoft(int Id)
         {
             return _kaynaksinifiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, KaynakSinifiRead, KaynakSinifiLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakSinifiRead, KaynakSinifiLtd")]
         public List<KaynakSinifi> GetListPagination(PagingParams pagingParams)
         {
             return _kaynaksinifiDal.GetListPagination(pagingParams);

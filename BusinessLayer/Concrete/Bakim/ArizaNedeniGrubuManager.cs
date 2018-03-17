@@ -22,12 +22,12 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
         public List<ArizaNedeniGrubu> GetList()
         {
             return _arizanedenigrubuDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
         public ArizaNedeniGrubu GetById(int Id)
         {
             return _arizanedenigrubuDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, ArizaNedeniGrubuCreate")]
         public int Add(ArizaNedeniGrubu arizanedenigrubu)
         {
             return _arizanedenigrubuDal.Add(arizanedenigrubu);
@@ -43,29 +43,31 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, ArizaNedeniGrubuUpdate")]
         public int Update(ArizaNedeniGrubu arizanedenigrubu)
         {
             return _arizanedenigrubuDal.Update(arizanedenigrubu);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, ArizaNedeniGrubuDelete")]
         public int Delete(int Id)
         {
             return _arizanedenigrubuDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, ArizaNedeniGrubuDelete")]
         public int DeleteSoft(int Id)
         {
             return _arizanedenigrubuDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, ArizaNedeniGrubuRead, ArizaNedeniGrubuLtd")]
         public List<ArizaNedeniGrubu> GetListPagination(PagingParams pagingParams)
         {
             return _arizanedenigrubuDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _arizanedenigrubuDal.GetCount(filter);

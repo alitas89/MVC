@@ -26,13 +26,13 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimEkibiRead, BakimEkibiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd")]
         public List<BakimEkibi> GetList()
         {
             return _bakimekibiDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, BakimEkibiRead, BakimEkibiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd")]
         public BakimEkibi GetById(int Id)
         {
             return _bakimekibiDal.Get(Id);
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimEkibiCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, BakimEkibiCreate")]
         public int Add(BakimEkibi bakimekibi)
         {
             return _bakimekibiDal.Add(bakimekibi);
@@ -48,25 +48,27 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimEkibiUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, BakimEkibiUpdate")]
         public int Update(BakimEkibi bakimekibi)
         {
             return _bakimekibiDal.Update(bakimekibi);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimEkibiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BakimEkibiDelete")]
         public int Delete(int Id)
         {
             return _bakimekibiDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimEkibiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BakimEkibiDelete")]
         public int DeleteSoft(int Id)
         {
             return _bakimekibiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, BakimEkibiRead, BakimEkibiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd")]
         public List<BakimEkibi> GetListPagination(PagingParams pagingParams)
         {
             return _bakimekibiDal.GetListPagination(pagingParams);

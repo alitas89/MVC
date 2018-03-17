@@ -22,48 +22,54 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public List<GecikmeNedeni> GetList()
         {
             return _gecikmenedeniDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
+
+        [SecuredOperation(Roles = "Admin, BakimRead, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public GecikmeNedeni GetById(int Id)
         {
             return _gecikmenedeniDal.Get(Id);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, GecikmeNedeniCreate")]
         public int Add(GecikmeNedeni gecikmenedeni)
         {
             return _gecikmenedeniDal.Add(gecikmenedeni);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, GecikmeNedeniUpdate")]
         public int Update(GecikmeNedeni gecikmenedeni)
         {
             return _gecikmenedeniDal.Update(gecikmenedeni);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, GecikmeNedeniDelete")]
         public int Delete(int Id)
         {
             return _gecikmenedeniDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, GecikmeNedeniDelete")]
         public int DeleteSoft(int Id)
         {
             return _gecikmenedeniDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, GecikmeNedeniRead, GecikmeNedeniLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, GecikmeNedeniRead, GecikmeNedeniLtd")]
         public List<GecikmeNedeni> GetListPagination(PagingParams pagingParams)
         {
             return _gecikmenedeniDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _gecikmenedeniDal.GetCount(filter);

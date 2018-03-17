@@ -19,44 +19,44 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, StatuTipiRead, StatuTipiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, StatuTipiRead, StatuTipiLtd")]
         public List<StatuTipi> GetList()
         {
             return _statutipiDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, StatuTipiRead, StatuTipiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, StatuTipiRead, StatuTipiLtd")]
         public StatuTipi GetById(int Id)
         {
             return _statutipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, StatuTipiCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, StatuTipiCreate")]
         public int Add(StatuTipi statutipi)
         {
             return _statutipiDal.Add(statutipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, StatuTipiUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, StatuTipiUpdate")]
         public int Update(StatuTipi statutipi)
         {
             return _statutipiDal.Update(statutipi);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, StatuTipiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, StatuTipiDelete")]
         public int Delete(int Id)
         {
             return _statutipiDal.Delete(Id);
         }
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, StatuTipiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, StatuTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _statutipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, StatuTipiRead, StatuTipiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, StatuTipiRead, StatuTipiLtd")]
         public List<StatuTipi> GetListPagination(PagingParams pagingParams)
         {
             return _statutipiDal.GetListPagination(pagingParams);

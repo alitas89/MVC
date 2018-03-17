@@ -19,44 +19,49 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ParaBirimRead, ParaBirimLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, ParaBirimRead, ParaBirimLtd")]
         public List<ParaBirim> GetList()
         {
             return _parabirimDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, ParaBirimRead, ParaBirimLtd")]
+
+        [SecuredOperation(Roles = "Admin, BakimRead, ParaBirimRead, ParaBirimLtd")]
         public ParaBirim GetById(int Id)
         {
             return _parabirimDal.Get(Id);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ParaBirimCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, ParaBirimCreate")]
         public int Add(ParaBirim parabirim)
         {
             return _parabirimDal.Add(parabirim);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ParaBirimUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, ParaBirimUpdate")]
         public int Update(ParaBirim parabirim)
         {
             return _parabirimDal.Update(parabirim);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ParaBirimDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, ParaBirimDelete")]
         public int Delete(int Id)
         {
             return _parabirimDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, ParaBirimDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, ParaBirimDelete")]
         public int DeleteSoft(int Id)
         {
             return _parabirimDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, ParaBirimRead, ParaBirimLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, ParaBirimRead, ParaBirimLtd")]
         public List<ParaBirim> GetListPagination(PagingParams pagingParams)
         {
             return _parabirimDal.GetListPagination(pagingParams);

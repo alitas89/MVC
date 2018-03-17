@@ -229,6 +229,7 @@
     <Compile Include="Controllers\GonderimFormatiController.cs" />
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />
+    <Compile Include="Controllers\IsEmriController.cs" />
     <Compile Include="Controllers\IsEmriTuruController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsSektoruController.cs" />

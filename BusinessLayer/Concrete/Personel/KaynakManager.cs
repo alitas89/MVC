@@ -21,13 +21,13 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakRead, KaynakLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakRead, KaynakLtd")]
         public List<Kaynak> GetList()
         {
             return _kaynakDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, KaynakRead, KaynakLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakRead, KaynakLtd")]
         public Kaynak GetById(int Id)
         {
             return _kaynakDal.Get(Id);
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakCreate")]
+        [SecuredOperation(Roles = "Admin, PersonelCreate, KaynakCreate")]
         public int Add(Kaynak kaynak)
         {
             return _kaynakDal.Add(kaynak);
@@ -43,27 +43,27 @@ namespace BusinessLayer.Concrete.Personel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakUpdate")]
+        [SecuredOperation(Roles = "Admin, PersonelUpdate, KaynakUpdate")]
         public int Update(Kaynak kaynak)
         {
             return _kaynakDal.Update(kaynak);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakDelete")]
         public int Delete(int Id)
         {
             return _kaynakDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KaynakDelete")]
+        [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakDelete")]
         public int DeleteSoft(int Id)
         {
             return _kaynakDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, KaynakRead, KaynakLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakRead, KaynakLtd")]
         public List<Kaynak> GetListPagination(PagingParams pagingParams)
         {
             return _kaynakDal.GetListPagination(pagingParams);
@@ -74,7 +74,7 @@ namespace BusinessLayer.Concrete.Personel
             return _kaynakDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin, KaynakRead, KaynakLtd")]
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakRead, KaynakLtd")]
         public List<KaynakDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _kaynakDal.GetListPaginationDto(pagingParams);

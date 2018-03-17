@@ -19,44 +19,49 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, RiskTipiRead, RiskTipiLtd")]
         public List<RiskTipi> GetList()
         {
             return _risktipiDal.GetList();
         }
-        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
+
+        [SecuredOperation(Roles = "Admin, BakimRead, RiskTipiRead, RiskTipiLtd")]
         public RiskTipi GetById(int Id)
         {
             return _risktipiDal.Get(Id);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, RiskTipiCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, RiskTipiCreate")]
         public int Add(RiskTipi risktipi)
         {
             return _risktipiDal.Add(risktipi);
         }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, RiskTipiUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, RiskTipiUpdate")]
         public int Update(RiskTipi risktipi)
         {
             return _risktipiDal.Update(risktipi);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, RiskTipiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, RiskTipiDelete")]
         public int Delete(int Id)
         {
             return _risktipiDal.Delete(Id);
         }
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, RiskTipiDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, RiskTipiDelete")]
         public int DeleteSoft(int Id)
         {
             return _risktipiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, RiskTipiRead, RiskTipiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, RiskTipiRead, RiskTipiLtd")]
         public List<RiskTipi> GetListPagination(PagingParams pagingParams)
         {
             return _risktipiDal.GetListPagination(pagingParams);

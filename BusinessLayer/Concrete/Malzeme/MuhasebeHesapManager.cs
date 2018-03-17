@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapRead, MuhasebeHesapLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MuhasebeHesapRead, MuhasebeHesapLtd")]
         public List<MuhasebeHesap> GetList()
         {
             return _muhasebehesapDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapRead, MuhasebeHesapLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MuhasebeHesapRead, MuhasebeHesapLtd")]
         public MuhasebeHesap GetById(int Id)
         {
             return _muhasebehesapDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapCreate")]
+        [SecuredOperation(Roles = "Admin, MalzemeCreate, MuhasebeHesapCreate")]
         public int Add(MuhasebeHesap muhasebehesap)
         {
             return _muhasebehesapDal.Add(muhasebehesap);
@@ -45,27 +45,27 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapUpdate")]
+        [SecuredOperation(Roles = "Admin, MalzemeUpdate, MuhasebeHesapUpdate")]
         public int Update(MuhasebeHesap muhasebehesap)
         {
             return _muhasebehesapDal.Update(muhasebehesap);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MuhasebeHesapDelete")]
         public int Delete(int Id)
         {
             return _muhasebehesapDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MuhasebeHesapDelete")]
         public int DeleteSoft(int Id)
         {
             return _muhasebehesapDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, MuhasebeHesapRead, MuhasebeHesapLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MuhasebeHesapRead, MuhasebeHesapLtd")]
         public List<MuhasebeHesap> GetListPagination(PagingParams pagingParams)
         {
             return _muhasebehesapDal.GetListPagination(pagingParams);

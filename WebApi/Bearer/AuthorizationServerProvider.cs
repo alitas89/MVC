@@ -36,6 +36,9 @@ namespace WebApi.Bearer
                 {
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
+                    //Giriş yapabilen her kişiye Authorized rolü verilir
+                    identity.AddClaim(new Claim(ClaimTypes.Role, "Authorized"));
+
                     //Gelen kullanıcı üzerinden grup bilgilerine ulaşılır
                     var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciId).Select(u => u.YetkiGrupID).Distinct().ToArray();
 
