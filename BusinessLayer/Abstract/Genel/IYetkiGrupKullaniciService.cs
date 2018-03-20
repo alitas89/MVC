@@ -27,5 +27,7 @@ namespace BusinessLayer.Abstract.Genel
         int AddYetkiGrupKullanici(int kullaniciId, string arrYetkiGrup);
 
         int DeleteSoftByKullaniciId(int Id);
+
+        string GetYetkiGrupListByKullaniciId(int kullaniciId);
     }
 }

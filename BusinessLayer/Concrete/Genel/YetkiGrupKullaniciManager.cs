@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Script.Serialization;
 using BusinessLayer.Abstract.Genel;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -15,6 +16,7 @@ namespace BusinessLayer.Concrete.Genel
     public class YetkiGrupKullaniciManager : IYetkiGrupKullaniciService
     {
         IYetkiGrupKullaniciDal _yetkigrupkullaniciDal;
+        JavaScriptSerializer jss = new JavaScriptSerializer();
 
         public YetkiGrupKullaniciManager(IYetkiGrupKullaniciDal yetkigrupkullaniciDal)
         {
@@ -73,9 +75,18 @@ namespace BusinessLayer.Concrete.Genel
             return _yetkigrupkullaniciDal.DeleteSoftByKullaniciId(Id);
         }
 
+        public string GetYetkiGrupListByKullaniciId(int kullaniciId)
+        {
+            var list = _yetkigrupkullaniciDal.GetListByKullaniciId(kullaniciId);
+            if (list != null && list.Count > 0)
+            {
+                return jss.Serialize(list.Select(x => x.YetkiGrupID).ToArray());
+            }
+            return "";
+        }
+
         public int AddYetkiGrupKullanici(int kullaniciId, string arrYetkiGrup)
         {
-            JavaScriptSerializer jss = new JavaScriptSerializer();
             var arr = (Array)jss.DeserializeObject(arrYetkiGrup);
 
             //kullanıcının tüm yetkileri silinir

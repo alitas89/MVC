@@ -33,7 +33,15 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns="")
+        [Route("api/yetkigrupkullanici/getyetkigruplistbykullaniciid/{kullaniciId}")]
+        [HttpGet]
+        public string GetYetkiGrupListByKullaniciId(int kullaniciId)
+        {
+            return _yetkiGrupKullaniciService.GetYetkiGrupListByKullaniciId(kullaniciId);
+        }
+
+        // GET api/<controller>
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _yetkiGrupKullaniciService.GetCount(filter) : _yetkiGrupKullaniciService.GetCount();

@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>03/20/2018 14:27:23</publishTime>
+      <publishTime>03/20/2018 15:21:34</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>03/20/2018 14:27:23</publishTime>
+      <publishTime>03/20/2018 15:21:33</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>03/20/2018 14:27:01</publishTime>
+      <publishTime>03/20/2018 15:21:12</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>03/20/2018 14:27:01</publishTime>
+      <publishTime>03/20/2018 15:21:12</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>12/15/2017 08:50:27</publishTime>
@@ -43,16 +43,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:27</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>03/20/2018 14:27:02</publishTime>
+      <publishTime>03/20/2018 15:21:13</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>03/20/2018 14:27:02</publishTime>
+      <publishTime>03/20/2018 15:21:13</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>03/20/2018 14:27:02</publishTime>
+      <publishTime>03/20/2018 15:21:13</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>03/20/2018 14:27:02</publishTime>
+      <publishTime>03/20/2018 15:21:13</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>04/14/2013 08:36:28</publishTime>
@@ -235,10 +235,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 08:50:28</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>03/20/2018 14:29:57</publishTime>
+      <publishTime>03/20/2018 15:23:44</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>03/20/2018 14:29:57</publishTime>
+      <publishTime>03/20/2018 15:23:44</publishTime>
     </File>
     <File Include="bin/WebApiContrib.dll">
       <publishTime>02/17/2016 14:29:24</publishTime>
