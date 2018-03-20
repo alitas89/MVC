@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
+using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Genel;
@@ -11,17 +12,18 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
     {
         public List<Kullanici> GetList()
         {
-            return GetListQuery($"select * from Kullanici", new { });
+            return GetListQuery("select * from Kullanici where Silindi=0", new { });
         }
 
         public Kullanici Get(int Id)
         {
-            return GetQuery("select * from Kullanici where KullaniciId= @Id", new { Id });
+            return GetQuery("select * from Kullanici where KullaniciId= @Id and Silindi=0", new { Id });
         }
 
         public int Add(Kullanici kullanici)
         {
-            return AddQuery("insert into Kullanici(KullaniciAdi,Sifre,Ad,Soyad,Email,Silindi) values (@KullaniciAdi,@Sifre,@Ad,@Soyad,@Email,@Silindi)", kullanici);
+            return AddQuery("insert into Kullanici(KullaniciAdi,Sifre,Ad,Soyad,Email,Silindi) values (@KullaniciAdi,@Sifre,@Ad,@Soyad,@Email,@Silindi)" +
+                            " SELECT CAST(SCOPE_IDENTITY() as int)", kullanici, true);
         }
 
         public int Update(Kullanici kullanici)
@@ -41,12 +43,32 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public List<Kullanici> GetListPagination(PagingParams pagingParams)
         {
-            throw new NotImplementedException();
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+            //columns ayrımı yapılır 
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT * FROM Kullanici where Silindi=0 {filterQuery} {orderQuery}
+OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
         public int GetCount(string filter = "")
         {
-            throw new NotImplementedException();
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Kullanici where Silindi = 0 { filterQuery}", new { }) + "";
+
+            int.TryParse(strCount, out int count);
+            return count;
         }
 
         public Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre)

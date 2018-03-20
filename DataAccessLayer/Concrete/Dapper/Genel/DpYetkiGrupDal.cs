@@ -58,7 +58,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM YetkiGrup {filterQuery}", new { }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM YetkiGrup where Silindi=0 {filterQuery}", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

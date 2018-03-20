@@ -44,9 +44,9 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public List<BakimRiski> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-    
+
 
             if (pagingParams.order.Length != 0)
             {
@@ -76,7 +76,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public List<BakimRiskiDto> GetListPaginationDto(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
 

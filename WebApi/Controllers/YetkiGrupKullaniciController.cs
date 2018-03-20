@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Genel;
+using EntityLayer.ComplexTypes.DtoModel.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Genel;
 
@@ -56,9 +57,9 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public int Post([FromBody]YetkiGrupKullanici yetkiGrupKullanici)
+        public int Post([FromBody]YetkiGrupKullaniciDto yetkiGrupKullaniciDto)
         {
-            return _yetkiGrupKullaniciService.Add(yetkiGrupKullanici);
+            return _yetkiGrupKullaniciService.AddYetkiGrupKullanici(yetkiGrupKullaniciDto.kullaniciId, yetkiGrupKullaniciDto.arrYetkiGrup);
         }
 
         // PUT api/<controller>/5

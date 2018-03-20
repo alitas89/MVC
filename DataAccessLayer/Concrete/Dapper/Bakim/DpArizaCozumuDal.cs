@@ -70,7 +70,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ArizaCozumu where Silindi=0 {filter} ", new { filter }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ArizaCozumu where Silindi=0 {filterQuery} ", new { filterQuery }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

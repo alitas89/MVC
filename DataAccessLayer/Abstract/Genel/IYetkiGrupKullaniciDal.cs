@@ -7,5 +7,7 @@ namespace DataAccessLayer.Abstract.Genel
     public interface IYetkiGrupKullaniciDal : IEntityRepository<YetkiGrupKullanici>
     {
         List<YetkiGrupKullanici> GetListByKullaniciId(int kullaniciId);
+
+        int DeleteSoftByKullaniciId(int Id);
     }
 }
