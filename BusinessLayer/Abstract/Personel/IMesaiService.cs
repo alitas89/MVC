@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
+using EntityLayer.ComplexTypes.DtoModel.Personel;
 
 namespace BusinessLayer.Abstract.Personel
 {
@@ -21,5 +22,9 @@ namespace BusinessLayer.Abstract.Personel
         List<Mesai> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<MesaiDto> GetListPaginationDto(PagingParams pagingParams);
+
+        int GetCountDto(string filter = "");
     }
 }

@@ -48,6 +48,8 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\StatuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupKullaniciDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Personel\MesaiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\VardiyaDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\MasrafTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\TeklifIstemeSablonDto.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Concrete\Genel\YetkiGrupRol.cs" />
     <Compile Include="Concrete\Genel\YetkiRol.cs" />
     <Compile Include="Concrete\Malzeme\Ambar.cs" />
+    <Compile Include="Concrete\Malzeme\Malzeme.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSeriNo.cs" />

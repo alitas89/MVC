@@ -244,6 +244,7 @@
     <Compile Include="Controllers\KisimController.cs" />
     <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Controllers\MalzemeAltGrupController.cs" />
+    <Compile Include="Controllers\MalzemeController.cs" />
     <Compile Include="Controllers\MalzemeGrupController.cs" />
     <Compile Include="Controllers\MalzemeSeriNoController.cs" />
     <Compile Include="Controllers\MalzemeStatuController.cs" />

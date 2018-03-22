@@ -53,6 +53,7 @@
     <Compile Include="Abstract\Bakim\IIsEmriDal.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
+    <Compile Include="Abstract\Malzeme\IMalzemeDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakDurumuDal.cs" />
     <Compile Include="Abstract\Malzeme\IAmbarDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupDal.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Concrete\Dapper\Genel\DpYetkiRolDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpAmbarDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeAltGrupDal.cs" />
+    <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeSeriNoDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeStatuDal.cs" />

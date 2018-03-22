@@ -28,11 +28,11 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
-            total = filter.Length != 0 ? _mesaiService.GetCount(filter) : _mesaiService.GetCount();
-            var d = _mesaiService.GetListPagination(new PagingParams()
+            total = filter.Length != 0 ? _mesaiService.GetCountDto(filter) : _mesaiService.GetCountDto();
+            var d = _mesaiService.GetListPaginationDto(new PagingParams()
             {
                 filter = filter,
                 limit = limit,

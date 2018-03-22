@@ -13,5 +13,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Bakim
         public string BakimOncelikAd { get; set; }
         public string RiskTipiAd { get; set; }
         public string BirimAd { get; set; }
+        public string UretimTipiAd { get; set; }
     }
 }

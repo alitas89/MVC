@@ -10,6 +10,7 @@ using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
+using EntityLayer.ComplexTypes.DtoModel.Personel;
 
 namespace BusinessLayer.Concrete.Personel
 {
@@ -74,6 +75,17 @@ namespace BusinessLayer.Concrete.Personel
         public int GetCount(string filter = "")
         {
             return _mesaiDal.GetCount(filter);
+        }
+
+        [SecuredOperation(Roles = "Admin, PersonelRead, KaynakRead, KaynakLtd")]
+        public List<MesaiDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _mesaiDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filter = "")
+        {
+            return _mesaiDal.GetCountDto(filter);
         }
 
     }

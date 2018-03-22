@@ -226,6 +226,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IMuhasebeHesapService>().To<MuhasebeHesapManager>().InSingletonScope();
             Bind<IMuhasebeHesapDal>().To<DpMuhasebeHesapDal>();
 
+            Bind<IMalzemeService>().To<MalzemeManager>().InSingletonScope();
+            Bind<IMalzemeDal>().To<DpMalzemeDal>();
+
             //#PersonelModul
             Bind<IKaynakSinifiService>().To<KaynakSinifiManager>().InSingletonScope();
             Bind<IKaynakSinifiDal>().To<DpKaynakSinifiDal>();

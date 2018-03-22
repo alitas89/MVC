@@ -87,6 +87,7 @@
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeGrupService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSeriNoService.cs" />
+    <Compile Include="Abstract\Malzeme\IMalzemeService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeStatuService.cs" />
     <Compile Include="Abstract\Malzeme\IMuhasebeHesapService.cs" />
     <Compile Include="Abstract\Malzeme\IOlcuBirimService.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Concrete\Malzeme\AmbarManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrupManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrupManager.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSeriNoManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeStatuManager.cs" />
     <Compile Include="Concrete\Malzeme\MuhasebeHesapManager.cs" />
