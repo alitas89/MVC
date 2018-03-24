@@ -21,7 +21,8 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public int Add(YetkiGrup yetkigrup)
         {
-            return AddQuery("insert into YetkiGrup(Ad,Silindi) values (@Ad,@Silindi)", yetkigrup);
+            return AddQuery("insert into YetkiGrup(Ad,Silindi) values (@Ad,@Silindi)" +
+                            " SELECT CAST(SCOPE_IDENTITY() as int)", yetkigrup, true);
         }
 
         public int Update(YetkiGrup yetkigrup)
@@ -43,7 +44,7 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-           
+
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
