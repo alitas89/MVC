@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemelerRead, MalzemelerLtd")]
         public List<EntityLayer.Concrete.Malzeme.Malzeme> GetList()
         {
             return _malzemeDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemelerRead, MalzemelerLtd")]
         public EntityLayer.Concrete.Malzeme.Malzeme GetById(int Id)
         {
             return _malzemeDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeCreate")]
+        [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemelerCreate")]
         public int Add(EntityLayer.Concrete.Malzeme.Malzeme malzeme)
         {
             return _malzemeDal.IsKodDefined(malzeme.Kod) ? 0 : _malzemeDal.Add(malzeme);
@@ -41,27 +41,27 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeUpdate")]
+        [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemelerUpdate")]
         public int Update(EntityLayer.Concrete.Malzeme.Malzeme malzeme)
         {
             return _malzemeDal.Update(malzeme);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemelerDelete")]
         public int Delete(int Id)
         {
             return _malzemeDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemelerDelete")]
         public int DeleteSoft(int Id)
         {
             return _malzemeDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemelerRead, MalzemelerLtd")]
         public List<EntityLayer.Concrete.Malzeme.Malzeme> GetListPagination(PagingParams pagingParams)
         {
             return _malzemeDal.GetListPagination(pagingParams);
