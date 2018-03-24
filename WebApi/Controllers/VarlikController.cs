@@ -35,7 +35,7 @@ namespace WebApi.Controllers
             return _varlikService.GetListByKisimID(KisimID);
         }
 
-        [Route("api/varlik/getlistbykaynak{KaynakID}")]
+        [Route("api/varlik/getlistbykaynak/{KaynakID}")]
         [HttpGet]
         public IEnumerable<Varlik> GetListByKaynak(int KaynakID)
         {

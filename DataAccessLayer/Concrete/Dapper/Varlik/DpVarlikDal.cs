@@ -25,7 +25,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID)
         {
-            return GetListQuery($"select * from Varlik where Silindi=0 and KaynakID=@KaynakID", new { KaynakID });
+            return GetListQuery($"select * from Varlik where Silindi=0 and ZimmetliPersonelID=@KaynakID", new { KaynakID });
         }
 
         public EntityLayer.Concrete.Varlik.Varlik Get(int Id)

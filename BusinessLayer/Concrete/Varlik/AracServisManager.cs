@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikUpdate, AracServis")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, AracServisUpdate")]
         public int Update(AracServis aracservis)
         {
             return _aracServisDal.Update(aracservis);
