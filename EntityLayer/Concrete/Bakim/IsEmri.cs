@@ -22,6 +22,8 @@ namespace EntityLayer.Concrete.Bakim
         public DateTime ArizaOlusmaTarih { get; set; }
         public string ArizaOlusmaSaat { get; set; }
         public DateTime BildirilisTarih { get; set; }
+        public string BildirilisSaat { get; set; }
+        public DateTime BaslangicTarih { get; set; }
         public string BaslangicSaat { get; set; }
         public DateTime BitisTarih { get; set; }
         public string BitisSaat { get; set; }

@@ -30,13 +30,20 @@ namespace WebApi.Controllers
         // GET api/<controller>
         [Route("api/varlik/getlistbykisim/{KisimID}")]
         [HttpGet]
-        public IEnumerable<Varlik> GetListBySarfYeri(int KisimID)
+        public IEnumerable<Varlik> GetListByKisim(int KisimID)
         {
-            return _varlikService.GetList(KisimID);
+            return _varlikService.GetListByKisimID(KisimID);
+        }
+
+        [Route("api/varlik/getlistbykaynak{KaynakID}")]
+        [HttpGet]
+        public IEnumerable<Varlik> GetListByKaynak(int KaynakID)
+        {
+            return _varlikService.GetListByKaynakID(KaynakID);
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _varlikService.GetCountDto(filter) : _varlikService.GetCountDto();

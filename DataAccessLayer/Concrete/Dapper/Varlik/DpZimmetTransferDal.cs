@@ -22,7 +22,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(ZimmetTransfer zimmettransfer)
         {
-            return AddQuery("insert into ZimmetTransfer(TransferNo,TeslimTarih,TeslimSaat,ZimmetVerenID,ZimmetAlanID,UstVarlikID,YeniKisimID,Aciklama,Silindi) values (@TransferNo,@TeslimTarih,@TeslimSaat,@ZimmetVerenID,@ZimmetAlanID,@UstVarlikID,@YeniKisimID,@Aciklama,@Silindi); "+
+            return AddQuery("insert into ZimmetTransfer(TransferNo,TeslimTarih,TeslimSaat,ZimmetVerenID,ZimmetAlanID,UstVarlikID,YeniKisimID,Aciklama,Silindi) values (@TransferNo,@TeslimTarih,@TeslimSaat,@ZimmetVerenID,@ZimmetAlanID,@UstVarlikID,@YeniKisimID,@Aciklama,@Silindi); " +
                 " SELECT CAST(SCOPE_IDENTITY() as int)", zimmettransfer, true);
         }
 
@@ -43,7 +43,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<ZimmetTransfer> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -67,14 +67,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ZimmetTransfer where Silindi=0 {filterQuery}", new {  }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ZimmetTransfer where Silindi=0 {filterQuery}", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
 
         public List<ZimmetTransferDto> GetListPaginationDto(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -102,5 +102,6 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(strCount, out int count);
             return count;
         }
+       
     }
 }

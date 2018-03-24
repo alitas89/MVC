@@ -7,6 +7,7 @@ using System.Web.Http;
 using BusinessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
+using System.Linq.Dynamic;
 
 namespace WebApi.Controllers
 {
@@ -38,7 +39,9 @@ namespace WebApi.Controllers
                 order = order,
                 columns = columns
             });
-            var response = Request.CreateResponse(HttpStatusCode.OK, d);
+            var response = columns.Length > 0 ?
+                Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
+                : Request.CreateResponse(HttpStatusCode.OK, d);
             response.Headers.Add("total", total + "");
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;

@@ -13,7 +13,9 @@ namespace BusinessLayer.Abstract.Varlik
     {
         List<EntityLayer.Concrete.Varlik.Varlik> GetList();
 
-        List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID);
+        List<EntityLayer.Concrete.Varlik.Varlik> GetListByKisimID(int KisimID);
+
+        List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID);
 
         EntityLayer.Concrete.Varlik.Varlik GetById(int id);
 

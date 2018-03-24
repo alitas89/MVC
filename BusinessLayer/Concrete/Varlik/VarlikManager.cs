@@ -7,6 +7,7 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
+using EntityLayer.Concrete.Varlik;
 
 namespace BusinessLayer.Concrete.Varlik
 {
@@ -28,9 +29,15 @@ namespace BusinessLayer.Concrete.Varlik
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
-        public List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID)
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKisimID(int KisimID)
         {
-            return _varlikDal.GetList(KisimID);
+            return _varlikDal.GetListByKisimID(KisimID);
+        }
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID)
+        {
+            return _varlikDal.GetListByKaynakID(KaynakID);
         }
 
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]

@@ -22,12 +22,12 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int Add(IsEmri isemri)
         {
-            return AddQuery("insert into IsEmri(IsEmriNo,IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID,SarfyeriID,TalepEdenID,PlanlananBaslangicTarih,PlanlananBaslangicSaat,PlanlananBitisTarih,PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat,IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID,StatuAciklama,BakimEkibiID,VardiyaID,Silindi) values (@IsEmriNo,@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID,@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih,@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat,@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID,@StatuAciklama,@BakimEkibiID,@VardiyaID,@Silindi)", isemri);
+            return AddQuery("insert into IsEmri(IsEmriNo,IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID,SarfyeriID,TalepEdenID,PlanlananBaslangicTarih,PlanlananBaslangicSaat,PlanlananBitisTarih,PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat,BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat,IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID,StatuAciklama,BakimEkibiID,VardiyaID,Silindi) values (@IsEmriNo,@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID,@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih,@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat,@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat,@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID,@StatuAciklama,@BakimEkibiID,@VardiyaID,@Silindi)", isemri);
         }
 
         public int Update(IsEmri isemri)
         {
-            return UpdateQuery("update IsEmri set IsEmriNo=@IsEmriNo,IsEmriTuruID=@IsEmriTuruID,VarlikID=@VarlikID,IsTipiID=@IsTipiID,BakimArizaKoduID=@BakimArizaKoduID,BakimOncelikID=@BakimOncelikID,KisimID=@KisimID,SarfyeriID=@SarfyeriID,TalepEdenID=@TalepEdenID,PlanlananBaslangicTarih=@PlanlananBaslangicTarih,PlanlananBaslangicSaat=@PlanlananBaslangicSaat,PlanlananBitisTarih=@PlanlananBitisTarih,PlanlananBitisSaat=@PlanlananBitisSaat,ArizaOlusmaTarih=@ArizaOlusmaTarih,ArizaOlusmaSaat=@ArizaOlusmaSaat,BildirilisTarih=@BildirilisTarih,BaslangicSaat=@BaslangicSaat,BitisTarih=@BitisTarih,BitisSaat=@BitisSaat,DevreyeAlmaTarih=@DevreyeAlmaTarih,DevreyeAlmaSaat=@DevreyeAlmaSaat,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,ArizaCozumuID=@ArizaCozumuID,YapilanIsAciklama=@YapilanIsAciklama,TalepAciklamasi=@TalepAciklamasi,StatuID=@StatuID,StatuAciklama=@StatuAciklama,BakimEkibiID=@BakimEkibiID,VardiyaID=@VardiyaID,Silindi=@Silindi where IsEmriID=@IsEmriID", isemri);
+            return UpdateQuery("update IsEmri set IsEmriNo=@IsEmriNo,IsEmriTuruID=@IsEmriTuruID,VarlikID=@VarlikID,IsTipiID=@IsTipiID,BakimArizaKoduID=@BakimArizaKoduID,BakimOncelikID=@BakimOncelikID,KisimID=@KisimID,SarfyeriID=@SarfyeriID,TalepEdenID=@TalepEdenID,PlanlananBaslangicTarih=@PlanlananBaslangicTarih,PlanlananBaslangicSaat=@PlanlananBaslangicSaat,PlanlananBitisTarih=@PlanlananBitisTarih,PlanlananBitisSaat=@PlanlananBitisSaat,ArizaOlusmaTarih=@ArizaOlusmaTarih,ArizaOlusmaSaat=@ArizaOlusmaSaat,BildirilisTarih=@BildirilisTarih,BildirilisSaat=@BildirilisSaat,BaslangicTarih=@BaslangicTarih,BaslangicSaat=@BaslangicSaat,BitisTarih=@BitisTarih,BitisSaat=@BitisSaat,DevreyeAlmaTarih=@DevreyeAlmaTarih,DevreyeAlmaSaat=@DevreyeAlmaSaat,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,ArizaCozumuID=@ArizaCozumuID,YapilanIsAciklama=@YapilanIsAciklama,TalepAciklamasi=@TalepAciklamasi,StatuID=@StatuID,StatuAciklama=@StatuAciklama,BakimEkibiID=@BakimEkibiID,VardiyaID=@VardiyaID,Silindi=@Silindi where IsEmriID=@IsEmriID", isemri);
         }
 
         public int Delete(int Id)
@@ -75,8 +75,15 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
 
-            return new DpDtoRepositoryBase<IsEmriDto>().GetListDtoQuery($@"SELECT * FROM View_IsEmriDto where Silindi=0 {filterQuery} {orderQuery}
-                OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<IsEmriDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_IsEmriDto where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 

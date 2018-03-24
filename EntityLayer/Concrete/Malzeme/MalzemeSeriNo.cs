@@ -8,7 +8,7 @@ namespace EntityLayer.Concrete.Malzeme
         public string SeriNo { get; set; }
         public string OzelKod { get; set; }
         public int MalzemeID { get; set; }
-        public int Aciklama { get; set; }
+        public string Aciklama { get; set; }
         public bool Silindi { get; set; }
     }
 }

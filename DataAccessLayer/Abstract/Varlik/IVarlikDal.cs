@@ -12,7 +12,9 @@ namespace DataAccessLayer.Abstract.Varlik
 
         List<VarlikDto> GetListPaginationDto(PagingParams pagingParams);
 
-        List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID);
+        List<EntityLayer.Concrete.Varlik.Varlik> GetListByKisimID(int KisimID);
+
+        List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID);
 
         int GetCountDto(string filter = "");
 

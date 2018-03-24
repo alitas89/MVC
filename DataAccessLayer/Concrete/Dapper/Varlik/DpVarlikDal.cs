@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using EntityLayer.Concrete.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -17,9 +18,14 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             return GetListQuery("select * from Varlik where Silindi=0", new { });
         }
 
-        public List<EntityLayer.Concrete.Varlik.Varlik> GetList(int KisimID)
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKisimID(int KisimID)
         {
             return GetListQuery($"select * from Varlik where Silindi=0 and KisimID=@KisimID", new { KisimID });
+        }
+
+        public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID)
+        {
+            return GetListQuery($"select * from Varlik where Silindi=0 and KaynakID=@KaynakID", new { KaynakID });
         }
 
         public EntityLayer.Concrete.Varlik.Varlik Get(int Id)
@@ -120,6 +126,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var result = GetScalarQuery("select Count(*) from Varlik where Kod= @Kod and Silindi=0", new { Kod }) + "";
             int.TryParse(result, out int count);
             return count > 0;
-        }
+        }        
     }
 }
