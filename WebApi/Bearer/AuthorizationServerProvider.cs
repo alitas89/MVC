@@ -45,14 +45,13 @@ namespace WebApi.Bearer
                     //Her bir grup için bulunan rolIDleri alınır
                     foreach (var yetkiGrupID in arrYetkiGrupID)
                     {
-                        var arrYetkiRolID = yetkiGrupRol.GetListByGrupId(yetkiGrupID).Select(x => x.YetkiRolID).Distinct().ToArray();
-                        foreach (var yetkiRolID in arrYetkiRolID)
+                        var arrYetkiRolID = yetkiGrupRol.GetListByGrupId(yetkiGrupID).Select(x => x.YetkiRolKod).Distinct().ToArray();
+                        foreach (var role in arrYetkiRolID)
                         {
                             //Her bir rolün idsi üzerinden adına ulaşılır ve claim edilir
-                            var role = yetkiRol.GetById(yetkiRolID);
                             if (role != null)
                             {
-                                identity.AddClaim(new Claim(ClaimTypes.Role, role.Ad));
+                                identity.AddClaim(new Claim(ClaimTypes.Role, role));
                             }
                         }
                     }

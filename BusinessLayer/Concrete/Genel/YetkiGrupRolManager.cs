@@ -72,7 +72,7 @@ namespace BusinessLayer.Concrete.Genel
             var list = _yetkigruprolDal.GetListByGrupId(YetkiGrupID);
             if (list != null && list.Count > 0)
             {
-                return jss.Serialize(list.Select(x => x.YetkiRolID).ToArray());
+                return jss.Serialize(list.Select(x => x.YetkiRolKod).ToArray());
             }
             return "";
         }
@@ -103,7 +103,7 @@ namespace BusinessLayer.Concrete.Genel
                             var addResultComma = Add(new YetkiGrupRol()
                             {
                                 YetkiGrupID = yetkiGrupID,
-                                YetkiRolID = Convert.ToInt32(role),
+                                YetkiRolKod = role.Trim(),
                                 Silindi = false
                             });
 
@@ -119,7 +119,7 @@ namespace BusinessLayer.Concrete.Genel
                         var addResult = Add(new YetkiGrupRol()
                         {
                             YetkiGrupID = yetkiGrupID,
-                            YetkiRolID = (int)item,
+                            YetkiRolKod = item.ToString().Trim(),
                             Silindi = false
                         });
 

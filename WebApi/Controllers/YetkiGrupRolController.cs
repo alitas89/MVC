@@ -51,6 +51,8 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
+        [Route("api/yetkigruprol/addyetkigruprol")]
+        [HttpPost]
         public int Post([FromBody]YetkiGrupRolDto yetkiGrupRolDto)
         {
             return _yetkiGrupRolService.AddYetkiGrupRoles(yetkiGrupRolDto.yetkiGrupID, yetkiGrupRolDto.arrYetkiRol);

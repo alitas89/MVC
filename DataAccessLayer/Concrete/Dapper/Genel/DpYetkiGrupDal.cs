@@ -21,7 +21,8 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public int Add(YetkiGrup yetkigrup)
         {
-            return AddQuery("insert into YetkiGrup(Kod,Ad,Silindi) values (@Kod,@Ad,@Silindi)", yetkigrup);
+            return AddQuery("insert into YetkiGrup(Kod,Ad,Silindi) values (@Kod,@Ad,@Silindi)"+
+                            " SELECT CAST(SCOPE_IDENTITY() as int)", yetkigrup, true);
         }
 
         public int Update(YetkiGrup yetkigrup)
@@ -64,7 +65,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_YetkiGrup where Silindi = 0 {filterQuery}",
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM YetkiGrup where Silindi = 0 {filterQuery}",
                                new { }) + "";
 
             int.TryParse(strCount, out int count);
