@@ -23,5 +23,11 @@ namespace BusinessLayer.Abstract.Genel
         int GetCount(string filter = "");
 
         List<YetkiGrupRol> GetListByGrupId(int YetkiGrupID);
+
+        string GetYetkiRolByYetkiGrupID(int YetkiGrupID);
+
+        int DeleteSoftByYetkiGrupID(int YetkiGrupID);
+
+        int AddYetkiGrupRoles(int yetkiGrupID, string arrYetkiRol);
     }
 }

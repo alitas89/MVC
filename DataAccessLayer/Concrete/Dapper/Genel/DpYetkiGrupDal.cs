@@ -16,53 +16,59 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public YetkiGrup Get(int Id)
         {
-            return GetQuery("select * from YetkiGrup where YetkiGrupID= @Id and Silindi=0", new { Id });
+            return GetQuery("select * from YetkiGrup where YetkiGrupID= @Id and Silindi=0", new {Id});
         }
 
         public int Add(YetkiGrup yetkigrup)
         {
-            return AddQuery("insert into YetkiGrup(Ad,Silindi) values (@Ad,@Silindi)" +
-                            " SELECT CAST(SCOPE_IDENTITY() as int)", yetkigrup, true);
+            return AddQuery("insert into YetkiGrup(Kod,Ad,Silindi) values (@Kod,@Ad,@Silindi)", yetkigrup);
         }
 
         public int Update(YetkiGrup yetkigrup)
         {
-            return UpdateQuery("update YetkiGrup set Ad=@Ad,Silindi=@Silindi where YetkiGrupID=@YetkiGrupID", yetkigrup);
+            return UpdateQuery("update YetkiGrup set Kod=@Kod,Ad=@Ad,Silindi=@Silindi where YetkiGrupID=@YetkiGrupID",
+                yetkigrup);
         }
 
         public int Delete(int Id)
         {
-            return DeleteQuery("delete from YetkiGrup where YetkiGrupID=@Id ", new { Id });
+            return DeleteQuery("delete from YetkiGrup where YetkiGrupID=@Id ", new {Id});
         }
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update YetkiGrup set Silindi = 1 where YetkiGrupID=@Id", new { Id });
+            return UpdateQuery("update YetkiGrup set Silindi = 1 where YetkiGrupID=@Id", new {Id});
         }
 
         public List<YetkiGrup> GetListPagination(PagingParams pagingParams)
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
-
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
+            //columns ayrımı yapılır 
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
 
             return GetListQuery($@"SELECT * FROM YetkiGrup where Silindi=0 {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
+                new {pagingParams.filter, pagingParams.offset, pagingParams.limit});
         }
 
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM YetkiGrup where Silindi=0 {filterQuery}", new { }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_YetkiGrup where Silindi = 0 {filterQuery}",
+                               new { }) + "";
+
             int.TryParse(strCount, out int count);
             return count;
         }
-
     }
 }

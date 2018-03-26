@@ -67,6 +67,16 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         {
             return GetListQuery("select * from YetkiGrupRol where YetkiGrupID= @YetkiGrupID and Silindi=0", new { YetkiGrupID });
         }
-        
+
+        public List<YetkiGrupRol> GetYetkiRolByYetkiGrupID(int YetkiGrupID)
+        {
+            return GetListQuery("select * from YetkiGrupRol where Silindi=0 and YetkiGrupID=@YetkiGrupID", new { YetkiGrupID });
+        }
+
+        public int DeleteSoftByYetkiGrupID(int YetkiGrupID)
+        {
+            return UpdateQuery("update YetkiGrupRol set Silindi = 1 where YetkiGrupID=@YetkiGrupID", new { YetkiGrupID });
+        }
     }
+    
 }

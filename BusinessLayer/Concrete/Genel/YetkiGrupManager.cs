@@ -30,11 +30,26 @@ namespace BusinessLayer.Concrete.Genel
         
         public int Add(YetkiGrup yetkigrup)
         {
+            //YetkiKodu kontrol edilir - benzersiz olmalıdır
+            var item = _yetkigrupDal.GetList().Find(x => x.Kod == yetkigrup.Kod);
+            if (item != null)
+            {
+                return 0;
+            }
             return _yetkigrupDal.Add(yetkigrup);
         }
         
         public int Update(YetkiGrup yetkigrup)
         {
+            var item = _yetkigrupDal.GetList().Find(x => x.Kod == yetkigrup.Kod);
+            if (item != null)
+            {
+                //KullanıcıAdı var aynı id mi?
+                if (item.YetkiGrupID != yetkigrup.YetkiGrupID)
+                {
+                    return 0;
+                }
+            }
             return _yetkigrupDal.Update(yetkigrup);
         }
         

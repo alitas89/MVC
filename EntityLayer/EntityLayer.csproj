@@ -47,6 +47,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTalebiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\StatuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupKullaniciDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupRolDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\MesaiDto.cs" />

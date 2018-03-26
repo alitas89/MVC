@@ -58,6 +58,7 @@ namespace WebApi.Controllers
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;
         }
+
         // GET api/<controller>/5
         public YetkiGrupKullanici Get(int id)
         {

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Genel;
+using EntityLayer.ComplexTypes.DtoModel.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Genel;
 
@@ -50,9 +51,9 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public int Post([FromBody]YetkiGrupRol yetkiGrupRol)
+        public int Post([FromBody]YetkiGrupRolDto yetkiGrupRolDto)
         {
-            return _yetkiGrupRolService.Add(yetkiGrupRol);
+            return _yetkiGrupRolService.AddYetkiGrupRoles(yetkiGrupRolDto.yetkiGrupID, yetkiGrupRolDto.arrYetkiRol);
         }
 
         // PUT api/<controller>/5
@@ -70,6 +71,14 @@ namespace WebApi.Controllers
         public int DeleteHard(int id)
         {
             return _yetkiGrupRolService.Delete(id);
+        }
+
+        // GET api/<controller>
+        [Route("api/yetkigruprol/getyetkirolbyyetkigrupid/{yetkiGrupID}")]
+        [HttpGet]
+        public string GetYetkiRolByYetkiGrupID(int yetkiGrupID)
+        {
+            return _yetkiGrupRolService.GetYetkiRolByYetkiGrupID(yetkiGrupID);
         }
     }
 }
