@@ -59,6 +59,9 @@
     <Compile Include="ComplexTypes\DtoModel\Varlik\AracServisDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\KaynakDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikDurumDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\KisimDto.cs" />
@@ -66,6 +69,8 @@
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\SarfYeriDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikOzNitelikTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikSablonDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikTransferDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDetayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDto.cs" />
@@ -134,6 +139,7 @@
     <Compile Include="Concrete\Bakim\Oncelik.cs" />
     <Compile Include="Concrete\Bakim\ParaBirim.cs" />
     <Compile Include="Concrete\Bakim\RiskTipi.cs" />
+    <Compile Include="Concrete\Varlik\OzNitelik.cs" />
     <Compile Include="Concrete\Varlik\SarfYeri.cs" />
     <Compile Include="Concrete\Bakim\Statu.cs" />
     <Compile Include="Concrete\Bakim\StatuTipi.cs" />
@@ -142,6 +148,8 @@
     <Compile Include="Concrete\Varlik\Varlik.cs" />
     <Compile Include="Concrete\Varlik\VarlikDurumu.cs" />
     <Compile Include="Concrete\Varlik\VarlikGrup.cs" />
+    <Compile Include="Concrete\Varlik\VarlikOzNitelik.cs" />
+    <Compile Include="Concrete\Varlik\VarlikSablon.cs" />
     <Compile Include="Concrete\Varlik\VarlikTransfer.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />
     <Compile Include="Concrete\Genel\Verify.cs" />

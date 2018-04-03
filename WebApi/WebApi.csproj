@@ -257,6 +257,7 @@
     <Compile Include="Controllers\OdemeSekliController.cs" />
     <Compile Include="Controllers\OlcuBirimController.cs" />
     <Compile Include="Controllers\OncelikController.cs" />
+    <Compile Include="Controllers\OzNitelikController.cs" />
     <Compile Include="Controllers\ParaBirimController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
     <Compile Include="Controllers\SarfYeriController.cs" />
@@ -273,6 +274,8 @@
     <Compile Include="Controllers\VarlikController.cs" />
     <Compile Include="Controllers\VarlikDurumuController.cs" />
     <Compile Include="Controllers\VarlikGrupController.cs" />
+    <Compile Include="Controllers\VarlikOzNitelikController.cs" />
+    <Compile Include="Controllers\VarlikSablonController.cs" />
     <Compile Include="Controllers\VarlikTransferController.cs" />
     <Compile Include="Controllers\VarlikTuruController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />

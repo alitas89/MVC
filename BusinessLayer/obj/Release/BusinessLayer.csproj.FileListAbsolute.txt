@@ -145,3 +145,4 @@ D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInpu
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
+D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll.config

@@ -45,6 +45,9 @@
     <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.7.2.1\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -128,6 +131,7 @@
     <Compile Include="Abstract\Bakim\IOncelikService.cs" />
     <Compile Include="Abstract\Bakim\IParaBirimService.cs" />
     <Compile Include="Abstract\Bakim\IRiskTipiService.cs" />
+    <Compile Include="Abstract\Varlik\IOzNitelikService.cs" />
     <Compile Include="Abstract\Varlik\ISarfYeriService.cs" />
     <Compile Include="Abstract\Bakim\IStatuService.cs" />
     <Compile Include="Abstract\Bakim\IStatuTipiService.cs" />
@@ -135,6 +139,8 @@
     <Compile Include="Abstract\Varlik\IUrunService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikDurumuService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikGrupService.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikOzNitelikService.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikSablonService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTransferService.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruService.cs" />
@@ -205,6 +211,7 @@
     <Compile Include="Concrete\Bakim\OncelikManager.cs" />
     <Compile Include="Concrete\Bakim\ParaBirimManager.cs" />
     <Compile Include="Concrete\Bakim\RiskTipiManager.cs" />
+    <Compile Include="Concrete\Varlik\OzNitelikManager.cs" />
     <Compile Include="Concrete\Varlik\SarfYeriManager.cs" />
     <Compile Include="Concrete\Bakim\StatuManager.cs" />
     <Compile Include="Concrete\Bakim\StatuTipiManager.cs" />
@@ -213,6 +220,8 @@
     <Compile Include="Concrete\Varlik\VarlikGrupManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikDurumuManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikManager.cs" />
+    <Compile Include="Concrete\Varlik\VarlikOzNitelikManager.cs" />
+    <Compile Include="Concrete\Varlik\VarlikSablonManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikTransferManager.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuruManager.cs" />
     <Compile Include="Concrete\Genel\VerifyManager.cs" />
@@ -233,6 +242,7 @@
     <Compile Include="ValidationRules\FluentValidation\VarlikGrupValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

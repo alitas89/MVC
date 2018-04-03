@@ -131,6 +131,15 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IKaynakDurumuService>().To<KaynakDurumuManager>().InSingletonScope();
             Bind<IKaynakDurumuDal>().To<DpKaynakDurumuDal>();
 
+            Bind<IVarlikSablonService>().To<VarlikSablonManager>().InSingletonScope();
+            Bind<IVarlikSablonDal>().To<DpVarlikSablonDal>();
+
+            Bind<IOzNitelikService>().To<OzNitelikManager>().InSingletonScope();
+            Bind<IOzNitelikDal>().To<DpOzNitelikDal>();
+
+            Bind<IVarlikOzNitelikService>().To<VarlikOzNitelikManager>().InSingletonScope();
+            Bind<IVarlikOzNitelikDal>().To<DpVarlikOzNitelikDal>();
+
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
             Bind<IIsTipiDal>().To<DpIsTipiDal>();

@@ -100,6 +100,7 @@
     <Compile Include="Abstract\Bakim\IOncelikDal.cs" />
     <Compile Include="Abstract\Bakim\IParaBirimDal.cs" />
     <Compile Include="Abstract\Bakim\IRiskTipiDal.cs" />
+    <Compile Include="Abstract\Varlik\IOzNitelikDal.cs" />
     <Compile Include="Abstract\Varlik\ISarfYeriDal.cs" />
     <Compile Include="Abstract\Bakim\IStatuDal.cs" />
     <Compile Include="Abstract\Bakim\IStatuTipiDal.cs" />
@@ -108,6 +109,8 @@
     <Compile Include="Abstract\Varlik\IVarlikDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikDurumuDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikGrupDal.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikOzNitelikDal.cs" />
+    <Compile Include="Abstract\Varlik\IVarlikSablonDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTransferDal.cs" />
     <Compile Include="Abstract\Varlik\IVarlikTuruDal.cs" />
     <Compile Include="Abstract\Genel\IVerifyDal.cs" />
@@ -181,6 +184,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpOncelikDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpParaBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpRiskTipiDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpOzNitelikDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpSarfYeriDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpStatuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpStatuTipiDal.cs" />
@@ -189,6 +193,8 @@
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikDurumuDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikGrupDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpVarlikOzNitelikDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpVarlikSablonDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTransferDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Genel\DpVerifyDal.cs" />
