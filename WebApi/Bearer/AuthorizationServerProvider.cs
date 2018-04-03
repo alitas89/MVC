@@ -32,9 +32,14 @@ namespace WebApi.Bearer
             try
             {
                 Kullanici kullanici = kullaniciService.GetByKullaniciAdiAndSifre(context.UserName, context.Password);
+
                 if (kullanici != null)
                 {
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+
+                    //Kullanıcı bilgileri eklenir
+                    identity.AddClaim(new Claim(ClaimTypes.Name, kullanici.KullaniciAdi));
+                    identity.AddClaim(new Claim(ClaimTypes.Actor, kullanici.Ad + " " + kullanici.Soyad));
 
                     //Giriş yapabilen her kişiye Authorized rolü verilir
                     identity.AddClaim(new Claim(ClaimTypes.Role, "Authorized"));
