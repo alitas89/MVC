@@ -146,3 +146,4 @@ D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
 D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll.config

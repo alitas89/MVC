@@ -141,3 +141,5 @@ D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.dll
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.pdb
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\BusinessLayer.Tests.dll.config
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\BusinessLayer.Tests.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\BusinessLayer.dll.config

@@ -62,6 +62,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IYetkiGrupService>().To<YetkiGrupManager>();
             Bind<IYetkiGrupDal>().To<DpYetkiGrupDal>();
 
+            Bind<IMenuService>().To<MenuManager>();
+            Bind<IMenuDal>().To<DpMenuDal>();
+
             //*****Asıl tablolar
 
             //#VarlıkModul

@@ -88,6 +88,7 @@
     <Compile Include="Concrete\Bakim\IsEmri.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
+    <Compile Include="Concrete\Genel\Menu.cs" />
     <Compile Include="Concrete\Genel\YetkiGrup.cs" />
     <Compile Include="Concrete\Genel\YetkiGrupKullanici.cs" />
     <Compile Include="Concrete\Genel\YetkiGrupRol.cs" />

@@ -431,3 +431,4 @@ D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
 D:\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
 D:\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config

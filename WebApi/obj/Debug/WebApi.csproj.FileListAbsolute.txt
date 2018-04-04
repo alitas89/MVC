@@ -323,3 +323,8 @@ D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Owin.xml
 D:\MVC\mvcprojesi\WebApi\bin\FluentValidation.xml
 D:\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\MoreLinq.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\MoreLinq.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.xml
