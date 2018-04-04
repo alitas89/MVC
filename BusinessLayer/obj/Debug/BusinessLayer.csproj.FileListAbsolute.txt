@@ -108,3 +108,4 @@ D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Web.Http.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.dll.config

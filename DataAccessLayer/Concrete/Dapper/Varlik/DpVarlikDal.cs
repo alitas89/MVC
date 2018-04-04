@@ -35,7 +35,8 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int Add(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
-            return AddQuery("insert into Varlik(Kod,Ad,VarlikDurumID,VarlikTuruID,VarlikGrupID,BagliVarlikKod,KisimID,SarfYeriID,IsletmeID,MarkaID,ModelID,SeriNo,BarkodKod,GarantiBitisTarih,SonKullanimTarih,Aciklama,ZimmetliPersonelID,VarsayilanIsTipiID,VarsayilanBakimArizaID,VarsayilanArizaNedenID,VarsayilanArizaCozumID,EkipID,IsEmriTurID,Silindi) values (@Kod,@Ad,@VarlikDurumID,@VarlikTuruID,@VarlikGrupID,@BagliVarlikKod,@KisimID,@SarfYeriID,@IsletmeID,@MarkaID,@ModelID,@SeriNo,@BarkodKod,@GarantiBitisTarih,@SonKullanimTarih,@Aciklama,@ZimmetliPersonelID,@VarsayilanIsTipiID,@VarsayilanBakimArizaID,@VarsayilanArizaNedenID,@VarsayilanArizaCozumID,@EkipID,@IsEmriTurID,@Silindi)", varlik);
+            return AddQuery("insert into Varlik(Kod,Ad,VarlikDurumID,VarlikTuruID,VarlikGrupID,BagliVarlikKod,KisimID,SarfYeriID,IsletmeID,MarkaID,ModelID,SeriNo,BarkodKod,GarantiBitisTarih,SonKullanimTarih,Aciklama,ZimmetliPersonelID,VarsayilanIsTipiID,VarsayilanBakimArizaID,VarsayilanArizaNedenID,VarsayilanArizaCozumID,EkipID,IsEmriTurID,Silindi) values (@Kod,@Ad,@VarlikDurumID,@VarlikTuruID,@VarlikGrupID,@BagliVarlikKod,@KisimID,@SarfYeriID,@IsletmeID,@MarkaID,@ModelID,@SeriNo,@BarkodKod,@GarantiBitisTarih,@SonKullanimTarih,@Aciklama,@ZimmetliPersonelID,@VarsayilanIsTipiID,@VarsayilanBakimArizaID,@VarsayilanArizaNedenID,@VarsayilanArizaCozumID,@EkipID,@IsEmriTurID,@Silindi); " +
+                " SELECT CAST(SCOPE_IDENTITY() as int)", varlik, true);
         }
 
         public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
@@ -55,7 +56,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<EntityLayer.Concrete.Varlik.Varlik> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -92,7 +93,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public List<VarlikDto> GetListPaginationDto(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -126,6 +127,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var result = GetScalarQuery("select Count(*) from Varlik where Kod= @Kod and Silindi=0", new { Kod }) + "";
             int.TryParse(result, out int count);
             return count > 0;
-        }        
+        }
     }
 }

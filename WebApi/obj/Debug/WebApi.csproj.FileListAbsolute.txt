@@ -323,3 +323,5 @@ D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Owin.xml
 D:\MVC\mvcprojesi\WebApi\bin\FluentValidation.xml
 D:\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
+D:\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
+D:\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config

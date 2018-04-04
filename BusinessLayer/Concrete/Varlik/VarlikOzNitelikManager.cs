@@ -3,6 +3,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 using Newtonsoft.Json;
@@ -73,48 +74,32 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, OzNitelikCreate")]
+        [SecuredOperation(Roles = "Admin, VarlikOzNitelikCreate")]
         public int AddVarlikOzNitelik(int varlikID, string arrVarlikOzNitelik)
         {
             var listOzNitelik = JsonConvert.DeserializeObject<List<VarlikOzNitelik>>(arrVarlikOzNitelik);
 
-            foreach (var item in listOzNitelik)
-            {
-                var addResult = Add(new VarlikOzNitelik()
-                {
-                    VarlikID = varlikID,
-                    OzNitelikID = item.OzNitelikID,
-                    Deger = item.Deger,
-                    Silindi = false
-                });
+            var count = _varlikoznitelikDal.AddWithTransaction(varlikID, listOzNitelik);
 
-                if (addResult < 0)
-                {
-                    //Ekleme işlemi sırasında bir hata meydana geldi
-                    return -2;
-                }
-            }
-
-            return 1;
+            return count;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikOzNitelikUpdate")]
         public int UpdateVarlikOzNitelik(int varlikID, string arrVarlikOzNitelik)
         {
-            var listOzNitelik = JsonConvert.DeserializeObject<List<VarlikOzNitelik>>(arrVarlikOzNitelik);
-            // Oz nitelik durumuna göre belirli şablonun nitelikleri güncellenecek yada yeni nitelikler eklenecek
+            var listOzNitelik = JsonConvert.DeserializeObject<List<VarlikOzNitelikDto>>(arrVarlikOzNitelik);
 
-            foreach (var item in listOzNitelik)
-            {
-                Update(new VarlikOzNitelik()
-                {
-                    VarlikOzNitelikID = item.VarlikOzNitelikID,
-                    OzNitelikID = item.OzNitelikID,
-                    VarlikID = varlikID,
-                    Deger = item.Deger,
-                    Silindi = false
-                });
-            }
-            return 1;
+            var count = _varlikoznitelikDal.UpdateWithTransaction(varlikID, listOzNitelik);
+
+            return count;
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        public List<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
+        {
+            return _varlikoznitelikDal.GetListByVarlikID(VarlikID);
         }
     }
 }

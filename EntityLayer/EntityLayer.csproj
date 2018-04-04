@@ -69,6 +69,7 @@
     <Compile Include="ComplexTypes\DtoModel\ProductCategoryNamesDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\ProductNameColorDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\SarfYeriDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikOzNitelikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikOzNitelikTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikSablonDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikTransferDto.cs" />

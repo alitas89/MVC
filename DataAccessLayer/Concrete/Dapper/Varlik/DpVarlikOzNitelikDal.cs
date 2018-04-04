@@ -1,9 +1,15 @@
 ﻿using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -17,6 +23,11 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         public VarlikOzNitelik Get(int Id)
         {
             return GetQuery("select * from VarlikOzNitelik where VarlikOzNitelikID= @Id and Silindi=0", new { Id });
+        }
+
+        public List<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
+        {
+            return GetListQuery("select * from VarlikOzNitelik where VarlikID= @VarlikID and Silindi=0", new { VarlikID });
         }
 
         public int Add(VarlikOzNitelik varlikoznitelik)
@@ -69,5 +80,58 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public int AddWithTransaction(int VarlikID, List<VarlikOzNitelik> listVarlikOzNitelik)
+        {
+            var count = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var item in listVarlikOzNitelik)
+                {
+                    item.VarlikID = VarlikID;
+                    count += connection.Execute("insert into VarlikOzNitelik(VarlikID,OzNitelikID,Deger,Silindi) values (@VarlikID,@OzNitelikID,@Deger,@Silindi)", item, transaction);
+                }
+
+                transaction.Commit();
+            }
+            return count;
+        }
+
+        public int UpdateWithTransaction(int VarlikID, List<VarlikOzNitelikDto> listVarlikOzNitelik)
+        {
+            var count = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var item in listVarlikOzNitelik)
+                {
+                    item.VarlikID = VarlikID;
+
+                    if (item.DurumID == 1)
+                    {
+                        count += connection.Execute("insert into VarlikOzNitelik(VarlikID,OzNitelikID,Deger,Silindi) values (@VarlikID,@OzNitelikID,@Deger,@Silindi)", item, transaction);
+                    }
+                    else if (item.DurumID == 2)
+                    {
+                        count += connection.Execute("update VarlikOzNitelik set VarlikID=@VarlikID,OzNitelikID=@OzNitelikID,Deger=@Deger,Silindi=@Silindi where VarlikOzNitelikID=@VarlikOzNitelikID", item, transaction);
+                    }
+                }
+
+                transaction.Commit();
+            }
+            return count;
+        }
     }
 }
