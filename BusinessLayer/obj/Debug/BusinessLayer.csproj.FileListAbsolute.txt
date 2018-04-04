@@ -108,8 +108,12 @@ D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Web.Http.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+<<<<<<< HEAD
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.dll.config
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Debug\MoreLinq.dll
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.ValueTuple.dll
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Debug\MoreLinq.xml
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.ValueTuple.xml
+=======
+D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+>>>>>>> 376f00c056a715445c4a1e0ee0f6123f9b257993

@@ -46,7 +46,7 @@ namespace Core.DataAccessLayer.Dapper.RepositoryBase
                 {
                     connection.Open();
                 }
-
+                
                 var count = isScopeIdentity ? connection.Query<int>(query, parameters).Single() : connection.Execute(query, parameters);
                 return count;
             }

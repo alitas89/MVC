@@ -53,6 +53,13 @@ namespace WebApi.Controllers
             return _varlikOzNitelikService.GetById(id);
         }
 
+        [Route("api/varlikoznitelik/getlistbyvarlikid/{VarlikID}")]
+        [HttpGet]
+        public IEnumerable<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
+        {
+            return _varlikOzNitelikService.GetListByVarlikID(VarlikID);
+        }
+
         // POST api/<controller>
         public int Post([FromBody]VarlikOzNitelikTemp varlikOzNitelikTemp)
         {
