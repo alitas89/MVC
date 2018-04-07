@@ -7,6 +7,7 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
+using Newtonsoft.Json;
 
 namespace BusinessLayer.Concrete.Varlik
 {
@@ -99,6 +100,28 @@ namespace BusinessLayer.Concrete.Varlik
         public int GetCountDto(int ZimmetTransferID, string filter = "")
         {
             return _zimmettransferdetayDal.GetCountDto(ZimmetTransferID, filter);
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayCreate")]
+        public int AddZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
+        {
+            var listZimmetTransferDetay = JsonConvert.DeserializeObject<List<ZimmetTransferDetay>>(arrVarlik);
+
+            var count = _zimmettransferdetayDal.AddWithTransaction(ZimmetTransferID, listZimmetTransferDetay);
+
+            return count;
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayUpdate")]
+        public int UpdateZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
+        {
+            var listZimmetTransferDetay = JsonConvert.DeserializeObject<List<ZimmetTransferDetayDto>>(arrVarlik);
+
+            var count = _zimmettransferdetayDal.UpdateWithTransaction(ZimmetTransferID, listZimmetTransferDetay);
+
+            return count;
         }
     }
 }

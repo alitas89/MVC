@@ -17,5 +17,9 @@ namespace DataAccessLayer.Abstract.Varlik
         int UpdateVarlikZimmet(int VarlikID, int ZimmetliPersonelID);
 
         int GetZimmetliPersonel(int ZimmetTransferID);
+
+        int AddWithTransaction(int ZimmetTransferID, List<ZimmetTransferDetay> listZimmetTransferDetay);
+
+        int UpdateWithTransaction(int ZimmetTransferID, List<ZimmetTransferDetayDto> listZimmetTransferDetay);
     }
 }

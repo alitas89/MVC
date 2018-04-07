@@ -60,7 +60,6 @@
     <Compile Include="ComplexTypes\DtoModel\Varlik\IsTipiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\KaynakDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikDto.cs" />
-    <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikDurumDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\OzNitelikTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikGrupDto.cs" />
@@ -75,6 +74,7 @@
     <Compile Include="ComplexTypes\DtoModel\Varlik\VarlikTransferDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDetayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Varlik\ZimmetTransferTemp.cs" />
     <Compile Include="ComplexTypes\ParameterModel\PagingParams.cs" />
     <Compile Include="Concrete\Bakim\ArizaCozumu.cs" />
     <Compile Include="Concrete\Bakim\ArizaNedeni.cs" />

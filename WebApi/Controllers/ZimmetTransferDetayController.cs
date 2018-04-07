@@ -68,15 +68,15 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public int Post([FromBody] ZimmetTransferDetay zimmetTransferDetay)
+        public int Post([FromBody] ZimmetTransferTemp zimmetTransferTemp)
         {
-            return _zimmetTransferDetayService.Add(zimmetTransferDetay);
+            return _zimmetTransferDetayService.AddZimmetTransferDetay(zimmetTransferTemp.ZimmetTransferID,zimmetTransferTemp.arrVarlik);
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody] ZimmetTransferDetay zimmetTransferDetay)
+        public int Put([FromBody] ZimmetTransferTemp zimmetTransferTemp)
         {
-            return _zimmetTransferDetayService.Update(zimmetTransferDetay);
+            return _zimmetTransferDetayService.UpdateZimmetTransferDetay(zimmetTransferTemp.ZimmetTransferID, zimmetTransferTemp.arrVarlik);
         }
 
         public int Delete(int id)

@@ -95,62 +95,21 @@ namespace BusinessLayer.Concrete.Varlik
         {
             var listOzNitelik = JsonConvert.DeserializeObject<List<OzNitelik>>(arrOzNitelik);
 
-            foreach (var item in listOzNitelik)
-            {
-                var addResult = Add(new OzNitelik()
-                {
-                    VarlikSablonID = varlikSablonID,
-                    Ad = item.Ad,
-                    BirimID = item.BirimID,
-                    Silindi = false
-                });
+            var count = _oznitelikDal.AddWithTransaction(varlikSablonID, listOzNitelik);
 
-                if (addResult < 0)
-                {
-                    //Ekleme işlemi sırasında bir hata meydana geldi
-                    return -2;
-                }
-            }
-
-            return 1;
+             return count;
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin, OzNitelikUpdate")]
         public int UpdateOzNitelik(int varlikSablonID, string arrOzNitelik)
         {
-            var listOzNitelik = JsonConvert.DeserializeObject<List<OzNitelikDurumDto>>(arrOzNitelik);
+            var listOzNitelik = JsonConvert.DeserializeObject<List<OzNitelikDto>>(arrOzNitelik);
             // Oz nitelik durumuna göre belirli şablonun nitelikleri güncellenecek yada yeni nitelikler eklenecek
 
-            foreach (var item in listOzNitelik)
-            {
-                switch (item.DurumID)
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        Add(new OzNitelik()
-                        {
-                            VarlikSablonID = varlikSablonID,
-                            Ad = item.Ad,
-                            BirimID = item.BirimID,
-                            Silindi = false
-                        });
-                        break;
-                    case 2:
-                        Update(new OzNitelik()
-                        {
-                            OzNitelikID = item.OzNitelikID,
-                            VarlikSablonID = varlikSablonID,
-                            Ad = item.Ad,
-                            BirimID = item.BirimID,
-                            Silindi = false
-                        });
-                        break;
-                }
-            }
-
-            return 1;
+            var count = _oznitelikDal.UpdateWithTransaction(varlikSablonID, listOzNitelik);
+            
+            return count;
         }
 
         public List<OzNitelikDto> GetListPaginationDto(int VarlikSablonID, PagingParams pagingParams)

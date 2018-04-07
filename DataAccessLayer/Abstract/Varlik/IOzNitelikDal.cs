@@ -15,5 +15,9 @@ namespace DataAccessLayer.Abstract.Varlik
         List<OzNitelikDto> GetListPaginationDto(int VarlikSablonID, PagingParams pagingParams);
 
         int GetCountDto(int VarlikSablonID, string filter = "");
+
+        int AddWithTransaction(int VarlikSablonID, List<OzNitelik> listOzNitelik);
+
+        int UpdateWithTransaction(int VarlikSablonID, List<OzNitelikDto> listOzNitelik);
     }
 }

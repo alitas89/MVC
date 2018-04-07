@@ -28,5 +28,9 @@ namespace BusinessLayer.Abstract.Varlik
         List<ZimmetTransferDetayDto> GetListPaginationDto(int ZimmetTransferID, PagingParams pagingParams);
 
         int GetCountDto(int ZimmetTransferID, string filter = "");
+
+        int AddZimmetTransferDetay(int ZimmetTransferID, string arrVarlik);
+
+        int UpdateZimmetTransferDetay(int ZimmetTransferID, string arrVarlik);
     }
 }

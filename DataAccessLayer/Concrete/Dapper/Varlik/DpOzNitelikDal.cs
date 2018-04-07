@@ -5,6 +5,10 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -111,5 +115,58 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public int AddWithTransaction(int VarlikSablonID, List<OzNitelik> listOzNitelik)
+        {
+            var count = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var item in listOzNitelik)
+                {
+                    item.VarlikSablonID = VarlikSablonID;
+                    count += connection.Execute("insert into OzNitelik(VarlikSablonID,BirimID,Ad,Silindi) values (@VarlikSablonID,@BirimID,@Ad,@Silindi)", item, transaction);
+                }
+
+                transaction.Commit();
+            }
+            return count;
+        }
+
+        public int UpdateWithTransaction(int VarlikSablonID, List<OzNitelikDto> listOzNitelik)
+        {
+            var count = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var item in listOzNitelik)
+                {
+                    item.VarlikSablonID = VarlikSablonID;
+
+                    if (item.DurumID == 1)
+                    {
+                        count += connection.Execute("insert into OzNitelik(VarlikSablonID,BirimID,Ad,Silindi) values (@VarlikSablonID,@BirimID,@Ad,@Silindi)", item, transaction);
+                    }
+                    else if (item.DurumID == 2)
+                    {
+                        count += connection.Execute("update OzNitelik set VarlikSablonID=@VarlikSablonID,BirimID=@BirimID,Ad=@Ad,Silindi=@Silindi where OzNitelikID=@OzNitelikID", item, transaction);
+                    }
+                }
+
+                transaction.Commit();
+            }
+            return count;
+        }
     }
 }

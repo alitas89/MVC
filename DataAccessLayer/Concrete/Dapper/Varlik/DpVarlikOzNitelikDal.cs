@@ -96,7 +96,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 {
                     item.VarlikID = VarlikID;
                     count += connection.Execute("insert into VarlikOzNitelik(VarlikID,OzNitelikID,Deger,Silindi) values (@VarlikID,@OzNitelikID,@Deger,@Silindi)", item, transaction);
-                }
+                }                
 
                 transaction.Commit();
             }

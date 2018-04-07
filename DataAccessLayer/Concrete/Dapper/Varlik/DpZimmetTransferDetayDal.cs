@@ -5,6 +5,10 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using Dapper;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -117,6 +121,81 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         public int UpdateVarlikZimmet(int VarlikID, int ZimmetliPersonelID)
         {
             return UpdateQuery("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { ZimmetliPersonelID, VarlikID });
+        }
+
+        public int AddWithTransaction(int ZimmetTransferID, List<ZimmetTransferDetay> listZimmetTransferDetay)
+        {
+            var count = 0;
+
+            //Kişi bilgisi alınır
+            int zimmetliPersonelID = GetZimmetliPersonel(ZimmetTransferID);
+
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var item in listZimmetTransferDetay)
+                {
+                    item.ZimmetTransferID = ZimmetTransferID;
+
+                    connection.Execute("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { zimmetliPersonelID, item.VarlikID }, transaction);
+
+                    count += connection.Execute("insert into ZimmetTransferDetay(VarlikID,ZimmetTransferID,Silindi) values (@VarlikID,@ZimmetTransferID,@Silindi)", item, transaction);
+                }
+
+                transaction.Commit();
+            }
+            return count;
+        }
+
+        public int UpdateWithTransaction(int ZimmetTransferID, List<ZimmetTransferDetayDto> listZimmetTransferDetay)
+        {
+            var count = 0;
+
+            //Kişi bilgisi alınır
+            int zimmetliPersonelID = GetZimmetliPersonel(ZimmetTransferID);
+
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var zimmetTransferDetay in listZimmetTransferDetay)
+                {
+                    zimmetTransferDetay.ZimmetTransferID = ZimmetTransferID;
+
+                    switch (zimmetTransferDetay.DurumID)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            connection.Execute("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { zimmetliPersonelID, zimmetTransferDetay.VarlikID }, transaction);
+                            count += connection.Execute("insert into ZimmetTransferDetay(VarlikID,ZimmetTransferID,Silindi) values (@VarlikID,@ZimmetTransferID,@Silindi)", zimmetTransferDetay, transaction);
+                            break;
+                        case 2:
+                            count += connection.Execute("update ZimmetTransferDetay set Silindi = 1 where ZimmetTransferDetayID=@ZimmetTransferDetayID", zimmetTransferDetay, transaction);
+                            break;
+                        case 3:
+                            connection.Execute("update Varlik set ZimmetliPersonelID=@ZimmetliPersonelID where VarlikID=@VarlikID", new { zimmetliPersonelID, zimmetTransferDetay.VarlikID }, transaction);
+                            count += connection.Execute("update ZimmetTransferDetay set VarlikID=@VarlikID,ZimmetTransferID=@ZimmetTransferID,Silindi=@Silindi where ZimmetTransferDetayID=@ZimmetTransferDetayID", zimmetTransferDetay, transaction);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                transaction.Commit();
+            }
+            return count;
         }
     }
 }

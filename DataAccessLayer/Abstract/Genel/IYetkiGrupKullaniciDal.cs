@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer;
 using EntityLayer.Concrete.Genel;
+using System;
 
 namespace DataAccessLayer.Abstract.Genel
 {
@@ -9,5 +10,7 @@ namespace DataAccessLayer.Abstract.Genel
         List<YetkiGrupKullanici> GetListByKullaniciId(int kullaniciId);
 
         int DeleteSoftByKullaniciId(int Id);
+
+        int AddWithTransaction(int kullaniciId, Array arrYetki);        
     }
 }
