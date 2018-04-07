@@ -16,6 +16,7 @@ namespace EntityLayer.Concrete.Genel
         public int ModulTip { get; set; }
         public string Icon { get; set; }
         public string Url { get; set; }
+        public int Sira { get; set; }
         public bool Silindi { get; set; }
     }
 }

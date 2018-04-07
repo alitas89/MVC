@@ -25,12 +25,12 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public int Add(Menu menu)
         {
-            return AddQuery("insert into Menu(Kod,Ad,ParentID,ModulTip,Icon,Url,Silindi) values (@Kod,@Ad,@ParentID,@ModulTip,@Icon,@Url,@Silindi)", menu);
+            return AddQuery("insert into Menu(Kod,Ad,ParentID,ModulTip,Icon,Url,Sira,Silindi) values (@Kod,@Ad,@ParentID,@ModulTip,@Icon,@Url,@Sira,@Silindi)", menu);
         }
 
         public int Update(Menu menu)
         {
-            return UpdateQuery("update Menu set Kod=@Kod,Ad=@Ad,ParentID=@ParentID,ModulTip=@ModulTip,Icon=@Icon,Url=@Url,Silindi=@Silindi where MenuID=@MenuID", menu);
+            return UpdateQuery("update Menu set Kod=@Kod,Ad=@Ad,ParentID=@ParentID,ModulTip=@ModulTip,Icon=@Icon,Url=@Url,Sira=@Sira,Silindi=@Silindi where MenuID=@MenuID", menu);
         }
 
         public int Delete(int Id)

@@ -1,149 +1,42 @@
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\BusinessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\BusinessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\AutoMapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Core.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Dapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\DapperExtensions.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\DataAccessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\EntityLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\FluentValidation.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\PostSharp.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Dapper.Mapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Core.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\DataAccessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\EntityLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\AutoMapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Dapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\DapperExtensions.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\FluentValidation.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\PostSharp.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\BusinessLayer.pssym
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Release\BusinessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\obj\Release\BusinessLayer.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.Mapper.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.pdb
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pssym
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
-C:\Users\Eren\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Ninject.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\log4net.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\UtilityLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Newtonsoft.Json.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\System.Web.Http.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\System.Net.Http.Formatting.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Ninject.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\log4net.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\UtilityLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\Newtonsoft.Json.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\System.Web.Http.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.Mapper.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pdb
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pssym
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
-C:\Users\ereng\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.Mapper.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.dll
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pssym
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll.config
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\MoreLinq.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.ValueTuple.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.Mapper.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Core.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\EntityLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\AutoMapper.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Dapper.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\DapperExtensions.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\FluentValidation.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\MoreLinq.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\Ninject.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\PostSharp.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.ValueTuple.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\log4net.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pssym
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb

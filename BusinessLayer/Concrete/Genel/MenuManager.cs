@@ -76,7 +76,6 @@ namespace BusinessLayer.Concrete.Genel
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Authorized")]
         public string GetMenuByKod(string arrKodJson)
         {
             string[] arrKod = JsonConvert.DeserializeObject<string[]>(arrKodJson);
@@ -90,29 +89,53 @@ namespace BusinessLayer.Concrete.Genel
 
             foreach (var kod in arrKod)
             {
+                if (kod == "Authorized" || kod == "Admin")
+                {
+                    continue;
+                }
+
                 //her birinin parentIdsi bulunur ve çağırılır
                 var itemMenu = listMenu.FirstOrDefault(x => x.Kod == kod);
-                //eklenir
-                RecursiveMenu(itemMenu);
+
+                if (itemMenu != null)
+                {
+                    //eklenir
+                    RecursiveParentMenu(itemMenu);
+                    RecursiveChildrenMenu(itemMenu);
+                }
             }
 
             //Tüm menüler bulunmuştur.
-
-            return JsonConvert.SerializeObject(listFindMenu.DistinctBy(a=>a.MenuID).OrderBy(b=>b.ParentID).ToList());
+            return JsonConvert.SerializeObject(listFindMenu.DistinctBy(a => a.MenuID).OrderBy(b => b.ParentID).ToList());
         }
 
         /// <summary>
-        /// Parent menüler bulunup eklenir.
+        /// Parent menüler bulunup eklenir. Sürekli parentları bulup eklemeye yönelik çalışma
         /// </summary>
         /// <param name="item"></param>
-        public void RecursiveMenu(Menu item)
+        public void RecursiveParentMenu(Menu item)
         {
             listFindMenu.Add(item);
 
             if (item != null && item.ParentID != 0)
             {
                 var parentItemMenu = _menuDal.Get(item.ParentID);
-                RecursiveMenu(parentItemMenu);
+                RecursiveParentMenu(parentItemMenu);
+            }
+        }
+
+        public void RecursiveChildrenMenu(Menu item)
+        {
+            List<Menu> listMenu = _menuDal.GetList();
+            if (item != null)
+            {
+                //Parent'ı gelen item'e ait olan tüm childlar bulunur.
+                var listChildMenu = listMenu.Where(x => x.ParentID == item.MenuID).ToList();
+                foreach (var childMenu in listChildMenu)
+                {
+                    listFindMenu.Add(childMenu);
+                    RecursiveChildrenMenu(childMenu);
+                }
             }
         }
     }

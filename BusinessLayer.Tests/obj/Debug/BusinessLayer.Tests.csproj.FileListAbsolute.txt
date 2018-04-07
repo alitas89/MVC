@@ -138,3 +138,9 @@ D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.csprojResolv
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.dll
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Debug\BusinessLayer.Tests.pdb
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\BusinessLayer.Tests.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\MoreLinq.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\BusinessLayer.dll.config
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\MoreLinq.xml
+C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.xml
