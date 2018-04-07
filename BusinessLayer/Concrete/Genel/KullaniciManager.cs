@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Genel
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KullaniciRead, KullaniciLtd")]
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<Kullanici> GetList()
         {
             return _kullaniciDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, KullaniciRead, KullaniciLtd")]
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public Kullanici GetById(int Id)
         {
             return _kullaniciDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Genel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KullaniciCreate")]
+        [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
         public int Add(Kullanici kullanici)
         {
             //KullaniciAdi kontrol edilir - benzersiz olmalıdır
@@ -47,7 +47,7 @@ namespace BusinessLayer.Concrete.Genel
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KullaniciUpdate")]
+        [SecuredOperation(Roles = "Admin, SistemUpdate, KullaniciUpdate")]
         public int Update(Kullanici kullanici)
         {
             var item = _kullaniciDal.GetList().Find(x => x.KullaniciAdi == kullanici.KullaniciAdi);
@@ -63,20 +63,20 @@ namespace BusinessLayer.Concrete.Genel
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KullaniciDelete")]
+        [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
         public int Delete(int Id)
         {
             return _kullaniciDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, KullaniciDelete")]
+        [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
         public int DeleteSoft(int Id)
         {
             return _kullaniciDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, KullaniciRead, KullaniciLtd")]
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<Kullanici> GetListPagination(PagingParams pagingParams)
         {
             return _kullaniciDal.GetListPagination(pagingParams);

@@ -19,43 +19,55 @@ namespace BusinessLayer.Concrete.Genel
             _yetkigrupkullaniciDal = yetkigrupkullaniciDal;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<YetkiGrupKullanici> GetList()
         {
             return _yetkigrupkullaniciDal.GetList();
         }
-
+        
         public List<YetkiGrupKullanici> GetListByKullaniciId(int kullaniciId)
         {
             return _yetkigrupkullaniciDal.GetListByKullaniciId(kullaniciId);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public YetkiGrupKullanici GetById(int Id)
         {
             return _yetkigrupkullaniciDal.Get(Id);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Add(YetkiGrupKullanici yetkigrupkullanici)
         {
             return _yetkigrupkullaniciDal.Add(yetkigrupkullanici);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [SecuredOperation(Roles = "Admin, SistemUpdate, KullaniciUpdate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Update(YetkiGrupKullanici yetkigrupkullanici)
         {
             return _yetkigrupkullaniciDal.Update(yetkigrupkullanici);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Delete(int Id)
         {
             return _yetkigrupkullaniciDal.Delete(Id);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoft(int Id)
         {
             return _yetkigrupkullaniciDal.DeleteSoft(Id);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<YetkiGrupKullanici> GetListPagination(PagingParams pagingParams)
         {
             return _yetkigrupkullaniciDal.GetListPagination(pagingParams);
@@ -66,11 +78,15 @@ namespace BusinessLayer.Concrete.Genel
             return _yetkigrupkullaniciDal.GetCount(filter);
         }
 
+
+        [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoftByKullaniciId(int Id)
         {
             return _yetkigrupkullaniciDal.DeleteSoftByKullaniciId(Id);
         }
-
+        
+        [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public string GetYetkiGrupListByKullaniciId(int kullaniciId)
         {
             var list = _yetkigrupkullaniciDal.GetListByKullaniciId(kullaniciId);
@@ -80,7 +96,9 @@ namespace BusinessLayer.Concrete.Genel
             }
             return "";
         }
-
+        
+        [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int AddYetkiGrupKullanici(int kullaniciId, string arrYetkiGrup)
         {
             var arrYetki = (Array)jss.DeserializeObject(arrYetkiGrup);

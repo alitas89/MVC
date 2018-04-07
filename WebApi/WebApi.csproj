@@ -251,6 +251,7 @@
     <Compile Include="Controllers\MalzemeStatuController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\MasrafTuruController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MesaiController.cs" />
     <Compile Include="Controllers\MesaiTuruController.cs" />
     <Compile Include="Controllers\ModelController.cs" />

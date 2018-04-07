@@ -1,190 +1,3 @@
-D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
-D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\csc.exe
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\csc.exe.config
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\csc.rsp
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\csi.exe
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\csi.rsp
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.AppContext.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.Collections.Immutable.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.IO.FileSystem.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\System.Reflection.Metadata.dll
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\vbc.exe
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\vbc.exe.config
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\vbc.rsp
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\VBCSCompiler.exe
-D:\MVC\mvcprojesi\WebApi\bin\roslyn\VBCSCompiler.exe.config
-D:\MVC\mvcprojesi\WebApi\bin\WebApi.dll.config
-D:\MVC\mvcprojesi\WebApi\bin\WebApi.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebApi.pdb
-D:\MVC\mvcprojesi\WebApi\bin\Antlr3.Runtime.dll
-D:\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll
-D:\MVC\mvcprojesi\WebApi\bin\Core.dll
-D:\MVC\mvcprojesi\WebApi\bin\Dapper.dll
-D:\MVC\mvcprojesi\WebApi\bin\DapperExtensions.dll
-D:\MVC\mvcprojesi\WebApi\bin\DataAccessLayer.dll
-D:\MVC\mvcprojesi\WebApi\bin\EntityLayer.dll
-D:\MVC\mvcprojesi\WebApi\bin\log4net.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Web.Infrastructure.dll
-D:\MVC\mvcprojesi\WebApi\bin\Newtonsoft.Json.dll
-D:\MVC\mvcprojesi\WebApi\bin\Ninject.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Net.Http.Formatting.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Helpers.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.WebHost.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Mvc.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Optimization.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Razor.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Deployment.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Razor.dll
-D:\MVC\mvcprojesi\WebApi\bin\UtilityLayer.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebActivatorEx.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebApiContrib.IoC.Ninject.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebGrease.dll
-D:\MVC\mvcprojesi\WebApi\bin\BusinessLayer.pdb
-D:\MVC\mvcprojesi\WebApi\bin\Core.pdb
-D:\MVC\mvcprojesi\WebApi\bin\DataAccessLayer.pdb
-D:\MVC\mvcprojesi\WebApi\bin\EntityLayer.pdb
-D:\MVC\mvcprojesi\WebApi\bin\UtilityLayer.pdb
-D:\MVC\mvcprojesi\WebApi\bin\Antlr3.Runtime.pdb
-D:\MVC\mvcprojesi\WebApi\bin\Dapper.xml
-D:\MVC\mvcprojesi\WebApi\bin\DapperExtensions.pdb
-D:\MVC\mvcprojesi\WebApi\bin\log4net.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\MVC\mvcprojesi\WebApi\bin\Ninject.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Helpers.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Mvc.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Optimization.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Razor.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Deployment.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Razor.xml
-D:\MVC\mvcprojesi\WebApi\bin\Newtonsoft.Json.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Net.Http.Formatting.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.WebHost.xml
-D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.dll
-D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
-D:\MVC\mvcprojesi\WebApi\bin\Swashbuckle.Core.dll
-D:\MVC\mvcprojesi\WebApi\bin\AutoMapper.dll
-D:\MVC\mvcprojesi\WebApi\bin\Dapper.Mapper.dll
-D:\MVC\mvcprojesi\WebApi\bin\AutoMapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\csc.exe
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\csc.exe.config
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\csc.rsp
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\csi.exe
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\csi.rsp
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.AppContext.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\vbc.exe
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\vbc.exe.config
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\vbc.rsp
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\VBCSCompiler.exe
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebApi.dll.config
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebApi.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebApi.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Antlr3.Runtime.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\BusinessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Core.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Dapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\DapperExtensions.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\DataAccessLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\EntityLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\log4net.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Newtonsoft.Json.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Common.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Mvc.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Swashbuckle.Core.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Net.Http.Formatting.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Cors.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Helpers.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.Cors.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.WebHost.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Mvc.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Optimization.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Razor.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.Deployment.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.Razor.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\UtilityLayer.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebActivatorEx.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebApiContrib.IoC.Ninject.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\WebGrease.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\FluentValidation.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\PostSharp.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\AutoMapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Dapper.Mapper.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\BusinessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Core.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\DataAccessLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\EntityLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\UtilityLayer.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Antlr3.Runtime.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Dapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\DapperExtensions.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\log4net.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Newtonsoft.Json.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Common.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Mvc.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Helpers.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.Cors.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Mvc.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Optimization.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Razor.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.Deployment.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.WebPages.Razor.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Net.Http.Formatting.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\System.Web.Http.WebHost.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\FluentValidation.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\PostSharp.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\AutoMapper.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\obj\Debug\WebApi.pdb
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Common.WebHost.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.WebApi.dll
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.Common.WebHost.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\Ninject.Web.WebApi.xml
-C:\Users\ereng\Documents\Visual Studio 2017\Projects\MVC\WebApi\bin\log4net.config
-C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
-C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\roslyn\csc.exe
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\roslyn\csc.exe.config
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\roslyn\csc.rsp
@@ -222,7 +35,10 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Dapper.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\DapperExtensions.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\DataAccessLayer.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EntityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.dll
@@ -232,6 +48,7 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Newtonsoft.Json.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Ninject.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Owin.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Swashbuckle.Core.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Net.Http.Formatting.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.Cors.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.Helpers.dll
@@ -245,24 +62,33 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.Razor.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Deployment.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.WebPages.Razor.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\UtilityLayer.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebActivatorEx.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.Formatting.Xlsx.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.IoC.Ninject.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebGrease.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\FluentValidation.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\AutoMapper.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\PostSharp.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\MoreLinq.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\log4net.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Dapper.Mapper.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\UtilityLayer.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\BusinessLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Core.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\DataAccessLayer.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EntityLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\UtilityLayer.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Antlr3.Runtime.pdb
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Dapper.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\DapperExtensions.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.OAuth.xml
@@ -283,45 +109,10 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Web.Http.WebHost.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\FluentValidation.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\AutoMapper.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\MoreLinq.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\log4net.xml
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\UtilityLayer.pdb
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
+C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.xml
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\WebApiContrib.Formatting.Xlsx.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\EPPlus.xml
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.dll
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\itextsharp.xml
-D:\MVC\mvcprojesi\WebApi\bin\log4net.config
-D:\MVC\mvcprojesi\WebApi\bin\EPPlus.dll
-D:\MVC\mvcprojesi\WebApi\bin\itextsharp.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.dll
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.OAuth.dll
-D:\MVC\mvcprojesi\WebApi\bin\Owin.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Cors.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Cors.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Owin.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebApiContrib.dll
-D:\MVC\mvcprojesi\WebApi\bin\WebApiContrib.Formatting.Xlsx.dll
-D:\MVC\mvcprojesi\WebApi\bin\FluentValidation.dll
-D:\MVC\mvcprojesi\WebApi\bin\PostSharp.dll
-D:\MVC\mvcprojesi\WebApi\bin\EPPlus.xml
-D:\MVC\mvcprojesi\WebApi\bin\itextsharp.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Cors.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.xml
-D:\MVC\mvcprojesi\WebApi\bin\Microsoft.Owin.Security.OAuth.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Cors.xml
-D:\MVC\mvcprojesi\WebApi\bin\System.Web.Http.Owin.xml
-D:\MVC\mvcprojesi\WebApi\bin\FluentValidation.xml
-D:\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
-C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
-D:\MVC\mvcprojesi\WebApi\bin\System.Linq.Dynamic.dll
-D:\MVC\mvcprojesi\WebApi\bin\BusinessLayer.dll.config

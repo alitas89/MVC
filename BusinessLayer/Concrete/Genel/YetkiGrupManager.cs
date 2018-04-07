@@ -17,17 +17,22 @@ namespace BusinessLayer.Concrete.Genel
         {
             _yetkigrupDal = yetkigrupDal;
         }
-        
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrup> GetList()
         {
             return _yetkigrupDal.GetList();
         }
         
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public YetkiGrup GetById(int Id)
         {
             return _yetkigrupDal.Get(Id);
         }
         
+        [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Add(YetkiGrup yetkigrup)
         {
             //YetkiKodu kontrol edilir - benzersiz olmalıdır
@@ -38,7 +43,9 @@ namespace BusinessLayer.Concrete.Genel
             }
             return _yetkigrupDal.Add(yetkigrup);
         }
-        
+
+        [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupUpdate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Update(YetkiGrup yetkigrup)
         {
             var item = _yetkigrupDal.GetList().Find(x => x.Kod == yetkigrup.Kod);
@@ -52,17 +59,23 @@ namespace BusinessLayer.Concrete.Genel
             }
             return _yetkigrupDal.Update(yetkigrup);
         }
-        
+
+        [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Delete(int Id)
         {
             return _yetkigrupDal.Delete(Id);
         }
-        
+
+
+        [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoft(int Id)
         {
             return _yetkigrupDal.DeleteSoft(Id);
         }
-        
+
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrup> GetListPagination(PagingParams pagingParams)
         {
             return _yetkigrupDal.GetListPagination(pagingParams);

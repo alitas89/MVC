@@ -22,36 +22,48 @@ namespace BusinessLayer.Concrete.Genel
             _yetkigruprolDal = yetkigruprolDal;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrupRol> GetList()
         {
             return _yetkigruprolDal.GetList();
         }
-
+        
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public YetkiGrupRol GetById(int Id)
         {
             return _yetkigruprolDal.Get(Id);
         }
-
+        
+        [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Add(YetkiGrupRol yetkigruprol)
         {
             return _yetkigruprolDal.Add(yetkigruprol);
         }
-
+        
+        [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupUpdate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Update(YetkiGrupRol yetkigruprol)
         {
             return _yetkigruprolDal.Update(yetkigruprol);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Delete(int Id)
         {
             return _yetkigruprolDal.Delete(Id);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoft(int Id)
         {
             return _yetkigruprolDal.DeleteSoft(Id);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrupRol> GetListPagination(PagingParams pagingParams)
         {
             return _yetkigruprolDal.GetListPagination(pagingParams);
@@ -61,12 +73,13 @@ namespace BusinessLayer.Concrete.Genel
         {
             return _yetkigruprolDal.GetCount(filter);
         }
-
+        
         public List<YetkiGrupRol> GetListByGrupId(int YetkiGrupID)
         {
             return _yetkigruprolDal.GetListByGrupId(YetkiGrupID);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public string GetYetkiRolByYetkiGrupID(int YetkiGrupID)
         {
             var list = _yetkigruprolDal.GetListByGrupId(YetkiGrupID);
@@ -77,11 +90,15 @@ namespace BusinessLayer.Concrete.Genel
             return "";
         }
 
+        [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoftByYetkiGrupID(int YetkiGrupID)
         {
             return _yetkigruprolDal.DeleteSoftByYetkiGrupID(YetkiGrupID);
         }
 
+        [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int AddYetkiGrupRoles(int yetkiGrupID, string arrYetkiRol)
         {
             var arr = (Array)jss.DeserializeObject(arrYetkiRol);
