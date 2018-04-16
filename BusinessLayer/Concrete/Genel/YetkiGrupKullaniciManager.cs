@@ -6,6 +6,9 @@ using BusinessLayer.Abstract.Genel;
 using DataAccessLayer.Abstract.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Genel;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Core.Aspects.Postsharp.CacheAspects;
+using Core.Aspects.Postsharp.AuthorizationAspects;
 
 namespace BusinessLayer.Concrete.Genel
 {

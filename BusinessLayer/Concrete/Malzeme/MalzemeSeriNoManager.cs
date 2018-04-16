@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BusinessLayer.Abstract.Malzeme;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Malzeme;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 
@@ -76,5 +73,15 @@ namespace BusinessLayer.Concrete.Malzeme
             return _malzemeserinoDal.GetCount(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, MalzemeSeriNoRead, MalzemelerSeriNoLtd")]
+        public List<MalzemeSeriNoDto> GetListPaginationDto(PagingParams pagingParams)
+        {
+            return _malzemeserinoDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDto(string filter = "")
+        {
+            return _malzemeserinoDal.GetCountDto(filter);
+        }
     }
 }

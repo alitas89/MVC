@@ -7,5 +7,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Varlik
         public string AracAd { get; set; }
         public string AmbarAd { get; set; }
         public string SarfYeriAd { get; set; }
+        public string YakitAd { get; set; }
     }
 }

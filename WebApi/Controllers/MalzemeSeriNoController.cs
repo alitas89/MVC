@@ -31,8 +31,8 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
         {
             int total = 0;
-            total = filter.Length != 0 ? _malzemeSeriNoService.GetCount(filter) : _malzemeSeriNoService.GetCount();
-            var d = _malzemeSeriNoService.GetListPagination(new PagingParams()
+            total = filter.Length != 0 ? _malzemeSeriNoService.GetCountDto(filter) : _malzemeSeriNoService.GetCountDto();
+            var d = _malzemeSeriNoService.GetListPaginationDto(new PagingParams()
             {
                 filter = filter,
                 limit = limit,

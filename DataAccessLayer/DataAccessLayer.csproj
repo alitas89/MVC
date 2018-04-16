@@ -59,6 +59,9 @@
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
     <Compile Include="Abstract\Genel\IMenuDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeDal.cs" />
+    <Compile Include="Abstract\Malzeme\IMalzemeHareketDal.cs" />
+    <Compile Include="Abstract\Malzeme\IMalzemeHareketDetayDal.cs" />
+    <Compile Include="Abstract\Malzeme\IMalzemeHareketFisDal.cs" />
     <Compile Include="Abstract\Personel\IKaynakDurumuDal.cs" />
     <Compile Include="Abstract\Malzeme\IAmbarDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeAltGrupDal.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Abstract\Genel\IYetkiGrupKullaniciDal.cs" />
     <Compile Include="Abstract\Genel\IYetkiGrupRolDal.cs" />
     <Compile Include="Abstract\Genel\IYetkiRolDal.cs" />
+    <Compile Include="Abstract\Varlik\IYakitDal.cs" />
     <Compile Include="Abstract\Varlik\IZimmetTransferDal.cs" />
     <Compile Include="Abstract\Varlik\IZimmetTransferDetayDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpArizaCozumuDal.cs" />
@@ -149,6 +153,9 @@
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeAltGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeGrupDal.cs" />
+    <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeHareketDal.cs" />
+    <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeHareketDetayDal.cs" />
+    <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeHareketFisDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeSeriNoDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeStatuDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMuhasebeHesapDal.cs" />
@@ -204,6 +211,7 @@
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTransferDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpVarlikTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Genel\DpVerifyDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpYakitDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDetayDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

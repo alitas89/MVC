@@ -247,6 +247,9 @@
     <Compile Include="Controllers\MalzemeAltGrupController.cs" />
     <Compile Include="Controllers\MalzemeController.cs" />
     <Compile Include="Controllers\MalzemeGrupController.cs" />
+    <Compile Include="Controllers\MalzemeHareketController.cs" />
+    <Compile Include="Controllers\MalzemeHareketDetayController.cs" />
+    <Compile Include="Controllers\MalzemeHareketFisController.cs" />
     <Compile Include="Controllers\MalzemeSeriNoController.cs" />
     <Compile Include="Controllers\MalzemeStatuController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
@@ -281,6 +284,7 @@
     <Compile Include="Controllers\VarlikTransferController.cs" />
     <Compile Include="Controllers\VarlikTuruController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
+    <Compile Include="Controllers\YakitController.cs" />
     <Compile Include="Controllers\YetkiGrupController.cs" />
     <Compile Include="Controllers\YetkiGrupKullaniciController.cs" />
     <Compile Include="Controllers\YetkiGrupRolController.cs" />

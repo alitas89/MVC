@@ -144,3 +144,9 @@ C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.dll
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\BusinessLayer.dll.config
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\MoreLinq.xml
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.xml
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\BusinessLayer.Tests.dll.config
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\BusinessLayer.dll.config
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\MoreLinq.dll
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.dll
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\MoreLinq.xml
+D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Debug\System.ValueTuple.xml

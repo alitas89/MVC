@@ -50,6 +50,9 @@
     <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupRolDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeHareketDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeHareketTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeSeriNoDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\MesaiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Personel\VardiyaDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\SatinAlma\MasrafTuruDto.cs" />
@@ -98,6 +101,10 @@
     <Compile Include="Concrete\Malzeme\Malzeme.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeHareket.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeHareketDetay.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeHareketDetayDto.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeHareketFis.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSeriNo.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeStatu.cs" />
     <Compile Include="Concrete\Malzeme\MuhasebeHesap.cs" />
@@ -155,6 +162,7 @@
     <Compile Include="Concrete\Varlik\VarlikTransfer.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />
     <Compile Include="Concrete\Genel\Verify.cs" />
+    <Compile Include="Concrete\Varlik\Yakit.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransfer.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransferDetay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
