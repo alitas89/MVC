@@ -4,10 +4,12 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using BusinessLayer.Abstract.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Genel;
+using Newtonsoft.Json;
 
 namespace WebApi.Controllers
 {
@@ -30,6 +32,13 @@ namespace WebApi.Controllers
         public string GetMenuByKod(string arrKodJson)
         {
             return _menuService.GetMenuByKod(arrKodJson);
+        }
+
+        [Route("api/menu/getmenu")]
+        public string GetMenu()
+        {
+            List<string> listRoles = GetRoles();
+            return _menuService.GetMenuByRoles(listRoles.Where(x => x.EndsWith("Read")).ToList());
         }
 
         // GET api/<controller>
@@ -79,6 +88,24 @@ namespace WebApi.Controllers
         public int DeleteHard(int id)
         {
             return _menuService.Delete(id);
+        }
+
+        public List<string> GetRoles()
+        {
+            //ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            List<string> listRole = new List<string>();
+            var identity = (ClaimsIdentity)User.Identity;
+            IEnumerable<Claim> claims = identity.Claims;
+            foreach (var claim in claims)
+            {
+                string name = claim.Type.Substring(claim.Type.LastIndexOf('/'),
+                    claim.Type.Length - claim.Type.LastIndexOf('/'));
+                if (name == "/role")
+                {
+                    listRole.Add(claim.Value);
+                }
+            }
+            return listRole;
         }
     }
 }

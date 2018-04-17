@@ -78,6 +78,7 @@
     <Compile Include="Abstract\Bakim\IArizaNedeniService.cs" />
     <Compile Include="Abstract\Bakim\IBakimArizaKoduService.cs" />
     <Compile Include="Abstract\Bakim\IBakimEkibiService.cs" />
+    <Compile Include="Abstract\Bakim\IBakimEkibiUyeService.cs" />
     <Compile Include="Abstract\Bakim\IBakimOncelikService.cs" />
     <Compile Include="Abstract\Bakim\IBakimRiskiService.cs" />
     <Compile Include="Abstract\Bakim\IBeklemeIptalNedeniService.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Concrete\Bakim\ArizaNedeniManager.cs" />
     <Compile Include="Concrete\Bakim\BakimArizaKoduManager.cs" />
     <Compile Include="Concrete\Bakim\BakimEkibiManager.cs" />
+    <Compile Include="Concrete\Bakim\BakimEkibiUyeManager.cs" />
     <Compile Include="Concrete\Bakim\BakimOncelikManager.cs" />
     <Compile Include="Concrete\Bakim\BakimRiskiManager.cs" />
     <Compile Include="Concrete\Bakim\BeklemeIptalNedeniManager.cs" />

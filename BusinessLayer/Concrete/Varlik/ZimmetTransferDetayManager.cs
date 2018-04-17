@@ -103,7 +103,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayCreate")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, ZimmetTransferDetayCreate")]
         public int AddZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
         {
             var listZimmetTransferDetay = JsonConvert.DeserializeObject<List<ZimmetTransferDetay>>(arrVarlik);
@@ -114,7 +114,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayUpdate")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, ZimmetTransferDetayUpdate")]
         public int UpdateZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
         {
             var listZimmetTransferDetay = JsonConvert.DeserializeObject<List<ZimmetTransferDetayDto>>(arrVarlik);

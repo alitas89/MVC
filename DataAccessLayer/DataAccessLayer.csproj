@@ -49,6 +49,7 @@
     <Compile Include="Abstract\Bakim\IArizaNedeniGrubuDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimArizaKoduDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimEkibiDal.cs" />
+    <Compile Include="Abstract\Bakim\IBakimEkibiUyeDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimOncelikDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimRiskiDal.cs" />
     <Compile Include="Abstract\Bakim\IBeklemeIptalNedeniDal.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpArizaNedeniGrubuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimArizaKoduDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimEkibiDal.cs" />
+    <Compile Include="Concrete\Dapper\Bakim\DpBakimEkibiUyeDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimOncelikDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimRiskiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBeklemeIptalNedeniDal.cs" />

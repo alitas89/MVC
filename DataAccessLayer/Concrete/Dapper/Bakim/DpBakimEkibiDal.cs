@@ -23,7 +23,8 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int Add(BakimEkibi bakimekibi)
         {
-            return AddQuery("insert into BakimEkibi(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi)", bakimekibi);
+            return AddQuery("insert into BakimEkibi(Kod,Ad,Aciklama,Silindi) values (@Kod,@Ad,@Aciklama,@Silindi); " +
+                            " SELECT CAST(SCOPE_IDENTITY() as int)", bakimekibi, true);
         }
 
         public int Update(BakimEkibi bakimekibi)

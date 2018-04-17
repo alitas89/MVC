@@ -168,6 +168,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IBakimEkibiService>().To<BakimEkibiManager>().InSingletonScope();
             Bind<IBakimEkibiDal>().To<DpBakimEkibiDal>();
 
+            Bind<IBakimEkibiUyeService>().To<BakimEkibiUyeManager>().InSingletonScope();
+            Bind<IBakimEkibiUyeDal>().To<DpBakimEkibiUyeDal>();
+
             Bind<IBeklemeIptalNedeniService>().To<BeklemeIptalNedeniManager>().InSingletonScope();
             Bind<IBeklemeIptalNedeniDal>().To<DpBeklemeIptalNedeniDal>();
 

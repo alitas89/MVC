@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimArizaKoduDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\BakimEkibiTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimRiskiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsEmriDto.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Concrete\Bakim\ArizaNedeniGrubu.cs" />
     <Compile Include="Concrete\Bakim\BakimArizaKodu.cs" />
     <Compile Include="Concrete\Bakim\BakimEkibi.cs" />
+    <Compile Include="Concrete\Bakim\BakimEkibiUye.cs" />
     <Compile Include="Concrete\Bakim\BakimOncelik.cs" />
     <Compile Include="Concrete\Bakim\BakimRiski.cs" />
     <Compile Include="Concrete\Bakim\BeklemeIptalNedeni.cs" />

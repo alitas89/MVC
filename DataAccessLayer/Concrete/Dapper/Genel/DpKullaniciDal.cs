@@ -22,13 +22,15 @@ namespace DataAccessLayer.Concrete.Dapper.Genel
 
         public int Add(Kullanici kullanici)
         {
-            return AddQuery("insert into Kullanici(KullaniciAdi,Sifre,Ad,Soyad,Email,Silindi) values (@KullaniciAdi,@Sifre,@Ad,@Soyad,@Email,@Silindi)" +
+            return AddQuery("insert into Kullanici(KullaniciAdi,Sifre,Ad,Soyad,Email,KaynakID,Silindi) values" +
+                            " (@KullaniciAdi,@Sifre,@Ad,@Soyad,@Email,@KaynakID,@Silindi)" +
                             " SELECT CAST(SCOPE_IDENTITY() as int)", kullanici, true);
         }
 
         public int Update(Kullanici kullanici)
         {
-            return UpdateQuery("update Kullanici set KullaniciAdi=@KullaniciAdi,Sifre=@Sifre,Ad=@Ad,Soyad=@Soyad,Email=@Email,Silindi=@Silindi where KullaniciId=@KullaniciId", kullanici);
+            return UpdateQuery("update Kullanici set KullaniciAdi=@KullaniciAdi,Sifre=@Sifre,Ad=@Ad,Soyad=@Soyad," +
+                               "Email=@Email,KaynakID=@KaynakID,Silindi=@Silindi where KullaniciId=@KullaniciId", kullanici);
         }
 
         public int Delete(int Id)

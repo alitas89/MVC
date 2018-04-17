@@ -82,6 +82,12 @@ namespace BusinessLayer.Concrete.Genel
             return FindMenu(arrKod);
         }
 
+        public string GetMenuByRoles(List<string> listRoles)
+        {
+            string[] arrKod = listRoles.ToArray();
+            return FindMenu(arrKod);
+        }
+
         List<Menu> listFindMenu = new List<Menu>();
         public string FindMenu(string[] arrKod)
         {

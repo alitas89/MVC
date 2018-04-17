@@ -23,5 +23,7 @@ namespace BusinessLayer.Abstract.Genel
         int GetCount(string filter="");
 
         string GetMenuByKod(string arrKodJson);
+
+        string GetMenuByRoles(List<string> listRoles);
     }
 }

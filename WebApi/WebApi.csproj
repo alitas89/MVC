@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ArizaNedeniGrubuController.cs" />
     <Compile Include="Controllers\BakimArizaKoduController.cs" />
     <Compile Include="Controllers\BakimEkibiController.cs" />
+    <Compile Include="Controllers\BakimEkibiUyeController.cs" />
     <Compile Include="Controllers\BakimOncelikController.cs" />
     <Compile Include="Controllers\BakimRiskiController.cs" />
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
