@@ -7,5 +7,6 @@
         public string MalzemeAltGrupAd { get; set; }
         public string MarkaAd { get; set; }
         public string ModelAd { get; set; }
+        public double ToplamMiktar { get; set; }
     }
 }

@@ -27,6 +27,13 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikoznitelikDal.GetList();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        public List<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
+        {
+            return _varlikoznitelikDal.GetListByVarlikID(VarlikID);
+        }
+
         [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
         public VarlikOzNitelik GetById(int Id)
         {
@@ -93,13 +100,6 @@ namespace BusinessLayer.Concrete.Varlik
             var count = _varlikoznitelikDal.UpdateWithTransaction(varlikID, listOzNitelik);
 
             return count;
-        }
-
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
-        public List<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
-        {
-            return _varlikoznitelikDal.GetListByVarlikID(VarlikID);
-        }
+        }       
     }
 }

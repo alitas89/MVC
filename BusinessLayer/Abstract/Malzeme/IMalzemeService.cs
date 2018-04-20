@@ -18,6 +18,8 @@ namespace BusinessLayer.Abstract.Malzeme
 
         int DeleteSoft(int Id);
 
+        List<MalzemeAmbarDetay> GetMalzemeAmbarDetay(int MalzemeID);
+
         List<EntityLayer.Concrete.Malzeme.Malzeme> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter);

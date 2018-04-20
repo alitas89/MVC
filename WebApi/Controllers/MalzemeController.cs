@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Linq.Dynamic;
 using EntityLayer.Concrete.Malzeme;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
+
 namespace WebApi.Controllers
 {
     public class MalzemeController : ApiController
@@ -22,6 +24,13 @@ namespace WebApi.Controllers
         public IEnumerable<EntityLayer.Concrete.Malzeme.Malzeme> Get()
         {
             return _malzemeService.GetList();
+        }
+
+        [Route("api/malzeme/getmalzemeambardetay/{MalzemeID}")]
+        [HttpGet]
+        public IEnumerable<MalzemeAmbarDetay> GetMalzemeAmbarDetay(int MalzemeID)
+        {
+            return _malzemeService.GetMalzemeAmbarDetay(MalzemeID);
         }
 
         // GET api/<controller>

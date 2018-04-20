@@ -50,7 +50,9 @@
     <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupKullaniciDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Genel\YetkiGrupRolDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\AmbarDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeAmbarDetay.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeHareketDetayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeHareketDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeHareketTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeSeriNoDto.cs" />
@@ -105,7 +107,6 @@
     <Compile Include="Concrete\Malzeme\MalzemeGrup.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeHareket.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeHareketDetay.cs" />
-    <Compile Include="Concrete\Malzeme\MalzemeHareketDetayDto.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeHareketFis.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSeriNo.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeStatu.cs" />

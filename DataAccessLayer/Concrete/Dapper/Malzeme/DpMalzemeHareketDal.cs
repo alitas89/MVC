@@ -26,7 +26,7 @@ namespace DataAccessLayer.Concrete.Dapper.Malzeme
 
         public int Add(MalzemeHareket malzemehareket)
         {
-            return AddQuery("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,Ambar2ID,Aciklama,MalzemeHareketTuruID,Silindi) values (@MalzemeHareketFisNo,@AmbarID,@Ambar2ID,@Aciklama,@MalzemeHareketTuruID,@Silindi)", malzemehareket);
+            return AddQuery("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,AmbarID,Aciklama,MalzemeHareketTuruID,Silindi) values (@MalzemeHareketFisNo,@AmbarID,@Ambar2ID,@Aciklama,@MalzemeHareketTuruID,@Silindi)", malzemehareket);
         }
 
         public int Update(MalzemeHareket malzemehareket)
@@ -117,13 +117,23 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                connection.Execute("update MalzemeHareketFis set FisTarih=@FisTarih,FisSaat=@FisSaat,Silindi=@Silindi where MalzemeHareketFisNo=@MalzemeHareketFisNo", malzemeHareketTemp, transaction);
+                connection.Execute("update MalzemeHareketFis set FisTarih=@FisTarih,FisSaat=@FisSaat where MalzemeHareketFisNo=@MalzemeHareketFisNo", malzemeHareketTemp, transaction);
 
-                connection.Execute("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,Ambar2ID,Aciklama,MalzemeHareketTuruID,Silindi) values (@MalzemeHareketFisNo,@AmbarID,@Ambar2ID,@Aciklama,@MalzemeHareketTuruID,@Silindi)", malzemeHareketTemp,transaction);
+                if (malzemeHareketTemp.MalzemeHareketTuruID == 3)
+                {
+                    connection.Execute("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,Ambar2ID,MalzemeHareketTuruID,IsTransfer) values (@MalzemeHareketFisNo,@AmbarID,@Ambar2ID,@MalzemeHareketTuruID,1)", malzemeHareketTemp, transaction);
+                    connection.Execute("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,MalzemeHareketTuruID,IsTransfer) values (@MalzemeHareketFisNo,@AmbarID,1,1)", malzemeHareketTemp, transaction);
+                    connection.Execute("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,MalzemeHareketTuruID,IsTransfer) values (@MalzemeHareketFisNo,@Ambar2ID,2,1)", malzemeHareketTemp, transaction);
+                }
+                else
+                {
+                    connection.Execute("insert into MalzemeHareket(MalzemeHareketFisNo,AmbarID,Ambar2ID,Aciklama,MalzemeHareketTuruID) values (@MalzemeHareketFisNo,@AmbarID,@Ambar2ID,@Aciklama,@MalzemeHareketTuruID)", malzemeHareketTemp, transaction);
+                }
 
                 foreach (var malzeme in listMalzeme)
-                {                    
-                    count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar,Silindi) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar,@Silindi)", malzeme, transaction);
+                {
+                    malzeme.MalzemeHareketFisNo = malzemeHareketTemp.MalzemeHareketFisNo;
+                    count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar)", malzeme, transaction);
                 }
 
                 transaction.Commit();
@@ -143,24 +153,24 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                connection.Execute("update MalzemeHareketFis set FisTarih=@FisTarih,FisSaat=@FisSaat,Silindi=@Silindi where MalzemeHareketFisNo=@MalzemeHareketFisNo", malzemeHareketTemp, transaction);
+                connection.Execute("update MalzemeHareketFis set FisTarih=@FisTarih,FisSaat=@FisSaat where MalzemeHareketFisNo=@MalzemeHareketFisNo", malzemeHareketTemp, transaction);
 
-                connection.Execute("update MalzemeHareket set AmbarID=@AmbarID,Ambar2ID=@Ambar2ID,Aciklama=@Aciklama,MalzemeHareketTuruID=@MalzemeHareketTuruID,Silindi=@Silindi where MalzemeHareketID=@MalzemeHareketID", malzemeHareketTemp, transaction);
+                connection.Execute("update MalzemeHareket set AmbarID=@AmbarID,Ambar2ID=@Ambar2ID,Aciklama=@Aciklama where MalzemeHareketID=@MalzemeHareketID", malzemeHareketTemp, transaction);
 
 
                 foreach (var malzeme in listMalzeme)
-                { 
+                {
                     if (malzeme.DurumID == 1)
                     {
-                        count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar,Silindi) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar,@Silindi)", malzeme, transaction);
+                        count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar)", malzeme, transaction);
                     }
                     else if (malzeme.DurumID == 2)
                     {
-                        count += connection.Execute("", malzeme, transaction);
+                        count += connection.Execute("update MalzemeHareketDetay set Silindi = 1 where MalzemeHareketDetayID=@MalzemeHareketDetayID", malzeme, transaction);
                     }
                     else if (malzeme.DurumID == 3)
                     {
-                        count += connection.Execute("update MalzemeHareketDetay set MalzemeHareketFisNo=@MalzemeHareketFisNo,MalzemeID=@MalzemeID,Miktar=@Miktar,Silindi=@Silindi where MalzemeHareketDetayID=@MalzemeHareketDetayID", malzeme, transaction);
+                        count += connection.Execute("update MalzemeHareketDetay set MalzemeID=@MalzemeID,Miktar=@Miktar where MalzemeHareketDetayID=@MalzemeHareketDetayID", malzeme, transaction);
                     }
                 }
 

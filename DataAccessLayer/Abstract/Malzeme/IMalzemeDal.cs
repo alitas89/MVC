@@ -11,6 +11,8 @@ namespace DataAccessLayer.Abstract.Malzeme
 
         List<MalzemeDto> GetListPaginationDto(PagingParams pagingParams);
 
+        List<MalzemeAmbarDetay> GetMalzemeAmbarDetay(int MalzemeID);
+
         int GetCountDto(string filter = "");
 
         bool IsKodDefined(string Kod);

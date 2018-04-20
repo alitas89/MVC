@@ -75,7 +75,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre)
         {
-            return GetQuery("select * from Kullanici where KullaniciAdi= @kullaniciAdi and Sifre = @sifre",
+            return GetQuery("select * from Kullanici where Silindi=0 and KullaniciAdi= @kullaniciAdi and Sifre = @sifre",
                 new { kullaniciAdi, sifre });
         }
     }

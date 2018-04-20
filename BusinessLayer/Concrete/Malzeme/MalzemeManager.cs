@@ -25,6 +25,13 @@ namespace BusinessLayer.Concrete.Malzeme
             return _malzemeDal.GetList();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, MalzemeRead,MalzemelerRead, MalzemelerLtd")]
+        public List<MalzemeAmbarDetay> GetMalzemeAmbarDetay(int MalzemeID)
+        {
+            return _malzemeDal.GetMalzemeAmbarDetay(MalzemeID);
+        }
+
         [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemelerRead, MalzemelerLtd")]
         public EntityLayer.Concrete.Malzeme.Malzeme GetById(int Id)
         {

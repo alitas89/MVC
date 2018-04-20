@@ -1,7 +1,6 @@
 ﻿using BusinessLayer.Abstract.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -60,9 +59,9 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody]MalzemeHareket malzemeHareket)
+        public int Put([FromBody]MalzemeHareketTemp malzemeHareketTemp)
         {
-            return _malzemeHareketService.Update(malzemeHareket);
+            return _malzemeHareketService.UpdateMalzemeHareket(malzemeHareketTemp);
         }
 
         public int Delete(int id)

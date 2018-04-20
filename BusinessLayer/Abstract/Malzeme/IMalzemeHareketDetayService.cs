@@ -1,4 +1,5 @@
-﻿using EntityLayer.ComplexTypes.ParameterModel;
+﻿using EntityLayer.ComplexTypes.DtoModel.Malzeme;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 using System.Collections.Generic;
 
@@ -21,5 +22,7 @@ namespace BusinessLayer.Abstract.Malzeme
         List<MalzemeHareketDetay> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<MalzemeHareketDetayDto> GetListByFisNo(int MalzemeHareketFisNo);
     }
 }

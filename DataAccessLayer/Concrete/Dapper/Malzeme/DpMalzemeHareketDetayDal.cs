@@ -1,6 +1,7 @@
 ﻿using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Malzeme;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 using System.Collections.Generic;
@@ -67,6 +68,15 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<MalzemeHareketDetayDto> GetListByFisNo(int MalzemeHareketFisNo)
+        {
+            return new DpDtoRepositoryBase<MalzemeHareketDetayDto>().GetListDtoQuery("select d.MalzemeHareketDetayID, d.MalzemeHareketFisNo, d.MalzemeID," +
+                                "d.Miktar, m.Kod, m.Ad " +
+                                "from MalzemeHareketDetay d left outer join Malzeme m on d.MalzemeID = m.MalzemeID " +
+                                "where d.Silindi = 0 and d.MalzemeHareketFisNo = @MalzemeHareketFisNo",
+                new { MalzemeHareketFisNo });
         }
     }
 }

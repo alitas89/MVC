@@ -68,6 +68,11 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(strCount, out int count);
             return count;
         }
+        
+        public List<MalzemeAmbarDetay> GetMalzemeAmbarDetay(int MalzemeID)
+        {
+            return new DpDtoRepositoryBase<MalzemeAmbarDetay>().GetListDtoQuery("SELECT * from View_MalzemeAmbarDetay where MalzemeID=@MalzemeID", new { MalzemeID });
+        }
 
         public List<MalzemeDto> GetListDto()
         {
@@ -111,5 +116,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(result, out int count);
             return count > 0;
         }
+
     }
 }

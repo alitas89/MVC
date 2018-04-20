@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Linq.Dynamic;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 
 namespace WebApi.Controllers
 {
@@ -72,6 +73,12 @@ namespace WebApi.Controllers
         public int DeleteHard(int id)
         {
             return _malzemeHareketDetayService.Delete(id);
+        }
+
+        [Route("api/malzemehareketdetay/getlistbyfisno/{id}")]
+        public IEnumerable<MalzemeHareketDetayDto> GetListByFisNo(int id)
+        {
+            return _malzemeHareketDetayService.GetListByFisNo(id);
         }
     }
 }

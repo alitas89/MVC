@@ -3,6 +3,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Malzeme;
+using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 using System.Collections.Generic;
@@ -69,6 +70,11 @@ namespace BusinessLayer.Concrete.Malzeme
         public int GetCount(string filter = "")
         {
             return _malzemehareketdetayDal.GetCount(filter);
+        }
+
+        public List<MalzemeHareketDetayDto> GetListByFisNo(int MalzemeHareketFisNo)
+        {
+            return _malzemehareketdetayDal.GetListByFisNo(MalzemeHareketFisNo);
         }
     }
 }
