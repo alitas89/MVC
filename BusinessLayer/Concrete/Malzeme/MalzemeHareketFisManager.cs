@@ -19,10 +19,10 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
         public List<MalzemeHareketFis> GetList() => _malzemehareketfisDal.GetList();
 
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
         public MalzemeHareketFis GetById(int Id)
         {
             return _malzemehareketfisDal.Get(Id);
@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisCreate")]
+        [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemeHareketFisCreate")]
         public int Add(MalzemeHareketFis malzemehareketfis)
         {
             return _malzemehareketfisDal.Add(malzemehareketfis);
@@ -38,31 +38,32 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisUpdate")]
+        [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemeHareketFisUpdate")]
         public int Update(MalzemeHareketFis malzemehareketfis)
         {
             return _malzemehareketfisDal.Update(malzemehareketfis);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketFisDelete")]
         public int Delete(int Id)
         {
             return _malzemehareketfisDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketFisDelete")]
         public int DeleteSoft(int Id)
         {
             return _malzemehareketfisDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
         public List<MalzemeHareketFis> GetListPagination(PagingParams pagingParams)
         {
             return _malzemehareketfisDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _malzemehareketfisDal.GetCount(filter);

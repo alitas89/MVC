@@ -20,13 +20,13 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
         public List<MalzemeHareketDetay> GetList()
         {
             return _malzemehareketdetayDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
         public MalzemeHareketDetay GetById(int Id)
         {
             return _malzemehareketdetayDal.Get(Id);
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayCreate")]
+        [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemeHareketDetayCreate")]
         public int Add(MalzemeHareketDetay malzemehareketdetay)
         {
             return _malzemehareketdetayDal.Add(malzemehareketdetay);
@@ -42,36 +42,38 @@ namespace BusinessLayer.Concrete.Malzeme
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayUpdate")]
+        [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemeHareketDetayUpdate")]
         public int Update(MalzemeHareketDetay malzemehareketdetay)
         {
             return _malzemehareketdetayDal.Update(malzemehareketdetay);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketDetayDelete")]
         public int Delete(int Id)
         {
             return _malzemehareketdetayDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayDelete")]
+        [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketDetayDelete")]
         public int DeleteSoft(int Id)
         {
             return _malzemehareketdetayDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
         public List<MalzemeHareketDetay> GetListPagination(PagingParams pagingParams)
         {
             return _malzemehareketdetayDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _malzemehareketdetayDal.GetCount(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketDetayRead, MalzemeHareketDetayLtd")]
         public List<MalzemeHareketDetayDto> GetListByFisNo(int MalzemeHareketFisNo)
         {
             return _malzemehareketdetayDal.GetListByFisNo(MalzemeHareketFisNo);

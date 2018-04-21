@@ -7,10 +7,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using BusinessLayer.Abstract;
-using BusinessLayer.Abstract.Genel;
+using BusinessLayer.Abstract.Sistem;
 using BusinessLayer.DependencyResolvers.Ninject;
 using EntityLayer.Concrete;
-using EntityLayer.Concrete.Genel;
+using EntityLayer.Concrete.Sistem;
 using Microsoft.Owin.Security.OAuth;
 
 namespace WebApi.Bearer

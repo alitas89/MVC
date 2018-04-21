@@ -9,7 +9,6 @@ using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
-using EntityLayer.Concrete.Genel;
 
 namespace DataAccessLayer.Concrete.Dapper.Bakim
 {

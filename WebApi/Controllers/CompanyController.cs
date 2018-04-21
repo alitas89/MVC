@@ -7,12 +7,12 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
 using BusinessLayer.Abstract;
-using BusinessLayer.Abstract.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
-using EntityLayer.Concrete.Genel;
 using Newtonsoft.Json;
 using System.Linq.Dynamic;
+using BusinessLayer.Abstract.Sistem;
+using EntityLayer.Concrete.Sistem;
 
 namespace WebApi.Controllers
 {

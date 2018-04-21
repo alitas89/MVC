@@ -162,7 +162,15 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 {
                     if (malzeme.DurumID == 1)
                     {
-                        count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar)", malzeme, transaction);
+                        count += connection.Execute("insert into MalzemeHareketDetay(MalzemeHareketFisNo,MalzemeID,Miktar) values (@MalzemeHareketFisNo,@MalzemeID,@Miktar)",
+                           new MalzemeHareketDetay()
+                           {
+                               DurumID = 1,
+                               MalzemeHareketFisNo = malzemeHareketTemp.MalzemeHareketFisNo,
+                               MalzemeID = malzeme.MalzemeID,
+                               Miktar = malzeme.Miktar,
+                               Silindi = false
+                           }, transaction);
                     }
                     else if (malzeme.DurumID == 2)
                     {

@@ -6,9 +6,9 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
-using BusinessLayer.Abstract.Genel;
+using BusinessLayer.Abstract.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
-using EntityLayer.Concrete.Genel;
+using EntityLayer.Concrete.Sistem;
 using Newtonsoft.Json;
 
 namespace WebApi.Controllers

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BusinessLayer.Abstract.Genel;
+using BusinessLayer.Abstract.Sistem;
 using EntityLayer.ComplexTypes.DtoModel.Genel;
 using EntityLayer.ComplexTypes.ParameterModel;
-using EntityLayer.Concrete.Genel;
+using EntityLayer.Concrete.Sistem;
 
 namespace WebApi.Controllers
 {

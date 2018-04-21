@@ -96,11 +96,11 @@
     <Compile Include="Concrete\Bakim\IsEmri.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
-    <Compile Include="Concrete\Genel\Menu.cs" />
-    <Compile Include="Concrete\Genel\YetkiGrup.cs" />
-    <Compile Include="Concrete\Genel\YetkiGrupKullanici.cs" />
-    <Compile Include="Concrete\Genel\YetkiGrupRol.cs" />
-    <Compile Include="Concrete\Genel\YetkiRol.cs" />
+    <Compile Include="Concrete\Sistem\Menu.cs" />
+    <Compile Include="Concrete\Sistem\YetkiGrup.cs" />
+    <Compile Include="Concrete\Sistem\YetkiGrupKullanici.cs" />
+    <Compile Include="Concrete\Sistem\YetkiGrupRol.cs" />
+    <Compile Include="Concrete\Sistem\YetkiRol.cs" />
     <Compile Include="Concrete\Malzeme\Ambar.cs" />
     <Compile Include="Concrete\Malzeme\Malzeme.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeAltGrup.cs" />
@@ -134,7 +134,7 @@
     <Compile Include="Concrete\Varlik\AkaryakitAlimFis.cs" />
     <Compile Include="Concrete\Varlik\AracServis.cs" />
     <Compile Include="Concrete\Varlik\Birim.cs" />
-    <Compile Include="Concrete\Genel\Company.cs" />
+    <Compile Include="Concrete\Sistem\Company.cs" />
     <Compile Include="Concrete\Varlik\DurusKismi.cs" />
     <Compile Include="Concrete\Varlik\DurusNedeni.cs" />
     <Compile Include="Concrete\Bakim\EtkiYeri.cs" />
@@ -145,7 +145,7 @@
     <Compile Include="Concrete\Varlik\Isletme.cs" />
     <Compile Include="Concrete\Bakim\IsTipi.cs" />
     <Compile Include="Concrete\Varlik\Kisim.cs" />
-    <Compile Include="Concrete\Genel\Kullanici.cs" />
+    <Compile Include="Concrete\Sistem\Kullanici.cs" />
     <Compile Include="Concrete\Varlik\Marka.cs" />
     <Compile Include="Concrete\Varlik\Model.cs" />
     <Compile Include="Concrete\Bakim\Oncelik.cs" />
@@ -164,7 +164,7 @@
     <Compile Include="Concrete\Varlik\VarlikSablon.cs" />
     <Compile Include="Concrete\Varlik\VarlikTransfer.cs" />
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />
-    <Compile Include="Concrete\Genel\Verify.cs" />
+    <Compile Include="Concrete\Sistem\Verify.cs" />
     <Compile Include="Concrete\Varlik\Yakit.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransfer.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransferDetay.cs" />
