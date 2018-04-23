@@ -39,9 +39,26 @@ namespace DataAccessLayer.Concrete.Dapper.Malzeme
             return DeleteQuery("delete from MalzemeHareket where MalzemeHareketID=@Id ", new { Id });
         }
 
+        //Id olarak MalzemeHareketFisNo kullanılmaktadır.
         public int DeleteSoft(int Id)
-        {
-            return UpdateQuery("update MalzemeHareket set Silindi = 1 where MalzemeHareketID=@Id", new { Id });
+        {   
+            var count = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                connection.Execute("update MalzemeHareket set Silindi = 1 where MalzemeHareketFisNo=@Id", Id, transaction);
+
+                connection.Execute("update MalzemeHareketDetay set Silindi = 1 where MalzemeHareketFisNo=@Id", Id, transaction);
+
+                transaction.Commit();
+            }
+            return count;
         }
 
         public List<MalzemeHareket> GetListPagination(PagingParams pagingParams)
