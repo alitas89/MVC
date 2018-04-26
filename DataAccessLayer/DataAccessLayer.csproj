@@ -58,6 +58,8 @@
     <Compile Include="Abstract\Bakim\IIsEmriDal.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
+    <Compile Include="Abstract\Sistem\IIsTalebiBirimDal.cs" />
+    <Compile Include="Abstract\Sistem\IIsTalebiOnayBirimDal.cs" />
     <Compile Include="Abstract\Sistem\IMenuDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeHareketDal.cs" />
@@ -145,6 +147,8 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsEmriDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTalebiDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiBirimDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiOnayBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpCompanyDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpMenuDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpYetkiGrupDal.cs" />

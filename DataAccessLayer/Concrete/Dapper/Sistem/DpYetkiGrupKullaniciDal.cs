@@ -90,14 +90,14 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                connection.Execute("update YetkiGrupKullanici set Silindi = 1 where KullaniciId=@kullaniciId", new { kullaniciId }, transaction);
+                connection.Execute("update YetkiGrupKullanici set Silindi = 1 where KullaniciID=@kullaniciId", new { kullaniciId }, transaction);
 
                 foreach (var yetki in arrYetki)
                 {
                     count += connection.Execute("insert into YetkiGrupKullanici(YetkiGrupID,KullaniciID,Silindi) values (@YetkiGrupID,@KullaniciID,@Silindi)", new YetkiGrupKullanici()
                     {
-                        KullaniciID = kullaniciId,
                         YetkiGrupID = (int)yetki,
+                        KullaniciID = kullaniciId,
                         Silindi = false
                     }, transaction);
 

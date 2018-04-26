@@ -21,20 +21,20 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
         public List<VarlikOzNitelik> GetList()
         {
             return _varlikoznitelikDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
         public List<VarlikOzNitelik> GetListByVarlikID(int VarlikID)
         {
             return _varlikoznitelikDal.GetListByVarlikID(VarlikID);
         }
 
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
         public VarlikOzNitelik GetById(int Id)
         {
             return _varlikoznitelikDal.Get(Id);
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikCreate")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikOzNitelikCreate")]
         public int Add(VarlikOzNitelik varlikoznitelik)
         {
             return _varlikoznitelikDal.Add(varlikoznitelik);
@@ -50,27 +50,27 @@ namespace BusinessLayer.Concrete.Varlik
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikUpdate")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikOzNitelikUpdate")]
         public int Update(VarlikOzNitelik varlikoznitelik)
         {
             return _varlikoznitelikDal.Update(varlikoznitelik);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikDelete")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikOzNitelikDelete")]
         public int Delete(int Id)
         {
             return _varlikoznitelikDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikDelete")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikOzNitelikDelete")]
         public int DeleteSoft(int Id)
         {
             return _varlikoznitelikDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarlikOzNitelikRead, VarlikOzNitelikLtd")]
         public List<VarlikOzNitelik> GetListPagination(PagingParams pagingParams)
         {
             return _varlikoznitelikDal.GetListPagination(pagingParams);
@@ -81,7 +81,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikCreate")]
+        [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikOzNitelikCreate")]
         public int AddVarlikOzNitelik(int varlikID, string arrVarlikOzNitelik)
         {
             var listOzNitelik = JsonConvert.DeserializeObject<List<VarlikOzNitelik>>(arrVarlikOzNitelik);
@@ -92,7 +92,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, VarlikOzNitelikUpdate")]
+        [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikOzNitelikUpdate")]
         public int UpdateVarlikOzNitelik(int varlikID, string arrVarlikOzNitelik)
         {
             var listOzNitelik = JsonConvert.DeserializeObject<List<VarlikOzNitelikDto>>(arrVarlikOzNitelik);

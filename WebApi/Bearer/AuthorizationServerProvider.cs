@@ -45,7 +45,7 @@ namespace WebApi.Bearer
                     identity.AddClaim(new Claim(ClaimTypes.Role, "Authorized"));
 
                     //Gelen kullanıcı üzerinden grup bilgilerine ulaşılır
-                    var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciId).Select(u => u.YetkiGrupID).Distinct().ToArray();
+                    var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciID).Select(u => u.YetkiGrupID).Distinct().ToArray();
 
                     //Her bir grup için bulunan rolIDleri alınır
                     foreach (var yetkiGrupID in arrYetkiGrupID)

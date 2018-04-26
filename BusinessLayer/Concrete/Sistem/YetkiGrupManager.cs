@@ -48,6 +48,13 @@ namespace BusinessLayer.Concrete.Sistem
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int Update(YetkiGrup yetkigrup)
         {
+            //74-İşTalep ve 75-İşEmri kayıtları silinemez!
+            if (yetkigrup.YetkiGrupID==74 || yetkigrup.YetkiGrupID==75)
+            {
+                //İşTalep ve İşEmri yetki grupları silinemez!
+                return -1;
+            }
+
             var item = _yetkigrupDal.GetList().Find(x => x.Kod == yetkigrup.Kod);
             if (item != null)
             {
@@ -72,6 +79,15 @@ namespace BusinessLayer.Concrete.Sistem
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public int DeleteSoft(int Id)
         {
+            YetkiGrup yetkigrup = _yetkigrupDal.Get(Id);
+
+            //74-İşTalep ve 75-İşEmri kayıtları silinemez!
+            if (yetkigrup.YetkiGrupID == 74 || yetkigrup.YetkiGrupID == 75)
+            {
+                //İşTalep ve İşEmri yetki grupları silinemez!
+                return -1;
+            }
+
             return _yetkigrupDal.DeleteSoft(Id);
         }
 

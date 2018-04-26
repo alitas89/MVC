@@ -65,6 +65,13 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IMenuService>().To<MenuManager>();
             Bind<IMenuDal>().To<DpMenuDal>();
 
+            Bind<IIsTalebiOnayBirimService>().To<IsTalebiOnayBirimManager>().InSingletonScope();
+            Bind<IIsTalebiOnayBirimDal>().To<DpIsTalebiOnayBirimDal>();
+
+            Bind<IIsTalebiBirimService>().To<IsTalebiBirimManager>().InSingletonScope();
+            Bind<IIsTalebiBirimDal>().To<DpIsTalebiBirimDal>();
+
+
             //*****Asıl tablolar
 
             //#VarlıkModul

@@ -16,7 +16,7 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
         public Kullanici Get(int Id)
         {
-            return GetQuery("select * from Kullanici where KullaniciId= @Id and Silindi=0", new { Id });
+            return GetQuery("select * from Kullanici where KullaniciID= @Id and Silindi=0", new { Id });
         }
 
         public int Add(Kullanici kullanici)
@@ -29,17 +29,17 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
         public int Update(Kullanici kullanici)
         {
             return UpdateQuery("update Kullanici set KullaniciAdi=@KullaniciAdi,Sifre=@Sifre,Ad=@Ad,Soyad=@Soyad," +
-                               "Email=@Email,KaynakID=@KaynakID,Silindi=@Silindi where KullaniciId=@KullaniciId", kullanici);
+                               "Email=@Email,KaynakID=@KaynakID,Silindi=@Silindi where KullaniciID=@KullaniciID", kullanici);
         }
 
         public int Delete(int Id)
         {
-            return DeleteQuery("delete from Kullanici where KullaniciId=@Id ", new { Id });
+            return DeleteQuery("delete from Kullanici where KullaniciID=@Id ", new { Id });
         }
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update Kullanici set Silindi = 1 where KullaniciId=@Id", new { Id });
+            return UpdateQuery("update Kullanici set Silindi = 1 where KullaniciID=@Id", new { Id });
         }
 
         public List<Kullanici> GetListPagination(PagingParams pagingParams)

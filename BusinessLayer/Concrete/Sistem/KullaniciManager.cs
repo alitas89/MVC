@@ -54,7 +54,7 @@ namespace BusinessLayer.Concrete.Sistem
             if (item != null)
             {
                 //KullanıcıAdı var aynı id mi?
-                if (item.KullaniciId != kullanici.KullaniciId)
+                if (item.KullaniciID != kullanici.KullaniciID)
                 {
                     return 0;
                 }
