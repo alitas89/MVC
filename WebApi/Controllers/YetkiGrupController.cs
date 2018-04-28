@@ -43,6 +43,7 @@ namespace WebApi.Controllers
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;
         }
+
         // GET api/<controller>/5
         public YetkiGrup Get(int id)
         {

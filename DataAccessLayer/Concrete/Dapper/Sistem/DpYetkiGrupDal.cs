@@ -11,17 +11,17 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
     {
         public List<YetkiGrup> GetList()
         {
-            return GetListQuery("select * from YetkiGrup where Silindi=0", new { });
+            return GetListQuery("select * from YetkiGrup where Silindi=0 and YetkiGrupID!=74 and YetkiGrupID!=75", new { });
         }
 
         public YetkiGrup Get(int Id)
         {
-            return GetQuery("select * from YetkiGrup where YetkiGrupID= @Id and Silindi=0", new {Id});
+            return GetQuery("select * from YetkiGrup where YetkiGrupID= @Id and Silindi=0", new { Id });
         }
 
         public int Add(YetkiGrup yetkigrup)
         {
-            return AddQuery("insert into YetkiGrup(Kod,Ad,Silindi) values (@Kod,@Ad,@Silindi)"+
+            return AddQuery("insert into YetkiGrup(Kod,Ad,Silindi) values (@Kod,@Ad,@Silindi)" +
                             " SELECT CAST(SCOPE_IDENTITY() as int)", yetkigrup, true);
         }
 
@@ -33,12 +33,12 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
         public int Delete(int Id)
         {
-            return DeleteQuery("delete from YetkiGrup where YetkiGrupID=@Id ", new {Id});
+            return DeleteQuery("delete from YetkiGrup where YetkiGrupID=@Id ", new { Id });
         }
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update YetkiGrup set Silindi = 1 where YetkiGrupID=@Id", new {Id});
+            return UpdateQuery("update YetkiGrup set Silindi = 1 where YetkiGrupID=@Id", new { Id });
         }
 
         public List<YetkiGrup> GetListPagination(PagingParams pagingParams)
@@ -57,9 +57,11 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
                 columnsQuery = pagingParams.columns;
             }
 
-            return GetListQuery($@"SELECT * FROM YetkiGrup where Silindi=0 {filterQuery} {orderQuery}
-OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-                new {pagingParams.filter, pagingParams.offset, pagingParams.limit});
+            //74-İşTalep ve 75-İşEmri kayıtları yok gibi davranılır. Bunlar farklı sayfadan kontrol edilecektir.
+            return GetListQuery($@"SELECT * FROM YetkiGrup where Silindi=0 and YetkiGrupID!=74 and YetkiGrupID!=75
+                                    {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
         public int GetCount(string filter = "")
