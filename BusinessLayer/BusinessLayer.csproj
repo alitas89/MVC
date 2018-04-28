@@ -87,6 +87,7 @@
     <Compile Include="Abstract\Bakim\IBirimService.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriService.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriTuruService.cs" />
+    <Compile Include="Abstract\Bakim\IIsTipiEmirTuruService.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiBirimService.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiOnayBirimService.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiService.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Concrete\Bakim\IsEmriManager.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuruManager.cs" />
     <Compile Include="Concrete\Bakim\IsTalebiManager.cs" />
+    <Compile Include="Concrete\Bakim\IsTipiEmirTuruManager.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiBirimManager.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiOnayBirimManager.cs" />
     <Compile Include="Concrete\Sistem\CompanyManager.cs" />

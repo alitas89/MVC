@@ -239,6 +239,7 @@
     <Compile Include="Controllers\IsTalebiController.cs" />
     <Compile Include="Controllers\IsTalebiOnayBirimController.cs" />
     <Compile Include="Controllers\IsTipiController.cs" />
+    <Compile Include="Controllers\IsTipiEmirTuruController.cs" />
     <Compile Include="Controllers\KaynakController.cs" />
     <Compile Include="Controllers\KaynakDurumuController.cs" />
     <Compile Include="Controllers\KaynakPozisyonuController.cs" />

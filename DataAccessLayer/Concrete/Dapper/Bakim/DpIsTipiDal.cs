@@ -2,7 +2,6 @@
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Bakim;
-using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
@@ -21,12 +20,13 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return GetQuery("select * from IsTipi where IsTipiID= @Id and Silindi=0", new { Id });
         }
 
-        public int Add(IsTipi ıstipi)
+        public int Add(IsTipi isTipi)
         {
-            return AddQuery("insert into IsTipi(Kod,Ad,BakimOncelikID,IsEmriTuruID,Aciklama,Silindi) values (@Kod,@Ad,@BakimOncelikID,@IsEmriTuruID,@Aciklama,@Silindi)", ıstipi);
+            return AddQuery("insert into IsTipi(Kod,Ad,BakimOncelikID,IsEmriTuruID,Aciklama,Silindi) values (@Kod,@Ad,@BakimOncelikID,@IsEmriTuruID,@Aciklama,@Silindi)  " +
+                " SELECT CAST(SCOPE_IDENTITY() as int)", isTipi, true);
         }
 
-        public int Update(IsTipi ıstipi)
+        public int Update(IsTipi isTipi)
         {
             return UpdateQuery("update IsTipi set Kod=@Kod,Ad=@Ad,BakimOncelikID=@BakimOncelikID,IsEmriTuruID=@IsEmriTuruID,Aciklama=@Aciklama,Silindi=@Silindi where IsTipiID=@IsTipiID", ıstipi);
         }

@@ -10,6 +10,7 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
 using System.Linq.Dynamic;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace WebApi.Controllers
 {

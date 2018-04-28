@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLayer.Abstract;
+﻿using System.Collections.Generic;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
-using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
-using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
-using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
 
 namespace BusinessLayer.Concrete.Bakim
@@ -43,16 +35,16 @@ namespace BusinessLayer.Concrete.Bakim
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTipiCreate")]
-        public int Add(IsTipi ıstipi)
+        public int Add(IsTipi isTipi)
         {
-            return _isTipiDal.Add(ıstipi);
+            return _isTipiDal.Add(isTipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTipiUpdate")]
-        public int Update(IsTipi ıstipi)
+        public int Update(IsTipi isTipi)
         {
-            return _isTipiDal.Update(ıstipi);
+            return _isTipiDal.Update(isTipi);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
@@ -89,6 +81,6 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCountDto(string filter = "")
         {
             return _isTipiDal.GetCountDto(filter);
-        }
+        }        
     }
 }
