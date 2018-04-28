@@ -93,27 +93,47 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
+                //Eğer silindi işlemi 1e çekilecek olan kullanıcıların IsTalebiOnayBirim içerisinde sadece 1 kaydı varsa yetkigrubundan IsEmri çıkarılır.
+                connection.Execute(@" /*Yetkisi düşürülecek olan kullanıcılar*/
+                    update YetkiGrupKullanici set Silindi = 1 where YetkiGrupID = 75 and Silindi = 0 and KullaniciID IN
+                    (
+                    /*Eşleşen kullanıcılar*/
+                    select KullaniciID from IsTalebiOnayBirim where Silindi = 0 and IsTipiID = @IsTipiID  and KullaniciID in (
+                    /*Sadece 1 tane kalmış olan kullanıcılar*/
+                    select KullaniciID from IsTalebiOnayBirim  where Silindi = 0 group by KullaniciID having COUNT(*) = 1)
+                    )", new { IsTipiID }, transaction);
+
+
                 //Kisima ait olan tüm bağlamalar silinir
                 connection.Execute("update IsTalebiOnayBirim set Silindi = 1 where IsTipiID=@IsTipiID", new { IsTipiID }, transaction);
 
-                foreach (var kullaniciID in listKullaniciID)
+                foreach (var KullaniciID in listKullaniciID)
                 {
                     count += connection.Execute("insert into IsTalebiOnayBirim(IsTipiID,KullaniciID,Tarih,Silindi) values" +
-                                                " (@IsTipiID,@KullaniciID,@Tarih,@Silindi)", new IsTalebiOnayBirim()
-                    {
-                        IsTipiID = IsTipiID,
-                        KullaniciID = kullaniciID,
-                        Tarih = DateTime.Now,
-                        Silindi = false
-                    }, transaction);
+                                                "(@IsTipiID,@KullaniciID,@Tarih,@Silindi)", new IsTalebiOnayBirim()
+                                                {
+                                                    IsTipiID = IsTipiID,
+                                                    KullaniciID = KullaniciID,
+                                                    Tarih = DateTime.Now,
+                                                    Silindi = false
+                                                }, transaction);
 
+                    //Bir kullanıcıya iş talebi onay ekleniyorsa, 75-İşEmri yetkisi verilir
+                    var resultYetki = connection.Execute(@"declare @Toplam int
+                                        select @Toplam = count(*) from YetkiGrupKullanici where KullaniciID = @KullaniciID and YetkiGrupID = 75 and Silindi = 0
+                                        if (@Toplam > 0)
+                                            begin
+                                                select 1;
+                                             end
+                                        else 
+                                        begin
+                                            insert into YetkiGrupKullanici(YetkiGrupID, KullaniciID, Silindi) values(75, @KullaniciID, 0)
+                                        end", new { KullaniciID }, transaction);
                 }
 
                 transaction.Commit();
             }
             return count;
         }
-
     }
-    
 }
