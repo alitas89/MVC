@@ -19,6 +19,12 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return GetListQuery("select * from IsTipiEmirTuru where Silindi=0", new { });
         }
 
+        public List<IsTipiEmirTuruDto> GetList(int IsTipiID)
+        {
+            return new DpDtoRepositoryBase<IsTipiEmirTuruDto>().GetListDtoQuery("select * from View_IsTipiEmirTuruDto where IsTipiID= @IsTipiID and Silindi=0", new { IsTipiID });
+
+        }
+
         public IsTipiEmirTuru Get(int Id)
         {
             return GetQuery("select * from IsTipiEmirTuru where IsTipiEmirTuruID= @Id and Silindi=0", new { Id });
@@ -163,6 +169,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 transaction.Commit();
             }
             return count;
-        }
+        }       
     }
 }

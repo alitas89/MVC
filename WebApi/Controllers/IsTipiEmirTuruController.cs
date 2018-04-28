@@ -28,6 +28,14 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
+        [Route("api/istipiemirturu/getlistbyistipiid/{IsTipiID}")]
+        [HttpGet]
+        public IEnumerable<IsTipiEmirTuruDto> GetListByIsTipiID(int IsTipiID)
+        {
+            return _isTipiEmirTuruService.GetList(IsTipiID);
+        }
+
+        // GET api/<controller>
         public HttpResponseMessage Get(int IsTipiID, int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;

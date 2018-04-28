@@ -28,7 +28,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int Update(IsTipi isTipi)
         {
-            return UpdateQuery("update IsTipi set Kod=@Kod,Ad=@Ad,BakimOncelikID=@BakimOncelikID,IsEmriTuruID=@IsEmriTuruID,Aciklama=@Aciklama,Silindi=@Silindi where IsTipiID=@IsTipiID", ıstipi);
+            return UpdateQuery("update IsTipi set Kod=@Kod,Ad=@Ad,BakimOncelikID=@BakimOncelikID,IsEmriTuruID=@IsEmriTuruID,Aciklama=@Aciklama,Silindi=@Silindi where IsTipiID=@IsTipiID", isTipi);
         }
 
         public int Delete(int Id)

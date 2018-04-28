@@ -13,6 +13,8 @@ namespace BusinessLayer.Abstract.Bakim
     {
         List<IsTipiEmirTuru> GetList();
 
+        List<IsTipiEmirTuruDto> GetList(int IsTipiID);
+
         IsTipiEmirTuru GetById(int id);
 
         int Add(IsTipiEmirTuru ıstipiemirturu);

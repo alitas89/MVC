@@ -27,6 +27,13 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTipiEmirTuruDal.GetList();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
+        public List<IsTipiEmirTuruDto> GetList(int IsTipiID)
+        {
+            return _isTipiEmirTuruDal.GetList(IsTipiID);
+        }
+
         [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public IsTipiEmirTuru GetById(int Id)
         {
@@ -73,7 +80,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTipiEmirTuruDal.GetCount(filter);
         }
 
-        
+
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Admin, IsTipiEmirTuruCreate")]
         public int AddIsTipiDetay(IsTipiTemp isTipiTemp)

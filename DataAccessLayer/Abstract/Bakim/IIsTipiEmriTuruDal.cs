@@ -8,6 +8,8 @@ namespace DataAccessLayer.Abstract.Bakim
 {
     public interface IIsTipiEmirTuruDal : IEntityRepository<IsTipiEmirTuru>
     {
+        List<IsTipiEmirTuruDto> GetList(int IsTipiID);
+
         int AddWithTransaction(int IsTipiID, List<IsTipiEmirTuru> listIsTipiEmirTuru);
 
         int UpdateWithTransaction(int IsTipiID, List<IsTipiEmirTuruDto> listIsTipiEmirTuru);
