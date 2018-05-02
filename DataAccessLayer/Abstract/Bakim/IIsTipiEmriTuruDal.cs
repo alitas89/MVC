@@ -10,9 +10,9 @@ namespace DataAccessLayer.Abstract.Bakim
     {
         List<IsTipiEmirTuruDto> GetList(int IsTipiID);
 
-        int AddWithTransaction(int IsTipiID, List<IsTipiEmirTuru> listIsTipiEmirTuru);
+        int AddWithTransaction(int IsTipiID, List<int> listIsTipiEmirTuru);
 
-        int UpdateWithTransaction(int IsTipiID, List<IsTipiEmirTuruDto> listIsTipiEmirTuru);
+        int UpdateWithTransaction(int IsTipiID, List<int> listIsTipiEmirTuru);
 
         List<IsTipiEmirTuruDto> GetListPaginationDto(int IsTipiID, PagingParams pagingParams);
 

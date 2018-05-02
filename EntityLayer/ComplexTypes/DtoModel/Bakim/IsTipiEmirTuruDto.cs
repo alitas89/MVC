@@ -5,6 +5,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Bakim
     public class IsTipiEmirTuruDto : IsTipiEmirTuru
     {
         public string IsEmriTuruAd { get; set; }
-        public int DurumID { get; set; }
+        public string Kod { get; set; }
     }
 }

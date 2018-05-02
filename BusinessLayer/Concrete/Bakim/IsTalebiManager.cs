@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstract.Bakim;
+﻿using System;
+using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -37,6 +38,7 @@ namespace BusinessLayer.Concrete.Bakim
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTalebiCreate")]
         public int Add(IsTalebi ıstalebi)
         {
+            ıstalebi.TalepYil = DateTime.Now.Year;
             return _isTalebiDal.Add(ıstalebi);
         }
 
@@ -82,6 +84,12 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCountDto(string filter = "")
         {
             return _isTalebiDal.GetCountDto(filter);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
+        public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
+        {
+            return _isTalebiDal.GetIsTipiListByKullaniciID(KullaniciID);
         }
     }
 }

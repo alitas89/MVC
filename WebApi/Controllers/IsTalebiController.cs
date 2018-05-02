@@ -5,6 +5,7 @@ using System.Net;
 using System.Web.Http;
 using System.Net.Http;
 using BusinessLayer.Abstract.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace WebApi.Controllers
 {
@@ -70,6 +71,11 @@ namespace WebApi.Controllers
             {
                 return _isTalebiService.Delete(id);
             }
-        }
-    
+
+            [Route("api/ıstalebi/getistipilistbykullaniciid/{KullaniciID}")]
+            public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
+            {
+                return _isTalebiService.GetIsTipiListByKullaniciID(KullaniciID);
+            }
+    }
 }

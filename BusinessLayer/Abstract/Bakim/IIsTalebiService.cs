@@ -30,5 +30,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<IsTalebiDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID);
     }
 }

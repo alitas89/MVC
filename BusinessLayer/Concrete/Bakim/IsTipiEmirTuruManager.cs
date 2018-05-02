@@ -21,20 +21,20 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public List<IsTipiEmirTuru> GetList()
         {
             return _isTipiEmirTuruDal.GetList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public List<IsTipiEmirTuruDto> GetList(int IsTipiID)
         {
             return _isTipiEmirTuruDal.GetList(IsTipiID);
         }
 
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public IsTipiEmirTuru GetById(int Id)
         {
             return _isTipiEmirTuruDal.Get(Id);
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, IsTipiEmirTuruCreate")]
         public int Add(IsTipiEmirTuru isTipiEmirTuru)
         {
             return _isTipiEmirTuruDal.Add(isTipiEmirTuru);
@@ -50,27 +50,27 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, IsTipiEmirTuruUpdate")]
         public int Update(IsTipiEmirTuru isTipiEmirTuru)
         {
             return _isTipiEmirTuruDal.Update(isTipiEmirTuru);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, IsTipiEmirTuruDelete")]
         public int Delete(int Id)
         {
             return _isTipiEmirTuruDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, IsTipiEmirTuruDelete")]
         public int DeleteSoft(int Id)
         {
             return _isTipiEmirTuruDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public List<IsTipiEmirTuru> GetListPagination(PagingParams pagingParams)
         {
             return _isTipiEmirTuruDal.GetListPagination(pagingParams);
@@ -82,10 +82,10 @@ namespace BusinessLayer.Concrete.Bakim
 
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, IsTipiEmirTuruCreate")]
         public int AddIsTipiDetay(IsTipiTemp isTipiTemp)
         {
-            var listIsTipiEmirTuru = JsonConvert.DeserializeObject<List<IsTipiEmirTuru>>(isTipiTemp.arrIsEmriTuru);
+            var listIsTipiEmirTuru = JsonConvert.DeserializeObject<List<int>>(isTipiTemp.arrIsEmriTuru);
 
             var count = _isTipiEmirTuruDal.AddWithTransaction(isTipiTemp.IsTipiID, listIsTipiEmirTuru);
 
@@ -94,17 +94,17 @@ namespace BusinessLayer.Concrete.Bakim
 
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, IsTipiEmirTuruUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, IsTipiEmirTuruUpdate")]
         public int UpdateIsTipiDetay(IsTipiTemp isTipiTemp)
         {
-            var listIsTipiEmirTuru = JsonConvert.DeserializeObject<List<IsTipiEmirTuruDto>>(isTipiTemp.arrIsEmriTuru);
+            var listIsTipiEmirTuru = JsonConvert.DeserializeObject<List<int>>(isTipiTemp.arrIsEmriTuru);
 
             var count = _isTipiEmirTuruDal.UpdateWithTransaction(isTipiTemp.IsTipiID, listIsTipiEmirTuru);
 
             return count;
         }
 
-        [SecuredOperation(Roles = "Admin, IsTipiRead, IsTipiEmirturuRead")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTipiRead, IsTipiEmirturuRead")]
         public List<IsTipiEmirTuruDto> GetListPaginationDto(int isTipiID, PagingParams pagingParams)
         {
             return _isTipiEmirTuruDal.GetListPaginationDto(isTipiID, pagingParams);

@@ -111,7 +111,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
-        public int AddWithTransaction(int IsTipiID, List<IsTipiEmirTuru> listIsTipiEmirTuru)
+        public int AddWithTransaction(int IsTipiID, List<int> listIsTipiEmirTuru)
         {
             var count = 0;
 
@@ -124,11 +124,13 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                foreach (var item in listIsTipiEmirTuru)
-                {
-                    item.IsTipiID = IsTipiID;
+                connection.Execute("update IsTipiEmirTuru set Silindi = 1 where IsTipiID=@IsTipiID", new { IsTipiID }, transaction);
 
-                    count += connection.Execute("insert into IsTipiEmirTuru(IsTipiID,IsEmriTuruID) values (@IsTipiID,@IsEmriTuruID)", item, transaction);
+                foreach (var IsEmriTuruID in listIsTipiEmirTuru)
+                {
+                   
+                    count += connection.Execute("insert into IsTipiEmirTuru(IsTipiID,IsEmriTuruID, Silindi) values (@IsTipiID,@IsEmriTuruID,@Silindi)", 
+                        new IsTipiEmirTuru(){ IsTipiID = IsTipiID, IsEmriTuruID = IsEmriTuruID, Silindi = false}, transaction);
                 }
 
                 transaction.Commit();
@@ -136,7 +138,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
-        public int UpdateWithTransaction(int IsTipiID, List<IsTipiEmirTuruDto> listIsTipiEmirTuru)
+        public int UpdateWithTransaction(int IsTipiID, List<int> listIsTipiEmirTuru)
         {
             var count = 0;
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
@@ -148,22 +150,28 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                foreach (var item in listIsTipiEmirTuru)
+                foreach (var IsEmriTuruID in listIsTipiEmirTuru)
                 {
-                    item.IsTipiID = IsTipiID;
+                    IsTipiEmirTuru isTipiEmirTuru = new IsTipiEmirTuru()
+                    {
+                        IsTipiID = IsTipiID,
+                        Silindi = false,
+                        IsEmriTuruID = IsEmriTuruID,
+                        
+                    };
 
-                    if (item.DurumID == 1)
-                    {
-                        count += connection.Execute("insert into IsTipiEmirTuru(IsTipiID,IsEmriTuruID) values (@IsTipiID,@IsEmriTuruID)", item, transaction);
-                    }
-                    else if (item.DurumID == 2)
-                    {
-                        count += connection.Execute("update IsTipiEmirTuru set IsTipiID=@IsTipiID,IsEmriTuruID=@IsEmriTuruID where IsTipiEmirTuruID=@IsTipiEmirTuruID", item, transaction);
-                    }
-                    else if (item.DurumID == 3)
-                    {
-                        count += connection.Execute("update IsTipiEmirTuru set Silindi = 1 where IsTipiEmirTuruID=@IsTipiEmirTuruID", item, transaction);
-                    }
+                    //if (DurumID == 1)
+                    //{
+                    //    count += connection.Execute("insert into IsTipiEmirTuru(IsTipiID,IsEmriTuruID) values (@IsTipiID,@IsEmriTuruID)", item, transaction);
+                    //}
+                    //else if (item.DurumID == 2)
+                    //{
+                    //    count += connection.Execute("update IsTipiEmirTuru set IsTipiID=@IsTipiID,IsEmriTuruID=@IsEmriTuruID where IsTipiEmirTuruID=@IsTipiEmirTuruID", item, transaction);
+                    //}
+                    //else if (item.DurumID == 3)
+                    //{
+                    //    count += connection.Execute("update IsTipiEmirTuru set Silindi = 1 where IsTipiEmirTuruID=@IsTipiEmirTuruID", item, transaction);
+                    //}
                 }
 
                 transaction.Commit();
