@@ -24,7 +24,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _ambarDal = ambarDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, AmbarRead, AmbarLtd")]
         public List<Ambar> GetList()
         {
@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, AmbarCreate")]
         public int Add(Ambar ambar)
         {
@@ -46,21 +46,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, AmbarUpdate")]
         public int Update(Ambar ambar)
         {
             return _ambarDal.Update(ambar);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, AmbarDelete")]
         public int Delete(int Id)
         {
             return _ambarDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, AmbarDelete")]
         public int DeleteSoft(int Id)
         {

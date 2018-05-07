@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Personel
             _mesaituruDal = mesaituruDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelRead, MesaiTuruRead, MesaiTuruLtd")]
         public List<MesaiTuru> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelCreate, MesaiTuruCreate")]
         public int Add(MesaiTuru mesaituru)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelUpdate, MesaiTuruUpdate")]
         public int Update(MesaiTuru mesaituru)
         {
             return _mesaituruDal.Update(mesaituru);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, MesaiTuruDelete")]
         public int Delete(int Id)
         {
             return _mesaituruDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, MesaiTuruDelete")]
         public int DeleteSoft(int Id)
         {

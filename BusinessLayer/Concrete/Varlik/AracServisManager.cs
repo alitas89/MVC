@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete.Varlik
             _aracServisDal = aracservisDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, AracServisRead, AracServisLtd")]
         public List<AracServis> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, AracServisCreate")]
         public int Add(AracServis aracservis)
         {
@@ -41,21 +41,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, AracServisUpdate")]
         public int Update(AracServis aracservis)
         {
             return _aracServisDal.Update(aracservis);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, AracServisDelete")]
         public int Delete(int Id)
         {
             return _aracServisDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, AracServisDelete")]
         public int DeleteSoft(int Id)
         {

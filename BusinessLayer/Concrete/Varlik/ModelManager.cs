@@ -19,14 +19,14 @@ namespace BusinessLayer.Concrete.Varlik
             _modelDal = modelDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, ModelRead, ModelLtd")]
         public List<Model> GetList()
         {
             return _modelDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, ModelRead, ModelLtd")]
         public List<ModelDto> GetListDto()
         {
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, ModelCreate")]
         public int Add(Model model)
         {
@@ -48,21 +48,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, ModelUpdate")]
         public int Update(Model model)
         {
             return _modelDal.Update(model);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ModelDelete")]
         public int Delete(int Id)
         {
             return _modelDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ModelDelete")]
         public int DeleteSoft(int Id)
         {

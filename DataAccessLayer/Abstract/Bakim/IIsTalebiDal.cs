@@ -13,5 +13,13 @@ namespace DataAccessLayer.Abstract.Bakim
         int GetCountDto(string filter = "");
 
         List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID);
+
+        List<EmirTuruIsTipiTemp> GetEmirTuruListByIsTipiID(int IsTipiID);
+
+        List<IsEmriNo> GetIsEmriNoByIsTalepID(int IsTalepID);
+
+        int AddWithTransaction(IsTalebi ıstalebi);
+
+        List<IsTalebiDto> GetListPaginationDtoKullaniciID(PagingParams pagingParams, int KullaniciID);
     }
 }

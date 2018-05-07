@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Bakim
             _beklemeıptalnedeniDal = beklemeıptalnedeniDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, BeklemeIptalNedeniRead, BeklemeIptalNedeniLtd")]
         public List<BeklemeIptalNedeni> GetList()
         {
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, BeklemeIptalNedeniCreate")]
         public int Add(BeklemeIptalNedeni beklemeıptalnedeni)
         {
@@ -43,21 +43,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, BeklemeIptalNedeniUpdate")]
         public int Update(BeklemeIptalNedeni beklemeıptalnedeni)
         {
             return _beklemeıptalnedeniDal.Update(beklemeıptalnedeni);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BeklemeIptalNedeniDelete")]
         public int Delete(int Id)
         {
             return _beklemeıptalnedeniDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BeklemeIptalNedeniDelete")]
         public int DeleteSoft(int Id)
         {

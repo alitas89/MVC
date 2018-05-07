@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Sistem
             _yetkigrupkullaniciDal = yetkigrupkullaniciDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<YetkiGrupKullanici> GetList()
         {
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Sistem
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Add(YetkiGrupKullanici yetkigrupkullanici)
         {
             return _yetkigrupkullaniciDal.Add(yetkigrupkullanici);
@@ -50,21 +50,21 @@ namespace BusinessLayer.Concrete.Sistem
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, SistemUpdate, KullaniciUpdate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Update(YetkiGrupKullanici yetkigrupkullanici)
         {
             return _yetkigrupkullaniciDal.Update(yetkigrupkullanici);
         }
 
         [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Delete(int Id)
         {
             return _yetkigrupkullaniciDal.Delete(Id);
         }
 
         [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int DeleteSoft(int Id)
         {
             return _yetkigrupkullaniciDal.DeleteSoft(Id);
@@ -83,7 +83,7 @@ namespace BusinessLayer.Concrete.Sistem
 
 
         [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int DeleteSoftByKullaniciId(int Id)
         {
             return _yetkigrupkullaniciDal.DeleteSoftByKullaniciId(Id);
@@ -101,7 +101,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
         
         [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int AddYetkiGrupKullanici(int kullaniciId, string arrYetkiGrup)
         {
             var arrYetki = (Array)jss.DeserializeObject(arrYetkiGrup);

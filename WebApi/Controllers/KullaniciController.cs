@@ -74,5 +74,11 @@ namespace WebApi.Controllers
         {
             return _kullaniciService.Delete(id);
         }
+
+        [Route("api/kullanici/getkaynakidbykullaniciid/{KullaniciID}")]
+        public int GetKaynakIDByKullaniciID(int KullaniciID)
+        {
+            return _kullaniciService.GetKaynakIDByKullaniciID(KullaniciID);
+        }
     }
 }

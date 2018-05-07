@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Satinalma
             _teminsuresiDal = teminsuresiDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeminSuresiRead, TeminSuresiLtd")]
         public List<TeminSuresi> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaCreate, TeminSuresiCreate")]
         public int Add(TeminSuresi teminsuresi)
         {
@@ -40,21 +40,21 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, TeminSuresiUpdate")]
         public int Update(TeminSuresi teminsuresi)
         {
             return _teminsuresiDal.Update(teminsuresi);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeminSuresiDelete")]
         public int Delete(int Id)
         {
             return _teminsuresiDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeminSuresiDelete")]
         public int DeleteSoft(int Id)
         {

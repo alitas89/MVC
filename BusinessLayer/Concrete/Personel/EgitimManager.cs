@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Personel
             _egitimDal = egitimDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelRead, EgitimRead, EgitimLtd")]
         public List<Egitim> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelCreate, EgitimCreate")]
         public int Add(Egitim egitim)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelUpdate, EgitimUpdate")]
         public int Update(Egitim egitim)
         {
             return _egitimDal.Update(egitim);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, EgitimDelete")]
         public int Delete(int Id)
         {
             return _egitimDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, EgitimDelete")]
         public int DeleteSoft(int Id)
         {

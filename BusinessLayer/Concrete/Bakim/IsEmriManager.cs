@@ -19,50 +19,50 @@ namespace BusinessLayer.Concrete.Bakim
             _isEmriDal = ısemriDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
         public List<IsEmri> GetList()
         {
             return _isEmriDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
         public IsEmri GetById(int Id)
         {
             return _isEmriDal.Get(Id);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        
+        [SecuredOperation(Roles = "Admin, BakimCreate, IsEmriCreate")]
         public int Add(IsEmri ısemri)
         {
             return _isEmriDal.Add(ısemri);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        
+        [SecuredOperation(Roles = "Admin, BakimUpdate, IsEmriUpdate")]
         public int Update(IsEmri ısemri)
         {
             return _isEmriDal.Update(ısemri);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        
+        [SecuredOperation(Roles = "Admin,Editor, BakimDelete, IsEmriDelete")]
         public int Delete(int Id)
         {
             return _isEmriDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin,Editor")]
+        
+        [SecuredOperation(Roles = "Admin, BakimDelete, IsEmriDelete")]
         public int DeleteSoft(int Id)
         {
             return _isEmriDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
         public List<IsEmri> GetListPagination(PagingParams pagingParams)
         {
             return _isEmriDal.GetListPagination(pagingParams);
@@ -72,7 +72,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _isEmriDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin,Editor")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
         public List<IsEmriDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _isEmriDal.GetListPaginationDto(pagingParams);
@@ -83,6 +83,11 @@ namespace BusinessLayer.Concrete.Bakim
             return _isEmriDal.GetCountDto(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
+        public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
+        {
+            return _isEmriDal.GetIsTipiListByKullaniciID(KullaniciID);
+        }
     }
 
 }

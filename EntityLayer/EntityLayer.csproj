@@ -44,6 +44,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimEkibiTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimRiskiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\EmirTuruIsTipiTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsEmriDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsEmriTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTalebiDto.cs" />
@@ -100,9 +101,11 @@
     <Compile Include="Concrete\Bakim\BilgilendirmeGrubu.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeTuru.cs" />
     <Compile Include="Concrete\Bakim\IsEmri.cs" />
+    <Compile Include="Concrete\Bakim\IsEmriNo.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmriTuru.cs" />
+    <Compile Include="Concrete\Sistem\GenelBildirim.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiBirim.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiOnayBirim.cs" />
     <Compile Include="Concrete\Sistem\Menu.cs" />

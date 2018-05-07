@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Sistem
             _kullaniciDal = kullaniciDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemRead, KullaniciRead, KullaniciLtd")]
         public List<Kullanici> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemCreate, KullaniciCreate")]
         public int Add(Kullanici kullanici)
         {
@@ -46,7 +46,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemUpdate, KullaniciUpdate")]
         public int Update(Kullanici kullanici)
         {
@@ -62,14 +62,14 @@ namespace BusinessLayer.Concrete.Sistem
             return _kullaniciDal.Update(kullanici);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
         public int Delete(int Id)
         {
             return _kullaniciDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemDelete, KullaniciDelete")]
         public int DeleteSoft(int Id)
         {
@@ -90,6 +90,11 @@ namespace BusinessLayer.Concrete.Sistem
         public Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre)
         {
             return _kullaniciDal.GetByKullaniciAdiAndSifre(kullaniciAdi, sifre);
+        }
+
+        public int GetKaynakIDByKullaniciID(int KullaniciID)
+        {
+            return _kullaniciDal.GetKaynakIDByKullaniciID(KullaniciID);
         }
     }
 }

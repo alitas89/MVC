@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _malzemeDal = malzemeDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemelerRead, MalzemelerLtd")]
         public List<EntityLayer.Concrete.Malzeme.Malzeme> GetList()
         {
@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemelerCreate")]
         public int Add(EntityLayer.Concrete.Malzeme.Malzeme malzeme)
         {
@@ -46,21 +46,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemelerUpdate")]
         public int Update(EntityLayer.Concrete.Malzeme.Malzeme malzeme)
         {
             return _malzemeDal.Update(malzeme);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemelerDelete")]
         public int Delete(int Id)
         {
             return _malzemeDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemelerDelete")]
         public int DeleteSoft(int Id)
         {

@@ -77,5 +77,13 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return GetQuery("select * from Kullanici where Silindi=0 and KullaniciAdi= @kullaniciAdi and Sifre = @sifre",
                 new { kullaniciAdi, sifre });
         }
+
+        public int GetKaynakIDByKullaniciID(int KullaniciID)
+        {
+            var strKaynakID = GetScalarQuery($@"select KaynakID from Kullanici where KullaniciID=@KullaniciID", new { }) + "";
+
+            int.TryParse(strKaynakID, out int KaynakID);
+            return KaynakID;
+        }
     }
 }

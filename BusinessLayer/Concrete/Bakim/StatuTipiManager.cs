@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Bakim
             _statutipiDal = statutipiDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, StatuTipiRead, StatuTipiLtd")]
         public List<StatuTipi> GetList()
         {
@@ -30,26 +30,26 @@ namespace BusinessLayer.Concrete.Bakim
             return _statutipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, StatuTipiCreate")]
         public int Add(StatuTipi statutipi)
         {
             return _statutipiDal.Add(statutipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, StatuTipiUpdate")]
         public int Update(StatuTipi statutipi)
         {
             return _statutipiDal.Update(statutipi);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, StatuTipiDelete")]
         public int Delete(int Id)
         {
             return _statutipiDal.Delete(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, StatuTipiDelete")]
         public int DeleteSoft(int Id)
         {

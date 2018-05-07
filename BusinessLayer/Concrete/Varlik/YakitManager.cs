@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Varlik
             _yakitDal = yakitDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, YakitRead, YakitLtd")]
         public List<Yakit> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, YakitCreate")]
         public int Add(Yakit yakit)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, YakitUpdate")]
         public int Update(Yakit yakit)
         {
             return _yakitDal.Update(yakit);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, YakitDelete")]
         public int Delete(int Id)
         {
             return _yakitDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, YakitDelete")]
         public int DeleteSoft(int Id)
         {

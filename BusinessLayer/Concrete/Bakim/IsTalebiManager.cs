@@ -7,6 +7,8 @@ using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace BusinessLayer.Concrete.Bakim
@@ -20,7 +22,7 @@ namespace BusinessLayer.Concrete.Bakim
             _isTalebiDal = ıstalebiDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
         public List<IsTalebi> GetList()
         {
@@ -34,7 +36,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTalebiCreate")]
         public int Add(IsTalebi ıstalebi)
         {
@@ -43,21 +45,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTalebiUpdate")]
         public int Update(IsTalebi istalebi)
         {
             return _isTalebiDal.Update(istalebi);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTalebiDelete")]
         public int Delete(int Id)
         {
             return _isTalebiDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTalebiDelete")]
         public int DeleteSoft(int Id)
         {
@@ -81,6 +83,12 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTalebiDal.GetListPaginationDto(pagingParams);
         }
 
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
+        public List<IsTalebiDto> GetListPaginationDtoKullaniciID(PagingParams pagingParams, int kullaniciID)
+        {
+            return _isTalebiDal.GetListPaginationDtoKullaniciID(pagingParams, kullaniciID);
+        }
+
         public int GetCountDto(string filter = "")
         {
             return _isTalebiDal.GetCountDto(filter);
@@ -90,6 +98,26 @@ namespace BusinessLayer.Concrete.Bakim
         public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
         {
             return _isTalebiDal.GetIsTipiListByKullaniciID(KullaniciID);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
+        public List<EmirTuruIsTipiTemp> GetEmirTuruListByIsTipiID(int IsTipiID)
+        {
+            return _isTalebiDal.GetEmirTuruListByIsTipiID(IsTipiID);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
+        public List<IsEmriNo> GetIsEmriNoByIsTalepID(int IsTalepID)
+        {
+            return _isTalebiDal.GetIsEmriNoByIsTalepID(IsTalepID);
+        }
+        
+        
+        [SecuredOperation(Roles = "Admin, BakimCreate, IsTalebiCreate")]
+        public int AddWithTransaction(IsTalebi ıstalebi)
+        {
+            ıstalebi.TalepYil = DateTime.Now.Year;
+            return _isTalebiDal.AddWithTransaction(ıstalebi);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _malzemehareketDal = malzemehareketDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketRead, MalzemeHareketLtd")]
         public List<MalzemeHareket> GetList()
         {
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemeHareketCreate")]
         public int Add(MalzemeHareket malzemehareket)
         {
@@ -42,21 +42,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemeHareketUpdate")]
         public int Update(MalzemeHareket malzemehareket)
         {
             return _malzemehareketDal.Update(malzemehareket);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketDelete")]
         public int Delete(int Id)
         {
             return _malzemehareketDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketDelete")]
         public int DeleteSoft(int Id)
         {
@@ -84,7 +84,7 @@ namespace BusinessLayer.Concrete.Malzeme
             return _malzemehareketDal.GetCountDto(filter);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemeHareketCreate")]
         public int AddMalzemeHareket(MalzemeHareketTemp malzemeHareketTemp)
         {
@@ -95,7 +95,7 @@ namespace BusinessLayer.Concrete.Malzeme
             return count;
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemeHareketUpdate")]
         public int UpdateMalzemeHareket(MalzemeHareketTemp malzemeHareketTemp)
         {

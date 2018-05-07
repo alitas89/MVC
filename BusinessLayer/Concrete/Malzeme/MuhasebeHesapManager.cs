@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _muhasebehesapDal = muhasebehesapDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, MuhasebeHesapRead, MuhasebeHesapLtd")]
         public List<MuhasebeHesap> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, MuhasebeHesapCreate")]
         public int Add(MuhasebeHesap muhasebehesap)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, MuhasebeHesapUpdate")]
         public int Update(MuhasebeHesap muhasebehesap)
         {
             return _muhasebehesapDal.Update(muhasebehesap);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MuhasebeHesapDelete")]
         public int Delete(int Id)
         {
             return _muhasebehesapDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MuhasebeHesapDelete")]
         public int DeleteSoft(int Id)
         {

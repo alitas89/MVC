@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Bakim
             _bilgilendirmegrubuDal = bilgilendirmegrubuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, BilgilendirmeGrubuRead, BilgilendirmeGrubuLtd")]
         public List<BilgilendirmeGrubu> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, BilgilendirmeGrubuCreate")]
         public int Add(BilgilendirmeGrubu bilgilendirmegrubu)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, BilgilendirmeGrubuUpdate")]
         public int Update(BilgilendirmeGrubu bilgilendirmegrubu)
         {
             return _bilgilendirmegrubuDal.Update(bilgilendirmegrubu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BilgilendirmeGrubuDelete")]
         public int Delete(int Id)
         {
             return _bilgilendirmegrubuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BilgilendirmeGrubuDelete")]
         public int DeleteSoft(int Id)
         {

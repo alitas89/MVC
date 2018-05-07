@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Bakim
             _hizmetDal = hizmetDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, HizmetRead, HizmetLtd")]
         public List<Hizmet> GetList()
         {
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, HizmetCreate")]
         public int Add(Hizmet hizmet)
         {
@@ -43,21 +43,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, HizmetUpdate")]
         public int Update(Hizmet hizmet)
         {
             return _hizmetDal.Update(hizmet);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, HizmetDelete")]
         public int Delete(int Id)
         {
             return _hizmetDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, HizmetDelete")]
         public int DeleteSoft(int Id)
         {

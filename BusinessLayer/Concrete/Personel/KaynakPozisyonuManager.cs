@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Personel
             _kaynakpozisyonuDal = kaynakpozisyonuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelRead, KaynakPozisyonuRead, KaynakPozisyonuLtd")]
         public List<KaynakPozisyonu> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelCreate, KaynakPozisyonuCreate")]
         public int Add(KaynakPozisyonu kaynakpozisyonu)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelUpdate, KaynakPozisyonuUpdate")]
         public int Update(KaynakPozisyonu kaynakpozisyonu)
         {
             return _kaynakpozisyonuDal.Update(kaynakpozisyonu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakPozisyonuDelete")]
         public int Delete(int Id)
         {
             return _kaynakpozisyonuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, KaynakPozisyonuDelete")]
         public int DeleteSoft(int Id)
         {

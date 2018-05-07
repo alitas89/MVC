@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Bakim
             _uretimtipiDal = uretimtipiDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, UretimTipiRead, UretimTipiLtd")]
         public List<UretimTipi> GetList()
         {
@@ -30,26 +30,26 @@ namespace BusinessLayer.Concrete.Bakim
             return _uretimtipiDal.Get(Id);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, UretimTipiCreate")]
         public int Add(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Add(uretimtipi);
         }
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, UretimTipiUpdate")]
         public int Update(UretimTipi uretimtipi)
         {
             return _uretimtipiDal.Update(uretimtipi);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, UretimTipiDelete")]
         public int Delete(int Id)
         {
             return _uretimtipiDal.Delete(Id);
         }
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, UretimTipiDelete")]
         public int DeleteSoft(int Id)
         {

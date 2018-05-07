@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _olcubirimDal = olcubirimDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, OlcuBirimRead, OlcuBirimLtd")]
         public List<OlcuBirim> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, OlcuBirimCreate")]
         public int Add(OlcuBirim olcubirim)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, OlcuBirimUpdate")]
         public int Update(OlcuBirim olcubirim)
         {
             return _olcubirimDal.Update(olcubirim);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, OlcuBirimDelete")]
         public int Delete(int Id)
         {
             return _olcubirimDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, OlcuBirimDelete")]
         public int DeleteSoft(int Id)
         {

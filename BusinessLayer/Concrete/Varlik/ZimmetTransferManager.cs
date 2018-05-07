@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete.Varlik
             _zimmettransferDal = zimmettransferDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferRead, ZimmetTransferLtd")]
         public List<ZimmetTransfer> GetList()
         {
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, ZimmetTransferCreate")]
         public int Add(ZimmetTransfer zimmettransfer)
         {
@@ -42,21 +42,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, ZimmetTransferUpdate")]
         public int Update(ZimmetTransfer zimmettransfer)
         {
             return _zimmettransferDal.Update(zimmettransfer);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDelete")]
         public int Delete(int Id)
         {
             return _zimmettransferDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDelete")]
         public int DeleteSoft(int Id)
         {

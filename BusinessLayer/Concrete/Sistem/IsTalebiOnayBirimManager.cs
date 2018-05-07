@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete.Sistem
             _ıstalebionaybirimDal = ıstalebionaybirimDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemRead, IsTalebiOnayBirimRead, IsTalebiOnayBirimLtd")]
         public List<IsTalebiOnayBirim> GetList()
         {
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemCreate, IsTalebiOnayBirimCreate")]
         public int Add(IsTalebiOnayBirim ıstalebionaybirim)
         {
@@ -42,21 +42,21 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemUpdate, IsTalebiOnayBirimUpdate")]
         public int Update(IsTalebiOnayBirim ıstalebionaybirim)
         {
             return _ıstalebionaybirimDal.Update(ıstalebionaybirim);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemDelete, IsTalebiOnayBirimDelete")]
         public int Delete(int Id)
         {
             return _ıstalebionaybirimDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemDelete, IsTalebiOnayBirimDelete")]
         public int DeleteSoft(int Id)
         {
@@ -79,7 +79,7 @@ namespace BusinessLayer.Concrete.Sistem
             return _ıstalebionaybirimDal.GetListByIsTipiID(IsTipiID);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemCreate, IsTalebiOnayBirimCreate")]
         public int AddIsTalebiOnayBirim(int IsTipiID, string arrKullaniciID)
         {

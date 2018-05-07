@@ -39,6 +39,7 @@ namespace WebApi.Bearer
 
                     //Kullanıcı bilgileri eklenir
                     identity.AddClaim(new Claim(ClaimTypes.Name, kullanici.KullaniciAdi));
+                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, kullanici.KullaniciID + ""));
                     identity.AddClaim(new Claim(ClaimTypes.Actor, kullanici.Ad + " " + kullanici.Soyad));
 
                     //Giriş yapabilen her kişiye Authorized rolü verilir
@@ -75,7 +76,7 @@ namespace WebApi.Bearer
                     context.Validated(identity);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }

@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Satinalma
             _belgeturuDal = belgeturuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaRead, BelgeTuruRead, BelgeTuruLtd")]
         public List<BelgeTuru> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaCreate, BelgeTuruCreate")]
         public int Add(BelgeTuru belgeturu)
         {
@@ -40,21 +40,21 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, BelgeTuruUpdate")]
         public int Update(BelgeTuru belgeturu)
         {
             return _belgeturuDal.Update(belgeturu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, BelgeTuruDelete")]
         public int Delete(int Id)
         {
             return _belgeturuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, BelgeTuruDelete")]
         public int DeleteSoft(int Id)
         {

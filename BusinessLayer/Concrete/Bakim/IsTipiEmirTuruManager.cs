@@ -20,14 +20,14 @@ namespace BusinessLayer.Concrete.Bakim
             _isTipiEmirTuruDal = isTipiEmirTuruDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public List<IsTipiEmirTuru> GetList()
         {
             return _isTipiEmirTuruDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, IsTipiEmirTuruRead, IsTipiEmirTuruLtd")]
         public List<IsTipiEmirTuruDto> GetList(int IsTipiID)
         {
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTipiEmirTuruCreate")]
         public int Add(IsTipiEmirTuru isTipiEmirTuru)
         {
@@ -49,21 +49,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTipiEmirTuruUpdate")]
         public int Update(IsTipiEmirTuru isTipiEmirTuru)
         {
             return _isTipiEmirTuruDal.Update(isTipiEmirTuru);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTipiEmirTuruDelete")]
         public int Delete(int Id)
         {
             return _isTipiEmirTuruDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTipiEmirTuruDelete")]
         public int DeleteSoft(int Id)
         {
@@ -81,7 +81,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTipiEmirTuruCreate")]
         public int AddIsTipiDetay(IsTipiTemp isTipiTemp)
         {
@@ -93,7 +93,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTipiEmirTuruUpdate")]
         public int UpdateIsTipiDetay(IsTipiTemp isTipiTemp)
         {

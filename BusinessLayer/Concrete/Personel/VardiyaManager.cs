@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete.Personel
             _vardiyaDal = vardiyaDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelRead, VardiyaRead, VardiyaLtd")]
         public List<Vardiya> GetList()
         {
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelCreate, VardiyaCreate")]
         public int Add(Vardiya vardiya)
         {
@@ -45,21 +45,21 @@ namespace BusinessLayer.Concrete.Personel
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelUpdate, VardiyaUpdate")]
         public int Update(Vardiya vardiya)
         {
             return _vardiyaDal.Update(vardiya);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, VardiyaDelete")]
         public int Delete(int Id)
         {
             return _vardiyaDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, PersonelDelete, VardiyaDelete")]
         public int DeleteSoft(int Id)
         {

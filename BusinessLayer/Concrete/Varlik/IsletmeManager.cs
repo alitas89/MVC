@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete.Varlik
             _isletmeDal = isletmeDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, IsletmeRead, IsletmeLtd")]
         public List<Isletme> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _isletmeDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, IsletmeCreate")]
         public int Add(Isletme isletme)
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _isletmeDal.IsKodDefined(isletme.Kod) ? 0 : _isletmeDal.Add(isletme);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(IsletmeValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, IsletmeUpdate")]
         public int Update(Isletme isletme)
@@ -59,14 +59,14 @@ namespace BusinessLayer.Concrete.Varlik
             }
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, IsletmeDelete")]
         public int Delete(int Id)
         {
             return _isletmeDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, IsletmeDelete")]
         public int DeleteSoft(int Id)
         {

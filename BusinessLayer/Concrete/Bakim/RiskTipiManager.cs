@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Bakim
             _risktipiDal = risktipiDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, RiskTipiRead, RiskTipiLtd")]
         public List<RiskTipi> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, RiskTipiCreate")]
         public int Add(RiskTipi risktipi)
         {
@@ -40,21 +40,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, RiskTipiUpdate")]
         public int Update(RiskTipi risktipi)
         {
             return _risktipiDal.Update(risktipi);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, RiskTipiDelete")]
         public int Delete(int Id)
         {
             return _risktipiDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, RiskTipiDelete")]
         public int DeleteSoft(int Id)
         {

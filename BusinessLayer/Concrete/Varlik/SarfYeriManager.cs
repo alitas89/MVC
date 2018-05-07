@@ -22,21 +22,21 @@ namespace BusinessLayer.Concrete.Varlik
             _sarfyeriDal = sarfyeriDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeri> GetList()
         {
             return _sarfyeriDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeri> GetList(int IsletmeID)
         {
             return _sarfyeriDal.GetList(IsletmeID);
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, SarfYeriRead, SarfYeriLtd")]
         public List<SarfYeriDto> GetListDto()
         {
@@ -49,7 +49,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _sarfyeriDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(SarfYeriValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, SarfYeriCreate")]
         public int Add(SarfYeri sarfyeri)
@@ -58,7 +58,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _sarfyeriDal.IsKodDefined(sarfyeri.Kod) ? 0 : _sarfyeriDal.Add(sarfyeri);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(SarfYeriValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, SarfYeriUpdate")]
         public int Update(SarfYeri sarfyeri)
@@ -75,14 +75,14 @@ namespace BusinessLayer.Concrete.Varlik
             }
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, SarfYeriDelete")]
         public int Delete(int Id)
         {
             return _sarfyeriDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, SarfYeriDelete")]
         public int DeleteSoft(int Id)
         {

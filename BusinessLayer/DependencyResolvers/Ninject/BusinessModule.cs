@@ -40,7 +40,7 @@ namespace BusinessLayer.DependencyResolvers.Ninject
     {
         public override void Load()
         {
-            //#GenelModul
+            //#SistemModul
             Bind<IVerifyService>().To<VerifyManager>().InSingletonScope();
             Bind<IVerifyDal>().To<DpVerifyDal>();
 
@@ -71,6 +71,8 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsTalebiBirimService>().To<IsTalebiBirimManager>().InSingletonScope();
             Bind<IIsTalebiBirimDal>().To<DpIsTalebiBirimDal>();
 
+            Bind<IGenelBildirimService>().To<GenelBildirimManager>().InSingletonScope();
+            Bind<IGenelBildirimDal>().To<DpGenelBildirimDal>();
 
             //*****Asıl tablolar
 
@@ -231,6 +233,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IIsTipiEmirTuruService>().To<IsTipiEmirTuruManager>().InSingletonScope();
             Bind<IIsTipiEmirTuruDal>().To<DpIsTipiEmirTuruDal>();
+
+            Bind<IIsEmriNoService>().To<IsEmriNoManager>().InSingletonScope();
+            Bind<IIsEmriNoDal>().To<DpIsEmriNoDal>();
 
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();

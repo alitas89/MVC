@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Varlik
             _urunDal = urunDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, UrunRead, UrunLtd")]
         public List<Urun> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, UrunCreate")]
         public int Add(Urun urun)
         {
@@ -40,21 +40,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, UrunUpdate")]
         public int Update(Urun urun)
         {
             return _urunDal.Update(urun);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, UrunDelete")]
         public int Delete(int Id)
         {
             return _urunDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, UrunDelete")]
         public int DeleteSoft(int Id)
         {

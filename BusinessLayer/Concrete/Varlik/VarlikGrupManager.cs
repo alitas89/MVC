@@ -22,14 +22,14 @@ namespace BusinessLayer.Concrete.Varlik
             _varlikgrupDal = varlikgrupDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarlikGrupRead, VarlikGrupLtd")]
         public List<VarlikGrup> GetList()
         {
             return _varlikgrupDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarlikGrupRead, VarlikGrupLtd")]
         public List<VarlikGrupDto> GetListDto()
         {
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikgrupDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(VarlikGrupValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikGrupCreate")]
         public int Add(VarlikGrup varlikgrup)
@@ -50,7 +50,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikgrupDal.Add(varlikgrup);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(VarlikGrupValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikGrupUpdate")]
         public int Update(VarlikGrup varlikgrup)
@@ -58,14 +58,14 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikgrupDal.Update(varlikgrup);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikGrupDelete")]
         public int Delete(int Id)
         {
             return _varlikgrupDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikGrupDelete")]
         public int DeleteSoft(int Id)
         {

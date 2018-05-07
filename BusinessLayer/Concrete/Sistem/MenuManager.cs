@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Sistem
             _menuDal = menuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public List<Menu> GetList()
         {
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public int Add(Menu menu)
         {
@@ -43,21 +43,21 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public int Update(Menu menu)
         {
             return _menuDal.Update(menu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public int Delete(int Id)
         {
             return _menuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public int DeleteSoft(int Id)
         {
@@ -75,7 +75,7 @@ namespace BusinessLayer.Concrete.Sistem
             return _menuDal.GetCount(filter);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public string GetMenuByKod(string arrKodJson)
         {
             string[] arrKod = JsonConvert.DeserializeObject<string[]>(arrKodJson);

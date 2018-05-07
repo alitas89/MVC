@@ -20,20 +20,20 @@ namespace BusinessLayer.Concrete.Varlik
             _varlikDal = varlikDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetList()
         {
             return _varlikDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKisimID(int KisimID)
         {
             return _varlikDal.GetListByKisimID(KisimID);
         }
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<EntityLayer.Concrete.Varlik.Varlik> GetListByKaynakID(int KaynakID)
         {
@@ -47,7 +47,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, VarliklarCreate")]
         public int Add(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
@@ -56,7 +56,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, VarliklarUpdate")]
         public int Update(EntityLayer.Concrete.Varlik.Varlik varlik)
         {
@@ -72,14 +72,14 @@ namespace BusinessLayer.Concrete.Varlik
             }
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarliklarDelete")]
         public int Delete(int Id)
         {
             return _varlikDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete VarliklarDelete")]
         public int DeleteSoft(int Id)
         {

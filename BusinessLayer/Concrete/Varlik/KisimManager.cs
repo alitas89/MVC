@@ -22,21 +22,21 @@ namespace BusinessLayer.Concrete.Varlik
             _kisimDal = kisimDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<Kisim> GetList()
         {
             return _kisimDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<Kisim> GetList(int SarfYeriID)
         {
             return _kisimDal.GetList(SarfYeriID);
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, KisimRead, KisimLtd")]
         public List<KisimDto> GetListDto()
         {
@@ -49,7 +49,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _kisimDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(KisimValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, KisimCreate")]
         public int Add(Kisim kisim)
@@ -58,7 +58,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _kisimDal.IsKodDefined(kisim.Kod) ? 0 : _kisimDal.Add(kisim);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(KisimValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, KisimUpdate")]
         public int Update(Kisim kisim)
@@ -75,14 +75,14 @@ namespace BusinessLayer.Concrete.Varlik
             }
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, KisimDelete")]
         public int Delete(int Id)
         {
             return _kisimDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, KisimDelete")]
         public int DeleteSoft(int Id)
         {

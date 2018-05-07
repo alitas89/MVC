@@ -94,5 +94,11 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
+        {
+            return new DpDtoRepositoryBase<IsTipiForKullaniciTemp>().GetListDtoQuery($@"select a.IsTipiID, b.Ad as IsTipiAd, b.Kod from IsTalebiOnayBirim a inner join IsTipi b on a.IsTipiID=b.IsTipiID where a.KullaniciID=@KullaniciID and a.Silindi=0",
+                new { KullaniciID });
+        }
     }
 }

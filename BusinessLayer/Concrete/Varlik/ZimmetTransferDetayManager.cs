@@ -20,14 +20,14 @@ namespace BusinessLayer.Concrete.Varlik
             _zimmettransferdetayDal = zimmettransferdetayDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetay> GetList()
         {
             return _zimmettransferdetayDal.GetList();
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, ZimmetTransferDetayRead, ZimmetTransferDetayLtd")]
         public List<ZimmetTransferDetayDto> GetList(int ZimmetTransferID)
         {
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikAdd, ZimmetTransferDetayCreate")]
         public int Add(ZimmetTransferDetay zimmettransferdetay)
         {
@@ -54,7 +54,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, ZimmetTransferDetayUpdate")]
         public int Update(ZimmetTransferDetay zimmettransferdetay)
         {
@@ -66,14 +66,14 @@ namespace BusinessLayer.Concrete.Varlik
             return updateResult > 0 ? _zimmettransferdetayDal.Update(zimmettransferdetay) : 0;
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDetayDelete")]
         public int Delete(int Id)
         {
             return _zimmettransferdetayDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, ZimmetTransferDetayDelete")]
         public int DeleteSoft(int Id)
         {
@@ -102,7 +102,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _zimmettransferdetayDal.GetCountDto(ZimmetTransferID, filter);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, ZimmetTransferDetayCreate")]
         public int AddZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
         {
@@ -113,7 +113,7 @@ namespace BusinessLayer.Concrete.Varlik
             return count;
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, ZimmetTransferDetayUpdate")]
         public int UpdateZimmetTransferDetay(int ZimmetTransferID, string arrVarlik)
         {

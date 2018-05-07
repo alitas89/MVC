@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete.Bakim
             _statuDal = statuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, StatuRead, StatuLtd")]
         public List<Statu> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, StatuCreate")]
         public int Add(Statu statu)
         {
@@ -41,21 +41,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, StatuUpdate")]
         public int Update(Statu statu)
         {
             return _statuDal.Update(statu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, StatuDelete")]
         public int Delete(int Id)
         {
             return _statuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, StatuDelete")]
         public int DeleteSoft(int Id)
         {

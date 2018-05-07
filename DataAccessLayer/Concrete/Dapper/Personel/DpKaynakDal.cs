@@ -102,7 +102,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(strCount, out int count);
             return count;
         }
-
     }
 }
        

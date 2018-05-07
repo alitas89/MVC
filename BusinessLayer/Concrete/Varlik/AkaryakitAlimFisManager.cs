@@ -24,7 +24,7 @@ namespace BusinessLayer.Concrete.Varlik
             _akaryakitalimfisDal = akaryakitalimfisDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, AkaryakitAlimFisRead, AkaryakitAlimFisLtd")]
         public List<AkaryakitAlimFis> GetList()
         {
@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, AkaryakitAlimFisCreate")]
         public int Add(AkaryakitAlimFis akaryakitalimfis)
         {
@@ -46,21 +46,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, AkaryakitAlimFisUpdate")]
         public int Update(AkaryakitAlimFis akaryakitalimfis)
         {
             return _akaryakitalimfisDal.Update(akaryakitalimfis);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, AkaryakitAlimFisDelete")]
         public int Delete(int Id)
         {
             return _akaryakitalimfisDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, AkaryakitAlimFisDelete")]
         public int DeleteSoft(int Id)
         {

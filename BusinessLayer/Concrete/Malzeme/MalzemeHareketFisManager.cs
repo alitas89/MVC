@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Malzeme
             _malzemehareketfisDal = malzemehareketfisDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeHareketFisRead, MalzemeHareketFisLtd")]
         public List<MalzemeHareketFis> GetList() => _malzemehareketfisDal.GetList();
 
@@ -29,7 +29,7 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeCreate, MalzemeHareketFisCreate")]
         public int Add(MalzemeHareketFis malzemehareketfis)
         {
@@ -37,21 +37,21 @@ namespace BusinessLayer.Concrete.Malzeme
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeUpdate, MalzemeHareketFisUpdate")]
         public int Update(MalzemeHareketFis malzemehareketfis)
         {
             return _malzemehareketfisDal.Update(malzemehareketfis);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketFisDelete")]
         public int Delete(int Id)
         {
             return _malzemehareketfisDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, MalzemeDelete, MalzemeHareketFisDelete")]
         public int DeleteSoft(int Id)
         {

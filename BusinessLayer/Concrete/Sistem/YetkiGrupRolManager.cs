@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Sistem
             _yetkigruprolDal = yetkigruprolDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrupRol> GetList()
         {
@@ -36,28 +36,28 @@ namespace BusinessLayer.Concrete.Sistem
         }
         
         [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Add(YetkiGrupRol yetkigruprol)
         {
             return _yetkigruprolDal.Add(yetkigruprol);
         }
         
         [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupUpdate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Update(YetkiGrupRol yetkigruprol)
         {
             return _yetkigruprolDal.Update(yetkigruprol);
         }
 
         [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Delete(int Id)
         {
             return _yetkigruprolDal.Delete(Id);
         }
 
         [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int DeleteSoft(int Id)
         {
             return _yetkigruprolDal.DeleteSoft(Id);
@@ -91,14 +91,14 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         [SecuredOperation(Roles = "Admin, SistemDelete, YetkiGrupDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int DeleteSoftByYetkiGrupID(int YetkiGrupID)
         {
             return _yetkigruprolDal.DeleteSoftByYetkiGrupID(YetkiGrupID);
         }
 
         [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int AddYetkiGrupRoles(int yetkiGrupID, string arrYetkiRol)
         {
             var arr = (Array)jss.DeserializeObject(arrYetkiRol);

@@ -6,7 +6,6 @@ namespace EntityLayer.Concrete.Bakim
     public class IsTalebi : IEntity
     {
         public int IsTalebiID { get; set; }
-        public int TalepNo { get; set; }
         public int TalepYil { get; set; }
         public int IsEmriTuruID { get; set; }
         public int BakimOncelikID { get; set; }

@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Varlik
             _varlikdurumuDal = varlikdurumuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarlikDurumuRead, VarlikDurumuLtd")]
         public List<VarlikDurumu> GetList()
         {
@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikdurumuDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikDurumuCreate")]
         public int Add(VarlikDurumu varlikdurumu)
@@ -39,7 +39,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikdurumuDal.Add(varlikdurumu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         //[FluentValidationAspect(typeof(DurusNedeniValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikDurumuUpdate")]
         public int Update(VarlikDurumu varlikdurumu)
@@ -47,14 +47,14 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikdurumuDal.Update(varlikdurumu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikDurumuDelete")]
         public int Delete(int Id)
         {
             return _varlikdurumuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikDurumuDelete")]
         public int DeleteSoft(int Id)
         {

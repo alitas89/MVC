@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete.Satinalma
             _teklifIstemesablonDal = teklifIstemesablonDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeklifIstemeSablonRead, TeklifIstemeSablonLtd")]
         public List<TeklifIstemeSablon> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaCreate, TeklifIstemeSablonCreate")]
         public int Add(TeklifIstemeSablon teklifıstemesablon)
         {
@@ -41,21 +41,21 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, TeklifIstemeSablonUpdate")]
         public int Update(TeklifIstemeSablon teklifıstemesablon)
         {
             return _teklifIstemesablonDal.Update(teklifıstemesablon);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeklifIstemeSablonDelete")]
         public int Delete(int Id)
         {
             return _teklifIstemesablonDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeklifIstemeSablonDelete")]
         public int DeleteSoft(int Id)
         {

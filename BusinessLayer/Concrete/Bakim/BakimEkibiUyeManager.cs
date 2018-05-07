@@ -24,7 +24,7 @@ namespace BusinessLayer.Concrete.Bakim
             _bakimekibiuyeDal = bakimekibiuyeDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiUyeRead, BakimEkibiUyeLtd")]
         public List<BakimEkibiUye> GetList()
         {
@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, BakimEkibiUyeCreate")]
         public int Add(BakimEkibiUye bakimekibiuye)
         {
@@ -46,21 +46,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, BakimEkibiUyeUpdate")]
         public int Update(BakimEkibiUye bakimekibiuye)
         {
             return _bakimekibiuyeDal.Update(bakimekibiuye);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BakimEkibiUyeDelete")]
         public int Delete(int Id)
         {
             return _bakimekibiuyeDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, BakimEkibiUyeDelete")]
         public int DeleteSoft(int Id)
         {
@@ -77,7 +77,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _bakimekibiuyeDal.GetCount(filter);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, BakimEkibiUyeCreate")]
         public int AddBakimEkibiUye(int BakimEkibiID, string arrKaynakID)
         {

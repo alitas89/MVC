@@ -23,5 +23,7 @@ namespace BusinessLayer.Abstract.Sistem
         int GetCount(string filter = "");
 
         Kullanici GetByKullaniciAdiAndSifre(string kullaniciAdi, string sifre);
+
+        int GetKaynakIDByKullaniciID(int KullaniciID);
     }
 }

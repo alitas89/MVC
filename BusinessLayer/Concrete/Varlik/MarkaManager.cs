@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete.Varlik
             _markaDal = markaDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, MarkaRead, MarkaLtd")]
         public List<Marka> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _markaDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(MarkaValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikCreate, MarkaCreate")]
         public int Add(Marka marka)
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _markaDal.Add(marka);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [FluentValidationAspect(typeof(MarkaValidator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, VarlikUpdate, MarkaUpdate")]
         public int Update(Marka marka)
@@ -49,14 +49,14 @@ namespace BusinessLayer.Concrete.Varlik
             return _markaDal.Update(marka);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, MarkaDelete")]
         public int Delete(int Id)
         {
             return _markaDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, MarkaDelete")]
         public int DeleteSoft(int Id)
         {

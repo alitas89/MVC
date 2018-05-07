@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Varlik
             _kaynakdurumuDal = kaynakdurumuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, KaynakDurumuRead, KaynakDurumuLtd")]
         public List<KaynakDurumu> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, KaynakDurumuCreate")]
         public int Add(KaynakDurumu kaynakdurumu)
         {
@@ -44,21 +44,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, KaynakDurumuUpdate")]
         public int Update(KaynakDurumu kaynakdurumu)
         {
             return _kaynakdurumuDal.Update(kaynakdurumu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, KaynakDurumuDelete")]
         public int Delete(int Id)
         {
             return _kaynakdurumuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, KaynakDurumuDelete")]
         public int DeleteSoft(int Id)
         {

@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Satinalma
             _teslimSekliDal = teslimSekliDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaRead, TeslimSekliRead, TeslimSekliLtd")]
         public List<TeslimSekli> GetList()
         {
@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaCreate, TeslimSekliCreate")]
         public int Add(TeslimSekli teslimsekli)
         {
@@ -43,21 +43,21 @@ namespace BusinessLayer.Concrete.Satinalma
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaUpdate, TeslimSekliUpdate")]
         public int Update(TeslimSekli teslimsekli)
         {
             return _teslimSekliDal.Update(teslimsekli);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeslimSekliDelete")]
         public int Delete(int Id)
         {
             return _teslimSekliDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SatinAlmaDelete, TeslimSekliDelete")]
         public int DeleteSoft(int Id)
         {

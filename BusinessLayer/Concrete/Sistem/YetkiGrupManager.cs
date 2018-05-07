@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Sistem
             _yetkigrupDal = yetkigrupDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, SistemRead, YetkiGrupRead, YetkiGrupLtd")]
         public List<YetkiGrup> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
         
         [SecuredOperation(Roles = "Admin, SistemCreate, YetkiGrupCreate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Add(YetkiGrup yetkigrup)
         {
             //YetkiKodu kontrol edilir - benzersiz olmalıdır
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupUpdate")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Update(YetkiGrup yetkigrup)
         {
             //74-İşTalep ve 75-İşEmri kayıtları silinemez!
@@ -68,7 +68,7 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int Delete(int Id)
         {
             return _yetkigrupDal.Delete(Id);
@@ -76,7 +76,7 @@ namespace BusinessLayer.Concrete.Sistem
 
 
         [SecuredOperation(Roles = "Admin, SistemUpdate, YetkiGrupDelete")]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         public int DeleteSoft(int Id)
         {
             YetkiGrup yetkigrup = _yetkigrupDal.Get(Id);

@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete.Varlik
             _varliksablonDal = varliksablonDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikRead, VarlikSablonRead, VarlikSablonLtd")]
         public List<VarlikSablon> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikCreate, VarlikSablonCreate")]
         public int Add(VarlikSablon varliksablon)
         {
@@ -41,21 +41,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikUpdate, VarlikSablonUpdate")]
         public int Update(VarlikSablon varliksablon)
         {
             return _varliksablonDal.Update(varliksablon);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikSablonDelete")]
         public int Delete(int Id)
         {
             return _varliksablonDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, VarlikDelete, VarlikSablonDelete")]
         public int DeleteSoft(int Id)
         {

@@ -27,6 +27,15 @@ namespace WebApi.Controllers
             return actor;
         }
 
+        [Route("api/info/id")]
+        [HttpGet]
+        public string KullaniciID()
+        {
+            var id = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
+                x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
+            return id;
+        }
+
         [Route("api/info/roles")]
         [HttpGet]
         public string Roles()
@@ -39,7 +48,7 @@ namespace WebApi.Controllers
             {
                 string name = claim.Type.Substring(claim.Type.LastIndexOf('/'),
                     claim.Type.Length - claim.Type.LastIndexOf('/'));
-                if (name=="/role")
+                if (name == "/role")
                 {
                     listRole.Add(claim.Value);
                 }

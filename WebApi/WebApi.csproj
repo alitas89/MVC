@@ -227,11 +227,13 @@
     <Compile Include="Controllers\EgitimController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />
     <Compile Include="Controllers\GecikmeNedeniController.cs" />
+    <Compile Include="Controllers\GenelBildirimController.cs" />
     <Compile Include="Controllers\GonderimFormatiController.cs" />
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\IsEmriController.cs" />
+    <Compile Include="Controllers\IsEmriNoController.cs" />
     <Compile Include="Controllers\IsEmriTuruController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsSektoruController.cs" />

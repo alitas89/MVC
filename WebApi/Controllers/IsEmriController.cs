@@ -8,6 +8,7 @@ using BusinessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 using System.Linq.Dynamic;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace WebApi.Controllers
 {
@@ -73,6 +74,12 @@ namespace WebApi.Controllers
         public int DeleteHard(int id)
         {
             return _isEmriService.Delete(id);
+        }
+
+        [Route("api/isemri/getistipilistbykullaniciid/{KullaniciID}")]
+        public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID)
+        {
+            return _isEmriService.GetIsTipiListByKullaniciID(KullaniciID);
         }
     }
 }

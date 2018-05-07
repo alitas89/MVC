@@ -27,6 +27,5 @@ namespace BusinessLayer.Abstract.Personel
         List<KaynakDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
-
     }
 }

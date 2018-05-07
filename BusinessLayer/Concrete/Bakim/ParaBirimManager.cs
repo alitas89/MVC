@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete.Bakim
             _parabirimDal = parabirimDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, ParaBirimRead, ParaBirimLtd")]
         public List<ParaBirim> GetList()
         {
@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, ParaBirimCreate")]
         public int Add(ParaBirim parabirim)
         {
@@ -40,21 +40,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, ParaBirimUpdate")]
         public int Update(ParaBirim parabirim)
         {
             return _parabirimDal.Update(parabirim);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, ParaBirimDelete")]
         public int Delete(int Id)
         {
             return _parabirimDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, ParaBirimDelete")]
         public int DeleteSoft(int Id)
         {

@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Bakim
             _etkiyeriDal = etkiyeriDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, EtkiYeriRead, EtkiYeriLtd")]
         public List<EtkiYeri> GetList()
         {
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _etkiyeriDal.Get(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, BakimCreate, EtkiYeriCreate")]
         public int Add(EtkiYeri etkiyeri)
@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _etkiyeriDal.Add(etkiyeri);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, BakimUpdate, EtkiYeriUpdate")]
         public int Update(EtkiYeri etkiyeri)
@@ -50,14 +50,14 @@ namespace BusinessLayer.Concrete.Bakim
             return _etkiyeriDal.Update(etkiyeri);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, EtkiYeriDelete")]
         public int Delete(int Id)
         {
             return _etkiyeriDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, EtkiYeriDelete")]
         public int DeleteSoft(int Id)
         {

@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete.Bakim
             _arizacozumuDal = arizacozumuDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimRead, ArizaCozumuRead, ArizaCozumuLtd")]
         public List<ArizaCozumu> GetList()
         {
@@ -34,7 +34,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimCreate, ArizaCozumuCreate")]
         public int Add(ArizaCozumu arizacozumu)
         {
@@ -42,21 +42,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimUpdate, ArizaCozumuUpdate")]
         public int Update(ArizaCozumu arizacozumu)
         {
             return _arizacozumuDal.Update(arizacozumu);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, ArizaCozumuDelete")]
         public int Delete(int Id)
         {
             return _arizacozumuDal.Delete(Id);
         }
 
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Admin, BakimDelete, ArizaCozumuDelete")]
         public int DeleteSoft(int Id)
         {
