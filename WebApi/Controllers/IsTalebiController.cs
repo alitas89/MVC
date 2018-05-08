@@ -32,14 +32,15 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
-            total = filter.Length != 0 ? _isTalebiService.GetCountDto(filter) : _isTalebiService.GetCountDto();
 
             //KullaniciID bilgisi alınır
             var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
                 x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
             int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
 
-            var d = _isTalebiService.GetListPaginationDtoKullaniciID(new PagingParams()
+            total = filter.Length != 0 ? _isTalebiService.GetCountDtoByKullaniciID(kullaniciID, filter) : _isTalebiService.GetCountDtoByKullaniciID(kullaniciID);
+
+            var d = _isTalebiService.GetListPaginationDtoByKullaniciID(new PagingParams()
             {
                 filter = filter,
                 limit = limit,
@@ -66,9 +67,9 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody]IsTalebi isTalebi)
+        public int Put([FromBody]IsTalebi isTalebi, int IsEmriNoID)
         {
-            return _isTalebiService.Update(isTalebi);
+            return _isTalebiService.Update(isTalebi, IsEmriNoID);
         }
 
         public int Delete(int id)

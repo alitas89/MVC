@@ -80,7 +80,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public int GetKaynakIDByKullaniciID(int KullaniciID)
         {
-            var strKaynakID = GetScalarQuery($@"select KaynakID from Kullanici where KullaniciID=@KullaniciID", new { }) + "";
+            var strKaynakID = GetScalarQuery($@"select KaynakID from Kullanici where KullaniciID=@KullaniciID", new { KullaniciID }) + "";
 
             int.TryParse(strKaynakID, out int KaynakID);
             return KaynakID;

@@ -86,7 +86,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public List<IsTalebiDto> GetListPaginationDtoKullaniciID(PagingParams pagingParams, int KullaniciID)
+        public List<IsTalebiDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int KullaniciID)
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
@@ -134,10 +134,73 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return IsEmriNoID;
         }
 
+        public int UpdateWithTransactionForCreateIsEmri(IsTalebi isTalebi, int IsEmriNoID)
+        {
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+                //Klasik Update İşlemi
+                connection.Execute("update IsTalebi set TalepYil=@TalepYil,IsEmriTuruID=@IsEmriTuruID,BakimOncelikID=@BakimOncelikID,VarlikID=@VarlikID,KisimID=@KisimID,ArizaOlusmaTarih=@ArizaOlusmaTarih,ArizaOlusmaSaat=@ArizaOlusmaSaat,BildirilisTarih=@BildirilisTarih,BildirilisSaat=@BildirilisSaat,TalepEdenID=@TalepEdenID,IsTipiID=@IsTipiID,BakimArizaID=@BakimArizaID,Aciklama=@Aciklama,OnaylayanID=@OnaylayanID,OnaylayanAciklama=@OnaylayanAciklama,SorumluID=@SorumluID,EkipID=@EkipID,OnayTarih=@OnayTarih,OnaySaat=@OnaySaat,StatuID=@StatuID,Silindi=@Silindi where IsTalebiID=@IsTalebiID",
+                    isTalebi, transaction);
+
+                //Yeni Bir İş Emri Oluşturulur (Insert Edilir)
+                var strIsEmriID = connection.ExecuteScalar(
+                    "insert into IsEmri(IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID," +
+                    "TalepEdenID, ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat," +
+                    "StatuID,BakimEkibiID,Silindi) values " +
+
+                    "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID," +
+                    "@TalepEden, @ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
+                    "@StatuID,@BakimEkibiID, @Silindi); " +
+                    "SELECT CAST(SCOPE_IDENTITY() as int)",
+                    new IsEmri()
+                    {
+                        IsEmriTuruID = isTalebi.IsEmriTuruID,
+                        VarlikID = isTalebi.VarlikID,
+                        IsTipiID = isTalebi.IsTipiID,
+                        BakimArizaKoduID = isTalebi.BakimArizaID,
+                        BakimOncelikID = isTalebi.BakimOncelikID,
+                        KisimID = isTalebi.KisimID,
+                        TalepEdenID = isTalebi.TalepEdenID,
+                        ArizaOlusmaTarih = isTalebi.ArizaOlusmaTarih,
+                        ArizaOlusmaSaat = isTalebi.ArizaOlusmaSaat,
+                        BildirilisTarih = isTalebi.BildirilisTarih,
+                        BildirilisSaat = isTalebi.BildirilisSaat,
+                        StatuID = isTalebi.StatuID,
+                        BakimEkibiID = isTalebi.EkipID,
+                        Silindi = false
+                    }, transaction);
+                int.TryParse(strIsEmriID + "", out int IsEmriID);
+
+                //IsEmriNo Update Edilir
+                connection.Execute("update IsEmriNo set IsEmriID=@IsEmriID where IsEmriNoID=@IsEmriNoID",
+                    new { IsEmriID, IsEmriNoID },
+                    transaction);
+
+                transaction.Commit();
+
+                return 1;
+            }
+        }
+
         public int GetCountDto(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_IsTalebiDto where Silindi=0 {filterQuery} ", new { }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
+
+        public int GetCountDtoByKullaniciID(int KullaniciID, string filter = "")
+        {
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_IsTalebiDto where Silindi=0 and (TalepEdenID=@KullaniciID or 
+                IsTipiID IN (select IsTipiID from IsTalebiOnayBirim where KullaniciID=@KullaniciID and Silindi=0)) {filterQuery} ", new { KullaniciID }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }

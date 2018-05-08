@@ -22,7 +22,7 @@ namespace BusinessLayer.Concrete.Bakim
             _isTalebiDal = ıstalebiDal;
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
         public List<IsTalebi> GetList()
         {
@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
+
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTalebiCreate")]
         public int Add(IsTalebi ıstalebi)
         {
@@ -44,22 +44,30 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTalebiDal.Add(ıstalebi);
         }
 
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTalebiUpdate")]
-        public int Update(IsTalebi istalebi)
+        public int Update(IsTalebi istalebi, int IsEmriNoID)
         {
+            //Eğer Statü Kodu 8 (Onayla) Olan Bir Güncelleme Geldiyse Aynı Zamanda Bir İş Emri De Oluşmalı!
+            if (istalebi.StatuID == 8)
+            {
+                //İş Emri de oluşmalı
+                return _isTalebiDal.UpdateWithTransactionForCreateIsEmri(istalebi, IsEmriNoID);
+            }
+
+            //NormalDurum
             return _isTalebiDal.Update(istalebi);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTalebiDelete")]
         public int Delete(int Id)
         {
             return _isTalebiDal.Delete(Id);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, BakimDelete, IsTalebiDelete")]
         public int DeleteSoft(int Id)
         {
@@ -84,14 +92,19 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
-        public List<IsTalebiDto> GetListPaginationDtoKullaniciID(PagingParams pagingParams, int kullaniciID)
+        public List<IsTalebiDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int kullaniciID)
         {
-            return _isTalebiDal.GetListPaginationDtoKullaniciID(pagingParams, kullaniciID);
+            return _isTalebiDal.GetListPaginationDtoByKullaniciID(pagingParams, kullaniciID);
         }
 
         public int GetCountDto(string filter = "")
         {
             return _isTalebiDal.GetCountDto(filter);
+        }
+
+        public int GetCountDtoByKullaniciID(int KullaniciID, string filter = "")
+        {
+            return _isTalebiDal.GetCountDtoByKullaniciID(KullaniciID, filter);
         }
 
         [SecuredOperation(Roles = "Admin, BakimRead, IsTalebiRead, IsTalebiLtd")]
@@ -111,8 +124,8 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isTalebiDal.GetIsEmriNoByIsTalepID(IsTalepID);
         }
-        
-        
+
+
         [SecuredOperation(Roles = "Admin, BakimCreate, IsTalebiCreate")]
         public int AddWithTransaction(IsTalebi ıstalebi)
         {

@@ -17,7 +17,7 @@ namespace BusinessLayer.Abstract.Bakim
 
         int Add(IsTalebi istalebi);
 
-        int Update(IsTalebi istalebi);
+        int Update(IsTalebi istalebi, int IsEmriNoID);
 
         int Delete(int Id);
 
@@ -29,9 +29,11 @@ namespace BusinessLayer.Abstract.Bakim
 
         List<IsTalebiDto> GetListPaginationDto(PagingParams pagingParams);
 
-        List<IsTalebiDto> GetListPaginationDtoKullaniciID(PagingParams pagingParams, int kullaniciID);
+        List<IsTalebiDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int kullaniciID);
 
         int GetCountDto(string filter = "");
+
+        int GetCountDtoByKullaniciID(int KullaniciID, string filter = "");
 
         List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciID(int KullaniciID);
 

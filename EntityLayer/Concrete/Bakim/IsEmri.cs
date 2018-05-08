@@ -6,7 +6,6 @@ namespace EntityLayer.Concrete.Bakim
     public class IsEmri : IEntity
     {
         public int IsEmriID { get; set; }
-        public int IsEmriNo { get; set; }
         public int IsEmriTuruID { get; set; }
         public int VarlikID { get; set; }
         public int IsTipiID { get; set; }
