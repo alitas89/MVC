@@ -8,6 +8,7 @@ using BusinessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
 using System.Linq.Dynamic;
+using System.Security.Claims;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 
 namespace WebApi.Controllers
@@ -31,15 +32,22 @@ namespace WebApi.Controllers
         public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
-            total = filter.Length != 0 ? _isEmriService.GetCountDto(filter) : _isEmriService.GetCountDto();
-            var d = _isEmriService.GetListPaginationDto(new PagingParams()
+
+            //KullaniciID bilgisi alınır
+            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
+                x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
+            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
+
+            total = filter.Length != 0 ? _isEmriService.GetCountDtoByKullaniciID(kullaniciID, filter) : _isEmriService.GetCountDtoByKullaniciID(kullaniciID);
+            var d = _isEmriService.GetListPaginationDtoByKullaniciID(new PagingParams()
             {
                 filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,
                 columns = columns
-            });
+            }, kullaniciID);
+
             var response = columns.Length > 0 ?
                 Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
                 : Request.CreateResponse(HttpStatusCode.OK, d);
@@ -81,5 +89,6 @@ namespace WebApi.Controllers
         {
             return _isEmriService.GetIsTipiListByKullaniciID(KullaniciID);
         }
+        
     }
 }

@@ -134,7 +134,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return IsEmriNoID;
         }
 
-        public int UpdateWithTransactionForCreateIsEmri(IsTalebi isTalebi, int IsEmriNoID)
+        public int UpdateWithTransactionForCreateIsEmri(IsTalebiIsEmriNoDto isTalebi)
         {
             using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
             {
@@ -155,7 +155,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                     "StatuID,BakimEkibiID,Silindi) values " +
 
                     "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID," +
-                    "@TalepEden, @ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
+                    "@TalepEdenID, @ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
                     "@StatuID,@BakimEkibiID, @Silindi); " +
                     "SELECT CAST(SCOPE_IDENTITY() as int)",
                     new IsEmri()
@@ -173,13 +173,14 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                         BildirilisSaat = isTalebi.BildirilisSaat,
                         StatuID = isTalebi.StatuID,
                         BakimEkibiID = isTalebi.EkipID,
+                       
                         Silindi = false
                     }, transaction);
                 int.TryParse(strIsEmriID + "", out int IsEmriID);
 
                 //IsEmriNo Update Edilir
                 connection.Execute("update IsEmriNo set IsEmriID=@IsEmriID where IsEmriNoID=@IsEmriNoID",
-                    new { IsEmriID, IsEmriNoID },
+                    new { IsEmriID, isTalebi.IsEmriNoID },
                     transaction);
 
                 transaction.Commit();

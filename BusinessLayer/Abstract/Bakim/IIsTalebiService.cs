@@ -17,7 +17,7 @@ namespace BusinessLayer.Abstract.Bakim
 
         int Add(IsTalebi istalebi);
 
-        int Update(IsTalebi istalebi, int IsEmriNoID);
+        int Update(IsTalebiIsEmriNoDto istalebi);
 
         int Delete(int Id);
 

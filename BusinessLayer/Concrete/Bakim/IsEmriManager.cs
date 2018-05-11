@@ -88,6 +88,16 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isEmriDal.GetIsTipiListByKullaniciID(KullaniciID);
         }
-    }
 
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
+        public List<IsEmriDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int KullaniciID)
+        {
+            return _isEmriDal.GetListPaginationDtoByKullaniciID(pagingParams, KullaniciID);
+        }
+
+        public int GetCountDtoByKullaniciID(int KullaniciID, string filter = "")
+        {
+            return _isEmriDal.GetCountDtoByKullaniciID(KullaniciID, filter);
+        }
+    }
 }

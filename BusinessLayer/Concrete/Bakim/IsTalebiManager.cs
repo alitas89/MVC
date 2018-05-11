@@ -47,13 +47,13 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsTalebiUpdate")]
-        public int Update(IsTalebi istalebi, int IsEmriNoID)
+        public int Update(IsTalebiIsEmriNoDto istalebi)
         {
             //Eğer Statü Kodu 8 (Onayla) Olan Bir Güncelleme Geldiyse Aynı Zamanda Bir İş Emri De Oluşmalı!
             if (istalebi.StatuID == 8)
             {
                 //İş Emri de oluşmalı
-                return _isTalebiDal.UpdateWithTransactionForCreateIsEmri(istalebi, IsEmriNoID);
+                return _isTalebiDal.UpdateWithTransactionForCreateIsEmri(istalebi);
             }
 
             //NormalDurum

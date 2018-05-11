@@ -20,7 +20,7 @@ namespace DataAccessLayer.Abstract.Bakim
 
         int AddWithTransaction(IsTalebi ıstalebi);
 
-        int UpdateWithTransactionForCreateIsEmri(IsTalebi ıstalebi, int IsEmriNoID);
+        int UpdateWithTransactionForCreateIsEmri(IsTalebiIsEmriNoDto ıstalebi);
 
         List<IsTalebiDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int KullaniciID);
 

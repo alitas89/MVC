@@ -67,9 +67,9 @@ namespace WebApi.Controllers
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody]IsTalebi isTalebi, int IsEmriNoID)
+        public int Put([FromBody]IsTalebiIsEmriNoDto isTalebi)
         {
-            return _isTalebiService.Update(isTalebi, IsEmriNoID);
+            return _isTalebiService.Update(isTalebi);
         }
 
         public int Delete(int id)
