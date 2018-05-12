@@ -17,5 +17,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<IsEmriDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int KullaniciID);
 
         int GetCountDtoByKullaniciID(int KullaniciID, string filter = "");
+
+        List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID);
     }
 }

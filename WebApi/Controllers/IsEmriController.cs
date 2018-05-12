@@ -89,6 +89,12 @@ namespace WebApi.Controllers
         {
             return _isEmriService.GetIsTipiListByKullaniciID(KullaniciID);
         }
-        
+
+        [Route("api/isemri/getisemrinobyisemriid/{IsEmriID}")]
+        public List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID)
+        {
+            return _isEmriService.GetIsEmriNoByIsEmriID(IsEmriID);
+        }
+
     }
 }

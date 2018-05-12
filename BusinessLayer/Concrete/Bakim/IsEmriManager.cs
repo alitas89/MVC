@@ -99,5 +99,11 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isEmriDal.GetCountDtoByKullaniciID(KullaniciID, filter);
         }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
+        public List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID)
+        {
+            return _isEmriDal.GetIsEmriNoByIsEmriID(IsEmriID);
+        }
     }
 }

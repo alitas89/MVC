@@ -171,7 +171,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                         ArizaOlusmaSaat = isTalebi.ArizaOlusmaSaat,
                         BildirilisTarih = isTalebi.BildirilisTarih,
                         BildirilisSaat = isTalebi.BildirilisSaat,
-                        StatuID = isTalebi.StatuID,
+                        StatuID = 14, //AÇIK (YENİ IŞ EMRİ)
                         BakimEkibiID = isTalebi.EkipID,
                        
                         Silindi = false
