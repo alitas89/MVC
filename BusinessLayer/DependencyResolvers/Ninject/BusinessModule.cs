@@ -237,6 +237,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsEmriNoService>().To<IsEmriNoManager>().InSingletonScope();
             Bind<IIsEmriNoDal>().To<DpIsEmriNoDal>();
 
+            Bind<IBakimDurumuService>().To<BakimDurumuManager>().InSingletonScope();
+            Bind<IBakimDurumuDal>().To<DpBakimDurumuDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();

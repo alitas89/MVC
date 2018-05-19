@@ -19,7 +19,7 @@ namespace BusinessLayer.Concrete.Bakim
             _isEmriDal = ısemriDal;
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
         public List<IsEmri> GetList()
         {
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
+
         [SecuredOperation(Roles = "Admin, BakimCreate, IsEmriCreate")]
         public int Add(IsEmri ısemri)
         {
@@ -41,21 +41,21 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
+
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsEmriUpdate")]
         public int Update(IsEmri ısemri)
         {
             return _isEmriDal.Update(ısemri);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin,Editor, BakimDelete, IsEmriDelete")]
         public int Delete(int Id)
         {
             return _isEmriDal.Delete(Id);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, BakimDelete, IsEmriDelete")]
         public int DeleteSoft(int Id)
         {
@@ -67,6 +67,7 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isEmriDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _isEmriDal.GetCount(filter);
@@ -104,6 +105,12 @@ namespace BusinessLayer.Concrete.Bakim
         public List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID)
         {
             return _isEmriDal.GetIsEmriNoByIsEmriID(IsEmriID);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsEmriRead, IsEmriLtd")]
+        public int GetEditYetki(int IsEmriID, int KullaniciID)
+        {
+            return _isEmriDal.GetEditYetki(IsEmriID, KullaniciID);
         }
     }
 }

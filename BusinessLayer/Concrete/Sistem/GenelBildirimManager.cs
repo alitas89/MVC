@@ -22,5 +22,17 @@ namespace BusinessLayer.Concrete.Sistem
         {
             return _genelBildirimDal.GetAcikOnaysizIsTalepSayisi(KullaniciID);
         }
+
+        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
+        public int GetAcikIsEmriSayisi(int KullaniciID)
+        {
+            return _genelBildirimDal.GetAcikIsEmriSayisi(KullaniciID);
+        }
+
+        [SecuredOperation(Roles = "Admin, Authorized")]
+        public int GetSorumluOlunanIsEmriSayisi(int KullaniciID)
+        {
+            return _genelBildirimDal.GetSorumluOlunanIsEmriSayisi(KullaniciID);
+        }
     }
 }

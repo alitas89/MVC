@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ArizaNedeniController.cs" />
     <Compile Include="Controllers\ArizaNedeniGrubuController.cs" />
     <Compile Include="Controllers\BakimArizaKoduController.cs" />
+    <Compile Include="Controllers\BakimDurumuController.cs" />
     <Compile Include="Controllers\BakimEkibiController.cs" />
     <Compile Include="Controllers\BakimEkibiUyeController.cs" />
     <Compile Include="Controllers\BakimOncelikController.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Controllers\IsEmriController.cs" />
     <Compile Include="Controllers\IsEmriNoController.cs" />
     <Compile Include="Controllers\IsEmriTuruController.cs" />
+    <Compile Include="Controllers\IsinSorumlusuController.cs" />
     <Compile Include="Controllers\IsletmeController.cs" />
     <Compile Include="Controllers\IsSektoruController.cs" />
     <Compile Include="Controllers\IsTalebiBirimController.cs" />

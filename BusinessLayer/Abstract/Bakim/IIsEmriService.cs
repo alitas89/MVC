@@ -34,5 +34,7 @@ namespace BusinessLayer.Abstract.Bakim
         int GetCountDtoByKullaniciID(int KullaniciID, string filter = "");
 
         List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID);
+
+        int GetEditYetki(int IsEmriID, int KullaniciID);
     }
 }

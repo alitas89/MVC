@@ -173,7 +173,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                         BildirilisSaat = isTalebi.BildirilisSaat,
                         StatuID = 14, //AÇIK (YENİ IŞ EMRİ)
                         BakimEkibiID = isTalebi.EkipID,
-                       
+                        VardiyaID = 4,
                         Silindi = false
                     }, transaction);
                 int.TryParse(strIsEmriID + "", out int IsEmriID);

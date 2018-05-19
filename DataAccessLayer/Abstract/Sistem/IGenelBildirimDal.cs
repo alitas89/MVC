@@ -8,5 +8,9 @@ namespace DataAccessLayer.Abstract.Sistem
     public interface IGenelBildirimDal
     {
         int GetAcikOnaysizIsTalepSayisi(int KullaniciID);
+
+        int GetAcikIsEmriSayisi(int KullaniciID);
+
+        int GetSorumluOlunanIsEmriSayisi(int KullaniciID);
     }
 }

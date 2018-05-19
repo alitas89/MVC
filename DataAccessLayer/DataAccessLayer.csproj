@@ -48,6 +48,7 @@
     <Compile Include="Abstract\Bakim\IArizaNedeniDal.cs" />
     <Compile Include="Abstract\Bakim\IArizaNedeniGrubuDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimArizaKoduDal.cs" />
+    <Compile Include="Abstract\Bakim\IBakimDurumuDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimEkibiDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimEkibiUyeDal.cs" />
     <Compile Include="Abstract\Bakim\IBakimOncelikDal.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Abstract\Bakim\IIsEmriDal.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriNoDal.cs" />
     <Compile Include="Abstract\Bakim\IIsEmriTuruDal.cs" />
+    <Compile Include="Abstract\Bakim\IIsinSorumlusuDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmriTuruDal.cs" />
     <Compile Include="Abstract\Sistem\IGenelBildirimDal.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpArizaNedeniDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpArizaNedeniGrubuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimArizaKoduDal.cs" />
+    <Compile Include="Concrete\Dapper\Bakim\DpBakimDurumuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimEkibiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimEkibiUyeDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpBakimOncelikDal.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsEmriDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsEmriNoDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsEmriTuruDal.cs" />
+    <Compile Include="Concrete\Dapper\Bakim\DpIsinSorumlusuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTalebiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTipiEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpGenelBildirimDal.cs" />

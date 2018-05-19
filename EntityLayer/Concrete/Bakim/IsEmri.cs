@@ -38,6 +38,7 @@ namespace EntityLayer.Concrete.Bakim
         public int BakimEkibiID { get; set; }
         public int VardiyaID { get; set; }
         public int IsEmircisi { get; set; }
+        public int BakimDurumuID { get; set; }
         public bool Silindi { get; set; }
     }
 }

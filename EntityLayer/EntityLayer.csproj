@@ -94,6 +94,7 @@
     <Compile Include="Concrete\Bakim\ArizaNedeni.cs" />
     <Compile Include="Concrete\Bakim\ArizaNedeniGrubu.cs" />
     <Compile Include="Concrete\Bakim\BakimArizaKodu.cs" />
+    <Compile Include="Concrete\Bakim\BakimDurumu.cs" />
     <Compile Include="Concrete\Bakim\BakimEkibi.cs" />
     <Compile Include="Concrete\Bakim\BakimEkibiUye.cs" />
     <Compile Include="Concrete\Bakim\BakimOncelik.cs" />

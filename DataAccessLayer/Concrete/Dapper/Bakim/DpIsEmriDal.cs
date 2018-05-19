@@ -27,13 +27,13 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                             "PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat," +
                             "BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat," +
                             "IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID," +
-                            "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,Silindi) values " +
+                            "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,Silindi) values " +
                             "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID," +
                             "@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih," +
                             "@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
                             "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
                             "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
-                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@Silindi)", isemri);
+                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@Silindi)", isemri);
         }
 
         public int Update(IsEmri isemri)
@@ -50,7 +50,8 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                                "DevreyeAlmaSaat=@DevreyeAlmaSaat,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID," +
                                "ArizaCozumuID=@ArizaCozumuID,YapilanIsAciklama=@YapilanIsAciklama," +
                                "TalepAciklamasi=@TalepAciklamasi,StatuID=@StatuID,StatuAciklama=@StatuAciklama," +
-                               "BakimEkibiID=@BakimEkibiID,VardiyaID=@VardiyaID,IsEmircisi=@IsEmircisi,Silindi=@Silindi " +
+                               "BakimEkibiID=@BakimEkibiID,VardiyaID=@VardiyaID,IsEmircisi=@IsEmircisi," +
+                               "BakimDurumuID=@BakimDurumuID,Silindi=@Silindi " +
                                "where IsEmriID=@IsEmriID",
                                isemri);
         }
@@ -143,11 +144,11 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         {
             string filterQuery = Datatables.FilterFabric(filter);
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_IsEmriDto where Silindi=0 and 
-                IsTipiID IN (select IsTipiID from IsTalebiOnayBirim where KullaniciID=@KullaniciID and Silindi=0) {filterQuery} ", new { KullaniciID }) + "";
+                IsTipiID IN (select IsTipiID from IsTalebiOnayBirim where KullaniciID=@KullaniciID and Silindi=0)
+                {filterQuery} ", new { KullaniciID }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
-
 
         public int GetCountDto(string filter = "")
         {
@@ -163,12 +164,19 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { KullaniciID });
         }
 
-
         public List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID)
         {
             var list = new DpDtoRepositoryBase<IsEmriNo>().GetListDtoQuery("select * from IsEmriNo where IsEmriID= @IsEmriID and Silindi=0", new { IsEmriID });
             return list;
         }
 
+        public int GetEditYetki(int IsEmriID, int KullaniciID)
+        {
+            var strCount = GetScalarQuery($@"select COUNT(*) from IsEmri where IsEmriID = @IsEmriID and Silindi = 0 and IsTipiID IN(select IsTipiID from IsTalebiOnayBirim
+                                                where KullaniciID = @KullaniciID and Silindi = 0)
+                                                or (IsSorumluID = (select KaynakID from Kullanici where KullaniciID=@KullaniciID) and StatuID = 15) ", new { IsEmriID, KullaniciID }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
     }
 }

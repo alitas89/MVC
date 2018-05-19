@@ -33,5 +33,7 @@ namespace EntityLayer.ComplexTypes.DtoModel.Bakim
         public string VardiyaAd { get; set; }
 
         public int IsEmriNoID { get; set; }
+
+        public string IsEmircisiAd { get; set; }
     }
 }

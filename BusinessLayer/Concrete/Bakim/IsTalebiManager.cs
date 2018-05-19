@@ -41,6 +41,7 @@ namespace BusinessLayer.Concrete.Bakim
         public int Add(IsTalebi ıstalebi)
         {
             ıstalebi.TalepYil = DateTime.Now.Year;
+            ıstalebi.StatuID = 7; //Yeni iş talebi atanır
             return _isTalebiDal.Add(ıstalebi);
         }
 
@@ -130,6 +131,7 @@ namespace BusinessLayer.Concrete.Bakim
         public int AddWithTransaction(IsTalebi ıstalebi)
         {
             ıstalebi.TalepYil = DateTime.Now.Year;
+            ıstalebi.StatuID = 7; //Yeni iş talebi atanır
             return _isTalebiDal.AddWithTransaction(ıstalebi);
         }
     }

@@ -96,5 +96,15 @@ namespace WebApi.Controllers
             return _isEmriService.GetIsEmriNoByIsEmriID(IsEmriID);
         }
 
+        [Route("api/isemri/getedityetki/{IsEmriID}")]
+        public int GetEditYetki(int IsEmriID)
+        {
+            //KullaniciID bilgisi alınır
+            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
+                x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
+            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
+
+            return _isEmriService.GetEditYetki(IsEmriID, kullaniciID);
+        }
     }
 }
