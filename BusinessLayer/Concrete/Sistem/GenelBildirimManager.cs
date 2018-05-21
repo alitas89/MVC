@@ -4,6 +4,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Sistem;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.Concrete.Sistem;
 
 namespace BusinessLayer.Concrete.Sistem
@@ -33,6 +34,12 @@ namespace BusinessLayer.Concrete.Sistem
         public int GetSorumluOlunanIsEmriSayisi(int KullaniciID)
         {
             return _genelBildirimDal.GetSorumluOlunanIsEmriSayisi(KullaniciID);
+        }
+
+        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
+        public List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID)
+        {
+            return _genelBildirimDal.GetIsEmriBakimSonucBildirim(KullaniciID);
         }
     }
 }

@@ -240,6 +240,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IBakimDurumuService>().To<BakimDurumuManager>().InSingletonScope();
             Bind<IBakimDurumuDal>().To<DpBakimDurumuDal>();
 
+            Bind<IIsinSorumlusuService>().To<IsinSorumlusuManager>().InSingletonScope();
+            Bind<IIsinSorumlusuDal>().To<DpIsinSorumlusuDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();

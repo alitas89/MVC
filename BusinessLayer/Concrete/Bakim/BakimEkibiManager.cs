@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         
-        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd, Authorized")]
         public List<BakimEkibi> GetList()
         {
             return _bakimekibiDal.GetList();
@@ -68,7 +68,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _bakimekibiDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimEkibiRead, BakimEkibiLtd, Authorized")]
         public List<BakimEkibi> GetListPagination(PagingParams pagingParams)
         {
             return _bakimekibiDal.GetListPagination(pagingParams);

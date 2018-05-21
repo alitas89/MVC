@@ -1,5 +1,8 @@
-﻿using Core.DataAccessLayer.Dapper.RepositoryBase;
+﻿using System.Collections.Generic;
+using Core.DataAccessLayer.Dapper.RepositoryBase;
 using DataAccessLayer.Abstract.Sistem;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
+using EntityLayer.Concrete.Bakim;
 using EntityLayer.Concrete.Sistem;
 
 namespace DataAccessLayer.Concrete.Dapper.Sistem
@@ -37,6 +40,16 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID)
+        {
+            return new DpDtoRepositoryBase<IsEmriBakimSonucBildirimTemp>().GetListDtoQuery($@"
+                    select b.IsEmriNoID, a.IsEmriID, a.BakimDurumuID, a.BitisTarih, a.BitisSaat, c.Ad as BakimDurumuAd  from IsEmri a inner join IsEmriNo b on a.IsEmriID=b.IsEmriID
+                        inner join BakimDurumu c on a.BakimDurumuID = c.BakimDurumuID
+                        where IsEmircisi=(select KaynakID from Kullanici where KullaniciID=@KullaniciID)
+                        and StatuID=15 and a.BakimDurumuID in (2,3)",
+                new { KullaniciID });
         }
     }
 }

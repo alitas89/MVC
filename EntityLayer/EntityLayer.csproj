@@ -52,6 +52,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiEmirTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiForKullaniciTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Sistem\IsEmriBakimSonucBildirimTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsTalebiKullaniciTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsTalebiOnayBirimTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\StatuDto.cs" />
