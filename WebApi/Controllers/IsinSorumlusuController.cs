@@ -75,7 +75,7 @@ namespace WebApi.Controllers
         {
         }
 
-        [Route("api/isemri/getedityetki/{IsEmriID}")]
+        [Route("api/isinsorumlusu/getedityetki/{IsEmriID}")]
         public int GetEditYetki(int IsEmriID)
         {
             //KullaniciID bilgisi alınır
