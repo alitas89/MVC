@@ -41,5 +41,11 @@ namespace BusinessLayer.Concrete.Sistem
         {
             return _genelBildirimDal.GetIsEmriBakimSonucBildirim(KullaniciID);
         }
+
+        [SecuredOperation(Roles = "Admin, SistemRead, IsTalebiRead")]
+        public List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID)
+        {
+            return _genelBildirimDal.GetIsTalepSonucBildirim(KullaniciID);
+        }
     }
 }

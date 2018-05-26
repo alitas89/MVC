@@ -33,11 +33,16 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-
         [SecuredOperation(Roles = "Admin, BakimCreate, IsEmriCreate")]
         public int Add(IsEmri ısemri)
         {
             return _isEmriDal.Add(ısemri);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimCreate, IsEmriCreate")]
+        public int AddWithTransaction(IsEmri isemri)
+        {
+            return _isEmriDal.AddWithTransaction(isemri);
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]

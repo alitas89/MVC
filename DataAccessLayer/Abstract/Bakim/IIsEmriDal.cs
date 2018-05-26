@@ -21,5 +21,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<IsEmriNo> GetIsEmriNoByIsEmriID(int IsEmriID);
 
         int GetEditYetki(int IsEmriID, int KullaniciID);
+
+        int AddWithTransaction(IsEmri isemri);
     }
 }

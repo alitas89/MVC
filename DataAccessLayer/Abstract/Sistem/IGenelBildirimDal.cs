@@ -14,5 +14,7 @@ namespace DataAccessLayer.Abstract.Sistem
         int GetSorumluOlunanIsEmriSayisi(int KullaniciID);
 
         List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID);
+
+        List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID);
     }
 }

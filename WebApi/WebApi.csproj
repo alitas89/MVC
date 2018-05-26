@@ -219,6 +219,7 @@
     <Compile Include="Controllers\BakimRiskiController.cs" />
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
     <Compile Include="Controllers\BelgeTuruController.cs" />
+    <Compile Include="Controllers\BildirimIsTalebiSonucController.cs" />
     <Compile Include="Controllers\BilgilendirmeGrubuController.cs" />
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />

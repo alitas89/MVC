@@ -74,6 +74,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IGenelBildirimService>().To<GenelBildirimManager>().InSingletonScope();
             Bind<IGenelBildirimDal>().To<DpGenelBildirimDal>();
 
+            Bind<IBildirimIsTalebiSonucService>().To<BildirimIsTalebiSonucManager>().InSingletonScope();
+            Bind<IBildirimIsTalebiSonucDal>().To<DpBildirimIsTalebiSonucDal>();
+
             //*****Asıl tablolar
 
             //#VarlıkModul

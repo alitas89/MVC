@@ -64,7 +64,7 @@ namespace WebApi.Controllers
         // POST api/<controller>
         public int Post([FromBody]IsEmri isEmri)
         {
-            return _isEmriService.Add(isEmri);
+            return _isEmriService.AddWithTransaction(isEmri);
         }
 
         // PUT api/<controller>/5

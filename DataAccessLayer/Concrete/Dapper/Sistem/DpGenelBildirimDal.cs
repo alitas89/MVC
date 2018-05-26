@@ -51,5 +51,25 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
                         and StatuID=15 and a.BakimDurumuID in (2,3)",
                 new { KullaniciID });
         }
+
+        public List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID)
+        {
+            return new DpDtoRepositoryBase<IsTalepSonucBildirimTemp>().GetListDtoQuery($@"
+                    select b.IsEmriNoID, a.IsEmriID, c.IsTalebiID, c.TalepEdenID, k.KullaniciID,
+                                                a.StatuID, s.Ad as StatuAd from IsEmri a 
+                                inner join IsEmriNo b 
+                                on a.IsEmriID = b.IsEmriID
+                                inner join IsTalebi c 
+                                on b.IsTalepID = c.IsTalebiID 
+                                inner join Kullanici k
+                                on c.TalepEdenID=k.KaynakID
+                                inner join Statu s
+                                on a.StatuID=s.StatuID
+                                left join BildirimIsTalebiSonuc i
+								on i.IsEmriNoID=b.IsEmriNoID
+                                where a.StatuID in (16,17) and a.Silindi=0 and
+                                i.IsEmriNoID is null and KullaniciID=@KullaniciID",
+                new { KullaniciID });
+        }
     }
 }

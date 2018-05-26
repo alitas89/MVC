@@ -62,6 +62,7 @@
     <Compile Include="Abstract\Bakim\IIsinSorumlusuDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmriTuruDal.cs" />
+    <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Abstract\Sistem\IGenelBildirimDal.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiBirimDal.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiOnayBirimDal.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsinSorumlusuDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTalebiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTipiEmriTuruDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpGenelBildirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiOnayBirimDal.cs" />

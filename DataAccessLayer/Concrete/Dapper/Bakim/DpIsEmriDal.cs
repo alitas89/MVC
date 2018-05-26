@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -34,6 +38,45 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                             "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
                             "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
                             "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi)", isemri);
+        }
+
+        public int AddWithTransaction(IsEmri isemri)
+        {
+            int IsEmriNoID = 0;
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                var strIsEmriID = connection.ExecuteScalar("insert into IsEmri(IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID," +
+                                                            "SarfyeriID,TalepEdenID,PlanlananBaslangicTarih,PlanlananBaslangicSaat,PlanlananBitisTarih," +
+                                                            "PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat," +
+                                                            "BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat," +
+                                                            "IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID," +
+                                                            "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,BakimAciklamasi,Silindi) values " +
+                                                            "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID," +
+                                                            "@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih," +
+                                                            "@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
+                                                            "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
+                                                            "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
+                                                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi) "+
+                                                            "SELECT CAST(SCOPE_IDENTITY() as int)", isemri, transaction);
+                int.TryParse(strIsEmriID + "", out int IsEmriID);
+
+                var strIsEmriNoID = connection.ExecuteScalar(
+                    "insert into IsEmriNo(IsTalepID,IsEmriID,Tarih,Silindi) values (null,@IsEmriID,GetDate(),0)" +
+                    "SELECT CAST(SCOPE_IDENTITY() as int)",
+                    new { IsEmriID }, transaction);
+
+                int.TryParse(strIsEmriNoID + "", out IsEmriNoID);
+
+                transaction.Commit();
+            }
+            return IsEmriNoID;
         }
 
         public int Update(IsEmri isemri)
