@@ -158,6 +158,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IYakitService>().To<YakitManager>().InSingletonScope();
             Bind<IYakitDal>().To<DpYakitDal>();
 
+            Bind<IYasalTakipService>().To<YasalTakipManager>().InSingletonScope();
+            Bind<IYasalTakipDal>().To<DpYasalTakipDal>();
+
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
             Bind<IIsTipiDal>().To<DpIsTipiDal>();
@@ -246,6 +249,12 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsinSorumlusuService>().To<IsinSorumlusuManager>().InSingletonScope();
             Bind<IIsinSorumlusuDal>().To<DpIsinSorumlusuDal>();
 
+            Bind<IBakimPlaniService>().To<BakimPlaniManager>().InSingletonScope();
+            Bind<IBakimPlaniDal>().To<DpBakimPlaniDal>();
+
+            Bind<IIsAdimlariService>().To<IsAdimlariManager>().InSingletonScope();
+            Bind<IIsAdimlariDal>().To<DpIsAdimlariDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();
@@ -279,6 +288,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IMalzemeHareketDetayService>().To<MalzemeHareketDetayManager>().InSingletonScope();
             Bind<IMalzemeHareketDetayDal>().To<DpMalzemeHareketDetayDal>();
+
+            Bind<IMalzemeSayimiService>().To<MalzemeSayimiManager>().InSingletonScope();
+            Bind<IMalzemeSayimiDal>().To<DpMalzemeSayimiDal>();
 
             //#PersonelModul
             Bind<IKaynakSinifiService>().To<KaynakSinifiManager>().InSingletonScope();

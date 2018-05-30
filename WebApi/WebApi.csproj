@@ -216,6 +216,7 @@
     <Compile Include="Controllers\BakimEkibiController.cs" />
     <Compile Include="Controllers\BakimEkibiUyeController.cs" />
     <Compile Include="Controllers\BakimOncelikController.cs" />
+    <Compile Include="Controllers\BakimPlaniController.cs" />
     <Compile Include="Controllers\BakimRiskiController.cs" />
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
     <Compile Include="Controllers\BelgeTuruController.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
+    <Compile Include="Controllers\IsAdimlariController.cs" />
     <Compile Include="Controllers\IsEmriController.cs" />
     <Compile Include="Controllers\IsEmriNoController.cs" />
     <Compile Include="Controllers\IsEmriTuruController.cs" />
@@ -259,6 +261,7 @@
     <Compile Include="Controllers\MalzemeHareketController.cs" />
     <Compile Include="Controllers\MalzemeHareketDetayController.cs" />
     <Compile Include="Controllers\MalzemeHareketFisController.cs" />
+    <Compile Include="Controllers\MalzemeSayimiController.cs" />
     <Compile Include="Controllers\MalzemeSeriNoController.cs" />
     <Compile Include="Controllers\MalzemeStatuController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
@@ -294,6 +297,7 @@
     <Compile Include="Controllers\VarlikTuruController.cs" />
     <Compile Include="Controllers\VerifyController.cs" />
     <Compile Include="Controllers\YakitController.cs" />
+    <Compile Include="Controllers\YasalTakipController.cs" />
     <Compile Include="Controllers\YetkiGrupController.cs" />
     <Compile Include="Controllers\YetkiGrupKullaniciController.cs" />
     <Compile Include="Controllers\YetkiGrupRolController.cs" />

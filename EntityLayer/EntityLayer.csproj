@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimArizaKoduDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimEkibiTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\BakimPlaniTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BakimRiskiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\BilgilendirmeGrubuDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\EmirTuruIsTipiTemp.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiEmirTuruDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiForKullaniciTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeSayimiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsEmriBakimSonucBildirimTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsTalebiKullaniciTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsTalebiOnayBirimTemp.cs" />
@@ -100,15 +102,18 @@
     <Compile Include="Concrete\Bakim\BakimEkibi.cs" />
     <Compile Include="Concrete\Bakim\BakimEkibiUye.cs" />
     <Compile Include="Concrete\Bakim\BakimOncelik.cs" />
+    <Compile Include="Concrete\Bakim\BakimPlani.cs" />
     <Compile Include="Concrete\Bakim\BakimRiski.cs" />
     <Compile Include="Concrete\Bakim\BeklemeIptalNedeni.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeGrubu.cs" />
     <Compile Include="Concrete\Bakim\BilgilendirmeTuru.cs" />
+    <Compile Include="Concrete\Bakim\IsAdimlari.cs" />
     <Compile Include="Concrete\Bakim\IsEmri.cs" />
     <Compile Include="Concrete\Bakim\IsEmriNo.cs" />
     <Compile Include="Concrete\Bakim\IsEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmriTuru.cs" />
+    <Compile Include="Concrete\Malzeme\MalzemeSayimi.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonuc.cs" />
     <Compile Include="Concrete\Sistem\GenelBildirim.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiBirim.cs" />
@@ -183,6 +188,7 @@
     <Compile Include="Concrete\Varlik\VarlikTuru.cs" />
     <Compile Include="Concrete\Sistem\Verify.cs" />
     <Compile Include="Concrete\Varlik\Yakit.cs" />
+    <Compile Include="Concrete\Varlik\YasalTakip.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransfer.cs" />
     <Compile Include="Concrete\Varlik\ZimmetTransferDetay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

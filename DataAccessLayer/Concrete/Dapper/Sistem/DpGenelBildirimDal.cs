@@ -35,7 +35,7 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
         public int GetSorumluOlunanIsEmriSayisi(int KullaniciID)
         {
-            var strCount = GetScalarQuery($@"Select COUNT(*) from IsEmri where IsSorumluID=(select KaynakID from Kullanici where KullaniciID=@KullaniciID) and StatuID=15 ",
+            var strCount = GetScalarQuery($@"Select COUNT(*) from IsEmri where IsSorumluID=(select KaynakID from Kullanici where KullaniciID=@KullaniciID) and StatuID=15 and BakimDurumuID=1",
                                new { KullaniciID }) + "";
 
             int.TryParse(strCount, out int count);

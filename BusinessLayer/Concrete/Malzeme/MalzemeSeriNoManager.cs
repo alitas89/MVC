@@ -73,7 +73,7 @@ namespace BusinessLayer.Concrete.Malzeme
             return _malzemeserinoDal.GetCount(filter);
         }
 
-        [SecuredOperation(Roles = "Admin, MalzemeSeriNoRead, MalzemelerSeriNoLtd")]
+        [SecuredOperation(Roles = "Admin, MalzemeRead, MalzemeSeriNoRead, MalzemelerSeriNoLtd")]
         public List<MalzemeSeriNoDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _malzemeserinoDal.GetListPaginationDto(pagingParams);

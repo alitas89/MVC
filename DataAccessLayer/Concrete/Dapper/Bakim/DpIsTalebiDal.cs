@@ -100,7 +100,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             //Giriş yapmış olan kullanıcıya göre filtreleyerek getir. (Kendi İş Talepleri)
             //İş emircisi kendi iş tipindeki iş taleplerini görecek.
             return new DpDtoRepositoryBase<IsTalebiDto>().GetListDtoQuery($@"
-                SELECT * FROM View_IsTalebiDto where Silindi=0 and (TalepEdenID=@KullaniciID or 
+                SELECT * FROM View_IsTalebiDto where Silindi=0 and (TalepEdenID=(select KaynakID from Kullanici where KullaniciID=@KullaniciID) or 
                 IsTipiID IN (select IsTipiID from IsTalebiOnayBirim where KullaniciID=@KullaniciID and Silindi=0))
                 {filterQuery} {orderQuery}
                 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
