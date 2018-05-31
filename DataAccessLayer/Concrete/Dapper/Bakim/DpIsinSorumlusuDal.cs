@@ -39,6 +39,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
             return new DpDtoRepositoryBase<IsEmriDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_IsEmriDto where Silindi=0 
                                     and (IsSorumluID = (select KaynakID from Kullanici where KullaniciID=@KullaniciID))
+                                    and IsSorumluID!=0
                                     {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { KullaniciID, pagingParams.filter, pagingParams.offset, pagingParams.limit });

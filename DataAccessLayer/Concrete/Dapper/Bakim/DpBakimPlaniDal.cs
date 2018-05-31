@@ -120,11 +120,13 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 connection.Execute("update BakimPlani set BakimPlaniTanim = @BakimPlaniTanim, ToplamBakimSuresi = @ToplamBakimSuresi, ToplamIscilikSuresi = @ToplamIscilikSuresi, Aciklama = @Aciklama, Silindi = @Silindi where BakimPlaniID = @BakimPlaniID"
                     , bakimplani, transaction);
-
+                
+                connection.Execute("update IsAdimlari set Silindi = 1 where BakimPlaniID = @BakimPlaniID"
+                    , bakimplani, transaction);
 
                 foreach (var item in listIsAdimlari)
                 {
-                    count += connection.Execute("update IsAdimlari set BakimPlaniID=@BakimPlaniID,IsAdimlariTanim=@IsAdimlariTanim,Sure=@Sure,TekrarSayisi=@TekrarSayisi,Aciklama=@Aciklama,Silindi=@Silindi where IsAdimlariID=@IsAdimlariID"
+                    count += connection.Execute("insert into IsAdimlari(BakimPlaniID,IsAdimlariTanim,Sure,TekrarSayisi,Aciklama,Silindi) values (@BakimPlaniID,@IsAdimlariTanim,@Sure,@TekrarSayisi,@Aciklama,@Silindi)"
                          , item, transaction);
                 }
 
@@ -132,6 +134,5 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             }
             return count;
         }
-
     }
 }

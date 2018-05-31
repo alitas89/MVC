@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<IsAdimlari> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter="");
+
+        List<IsAdimlari> GetListIsAdimlariByBakimPlaniID(int BakimPlaniID);
     }
 }

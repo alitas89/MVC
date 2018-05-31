@@ -25,5 +25,6 @@ namespace BusinessLayer.Abstract.Bakim
         int AddWithTransaction(BakimPlani bakimplani, List<IsAdimlari> listIsAdimlari);
 
         int UpdateWithTransaction(BakimPlani bakimplani, List<IsAdimlari> listIsAdimlari);
+        
     }
 }

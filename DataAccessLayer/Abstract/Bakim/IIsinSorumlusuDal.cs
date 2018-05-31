@@ -15,5 +15,6 @@ namespace DataAccessLayer.Abstract.Bakim
         int GetCountDtoByKullaniciID(int KullaniciID, string filter = "");
 
         int GetEditYetki(int IsEmriID, int KullaniciID);
+
     }
 }

@@ -80,6 +80,11 @@ namespace BusinessLayer.Concrete.Bakim
         [SecuredOperation(Roles = "Admin, BakimUpdate, BakimPlaniUpdate")]
         public int UpdateWithTransaction(BakimPlani bakimplani, List<IsAdimlari> listIsAdimlari)
         {
+            foreach (var isAdimlari in listIsAdimlari)
+            {
+                isAdimlari.BakimPlaniID = bakimplani.BakimPlaniID;
+                isAdimlari.Silindi = false;
+            }
             return _bakimplaniDal.UpdateWithTransaction(bakimplani, listIsAdimlari);
         }
     }

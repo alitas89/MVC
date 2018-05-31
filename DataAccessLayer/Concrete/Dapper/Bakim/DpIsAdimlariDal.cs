@@ -69,5 +69,9 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public List<IsAdimlari> GetListIsAdimlariByBakimPlaniID(int BakimPlaniID)
+        {
+            return GetListQuery("select * from IsAdimlari where BakimPlaniID= @BakimPlaniID and Silindi=0", new { BakimPlaniID });
+        }
     }
 }

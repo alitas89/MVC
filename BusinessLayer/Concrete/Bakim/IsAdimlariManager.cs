@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimRead, IsAdimlariRead, IsAdimlariLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimPlaniRead, IsAdimlariRead, IsAdimlariLtd")]
         public List<IsAdimlari> GetList()
         {
             return _ısadimlariDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, BakimRead, IsAdimlariRead, IsAdimlariLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, BakimPlaniRead, IsAdimlariRead, IsAdimlariLtd")]
         public IsAdimlari GetById(int Id)
         {
             return _ısadimlariDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimCreate, IsAdimlariCreate")]
+        [SecuredOperation(Roles = "Admin, BakimCreate, BakimPlaniCreate, IsAdimlariCreate")]
         public int Add(IsAdimlari ısadimlari)
         {
             return _ısadimlariDal.Add(ısadimlari);
@@ -41,27 +41,27 @@ namespace BusinessLayer.Concrete.Bakim
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimUpdate, IsAdimlariUpdate")]
+        [SecuredOperation(Roles = "Admin, BakimUpdate, BakimPlaniUpdate, IsAdimlariUpdate")]
         public int Update(IsAdimlari ısadimlari)
         {
             return _ısadimlariDal.Update(ısadimlari);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimDelete, IsAdimlariDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BakimPlaniDelete, IsAdimlariDelete")]
         public int Delete(int Id)
         {
             return _ısadimlariDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, BakimDelete, IsAdimlariDelete")]
+        [SecuredOperation(Roles = "Admin, BakimDelete, BakimPlaniDelete, IsAdimlariDelete")]
         public int DeleteSoft(int Id)
         {
             return _ısadimlariDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, BakimRead, IsAdimlariRead, IsAdimlariLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, IsAdimlariRead, BakimPlaniRead, IsAdimlariLtd")]
         public List<IsAdimlari> GetListPagination(PagingParams pagingParams)
         {
             return _ısadimlariDal.GetListPagination(pagingParams);
@@ -70,6 +70,12 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCount(string filter = "")
         {
             return _ısadimlariDal.GetCount(filter);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, IsAdimlariRead, BakimPlaniRead, IsAdimlariLtd")]
+        public List<IsAdimlari> GetListIsAdimlariByBakimPlaniID(int BakimPlaniID)
+        {
+            return _ısadimlariDal.GetListIsAdimlariByBakimPlaniID(BakimPlaniID);
         }
 
     }
