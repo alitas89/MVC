@@ -77,6 +77,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IBildirimIsTalebiSonucService>().To<BildirimIsTalebiSonucManager>().InSingletonScope();
             Bind<IBildirimIsTalebiSonucDal>().To<DpBildirimIsTalebiSonucDal>();
 
+            Bind<IFirmaService>().To<FirmaManager>().InSingletonScope();
+            Bind<IFirmaDal>().To<DpFirmaDal>();
+
             //*****Asıl tablolar
 
             //#VarlıkModul

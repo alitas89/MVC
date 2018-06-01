@@ -27,12 +27,12 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int Add(BakimPlani bakimplani)
         {
-            return AddQuery("insert into BakimPlani(BakimPlaniTanim,ToplamBakimSuresi,ToplamIscilikSuresi,Aciklama,Silindi) values (@BakimPlaniTanim,@ToplamBakimSuresi,@ToplamIscilikSuresi,@Aciklama,@Silindi)", bakimplani);
+            return AddQuery("insert into BakimPlani(BakimPlaniTanim,ToplamBakimSuresi,ToplamIscilikSuresi,Aciklama,Kod,Silindi) values (@BakimPlaniTanim,@ToplamBakimSuresi,@ToplamIscilikSuresi,@Aciklama,@Kod,@Silindi)", bakimplani);
         }
 
         public int Update(BakimPlani bakimplani)
         {
-            return UpdateQuery("update BakimPlani set BakimPlaniTanim=@BakimPlaniTanim,ToplamBakimSuresi=@ToplamBakimSuresi,ToplamIscilikSuresi=@ToplamIscilikSuresi,Aciklama=@Aciklama,Silindi=@Silindi where BakimPlaniID=@BakimPlaniID", bakimplani);
+            return UpdateQuery("update BakimPlani set BakimPlaniTanim=@BakimPlaniTanim,ToplamBakimSuresi=@ToplamBakimSuresi,ToplamIscilikSuresi=@ToplamIscilikSuresi,Aciklama=@Aciklama,Kod=@Kod,Silindi=@Silindi where BakimPlaniID=@BakimPlaniID", bakimplani);
         }
 
         public int Delete(int Id)
@@ -90,7 +90,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                var strBakimPlaniID = connection.ExecuteScalar("insert into BakimPlani(BakimPlaniTanim,ToplamBakimSuresi,ToplamIscilikSuresi,Aciklama,Silindi) values (@BakimPlaniTanim,@ToplamBakimSuresi,@ToplamIscilikSuresi,@Aciklama,@Silindi); " +
+                var strBakimPlaniID = connection.ExecuteScalar("insert into BakimPlani(BakimPlaniTanim,ToplamBakimSuresi,ToplamIscilikSuresi,Aciklama,Kod,Silindi) values (@BakimPlaniTanim,@ToplamBakimSuresi,@ToplamIscilikSuresi,@Aciklama,@Kod,@Silindi); " +
                                                             "SELECT CAST(SCOPE_IDENTITY() as int)", bakimplani, transaction);
                 int.TryParse(strBakimPlaniID + "", out int BakimPlaniID);
 
@@ -118,7 +118,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                connection.Execute("update BakimPlani set BakimPlaniTanim = @BakimPlaniTanim, ToplamBakimSuresi = @ToplamBakimSuresi, ToplamIscilikSuresi = @ToplamIscilikSuresi, Aciklama = @Aciklama, Silindi = @Silindi where BakimPlaniID = @BakimPlaniID"
+                connection.Execute("update BakimPlani set BakimPlaniTanim = @BakimPlaniTanim, ToplamBakimSuresi = @ToplamBakimSuresi, ToplamIscilikSuresi = @ToplamIscilikSuresi, Aciklama = @Aciklama, Kod=@Kod, Silindi = @Silindi where BakimPlaniID = @BakimPlaniID"
                     , bakimplani, transaction);
                 
                 connection.Execute("update IsAdimlari set Silindi = 1 where BakimPlaniID = @BakimPlaniID"

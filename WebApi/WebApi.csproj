@@ -229,6 +229,7 @@
     <Compile Include="Controllers\DurusNedeniController.cs" />
     <Compile Include="Controllers\EgitimController.cs" />
     <Compile Include="Controllers\EtkiYeriController.cs" />
+    <Compile Include="Controllers\FirmaController.cs" />
     <Compile Include="Controllers\GecikmeNedeniController.cs" />
     <Compile Include="Controllers\GenelBildirimController.cs" />
     <Compile Include="Controllers\GonderimFormatiController.cs" />

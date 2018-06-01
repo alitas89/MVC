@@ -115,6 +115,7 @@
     <Compile Include="Concrete\Bakim\IsTipiEmriTuru.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimi.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonuc.cs" />
+    <Compile Include="Concrete\Sistem\Firma.cs" />
     <Compile Include="Concrete\Sistem\GenelBildirim.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiBirim.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiOnayBirim.cs" />
