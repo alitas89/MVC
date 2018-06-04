@@ -31,54 +31,70 @@ namespace WebApi.Bearer
 
             try
             {
-                Kullanici kullanici = kullaniciService.GetByKullaniciAdiAndSifre(context.UserName, context.Password);
-
-                if (kullanici != null)
+                if (String.IsNullOrEmpty(context.UserName) || String.IsNullOrEmpty(context.Password))
                 {
-                    var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-
-                    //Kullanıcı bilgileri eklenir
-                    identity.AddClaim(new Claim(ClaimTypes.Name, kullanici.KullaniciAdi));
-                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, kullanici.KullaniciID + ""));
-                    identity.AddClaim(new Claim(ClaimTypes.Actor, kullanici.Ad + " " + kullanici.Soyad));
-
-                    //Giriş yapabilen her kişiye Authorized rolü verilir
-                    identity.AddClaim(new Claim(ClaimTypes.Role, "Authorized"));
-
-                    //Gelen kullanıcı üzerinden grup bilgilerine ulaşılır
-                    var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciID).Select(u => u.YetkiGrupID).Distinct().ToArray();
-
-                    //Her bir grup için bulunan rolIDleri alınır
-                    foreach (var yetkiGrupID in arrYetkiGrupID)
+                    context.SetError("Autorization Error", "Kullanıcı Adı veya Şifre Boş Bırakılamaz!");
+                    context.Response.Headers.Add("AuthorizationResponse", new[] {"Failed"});
+                }
+                else
+                {
+                    Kullanici kullanici = kullaniciService.GetByKullaniciAdiAndSifre(context.UserName, context.Password);
+                    if (kullanici != null)
                     {
-                        var arrYetkiRolID = yetkiGrupRol.GetListByGrupId(yetkiGrupID).Select(x => x.YetkiRolKod).Distinct().ToArray();
-                        foreach (var role in arrYetkiRolID)
+                        var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+
+                        //Kullanıcı bilgileri eklenir
+                        identity.AddClaim(new Claim(ClaimTypes.Name, kullanici.KullaniciAdi));
+                        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, kullanici.KullaniciID + ""));
+                        identity.AddClaim(new Claim(ClaimTypes.Actor, kullanici.Ad + " " + kullanici.Soyad));
+
+                        //Giriş yapabilen her kişiye Authorized rolü verilir
+                        identity.AddClaim(new Claim(ClaimTypes.Role, "Authorized"));
+
+                        //Gelen kullanıcı üzerinden grup bilgilerine ulaşılır
+                        var arrYetkiGrupID = yetkiGrupKullaniciService.GetListByKullaniciId(kullanici.KullaniciID)
+                            .Select(u => u.YetkiGrupID).Distinct().ToArray();
+
+                        //Her bir grup için bulunan rolIDleri alınır
+                        foreach (var yetkiGrupID in arrYetkiGrupID)
                         {
-                            //Her bir rolün idsi üzerinden adına ulaşılır ve claim edilir
-                            if (role != null)
+                            var arrYetkiRolID = yetkiGrupRol.GetListByGrupId(yetkiGrupID).Select(x => x.YetkiRolKod)
+                                .Distinct().ToArray();
+                            foreach (var role in arrYetkiRolID)
                             {
-                                identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                                //Her bir rolün idsi üzerinden adına ulaşılır ve claim edilir
+                                if (role != null)
+                                {
+                                    identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                                }
                             }
                         }
+
+                        //var roleArray =
+                        //    rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
+                        ////IPrincipal principal = new GenericPrincipal(new GenericIdentity(context.UserName), rolArray);
+                        ////Thread.CurrentPrincipal = principal;
+                        ////HttpContext.Current.User = principal;
+
+                        //identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+                        //foreach (var role in roleArray)
+                        //{
+                        //    identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                        //}
+                        context.Validated(identity);
                     }
-
-                    //var roleArray =
-                    //    rolService.GetRolByKullaniciId(kullanici.KullaniciId).Select(u => u.Ad).ToArray();
-                    ////IPrincipal principal = new GenericPrincipal(new GenericIdentity(context.UserName), rolArray);
-                    ////Thread.CurrentPrincipal = principal;
-                    ////HttpContext.Current.User = principal;
-
-                    //identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-                    //foreach (var role in roleArray)
-                    //{
-                    //    identity.AddClaim(new Claim(ClaimTypes.Role, role));
-                    //}
-                    context.Validated(identity);
+                    else
+                    {
+                        context.SetError("Autorization Error", "Kullanıcı Adı veya Şifre Yanlış!");
+                        context.Response.Headers.Add("AuthorizationResponse", new[] { "Failed" });
+                    }
                 }
+          
             }
             catch (Exception ex)
             {
-
+                context.SetError("Autorization Error", ex.Message);
+                context.Response.Headers.Add("AuthorizationResponse", new[] { "Failed" });
             }
         }
 

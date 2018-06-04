@@ -85,5 +85,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bakimriskiDal.GetCountDto(filter);
         }
+
+        public List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID)
+        {
+            return _bakimriskiDal.GetListBakimRiskiByPeriyodikBakimID(PeriyodikBakimID);
+        }
     }
 }

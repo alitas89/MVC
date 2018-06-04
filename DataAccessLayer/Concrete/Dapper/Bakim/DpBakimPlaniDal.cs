@@ -134,5 +134,12 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             }
             return count;
         }
+
+        public List<BakimPlani> GetListBakimPlaniByPeriyodikBakimID(int PeriyodikBakimID)
+        {
+            return GetListQuery("select * from BakimPlani where BakimPlaniID " +
+                                "in(select BakimPlaniID from BakimPlaniAraTablo where PeriyodikBakimID= @PeriyodikBakimID and Silindi=0)",
+                new { PeriyodikBakimID });
+        }
     }
 }

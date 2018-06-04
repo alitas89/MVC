@@ -258,6 +258,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsAdimlariService>().To<IsAdimlariManager>().InSingletonScope();
             Bind<IIsAdimlariDal>().To<DpIsAdimlariDal>();
 
+            Bind<IPeriyodikBakimService>().To<PeriyodikBakimManager>().InSingletonScope();
+            Bind<IPeriyodikBakimDal>().To<DpPeriyodikBakimDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();

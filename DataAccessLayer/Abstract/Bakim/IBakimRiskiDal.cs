@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<BakimRiskiDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID);
     }
 }

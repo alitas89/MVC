@@ -87,6 +87,11 @@ namespace BusinessLayer.Concrete.Bakim
             }
             return _bakimplaniDal.UpdateWithTransaction(bakimplani, listIsAdimlari);
         }
+
+        public List<BakimPlani> GetListBakimPlaniByPeriyodikBakimID(int PeriyodikBakimID)
+        {
+            return _bakimplaniDal.GetListBakimPlaniByPeriyodikBakimID(PeriyodikBakimID);
+        }
     }
 
 }

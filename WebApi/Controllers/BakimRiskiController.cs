@@ -75,5 +75,11 @@ namespace WebApi.Controllers
         {
             return _bakimRiskiService.Delete(id);
         }
+
+        [Route("api/bakimriski/getlistbakimriskibyperiyodikbakimid/{PeriyodikBakimID}")]
+        public List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID)
+        {
+            return _bakimRiskiService.GetListBakimRiskiByPeriyodikBakimID(PeriyodikBakimID);
+        }
     }
 }

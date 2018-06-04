@@ -105,5 +105,12 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID)
+        {
+            return GetListQuery("select * from BakimRiski where BakimRiskiID " +
+                                "in(select BakimRiskiID from BakimRiskiAraTablo where PeriyodikBakimID= @PeriyodikBakimID and Silindi=0)",
+                                new { PeriyodikBakimID });
+        }
     }
 }
