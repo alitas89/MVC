@@ -107,7 +107,8 @@ D:\MVC\mvcprojesi\DataAccessLayer\bin\Release\UtilityLayer.pdb
 D:\MVC\mvcprojesi\DataAccessLayer\bin\Release\Newtonsoft.Json.xml
 D:\MVC\mvcprojesi\DataAccessLayer\bin\Release\System.Web.Http.xml
 D:\MVC\mvcprojesi\DataAccessLayer\bin\Release\System.Net.Http.Formatting.xml
-D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.dll
 D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete

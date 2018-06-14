@@ -99,7 +99,8 @@ D:\MVC\mvcprojesi\EntityLayer\bin\Release\UtilityLayer.pdb
 D:\MVC\mvcprojesi\EntityLayer\bin\Release\Newtonsoft.Json.xml
 D:\MVC\mvcprojesi\EntityLayer\bin\Release\System.Web.Http.xml
 D:\MVC\mvcprojesi\EntityLayer\bin\Release\System.Net.Http.Formatting.xml
-D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.dll
 D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.pdb
+D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\EntityLayer\obj\Release\EntityLayer.csproj.CopyComplete
