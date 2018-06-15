@@ -65,6 +65,7 @@
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmriTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimDal.cs" />
+    <Compile Include="Abstract\Iot\IGatewayDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Abstract\Sistem\IFirmaDal.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsTalebiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTipiEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpPeriyodikBakimDal.cs" />
+    <Compile Include="Concrete\Dapper\Iot\DpGatewayDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeSayimiDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpFirmaDal.cs" />
