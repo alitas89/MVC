@@ -67,8 +67,10 @@
     <Compile Include="Abstract\Bakim\IPeriyodikBakimDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucDal.cs" />
+    <Compile Include="Abstract\Sistem\IBildirimTriggerDal.cs" />
     <Compile Include="Abstract\Sistem\IFirmaDal.cs" />
     <Compile Include="Abstract\Sistem\IGenelBildirimDal.cs" />
+    <Compile Include="Abstract\Sistem\IIsBildirimDal.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiBirimDal.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiOnayBirimDal.cs" />
     <Compile Include="Abstract\Sistem\IMenuDal.cs" />
@@ -168,8 +170,10 @@
     <Compile Include="Concrete\Dapper\Bakim\DpPeriyodikBakimDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeSayimiDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimIsTalebiSonucDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpBildirimTriggerDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpFirmaDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpGenelBildirimDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpIsBildirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiOnayBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpCompanyDal.cs" />

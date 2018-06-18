@@ -4,48 +4,82 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Sistem;
-using EntityLayer.ComplexTypes.DtoModel.Sistem;
+using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
 namespace BusinessLayer.Concrete.Sistem
 {
     public class GenelBildirimManager : IGenelBildirimService
     {
-        IGenelBildirimDal _genelBildirimDal;
+        IGenelBildirimDal _genelbildirimDal;
 
-        public GenelBildirimManager(IGenelBildirimDal genelBildirimDal)
+        public GenelBildirimManager(IGenelBildirimDal genelbildirimDal)
         {
-            _genelBildirimDal = genelBildirimDal;
-        }
-        
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
-        public int GetAcikOnaysizIsTalepSayisi(int KullaniciID)
-        {
-            return _genelBildirimDal.GetAcikOnaysizIsTalepSayisi(KullaniciID);
+            _genelbildirimDal = genelbildirimDal;
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
-        public int GetAcikIsEmriSayisi(int KullaniciID)
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Authorized")]
+        public List<GenelBildirim> GetList()
         {
-            return _genelBildirimDal.GetAcikIsEmriSayisi(KullaniciID);
+            return _genelbildirimDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, Authorized")]
-        public int GetSorumluOlunanIsEmriSayisi(int KullaniciID)
+        [SecuredOperation(Roles = "Authorized")]
+        public GenelBildirim GetById(int Id)
         {
-            return _genelBildirimDal.GetSorumluOlunanIsEmriSayisi(KullaniciID);
+            return _genelbildirimDal.Get(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
-        public List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID)
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemCreate, GenelBildirimCreate")]
+        public int Add(GenelBildirim genelbildirim)
         {
-            return _genelBildirimDal.GetIsEmriBakimSonucBildirim(KullaniciID);
+            return _genelbildirimDal.Add(genelbildirim);
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsTalebiRead")]
-        public List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID)
+        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemUpdate, GenelBildirimUpdate")]
+        public int Update(GenelBildirim genelbildirim)
         {
-            return _genelBildirimDal.GetIsTalepSonucBildirim(KullaniciID);
+            return _genelbildirimDal.Update(genelbildirim);
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemDelete, GenelBildirimDelete")]
+        public int Delete(int Id)
+        {
+            return _genelbildirimDal.Delete(Id);
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        [SecuredOperation(Roles = "Admin, SistemDelete, GenelBildirimDelete")]
+        public int DeleteSoft(int Id)
+        {
+            return _genelbildirimDal.DeleteSoft(Id);
+        }
+
+        [SecuredOperation(Roles = "Authorized")]
+        public List<GenelBildirim> GetListPagination(PagingParams pagingParams)
+        {
+            return _genelbildirimDal.GetListPagination(pagingParams);
+        }
+        public int GetCount(string filter = "")
+        {
+            return _genelbildirimDal.GetCount(filter);
+        }
+
+        public List<GenelBildirim> GetListYeniBildirimByKime(int Kime)
+        {
+            return _genelbildirimDal.GetListYeniBildirimByKime(Kime);
+        }
+
+        public List<GenelBildirim> GetListByKime(int Kime)
+        {
+            return _genelbildirimDal.GetListByKime(Kime);
         }
     }
+
 }

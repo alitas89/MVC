@@ -71,14 +71,20 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsTalebiBirimService>().To<IsTalebiBirimManager>().InSingletonScope();
             Bind<IIsTalebiBirimDal>().To<DpIsTalebiBirimDal>();
 
-            Bind<IGenelBildirimService>().To<GenelBildirimManager>().InSingletonScope();
-            Bind<IGenelBildirimDal>().To<DpGenelBildirimDal>();
+            Bind<IIsBildirimService>().To<IsBildirimManager>().InSingletonScope();
+            Bind<IIsBildirimDal>().To<DpIsBildirimDal>();
 
             Bind<IBildirimIsTalebiSonucService>().To<BildirimIsTalebiSonucManager>().InSingletonScope();
             Bind<IBildirimIsTalebiSonucDal>().To<DpBildirimIsTalebiSonucDal>();
 
             Bind<IFirmaService>().To<FirmaManager>().InSingletonScope();
             Bind<IFirmaDal>().To<DpFirmaDal>();
+
+            Bind<IGenelBildirimService>().To<GenelBildirimManager>().InSingletonScope();
+            Bind<IGenelBildirimDal>().To<DpGenelBildirimDal>();
+
+            Bind<IBildirimTriggerService>().To<BildirimTriggerManager>().InSingletonScope();
+            Bind<IBildirimTriggerDal>().To<DpBildirimTriggerDal>();
 
             //*****Asıl tablolar
 

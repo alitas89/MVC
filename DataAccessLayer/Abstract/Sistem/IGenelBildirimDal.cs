@@ -1,20 +1,13 @@
 ﻿using System.Collections.Generic;
 using Core.DataAccessLayer;
-using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.Concrete.Sistem;
 
 namespace DataAccessLayer.Abstract.Sistem
 {
-    public interface IGenelBildirimDal
+    public interface IGenelBildirimDal : IEntityRepository<GenelBildirim>
     {
-        int GetAcikOnaysizIsTalepSayisi(int KullaniciID);
+        List<GenelBildirim> GetListYeniBildirimByKime(int Kime);
 
-        int GetAcikIsEmriSayisi(int KullaniciID);
-
-        int GetSorumluOlunanIsEmriSayisi(int KullaniciID);
-
-        List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID);
-
-        List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID);
+        List<GenelBildirim> GetListByKime(int Kime);
     }
 }

@@ -84,5 +84,10 @@ namespace BusinessLayer.Concrete.Personel
         {
             return _kaynakDal.GetCountDto(filter);
         }
+
+        public List<Kaynak> GetListKaynakHaveKullaniciID()
+        {
+            return _kaynakDal.GetListKaynakHaveKullaniciID();
+        }
     }
 }

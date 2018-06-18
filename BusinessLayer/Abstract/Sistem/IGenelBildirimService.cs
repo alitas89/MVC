@@ -1,18 +1,29 @@
 ﻿using System.Collections.Generic;
-using EntityLayer.ComplexTypes.DtoModel.Sistem;
+using EntityLayer.ComplexTypes.ParameterModel;
+using EntityLayer.Concrete.Sistem;
 
 namespace BusinessLayer.Abstract.Sistem
 {
     public interface IGenelBildirimService
     {
-        int GetAcikOnaysizIsTalepSayisi(int KullaniciID);
+        List<GenelBildirim> GetList();
 
-        int GetAcikIsEmriSayisi(int KullaniciID);
+        GenelBildirim GetById(int id);
 
-        int GetSorumluOlunanIsEmriSayisi(int KullaniciID);
+        int Add(GenelBildirim genelbildirim);
 
-        List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID);
+        int Update(GenelBildirim genelbildirim);
 
-        List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID);
+        int Delete(int Id);
+
+        int DeleteSoft(int Id);
+
+        List<GenelBildirim> GetListPagination(PagingParams pagingParams);
+
+        int GetCount(string filter="");
+
+        List<GenelBildirim> GetListYeniBildirimByKime(int Kime);
+
+        List<GenelBildirim> GetListByKime(int Kime);
     }
 }

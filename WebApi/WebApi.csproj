@@ -221,6 +221,7 @@
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
     <Compile Include="Controllers\BelgeTuruController.cs" />
     <Compile Include="Controllers\BildirimIsTalebiSonucController.cs" />
+    <Compile Include="Controllers\BildirimTriggerController.cs" />
     <Compile Include="Controllers\BilgilendirmeGrubuController.cs" />
     <Compile Include="Controllers\BilgilendirmeTuruController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Controllers\FirmaController.cs" />
     <Compile Include="Controllers\GecikmeNedeniController.cs" />
     <Compile Include="Controllers\GenelBildirimController.cs" />
+    <Compile Include="Controllers\IsBildirimManager.cs" />
     <Compile Include="Controllers\GonderimFormatiController.cs" />
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />

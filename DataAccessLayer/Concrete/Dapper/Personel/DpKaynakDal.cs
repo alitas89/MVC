@@ -16,6 +16,11 @@ namespace DataAccessLayer.Concrete.Dapper.Personel
             return GetListQuery("select * from Kaynak where Silindi=0", new { });
         }
 
+        public List<Kaynak> GetListKaynakHaveKullaniciID()
+        {
+            return GetListQuery("select a.* from Kaynak a inner join Kullanici b on a.KaynakID=b.KaynakID and a.Silindi=0 and b.Silindi=0", new { });
+        }
+
         public Kaynak Get(int Id)
         {
             return GetQuery("select * from Kaynak where KaynakID= @Id and Silindi=0", new { Id });

@@ -79,5 +79,11 @@ namespace WebApi.Controllers
         {
             return _periyodikBakimService.Delete(id);
         }
+
+        [Route("api/periyodikbakim/getlistbyvarlikid/{VarlikID}")]
+        public List<PeriyodikBakim> GetListByVarlikID(int VarlikID)
+        {
+            return _periyodikBakimService.GetListByVarlikID(VarlikID);
+        }
     }
 }

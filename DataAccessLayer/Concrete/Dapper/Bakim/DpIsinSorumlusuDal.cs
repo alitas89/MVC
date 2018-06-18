@@ -79,7 +79,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                                "ArizaCozumuID=@ArizaCozumuID,YapilanIsAciklama=@YapilanIsAciklama," +
                                "TalepAciklamasi=@TalepAciklamasi,StatuID=@StatuID,StatuAciklama=@StatuAciklama," +
                                "BakimEkibiID=@BakimEkibiID,VardiyaID=@VardiyaID,IsEmircisi=@IsEmircisi," +
-                               "BakimDurumuID=@BakimDurumuID,Silindi=@Silindi " +
+                               "BakimDurumuID=@BakimDurumuID,BakimAciklamasi=@BakimAciklamasi,Silindi=@Silindi " +
                                "where IsEmriID=@IsEmriID",
                 isemri);
         }
@@ -102,13 +102,13 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                             "PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat," +
                             "BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat," +
                             "IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID," +
-                            "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,Silindi) values " +
+                            "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,BakimAciklamasi,Silindi) values " +
                             "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID," +
                             "@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih," +
                             "@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
                             "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
                             "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
-                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@Silindi)", isemri);
+                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi)", isemri);
         }
 
         public int Delete(int Id)

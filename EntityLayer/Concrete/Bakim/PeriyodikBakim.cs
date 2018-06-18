@@ -30,7 +30,11 @@ namespace EntityLayer.Concrete.Bakim
         public int FirmaID { get; set; }
         public string TalepAciklamasi { get; set; }
         public string YapilanIsinAciklamasi { get; set; }
+        public bool IsOtomatik { get; set; }
+        public bool IsCalismaZamaniSinirli { get; set; }
+        public DateTime GecerlilikBaslangicTarih { get; set; }
+        public DateTime GecerlilikBitisTarih { get; set; }
+        public string IsEmriOlusturmaSaat { get; set; }
         public bool Silindi { get; set; }
     }
-
 }

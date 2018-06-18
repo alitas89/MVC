@@ -30,5 +30,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<PeriyodikBakimDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<PeriyodikBakim> GetListByVarlikID(int VarlikID);
     }
 }

@@ -96,8 +96,10 @@
     <Compile Include="Abstract\Bakim\IPeriyodikBakimService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiService.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucService.cs" />
+    <Compile Include="Abstract\Sistem\IBildirimTriggerService.cs" />
     <Compile Include="Abstract\Sistem\IFirmaService.cs" />
     <Compile Include="Abstract\Sistem\IGenelBildirimService.cs" />
+    <Compile Include="Abstract\Sistem\IIsBildirimService.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiBirimService.cs" />
     <Compile Include="Abstract\Sistem\IIsTalebiOnayBirimService.cs" />
     <Compile Include="Abstract\Bakim\IIsTalebiService.cs" />
@@ -197,8 +199,10 @@
     <Compile Include="Concrete\Bakim\PeriyodikBakimManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimiManager.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonucManager.cs" />
+    <Compile Include="Concrete\Sistem\BildirimTriggerManager.cs" />
     <Compile Include="Concrete\Sistem\FirmaManager.cs" />
     <Compile Include="Concrete\Sistem\GenelBildirimManager.cs" />
+    <Compile Include="Concrete\Sistem\IsBildirimManager.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiBirimManager.cs" />
     <Compile Include="Concrete\Sistem\IsTalebiOnayBirimManager.cs" />
     <Compile Include="Concrete\Sistem\CompanyManager.cs" />

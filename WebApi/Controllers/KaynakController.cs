@@ -73,5 +73,12 @@ namespace WebApi.Controllers
         {
             return _kaynakService.Delete(id);
         }
+
+
+        [Route("api/kaynak/getlistkaynakhavekullaniciid")]
+        public List<Kaynak> GetListKaynakHaveKullaniciID()
+        {
+            return _kaynakService.GetListKaynakHaveKullaniciID();
+        }
     }
 }

@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Net;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Web.Http;
-using BusinessLayer.Abstract.Bakim;
 using BusinessLayer.Abstract.Sistem;
-using EntityLayer.ComplexTypes.DtoModel.Sistem;
+using EntityLayer.ComplexTypes.ParameterModel;
+using EntityLayer.Concrete.Sistem;
 
 namespace WebApi.Controllers
 {
+    //**WEB API CONTROLLER - GenelBildirim
+
     public class GenelBildirimController : ApiController
     {
         IGenelBildirimService _genelBildirimService;
@@ -20,69 +22,71 @@ namespace WebApi.Controllers
             _genelBildirimService = genelBildirimService;
         }
 
-        [Route("api/genelbildirim/getacikonaysizistalepsayisi")]
-        public int GetAcikOnaysizIsTalepSayisi()
+        // GET api/<controller>
+        public IEnumerable<GenelBildirim> Get()
         {
-            //KullaniciID bilgisi alınır
-            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
-                   x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) ==
-                   "/nameidentifier")
-                ?.Value;
-
-            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
-            return _genelBildirimService.GetAcikOnaysizIsTalepSayisi(kullaniciID);
+            return _genelBildirimService.GetList();
         }
 
-        [Route("api/genelbildirim/getacikisemrisayisi")]
-        public int GetAcikIsEmriSayisi()
+        // GET api/<controller>
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
-            //KullaniciID bilgisi alınır
-            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
-                    x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) ==
-                    "/nameidentifier")
-                ?.Value;
-
-            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
-            return _genelBildirimService.GetAcikIsEmriSayisi(kullaniciID);
+            int total = 0;
+            total = filter.Length != 0 ? _genelBildirimService.GetCount(filter) : _genelBildirimService.GetCount();
+            List<GenelBildirim> d = _genelBildirimService.GetListPagination(new PagingParams()
+            {
+                filter = filter,
+                limit = limit,
+                offset = offset,
+                order = order,
+                columns = columns
+            });
+            var response = columns.Length > 0 ?
+                Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
+                : Request.CreateResponse(HttpStatusCode.OK, d);
+            response.Headers.Add("total", total + "");
+            response.Headers.Add("Access-Control-Expose-Headers", "total");
+            return response;
+        }
+        // GET api/<controller>/5
+        public GenelBildirim Get(int id)
+        {
+            return _genelBildirimService.GetById(id);
         }
 
-        [Route("api/genelbildirim/getsorumluolunanisemrisayisi")]
-        public int GetSorumluOlunanIsEmriSayisi()
+        // POST api/<controller>
+        public int Post([FromBody]GenelBildirim genelBildirim)
         {
-            //KullaniciID bilgisi alınır
-            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
-                    x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) ==
-                    "/nameidentifier")
-                ?.Value;
-
-            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
-            return _genelBildirimService.GetSorumluOlunanIsEmriSayisi(kullaniciID);
+            return _genelBildirimService.Add(genelBildirim);
         }
 
-        [Route("api/genelbildirim/getisemribakimsonucbildirim")]
-        public List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim()
+        // PUT api/<controller>/5
+        public int Put([FromBody]GenelBildirim genelBildirim)
         {
-            //KullaniciID bilgisi alınır
-            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
-                    x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) ==
-                    "/nameidentifier")
-                ?.Value;
-
-            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
-            return _genelBildirimService.GetIsEmriBakimSonucBildirim(kullaniciID);
+            return _genelBildirimService.Update(genelBildirim);
         }
 
-        [Route("api/genelbildirim/getistalepsonucbildirim")]
-        public List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim()
+        public int Delete(int id)
         {
-            //KullaniciID bilgisi alınır
-            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
-                    x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) ==
-                    "/nameidentifier")
-                ?.Value;
+            return _genelBildirimService.DeleteSoft(id);
+        }
 
-            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
-            return _genelBildirimService.GetIsTalepSonucBildirim(kullaniciID);
+        [Route("api/genelbildirim/deletehard/{id}")]
+        public int DeleteHard(int id)
+        {
+            return _genelBildirimService.Delete(id);
+        }
+
+        [Route("api/genelbildirim/getlistbykime/{id}")]
+        public List<GenelBildirim> GetListByKime(int id)
+        {
+            return _genelBildirimService.GetListByKime(id);
+        }
+
+        [Route("api/genelbildirim/getlistyenibildirimbykime/{id}")]
+        public List<GenelBildirim> GetListYeniBildirimByKime(int id)
+        {
+            return _genelBildirimService.GetListYeniBildirimByKime(id);
         }
     }
 }

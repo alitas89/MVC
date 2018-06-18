@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete.Bakim
             return _periyodikbakimDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, BakimRead, PeriyodikBakimRead, PeriyodikBakimLtd")]
+        [SecuredOperation(Roles = "Admin, BakimRead, PeriyodikBakimRead, PeriyodikBakimLtd, VarlikRead, VarliklarRead")]
         public PeriyodikBakim GetById(int Id)
         {
             return _periyodikbakimDal.Get(Id);
@@ -73,11 +73,13 @@ namespace BusinessLayer.Concrete.Bakim
             return _periyodikbakimDal.GetCount(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, BakimUpdate, PeriyodikBakimUpdate")]
         public int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
         {
             return _periyodikbakimDal.UpdateWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski);
         }
 
+        [SecuredOperation(Roles = "Admin, BakimCreate, PeriyodikBakimCreate")]
         public int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
         {
             return _periyodikbakimDal.AddWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski);
@@ -93,6 +95,12 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCountDto(string filter = "")
         {
             return _periyodikbakimDal.GetCountDto(filter);
+        }
+
+        [SecuredOperation(Roles = "Admin, BakimRead, PeriyodikBakimRead, PeriyodikBakimLtd, VarlikRead, VarliklarRead")]
+        public List<PeriyodikBakim> GetListByVarlikID(int VarlikID)
+        {
+            return _periyodikbakimDal.GetListByVarlikID(VarlikID);
         }
     }
 
