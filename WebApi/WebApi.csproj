@@ -233,7 +233,7 @@
     <Compile Include="Controllers\FirmaController.cs" />
     <Compile Include="Controllers\GecikmeNedeniController.cs" />
     <Compile Include="Controllers\GenelBildirimController.cs" />
-    <Compile Include="Controllers\IsBildirimManager.cs" />
+    <Compile Include="Controllers\IsBildirimController.cs" />
     <Compile Include="Controllers\GonderimFormatiController.cs" />
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HurdaController.cs" />

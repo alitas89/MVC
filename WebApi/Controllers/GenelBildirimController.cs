@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Sistem;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
@@ -87,6 +88,18 @@ namespace WebApi.Controllers
         public List<GenelBildirim> GetListYeniBildirimByKime(int id)
         {
             return _genelBildirimService.GetListYeniBildirimByKime(id);
+        }
+
+        [Route("api/genelbildirim/getlistgenelbildirimkullanicidtobykime/{BildirimID}")]
+        public GenelBildirimKullaniciDto GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        {
+            return _genelBildirimService.GetListGenelBildirimKullaniciDtoByKime(BildirimID).FirstOrDefault();
+        }
+
+        [Route("api/genelbildirim/getlistgenelbildirimyoneticidtobykime/{BildirimID}")]
+        public GenelBildirimYoneticiDto GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        {
+            return _genelBildirimService.GetListGenelBildirimYoneticiDtoByKime(BildirimID).FirstOrDefault();
         }
     }
 }

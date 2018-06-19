@@ -2,6 +2,7 @@
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Sistem;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
@@ -78,6 +79,16 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         {
             return GetListQuery("select * from GenelBildirim where Silindi=0 and Kime=@Kime and IsOkundu=0 and IsPush=0 ",
                 new { Kime });
+        }
+
+        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        {
+            return new DpDtoRepositoryBase<GenelBildirimKullaniciDto>().GetListDtoQuery("select * from View_GenelBildirimKullaniciDto where BildirimID=@BildirimID", new { BildirimID });
+        }
+
+        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        {
+            return new DpDtoRepositoryBase<GenelBildirimYoneticiDto>().GetListDtoQuery("select * from View_GenelBildirimYoneticiDto where BildirimID=@BildirimID", new { BildirimID });
         }
     }
 }

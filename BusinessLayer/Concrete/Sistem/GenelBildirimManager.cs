@@ -4,6 +4,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Sistem;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
@@ -79,6 +80,16 @@ namespace BusinessLayer.Concrete.Sistem
         public List<GenelBildirim> GetListByKime(int Kime)
         {
             return _genelbildirimDal.GetListByKime(Kime);
+        }
+
+        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        {
+            return _genelbildirimDal.GetListGenelBildirimKullaniciDtoByKime(BildirimID);
+        }
+
+        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        {
+            return _genelbildirimDal.GetListGenelBildirimYoneticiDtoByKime(BildirimID);
         }
     }
 

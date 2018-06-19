@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
@@ -25,5 +26,9 @@ namespace BusinessLayer.Abstract.Sistem
         List<GenelBildirim> GetListYeniBildirimByKime(int Kime);
 
         List<GenelBildirim> GetListByKime(int Kime);
+
+        List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID);
+
+        List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID);
     }
 }
