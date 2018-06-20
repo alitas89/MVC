@@ -16,5 +16,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Sistem
         public DateTime QuartzTriggerTarih { get; set; }
         public bool IsTrigger { get; set; }
         public string BirimAd { get; set; }
+        public string KullaniciAdi { get; set; }
     }
 }

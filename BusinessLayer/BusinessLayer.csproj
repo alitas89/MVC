@@ -95,6 +95,7 @@
     <Compile Include="Abstract\Bakim\IIsTipiEmirTuruService.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiService.cs" />
+    <Compile Include="Abstract\Sistem\IBildirimAksiyonSayfaService.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucService.cs" />
     <Compile Include="Abstract\Sistem\IBildirimTriggerService.cs" />
     <Compile Include="Abstract\Sistem\IFirmaService.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Concrete\Bakim\IsTipiEmirTuruManager.cs" />
     <Compile Include="Concrete\Bakim\PeriyodikBakimManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimiManager.cs" />
+    <Compile Include="Concrete\Sistem\BildirimAksiyonSayfaManager.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonucManager.cs" />
     <Compile Include="Concrete\Sistem\BildirimTriggerManager.cs" />
     <Compile Include="Concrete\Sistem\FirmaManager.cs" />

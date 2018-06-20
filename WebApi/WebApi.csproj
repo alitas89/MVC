@@ -220,6 +220,7 @@
     <Compile Include="Controllers\BakimRiskiController.cs" />
     <Compile Include="Controllers\BeklemeIptalNedeniController.cs" />
     <Compile Include="Controllers\BelgeTuruController.cs" />
+    <Compile Include="Controllers\BildirimAksiyonSayfaController.cs" />
     <Compile Include="Controllers\BildirimIsTalebiSonucController.cs" />
     <Compile Include="Controllers\BildirimTriggerController.cs" />
     <Compile Include="Controllers\BilgilendirmeGrubuController.cs" />

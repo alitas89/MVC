@@ -66,6 +66,7 @@
     <Compile Include="Abstract\Bakim\IIsTipiEmriTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimDal.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiDal.cs" />
+    <Compile Include="Abstract\Sistem\IBildirimAksiyonSayfaDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimTriggerDal.cs" />
     <Compile Include="Abstract\Sistem\IFirmaDal.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsTipiEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpPeriyodikBakimDal.cs" />
     <Compile Include="Concrete\Dapper\Malzeme\DpMalzemeSayimiDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpBildirimAksiyonSayfaDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimTriggerDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpFirmaDal.cs" />
