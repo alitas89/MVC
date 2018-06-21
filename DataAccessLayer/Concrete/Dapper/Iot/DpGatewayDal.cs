@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace DataAccessLayer.Concrete.Dapper.Iot
 {
-    class DpGatewayDal : DpEntityRepositoryBase<Gateway>, IGatewayDal
+    public class DpGatewayDal : DpEntityRepositoryBase<Gateway>, IGatewayDal
     {
         public int Add(Gateway gateway)
         {
@@ -38,12 +38,21 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
 
         public int GetCountDto(string filter = "")
         {
-            throw new NotImplementedException();
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_GatewayDto where {filterQuery} ", new { }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
         }
 
         public List<Gateway> GetList()
         {
             throw new NotImplementedException();
+        }
+
+        public List<GatewayDto> GetListDto()
+        {
+            return new DpDtoRepositoryBase<GatewayDto>().GetListDtoQuery("SELECT * FROM View_GatewayDto", new { });
+
         }
 
         public List<Gateway> GetListPagination(PagingParams pagingParams)
@@ -69,7 +78,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
                 columnsQuery = pagingParams.columns;
             }
 
-            return new DpDtoRepositoryBase<GatewayDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_GatewayDto where Silindi=0 {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<GatewayDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_GatewayDto where {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }

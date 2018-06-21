@@ -33,6 +33,10 @@ using BusinessLayer.Concrete.Sistem;
 using DataAccessLayer.Abstract.Sistem;
 using DataAccessLayer.Concrete.Dapper.Satinalma;
 using DataAccessLayer.Concrete.Dapper.Sistem;
+using BusinessLayer.Abstract.Iot;
+using BusinessLayer.Concrete.Iot;
+using DataAccessLayer.Abstract.Iot;
+using DataAccessLayer.Concrete.Dapper.Iot;
 
 namespace BusinessLayer.DependencyResolvers.Ninject
 {
@@ -347,6 +351,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IIsTalebiService>().To<IsTalebiManager>().InSingletonScope();
             Bind<IIsTalebiDal>().To<DpIsTalebiDal>();
+
+            Bind<IGatewayService>().To<GatewayManager>().InSingletonScope();
+            Bind<IGatewayDal>().To<DpGatewayDal>();
         }
     }
 }
