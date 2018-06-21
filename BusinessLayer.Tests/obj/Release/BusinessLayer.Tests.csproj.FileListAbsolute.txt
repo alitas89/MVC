@@ -135,7 +135,6 @@ D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\UtilityLayer.pdb
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\Newtonsoft.Json.xml
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\System.Web.Http.xml
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\System.Net.Http.Formatting.xml
-D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.dll
 D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.pdb
@@ -151,3 +150,5 @@ D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\MoreLinq.dll
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\System.ValueTuple.dll
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\MoreLinq.xml
 D:\MVC\mvcprojesi\BusinessLayer.Tests\bin\Release\System.ValueTuple.xml
+D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\BusinessLayer.Tests\obj\Release\BusinessLayer.Tests.csproj.CopyComplete
