@@ -22,6 +22,7 @@ namespace EntityLayer.Concrete.Sistem
         public DateTime? SonDegisiklikTarih { get; set; }
         public DateTime? QuartzTriggerTarih { get; set; }
         public bool IsTrigger { get; set; }
+        public int QuartzJobTip { get; set; }
         public bool Silindi { get; set; }
     }
 }

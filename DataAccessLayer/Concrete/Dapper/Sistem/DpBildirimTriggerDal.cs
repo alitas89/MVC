@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
     {
         public List<BildirimTrigger> GetList()
         {
-            return GetListQuery("select * from BildirimTrigger where Silindi=0", new { });
+            return GetListQuery("select * from BildirimTrigger where Silindi=0 and (BitisTarih>GETDATE() or BitisTarih is null)", new { });
         }
 
         public BildirimTrigger Get(int Id)
@@ -21,12 +21,12 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
         public int Add(BildirimTrigger bildirimtrigger)
         {
-            return AddQuery("insert into BildirimTrigger(PeriyotBirimID,PeriyotDeger,OlusturanID,KimeID,KimeTipID,Ad,Icerik,BaslangicTarih,BitisTarih,BildirimAksiyonSayfaID,BildirimAksiyonID,OlusturulmaTarih,SonDegisiklikTarih,QuartzTriggerTarih,IsTrigger,Silindi) values (@PeriyotBirimID,@PeriyotDeger,@OlusturanID,@KimeID,@KimeTipID,@Ad,@Icerik,@BaslangicTarih,@BitisTarih,@BildirimAksiyonSayfaID,@BildirimAksiyonID,@OlusturulmaTarih,@SonDegisiklikTarih,@QuartzTriggerTarih,@IsTrigger,@Silindi)", bildirimtrigger);
+            return AddQuery("insert into BildirimTrigger(PeriyotBirimID,PeriyotDeger,OlusturanID,KimeID,KimeTipID,Ad,Icerik,BaslangicTarih,BitisTarih,BildirimAksiyonSayfaID,BildirimAksiyonID,OlusturulmaTarih,SonDegisiklikTarih,QuartzTriggerTarih,IsTrigger,QuartzJobTip,Silindi) values (@PeriyotBirimID,@PeriyotDeger,@OlusturanID,@KimeID,@KimeTipID,@Ad,@Icerik,@BaslangicTarih,@BitisTarih,@BildirimAksiyonSayfaID,@BildirimAksiyonID,@OlusturulmaTarih,@SonDegisiklikTarih,@QuartzTriggerTarih,@IsTrigger,@QuartzJobTip,@Silindi)", bildirimtrigger);
         }
 
         public int Update(BildirimTrigger bildirimtrigger)
         {
-            return UpdateQuery("update BildirimTrigger set PeriyotBirimID=@PeriyotBirimID,PeriyotDeger=@PeriyotDeger,OlusturanID=@OlusturanID,KimeID=@KimeID,KimeTipID=@KimeTipID,Ad=@Ad,Icerik=@Icerik,BaslangicTarih=@BaslangicTarih,BitisTarih=@BitisTarih,BildirimAksiyonSayfaID=@BildirimAksiyonSayfaID,BildirimAksiyonID=@BildirimAksiyonID,OlusturulmaTarih=@OlusturulmaTarih,SonDegisiklikTarih=@SonDegisiklikTarih,QuartzTriggerTarih=@QuartzTriggerTarih,IsTrigger=@IsTrigger,Silindi=@Silindi where BildirimTriggerID=@BildirimTriggerID", bildirimtrigger);
+            return UpdateQuery("update BildirimTrigger set PeriyotBirimID=@PeriyotBirimID,PeriyotDeger=@PeriyotDeger,OlusturanID=@OlusturanID,KimeID=@KimeID,KimeTipID=@KimeTipID,Ad=@Ad,Icerik=@Icerik,BaslangicTarih=@BaslangicTarih,BitisTarih=@BitisTarih,BildirimAksiyonSayfaID=@BildirimAksiyonSayfaID,BildirimAksiyonID=@BildirimAksiyonID,OlusturulmaTarih=@OlusturulmaTarih,SonDegisiklikTarih=@SonDegisiklikTarih,QuartzTriggerTarih=@QuartzTriggerTarih,IsTrigger=@IsTrigger,QuartzJobTip=@QuartzJobTip,Silindi=@Silindi where BildirimTriggerID=@BildirimTriggerID", bildirimtrigger);
         }
 
         public int Delete(int Id)
@@ -55,7 +55,7 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
                 columnsQuery = pagingParams.columns;
             }
 
-            return GetListQuery($@"SELECT * FROM BildirimTrigger where Silindi=0 {filterQuery} {orderQuery}
+            return GetListQuery($@"select * from BildirimTrigger where Silindi=0 and (BitisTarih>GETDATE() or BitisTarih is null) {filterQuery} {orderQuery}
 OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
@@ -63,7 +63,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         public int GetCount(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM BildirimTrigger where Silindi = 0 { filterQuery}", new { }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) from BildirimTrigger where Silindi=0 and (BitisTarih>GETDATE() or BitisTarih is null) {filterQuery}", new { }) + "";
 
             int.TryParse(strCount, out int count);
             return count;

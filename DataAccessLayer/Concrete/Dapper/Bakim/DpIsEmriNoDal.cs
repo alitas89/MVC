@@ -21,12 +21,12 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public int Add(IsEmriNo ısemrino)
         {
-            return AddQuery("insert into IsEmriNo(IsTalepID,IsEmriID,Tarih,Silindi) values (@IsTalepID,@IsEmriID,@Tarih,@Silindi)", ısemrino);
+            return AddQuery("insert into IsEmriNo(IsTalepID,IsEmriID,Otomatik,Tarih,Silindi) values (@IsTalepID,@IsEmriID,@Otomatik,@Tarih,@Silindi)", ısemrino);
         }
 
         public int Update(IsEmriNo ısemrino)
         {
-            return UpdateQuery("update IsEmriNo set IsTalepID=@IsTalepID,IsEmriID=@IsEmriID,Tarih=@Tarih,Silindi=@Silindi where IsEmriNoID=@IsEmriNoID", ısemrino);
+            return UpdateQuery("update IsEmriNo set IsTalepID=@IsTalepID,IsEmriID=@IsEmriID,Otomatik=@Otomatik,Tarih=@Tarih,Silindi=@Silindi where IsEmriNoID=@IsEmriNoID", ısemrino);
         }
 
         public int Delete(int Id)

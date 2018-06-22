@@ -10,7 +10,7 @@ namespace EntityLayer.Concrete.Bakim
         public string Ad { get; set; }
         public int BakimPeriyodu { get; set; }
         public int PeriyodBirimID { get; set; }
-        public DateTime SonBakimTarih { get; set; }
+        public DateTime? SonBakimTarih { get; set; }
         public DateTime BakimYapilacakTarih { get; set; }
         public int ToleransGun { get; set; }
         public int VarlikID { get; set; }
@@ -32,9 +32,8 @@ namespace EntityLayer.Concrete.Bakim
         public string YapilanIsinAciklamasi { get; set; }
         public bool IsOtomatik { get; set; }
         public bool IsCalismaZamaniSinirli { get; set; }
-        public DateTime GecerlilikBaslangicTarih { get; set; }
-        public DateTime GecerlilikBitisTarih { get; set; }
-        public string IsEmriOlusturmaSaat { get; set; }
+        public DateTime? GecerlilikBitisTarih { get; set; }
+        public int BildirimTriggerID { get; set; }
         public bool Silindi { get; set; }
     }
 }

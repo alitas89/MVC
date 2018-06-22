@@ -23,9 +23,11 @@ namespace BusinessLayer.Abstract.Bakim
 
         int GetCount(string filter="");
 
-        int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski);
+        int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, 
+            List<int> listBakimRiski, int kullaniciID);
 
-        int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski);
+        int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, 
+            List<int> listBakimRiski, int kullaniciID);
 
         List<PeriyodikBakimDto> GetListPaginationDto(PagingParams pagingParams);
 

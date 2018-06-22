@@ -74,15 +74,37 @@ namespace BusinessLayer.Concrete.Bakim
         }
 
         [SecuredOperation(Roles = "Admin, BakimUpdate, PeriyodikBakimUpdate")]
-        public int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
+        public int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski, int kullaniciID)
         {
-            return _periyodikbakimDal.UpdateWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski);
+            //Eğer otomatik iş emri oluştur seçildiyse ve bu kişinin o iştipinde iş emri yetkisi yoksa hata döner
+            if (periyodikBakim.IsOtomatik)
+            {
+                List<IsTipiForKullaniciTemp> listIsTipiTemp =
+                    _periyodikbakimDal.GetIsTipiListByKullaniciIDForIsEmri(kullaniciID);
+                if (!listIsTipiTemp.Exists(x => x.IsTipiID == periyodikBakim.IsTipiID))
+                {
+                    return -1;
+                }
+            }
+
+            return _periyodikbakimDal.UpdateWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski, kullaniciID);
         }
 
         [SecuredOperation(Roles = "Admin, BakimCreate, PeriyodikBakimCreate")]
-        public int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
+        public int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski, int kullaniciID)
         {
-            return _periyodikbakimDal.AddWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski);
+            //Eğer otomatik iş emri oluştur seçildiyse ve bu kişinin o iştipinde iş emri yetkisi yoksa hata döner
+            if (periyodikBakim.IsOtomatik)
+            {
+                List<IsTipiForKullaniciTemp> listIsTipiTemp =
+                    _periyodikbakimDal.GetIsTipiListByKullaniciIDForIsEmri(kullaniciID);
+                if (!listIsTipiTemp.Exists(x => x.IsTipiID == periyodikBakim.IsTipiID))
+                {
+                    return -1;
+                }
+            }
+
+            return _periyodikbakimDal.AddWithTransaction(periyodikBakim, listBakimPlani, listBakimRiski, kullaniciID);
         }
 
         [SecuredOperation(Roles = "Admin, BakimRead, PeriyodikBakimRead, PeriyodikBakimLtd")]

@@ -68,7 +68,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                 int.TryParse(strIsEmriID + "", out int IsEmriID);
 
                 var strIsEmriNoID = connection.ExecuteScalar(
-                    "insert into IsEmriNo(IsTalepID,IsEmriID,Tarih,Silindi) values (null,@IsEmriID,GetDate(),0)" +
+                    "insert into IsEmriNo(IsTalepID,IsEmriID,Otomatik,Tarih,Silindi) values (null,@IsEmriID,0,GetDate(),0)" +
                     "SELECT CAST(SCOPE_IDENTITY() as int)",
                     new { IsEmriID }, transaction);
 

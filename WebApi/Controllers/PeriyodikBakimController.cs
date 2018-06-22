@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using BusinessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
@@ -58,15 +59,24 @@ namespace WebApi.Controllers
         // POST api/<controller>
         public int Post([FromBody]PeriyodikBakimTemp periyodikBakimTemp)
         {
+            //KullaniciID bilgisi alınır
+            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
+                x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
+            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
+
             return _periyodikBakimService.AddWithTransaction(periyodikBakimTemp.periyodikBakim,
-                periyodikBakimTemp.listBakimPlani, periyodikBakimTemp.listBakimRiski);
+                periyodikBakimTemp.listBakimPlani, periyodikBakimTemp.listBakimRiski, kullaniciID);
         }
 
         // PUT api/<controller>/5
         public int Put([FromBody]PeriyodikBakimTemp periyodikBakimTemp)
-        {
+        {            //KullaniciID bilgisi alınır
+            var strKullaniciID = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(x =>
+                x.Type.Substring(x.Type.LastIndexOf('/'), x.Type.Length - x.Type.LastIndexOf('/')) == "/nameidentifier")?.Value;
+            int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
+
             return _periyodikBakimService.UpdateWithTransaction(periyodikBakimTemp.periyodikBakim,
-                periyodikBakimTemp.listBakimPlani, periyodikBakimTemp.listBakimRiski);
+                periyodikBakimTemp.listBakimPlani, periyodikBakimTemp.listBakimRiski, kullaniciID);
         }
 
         public int Delete(int id)

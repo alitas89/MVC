@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,6 +10,7 @@ using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
+using EntityLayer.Concrete.Sistem;
 
 namespace DataAccessLayer.Concrete.Dapper.Bakim
 {
@@ -24,16 +26,16 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return GetQuery("select * from PeriyodikBakim where PeriyodikBakimID= @Id and Silindi=0", new { Id });
         }
 
+
         public int Add(PeriyodikBakim periyodikbakim)
         {
-            return AddQuery("insert into PeriyodikBakim(Kod,Ad,BakimPeriyodu,PeriyodBirimID,SonBakimTarih,BakimYapilacakTarih,ToleransGun,VarlikID,BakimArizaID,IsEmriTuruID,IsTipiID,KisimID,OncelikID,SorumluEkipID,IsSorumluID,ArizaNedeniID,BakimSuresi,TahminiBakimMaliyeti,ParaBirimID,StatuID,TalepEdenID,FirmaID,TalepAciklamasi,YapilanIsinAciklamasi,IsOtomatik,IsCalismaZamaniSinirli,GecerlilikBaslangicTarih,GecerlilikBitisTarih,IsEmriOlusturmaSaat,Silindi) values (@Kod,@Ad,@BakimPeriyodu,@PeriyodBirimID,@SonBakimTarih,@BakimYapilacakTarih,@ToleransGun,@VarlikID,@BakimArizaID,@IsEmriTuruID,@IsTipiID,@KisimID,@OncelikID,@SorumluEkipID,@IsSorumluID,@ArizaNedeniID,@BakimSuresi,@TahminiBakimMaliyeti,@ParaBirimID,@StatuID,@TalepEdenID,@FirmaID,@TalepAciklamasi,@YapilanIsinAciklamasi,@IsOtomatik,@IsCalismaZamaniSinirli,@GecerlilikBaslangicTarih,@GecerlilikBitisTarih,@IsEmriOlusturmaSaat,@Silindi)", periyodikbakim);
+            return AddQuery("insert into PeriyodikBakim(Kod,Ad,BakimPeriyodu,PeriyodBirimID,SonBakimTarih,BakimYapilacakTarih,ToleransGun,VarlikID,BakimArizaID,IsEmriTuruID,IsTipiID,KisimID,OncelikID,SorumluEkipID,IsSorumluID,ArizaNedeniID,BakimSuresi,TahminiBakimMaliyeti,ParaBirimID,StatuID,TalepEdenID,FirmaID,TalepAciklamasi,YapilanIsinAciklamasi,IsOtomatik,IsCalismaZamaniSinirli,GecerlilikBitisTarih,BildirimTriggerID,Silindi) values (@Kod,@Ad,@BakimPeriyodu,@PeriyodBirimID,@SonBakimTarih,@BakimYapilacakTarih,@ToleransGun,@VarlikID,@BakimArizaID,@IsEmriTuruID,@IsTipiID,@KisimID,@OncelikID,@SorumluEkipID,@IsSorumluID,@ArizaNedeniID,@BakimSuresi,@TahminiBakimMaliyeti,@ParaBirimID,@StatuID,@TalepEdenID,@FirmaID,@TalepAciklamasi,@YapilanIsinAciklamasi,@IsOtomatik,@IsCalismaZamaniSinirli,@GecerlilikBitisTarih,@BildirimTriggerID,@Silindi)", periyodikbakim);
         }
 
         public int Update(PeriyodikBakim periyodikbakim)
         {
-            return UpdateQuery("update PeriyodikBakim set Kod=@Kod,Ad=@Ad,BakimPeriyodu=@BakimPeriyodu,PeriyodBirimID=@PeriyodBirimID,SonBakimTarih=@SonBakimTarih,BakimYapilacakTarih=@BakimYapilacakTarih,ToleransGun=@ToleransGun,VarlikID=@VarlikID,BakimArizaID=@BakimArizaID,IsEmriTuruID=@IsEmriTuruID,IsTipiID=@IsTipiID,KisimID=@KisimID,OncelikID=@OncelikID,SorumluEkipID=@SorumluEkipID,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,BakimSuresi=@BakimSuresi,TahminiBakimMaliyeti=@TahminiBakimMaliyeti,ParaBirimID=@ParaBirimID,StatuID=@StatuID,TalepEdenID=@TalepEdenID,FirmaID=@FirmaID,TalepAciklamasi=@TalepAciklamasi,YapilanIsinAciklamasi=@YapilanIsinAciklamasi,IsOtomatik=@IsOtomatik,IsCalismaZamaniSinirli=@IsCalismaZamaniSinirli,GecerlilikBaslangicTarih=@GecerlilikBaslangicTarih,GecerlilikBitisTarih=@GecerlilikBitisTarih,IsEmriOlusturmaSaat=@IsEmriOlusturmaSaat,Silindi=@Silindi where PeriyodikBakimID=@PeriyodikBakimID", periyodikbakim);
+            return UpdateQuery("update PeriyodikBakim set Kod=@Kod,Ad=@Ad,BakimPeriyodu=@BakimPeriyodu,PeriyodBirimID=@PeriyodBirimID,SonBakimTarih=@SonBakimTarih,BakimYapilacakTarih=@BakimYapilacakTarih,ToleransGun=@ToleransGun,VarlikID=@VarlikID,BakimArizaID=@BakimArizaID,IsEmriTuruID=@IsEmriTuruID,IsTipiID=@IsTipiID,KisimID=@KisimID,OncelikID=@OncelikID,SorumluEkipID=@SorumluEkipID,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,BakimSuresi=@BakimSuresi,TahminiBakimMaliyeti=@TahminiBakimMaliyeti,ParaBirimID=@ParaBirimID,StatuID=@StatuID,TalepEdenID=@TalepEdenID,FirmaID=@FirmaID,TalepAciklamasi=@TalepAciklamasi,YapilanIsinAciklamasi=@YapilanIsinAciklamasi,IsOtomatik=@IsOtomatik,IsCalismaZamaniSinirli=@IsCalismaZamaniSinirli,GecerlilikBitisTarih=@GecerlilikBitisTarih,BildirimTriggerID=@BildirimTriggerID,Silindi=@Silindi where PeriyodikBakimID=@PeriyodikBakimID", periyodikbakim);
         }
-
 
         public int Delete(int Id)
         {
@@ -106,7 +108,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         }
 
 
-        public int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
+        public int AddWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski, int kullaniciID)
         {
             var count = 0;
 
@@ -119,8 +121,33 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                var strPeriyodikBakimID = connection.ExecuteScalar("insert into PeriyodikBakim(Kod,Ad,BakimPeriyodu,PeriyodBirimID,SonBakimTarih,BakimYapilacakTarih,ToleransGun,VarlikID,BakimArizaID,IsEmriTuruID,IsTipiID,KisimID,OncelikID,SorumluEkipID,IsSorumluID,ArizaNedeniID,BakimSuresi,TahminiBakimMaliyeti,ParaBirimID,StatuID,TalepEdenID,FirmaID,TalepAciklamasi,YapilanIsinAciklamasi,IsOtomatik,IsCalismaZamaniSinirli,GecerlilikBaslangicTarih,GecerlilikBitisTarih,IsEmriOlusturmaSaat,Silindi) values (@Kod,@Ad,@BakimPeriyodu,@PeriyodBirimID,@SonBakimTarih,@BakimYapilacakTarih,@ToleransGun,@VarlikID,@BakimArizaID,@IsEmriTuruID,@IsTipiID,@KisimID,@OncelikID,@SorumluEkipID,@IsSorumluID,@ArizaNedeniID,@BakimSuresi,@TahminiBakimMaliyeti,@ParaBirimID,@StatuID,@TalepEdenID,@FirmaID,@TalepAciklamasi,@YapilanIsinAciklamasi,@IsOtomatik,@IsCalismaZamaniSinirli,@GecerlilikBaslangicTarih,@GecerlilikBitisTarih,@IsEmriOlusturmaSaat,@Silindi); " +
+                //Öncelikle BildirimTrigger oluşturulur ve IDsi PeriyodikBakıma işlenir.
+                BildirimTrigger bildirimTrigger = new BildirimTrigger()
+                {
+                    Ad = periyodikBakim.Ad,
+                    BaslangicTarih = periyodikBakim.BakimYapilacakTarih,
+                    BitisTarih = periyodikBakim.GecerlilikBitisTarih,
+                    Icerik = periyodikBakim.ToleransGun + " gün içerisinde",
+                    KimeID = kullaniciID,
+                    KimeTipID = periyodikBakim.IsTipiID,
+                    IsTrigger = false,
+                    OlusturanID = kullaniciID,
+                    OlusturulmaTarih = DateTime.Now,
+                    PeriyotBirimID = periyodikBakim.PeriyodBirimID,
+                    PeriyotDeger = periyodikBakim.BakimPeriyodu,
+                    QuartzJobTip = 2,
+                    Silindi = false
+                };
+
+                var strBildirimTriggerID = connection.ExecuteScalar("insert into BildirimTrigger(PeriyotBirimID,PeriyotDeger,OlusturanID,KimeID,KimeTipID,Ad,Icerik,BaslangicTarih,BitisTarih,BildirimAksiyonSayfaID,BildirimAksiyonID,OlusturulmaTarih,SonDegisiklikTarih,QuartzTriggerTarih,IsTrigger,QuartzJobTip,Silindi) values (@PeriyotBirimID,@PeriyotDeger,@OlusturanID,@KimeID,@KimeTipID,@Ad,@Icerik,@BaslangicTarih,@BitisTarih,@BildirimAksiyonSayfaID,@BildirimAksiyonID,@OlusturulmaTarih,@SonDegisiklikTarih,@QuartzTriggerTarih,@IsTrigger,@QuartzJobTip,@Silindi); " +
+                                                                      "SELECT CAST(SCOPE_IDENTITY() as int)", bildirimTrigger, transaction);
+                int.TryParse(strBildirimTriggerID + "", out int BildirimTriggerID);
+
+                periyodikBakim.BildirimTriggerID = BildirimTriggerID;
+                //Periyodik Bakım Oluşturulur
+                var strPeriyodikBakimID = connection.ExecuteScalar("insert into PeriyodikBakim(Kod,Ad,BakimPeriyodu,PeriyodBirimID,SonBakimTarih,BakimYapilacakTarih,ToleransGun,VarlikID,BakimArizaID,IsEmriTuruID,IsTipiID,KisimID,OncelikID,SorumluEkipID,IsSorumluID,ArizaNedeniID,BakimSuresi,TahminiBakimMaliyeti,ParaBirimID,StatuID,TalepEdenID,FirmaID,TalepAciklamasi,YapilanIsinAciklamasi,IsOtomatik,IsCalismaZamaniSinirli,GecerlilikBitisTarih,BildirimTriggerID,Silindi) values (@Kod,@Ad,@BakimPeriyodu,@PeriyodBirimID,@SonBakimTarih,@BakimYapilacakTarih,@ToleransGun,@VarlikID,@BakimArizaID,@IsEmriTuruID,@IsTipiID,@KisimID,@OncelikID,@SorumluEkipID,@IsSorumluID,@ArizaNedeniID,@BakimSuresi,@TahminiBakimMaliyeti,@ParaBirimID,@StatuID,@TalepEdenID,@FirmaID,@TalepAciklamasi,@YapilanIsinAciklamasi,@IsOtomatik,@IsCalismaZamaniSinirli,@GecerlilikBitisTarih,@BildirimTriggerID,@Silindi); " +
                                                             "SELECT CAST(SCOPE_IDENTITY() as int)", periyodikBakim, transaction);
+
                 int.TryParse(strPeriyodikBakimID + "", out int PeriyodikBakimID);
 
                 //BakimPlaniAraTablosuna Ekleme Yapılır
@@ -154,7 +181,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
-        public int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski)
+        public int UpdateWithTransaction(PeriyodikBakim periyodikBakim, List<int> listBakimPlani, List<int> listBakimRiski, int kullaniciID)
         {
             var count = 0;
 
@@ -167,7 +194,30 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
                 IDbTransaction transaction = connection.BeginTransaction();
 
-                connection.Execute("update PeriyodikBakim set Kod=@Kod,Ad=@Ad,BakimPeriyodu=@BakimPeriyodu,PeriyodBirimID=@PeriyodBirimID,SonBakimTarih=@SonBakimTarih,BakimYapilacakTarih=@BakimYapilacakTarih,ToleransGun=@ToleransGun,VarlikID=@VarlikID,BakimArizaID=@BakimArizaID,IsEmriTuruID=@IsEmriTuruID,IsTipiID=@IsTipiID,KisimID=@KisimID,OncelikID=@OncelikID,SorumluEkipID=@SorumluEkipID,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,BakimSuresi=@BakimSuresi,TahminiBakimMaliyeti=@TahminiBakimMaliyeti,ParaBirimID=@ParaBirimID,StatuID=@StatuID,TalepEdenID=@TalepEdenID,FirmaID=@FirmaID,TalepAciklamasi=@TalepAciklamasi,YapilanIsinAciklamasi=@YapilanIsinAciklamasi,IsOtomatik=@IsOtomatik,IsCalismaZamaniSinirli=@IsCalismaZamaniSinirli,GecerlilikBaslangicTarih=@GecerlilikBaslangicTarih,GecerlilikBitisTarih=@GecerlilikBitisTarih,IsEmriOlusturmaSaat=@IsEmriOlusturmaSaat,Silindi=@Silindi where PeriyodikBakimID=@PeriyodikBakimID"
+                //Öncelikle BildirimTrigger oluşturulur ve IDsi PeriyodikBakıma işlenir.
+                BildirimTrigger bildirimTrigger = new BildirimTrigger()
+                {
+                    BildirimTriggerID = periyodikBakim.BildirimTriggerID,
+                    Ad = periyodikBakim.Ad,
+                    BaslangicTarih = periyodikBakim.BakimYapilacakTarih,
+                    BitisTarih = periyodikBakim.GecerlilikBitisTarih,
+                    Icerik = periyodikBakim.ToleransGun + " gün içerisinde",
+                    KimeID = kullaniciID,
+                    KimeTipID = periyodikBakim.IsTipiID,
+                    IsTrigger = false,
+                    OlusturanID = kullaniciID,
+                    OlusturulmaTarih = DateTime.Now,
+                    PeriyotBirimID = periyodikBakim.PeriyodBirimID,
+                    PeriyotDeger = periyodikBakim.BakimPeriyodu,
+                    QuartzJobTip = 2,
+                    Silindi = false
+                };
+
+                connection.ExecuteScalar("update BildirimTrigger set PeriyotBirimID=@PeriyotBirimID,PeriyotDeger=@PeriyotDeger,OlusturanID=@OlusturanID,KimeID=@KimeID,KimeTipID=@KimeTipID,Ad=@Ad,Icerik=@Icerik,BaslangicTarih=@BaslangicTarih,BitisTarih=@BitisTarih,BildirimAksiyonSayfaID=@BildirimAksiyonSayfaID,BildirimAksiyonID=@BildirimAksiyonID,OlusturulmaTarih=@OlusturulmaTarih,SonDegisiklikTarih=@SonDegisiklikTarih,QuartzTriggerTarih=@QuartzTriggerTarih,IsTrigger=@IsTrigger,QuartzJobTip=@QuartzJobTip,Silindi=@Silindi where BildirimTriggerID=@BildirimTriggerID "
+                                                                    , bildirimTrigger, transaction);
+
+                //Periyodik Bakım Oluşturulur
+                connection.Execute("update PeriyodikBakim set Kod=@Kod,Ad=@Ad,BakimPeriyodu=@BakimPeriyodu,PeriyodBirimID=@PeriyodBirimID,SonBakimTarih=@SonBakimTarih,BakimYapilacakTarih=@BakimYapilacakTarih,ToleransGun=@ToleransGun,VarlikID=@VarlikID,BakimArizaID=@BakimArizaID,IsEmriTuruID=@IsEmriTuruID,IsTipiID=@IsTipiID,KisimID=@KisimID,OncelikID=@OncelikID,SorumluEkipID=@SorumluEkipID,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,BakimSuresi=@BakimSuresi,TahminiBakimMaliyeti=@TahminiBakimMaliyeti,ParaBirimID=@ParaBirimID,StatuID=@StatuID,TalepEdenID=@TalepEdenID,FirmaID=@FirmaID,TalepAciklamasi=@TalepAciklamasi,YapilanIsinAciklamasi=@YapilanIsinAciklamasi,IsOtomatik=@IsOtomatik,IsCalismaZamaniSinirli=@IsCalismaZamaniSinirli,GecerlilikBitisTarih=@GecerlilikBitisTarih,BildirimTriggerID=@BildirimTriggerID,Silindi=@Silindi where PeriyodikBakimID=@PeriyodikBakimID"
                     , periyodikBakim, transaction);
 
                 //BakimPlaniAraTablodaki PeriyodikBakimIDsi gelen id olanlar silinir
@@ -212,6 +262,12 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
         public List<PeriyodikBakim> GetListByVarlikID(int VarlikID)
         {
             return GetListQuery("select * from PeriyodikBakim where VarlikID= @VarlikID and Silindi=0", new { VarlikID });
+        }
+
+        public List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciIDForIsEmri(int KullaniciID)
+        {
+            return new DpDtoRepositoryBase<IsTipiForKullaniciTemp>().GetListDtoQuery($@"select a.IsTipiID, b.Ad as IsTipiAd, b.Kod from IsTalebiOnayBirim a inner join IsTipi b on a.IsTipiID=b.IsTipiID where a.KullaniciID=@KullaniciID and a.Silindi=0",
+                new { KullaniciID });
         }
     }
 }

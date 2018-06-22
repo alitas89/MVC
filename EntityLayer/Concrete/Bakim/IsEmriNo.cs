@@ -8,6 +8,7 @@ namespace EntityLayer.Concrete.Bakim
         public int IsEmriNoID { get; set; }
         public int IsTalepID { get; set; }
         public int IsEmriID { get; set; }
+        public bool Otomatik { get; set; }
         public DateTime Tarih { get; set; }
         public bool Silindi { get; set; }
     }
