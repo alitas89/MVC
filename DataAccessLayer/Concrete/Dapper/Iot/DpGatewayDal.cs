@@ -39,7 +39,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
         public int GetCountDto(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_GatewayDto where {filterQuery} ", new { }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_GatewayDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
@@ -78,7 +78,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
                 columnsQuery = pagingParams.columns;
             }
 
-            return new DpDtoRepositoryBase<GatewayDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_GatewayDto where {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<GatewayDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_GatewayDto where Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }

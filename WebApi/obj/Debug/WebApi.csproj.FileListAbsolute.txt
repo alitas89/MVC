@@ -116,7 +116,6 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyRefere
 C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
-D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.dll
 D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.pdb
@@ -234,3 +233,5 @@ D:\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
 D:\MVC\mvcprojesi\WebApi\bin\MoreLinq.xml
 D:\MVC\mvcprojesi\WebApi\bin\log4net.xml
 D:\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.xml
+D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CopyComplete

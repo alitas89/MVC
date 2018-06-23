@@ -40,7 +40,6 @@ C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCo
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\EREN\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.pdb
-D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.pdb
@@ -82,3 +81,5 @@ D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Web.Http.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Debug\BusinessLayer.pssym
 D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.dll.postsharp
+D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete

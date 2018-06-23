@@ -4,7 +4,6 @@ D:\MVC\mvcprojesi\Core\bin\Debug\Dapper.dll
 D:\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.dll
 D:\MVC\mvcprojesi\Core\bin\Debug\Dapper.xml
 D:\MVC\mvcprojesi\Core\bin\Debug\DapperExtensions.pdb
-D:\MVC\mvcprojesi\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.dll
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.pdb
@@ -88,3 +87,5 @@ D:\MVC\mvcprojesi\Core\bin\Debug\System.Web.Http.xml
 D:\MVC\mvcprojesi\Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\Core\bin\Debug\Core.pssym
 D:\MVC\mvcprojesi\Core\obj\Debug\Core.dll.postsharp
+D:\MVC\mvcprojesi\Core\obj\Debug\Core.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\Core\obj\Debug\Core.csproj.CopyComplete
