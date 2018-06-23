@@ -7,6 +7,7 @@ using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
+using EntityLayer.Concrete.Sistem;
 
 namespace BusinessLayer.Concrete.Bakim
 {
@@ -124,6 +125,12 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _periyodikbakimDal.GetListByVarlikID(VarlikID);
         }
+        
+        [SecuredOperation(Roles = "Admin, BakimDelete, PeriyodikBakimDelete")]
+        public int DeleteSoftWithTransaction(int Id)
+        {
+            int bildirimTriggerID = _periyodikbakimDal.Get(Id).BildirimTriggerID;
+            return _periyodikbakimDal.DeleteSoftWithTransaction(Id, bildirimTriggerID);
+        }
     }
-
 }

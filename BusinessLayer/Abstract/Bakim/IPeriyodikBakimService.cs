@@ -34,5 +34,7 @@ namespace BusinessLayer.Abstract.Bakim
         int GetCountDto(string filter = "");
 
         List<PeriyodikBakim> GetListByVarlikID(int VarlikID);
+
+        int DeleteSoftWithTransaction(int Id);
     }
 }

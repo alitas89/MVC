@@ -81,7 +81,7 @@ namespace WebApi.Controllers
 
         public int Delete(int id)
         {
-            return _periyodikBakimService.DeleteSoft(id);
+            return _periyodikBakimService.DeleteSoftWithTransaction(id);
         }
 
         [Route("api/periyodikbakim/deletehard/{id}")]

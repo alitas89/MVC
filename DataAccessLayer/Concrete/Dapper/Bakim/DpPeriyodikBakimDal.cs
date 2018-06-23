@@ -47,6 +47,43 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return UpdateQuery("update PeriyodikBakim set Silindi = 1 where PeriyodikBakimID=@Id", new { Id });
         }
 
+        public int DeleteSoftWithTransaction(int Id, int BildirimTriggerID)
+        {
+            var count = 0;
+            using (IDbConnection connection =
+                new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                //Periyodik bakım silinir.
+                count = connection.Execute("update PeriyodikBakim set Silindi = 1 where PeriyodikBakimID=@Id"
+                    , new { Id }, transaction);
+                
+                //Trigger sonlandırılır.
+                BildirimTrigger bildirimTrigger = new BildirimTrigger()
+                {
+                    BildirimTriggerID = BildirimTriggerID,
+                    IsTrigger = false,
+                    BitisTarih = DateTime.Now,
+                    Silindi = false
+                };
+
+                connection.Execute("update BildirimTrigger set "+
+                                   "BitisTarih=@BitisTarih," +
+                                   "IsTrigger=@IsTrigger, Silindi=@Silindi" +
+                                   " where BildirimTriggerID=@BildirimTriggerID",
+                    bildirimTrigger, transaction);
+
+                transaction.Commit();
+            }
+            return count;
+        }
+
         public List<PeriyodikBakim> GetListPagination(PagingParams pagingParams)
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
@@ -213,8 +250,14 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                     Silindi = false
                 };
 
-                connection.ExecuteScalar("update BildirimTrigger set PeriyotBirimID=@PeriyotBirimID,PeriyotDeger=@PeriyotDeger,OlusturanID=@OlusturanID,KimeID=@KimeID,KimeTipID=@KimeTipID,Ad=@Ad,Icerik=@Icerik,BaslangicTarih=@BaslangicTarih,BitisTarih=@BitisTarih,BildirimAksiyonSayfaID=@BildirimAksiyonSayfaID,BildirimAksiyonID=@BildirimAksiyonID,OlusturulmaTarih=@OlusturulmaTarih,SonDegisiklikTarih=@SonDegisiklikTarih,QuartzTriggerTarih=@QuartzTriggerTarih,IsTrigger=@IsTrigger,QuartzJobTip=@QuartzJobTip,Silindi=@Silindi where BildirimTriggerID=@BildirimTriggerID "
-                                                                    , bildirimTrigger, transaction);
+                connection.Execute("update BildirimTrigger set PeriyotBirimID=@PeriyotBirimID," +
+                                         "PeriyotDeger=@PeriyotDeger,OlusturanID=@OlusturanID,KimeID=@KimeID," +
+                                         "KimeTipID=@KimeTipID,Ad=@Ad,Icerik=@Icerik,BaslangicTarih=@BaslangicTarih," +
+                                         "BitisTarih=@BitisTarih," +
+                                         "OlusturulmaTarih=@OlusturulmaTarih," +
+                                         "IsTrigger=@IsTrigger,QuartzJobTip=@QuartzJobTip,Silindi=@Silindi" +
+                                         " where BildirimTriggerID=@BildirimTriggerID",
+                                                                    bildirimTrigger, transaction);
 
                 //Periyodik Bakım Oluşturulur
                 connection.Execute("update PeriyodikBakim set Kod=@Kod,Ad=@Ad,BakimPeriyodu=@BakimPeriyodu,PeriyodBirimID=@PeriyodBirimID,SonBakimTarih=@SonBakimTarih,BakimYapilacakTarih=@BakimYapilacakTarih,ToleransGun=@ToleransGun,VarlikID=@VarlikID,BakimArizaID=@BakimArizaID,IsEmriTuruID=@IsEmriTuruID,IsTipiID=@IsTipiID,KisimID=@KisimID,OncelikID=@OncelikID,SorumluEkipID=@SorumluEkipID,IsSorumluID=@IsSorumluID,ArizaNedeniID=@ArizaNedeniID,BakimSuresi=@BakimSuresi,TahminiBakimMaliyeti=@TahminiBakimMaliyeti,ParaBirimID=@ParaBirimID,StatuID=@StatuID,TalepEdenID=@TalepEdenID,FirmaID=@FirmaID,TalepAciklamasi=@TalepAciklamasi,YapilanIsinAciklamasi=@YapilanIsinAciklamasi,IsOtomatik=@IsOtomatik,IsCalismaZamaniSinirli=@IsCalismaZamaniSinirli,GecerlilikBitisTarih=@GecerlilikBitisTarih,BildirimTriggerID=@BildirimTriggerID,Silindi=@Silindi where PeriyodikBakimID=@PeriyodikBakimID"
