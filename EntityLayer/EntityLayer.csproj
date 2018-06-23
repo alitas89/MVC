@@ -55,6 +55,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\PeriyodikBakimDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\PeriyodikBakimTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Iot\GatewayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeSayimiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\GenelBildirimKullaniciDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\GenelBildirimYoneticiDto.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\PeriyodikBakim.cs" />
+    <Compile Include="Concrete\Iot\Gateway.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimi.cs" />
     <Compile Include="Concrete\Sistem\BildirimAksiyonSayfa.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonuc.cs" />

@@ -110,8 +110,9 @@ D:\MVC\mvcprojesi\Core\bin\Release\PostSharp.xml
 D:\MVC\mvcprojesi\Core\bin\Release\System.Web.Http.xml
 D:\MVC\mvcprojesi\Core\bin\Release\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\Core\bin\Release\Core.pssym
-D:\MVC\mvcprojesi\Core\obj\Release\Core.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\Core\obj\Release\Core.dll.postsharp
 D:\MVC\mvcprojesi\Core\obj\Release\Core.dll
 D:\MVC\mvcprojesi\Core\obj\Release\Core.pdb
+D:\MVC\mvcprojesi\Core\obj\Release\Core.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\Core\obj\Release\Core.csproj.CopyComplete

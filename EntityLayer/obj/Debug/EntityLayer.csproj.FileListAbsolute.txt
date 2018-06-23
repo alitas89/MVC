@@ -4,7 +4,6 @@ D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.dll
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.dll
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Core.pdb
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Dapper.xml
-D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.dll
 D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.pdb
@@ -78,3 +77,5 @@ D:\MVC\mvcprojesi\EntityLayer\bin\Debug\UtilityLayer.pdb
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\Newtonsoft.Json.xml
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\System.Web.Http.xml
 D:\MVC\mvcprojesi\EntityLayer\bin\Debug\System.Net.Http.Formatting.xml
+D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\EntityLayer\obj\Debug\EntityLayer.csproj.CopyComplete

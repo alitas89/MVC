@@ -230,7 +230,8 @@ D:\MVC\mvcprojesi\WebApi\bin\PostSharp.xml
 D:\MVC\mvcprojesi\WebApi\bin\MoreLinq.xml
 D:\MVC\mvcprojesi\WebApi\bin\log4net.xml
 D:\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.xml
-D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.dll
 D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.pdb
+D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CopyComplete

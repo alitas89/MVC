@@ -77,8 +77,9 @@ D:\MVC\mvcprojesi\BusinessLayer\bin\Release\UtilityLayer.pdb
 D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Web.Http.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Release\System.Net.Http.Formatting.xml
 D:\MVC\mvcprojesi\BusinessLayer\bin\Release\BusinessLayer.pssym
-D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll.postsharp
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.dll
 D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.pdb
+D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csprojAssemblyReference.cache
+D:\MVC\mvcprojesi\BusinessLayer\obj\Release\BusinessLayer.csproj.CopyComplete
