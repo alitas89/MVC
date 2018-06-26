@@ -58,6 +58,7 @@
     <Compile Include="ComplexTypes\DtoModel\Iot\GatewayDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Malzeme\MalzemeSayimiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\GenelBildirimKullaniciDto.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Sistem\GenelBildirimPushOkundu.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\GenelBildirimYoneticiDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsEmriBakimSonucBildirimTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Sistem\IsTalebiKullaniciTemp.cs" />

@@ -67,9 +67,20 @@ namespace BusinessLayer.Concrete.Sistem
         {
             return _genelbildirimDal.GetListPagination(pagingParams);
         }
+
+        public List<GenelBildirim> GetListPaginationByKime(PagingParams pagingParams, int KullaniciID)
+        {
+            return _genelbildirimDal.GetListPaginationByKime(pagingParams, KullaniciID);
+        }
+
         public int GetCount(string filter = "")
         {
             return _genelbildirimDal.GetCount(filter);
+        }
+
+        public int GetCountByKime(int KullaniciID, string filter = "")
+        {
+            return _genelbildirimDal.GetCountByKime(KullaniciID, filter);
         }
 
         public List<GenelBildirim> GetListYeniBildirimByKime(int Kime)
@@ -87,9 +98,16 @@ namespace BusinessLayer.Concrete.Sistem
             return _genelbildirimDal.GetListGenelBildirimKullaniciDtoByKime(BildirimID);
         }
 
+        [SecuredOperation(Roles = "Authorized")]
         public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
         {
             return _genelbildirimDal.GetListGenelBildirimYoneticiDtoByKime(BildirimID);
+        }
+
+        [SecuredOperation(Roles = "Authorized")]
+        public int UpdatePushOkundu(GenelBildirimPushOkundu genelBildirimPushOkundu)
+        {
+            return _genelbildirimDal.UpdatePushOkundu(genelBildirimPushOkundu);
         }
     }
 

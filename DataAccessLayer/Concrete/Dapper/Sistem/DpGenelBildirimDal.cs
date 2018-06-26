@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Sistem;
@@ -28,6 +29,20 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
         public int Update(GenelBildirim genelbildirim)
         {
             return UpdateQuery("update GenelBildirim set BildirimTriggerID=@BildirimTriggerID,Tip=@Tip,Kime=@Kime,KimeTip=@KimeTip,Ad=@Ad,Icerik=@Icerik,BildirimAksiyonSayfaID=@BildirimAksiyonSayfaID,BildirimAksiyonID=@BildirimAksiyonID,BildirimTarih=@BildirimTarih,Tarih=@Tarih,OkunmaTarih=@OkunmaTarih,PushTarih=@PushTarih,IsOkundu=@IsOkundu,IsPush=@IsPush,Silindi=@Silindi where BildirimID=@BildirimID", genelbildirim);
+        }
+
+        public int UpdatePushOkundu(GenelBildirimPushOkundu genelBildirimPushOkundu)
+        {
+            return UpdateQuery("update GenelBildirim set OkunmaTarih=@OkunmaTarih,PushTarih=@PushTarih,IsOkundu=@IsOkundu,IsPush=@IsPush where BildirimID=@BildirimID", genelBildirimPushOkundu);
+        }
+
+        public int GetCountByKime(int KullaniciID, string filter = "")
+        {
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM GenelBildirim where Silindi = 0 and Kime=@KullaniciID { filterQuery }", new { KullaniciID }) + "";
+
+            int.TryParse(strCount, out int count);
+            return count;
         }
 
         public int Delete(int Id)
@@ -68,6 +83,27 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<GenelBildirim> GetListPaginationByKime(PagingParams pagingParams, int KullaniciID)
+        {
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string orderQuery = "ORDER BY 1";
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+            //columns ayrımı yapılır 
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return GetListQuery($@"SELECT * FROM GenelBildirim where Silindi=0 and Kime=@KullaniciID {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { KullaniciID, pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
         public List<GenelBildirim> GetListByKime(int Kime)
