@@ -101,7 +101,10 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 columnsQuery = pagingParams.columns;
             }
 
-            return GetListQuery($@"SELECT * FROM GenelBildirim where Silindi=0 and Kime=@KullaniciID {filterQuery} {orderQuery}
+            return GetListQuery($@"SELECT * FROM GenelBildirim where Silindi=0 
+                                    and
+                (Kime = @KullaniciID or KimeTip in (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @KullaniciID))
+                                    {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { KullaniciID, pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
@@ -113,7 +116,8 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public List<GenelBildirim> GetListYeniBildirimByKime(int Kime)
         {
-            return GetListQuery("select * from GenelBildirim where Silindi=0 and Kime=@Kime and IsOkundu=0 and IsPush=0 ",
+            return GetListQuery($@"select * from GenelBildirim where Silindi=0 and IsOkundu=0 and
+                (Kime = @Kime or KimeTip in (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @Kime))",
                 new { Kime });
         }
 
