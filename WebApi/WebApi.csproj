@@ -282,6 +282,7 @@
     <Compile Include="Controllers\OncelikController.cs" />
     <Compile Include="Controllers\OzNitelikController.cs" />
     <Compile Include="Controllers\ParaBirimController.cs" />
+    <Compile Include="Controllers\PeriyodikBakimBildirimOkunduController.cs" />
     <Compile Include="Controllers\PeriyodikBakimController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
     <Compile Include="Controllers\SarfYeriController.cs" />

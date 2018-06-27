@@ -106,6 +106,7 @@
     <Compile Include="Abstract\Satinalma\ITeminSuresiDal.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimSekliDal.cs" />
     <Compile Include="Abstract\Satinalma\ITeslimYeriDal.cs" />
+    <Compile Include="Abstract\Sistem\IPeriyodikBakimBildirimOkunduDal.cs" />
     <Compile Include="Abstract\Varlik\IAkaryakitAlimFisDal.cs" />
     <Compile Include="Abstract\Varlik\IAracServisDal.cs" />
     <Compile Include="Abstract\Varlik\IBirimDal.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Concrete\Dapper\Sistem\DpIsTalebiOnayBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpCompanyDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpMenuDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpPeriyodikBakimOkunduDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpYetkiGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpYetkiGrupKullaniciDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpYetkiGrupRolDal.cs" />

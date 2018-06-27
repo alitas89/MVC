@@ -90,6 +90,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IBildirimTriggerService>().To<BildirimTriggerManager>().InSingletonScope();
             Bind<IBildirimTriggerDal>().To<DpBildirimTriggerDal>();
 
+            Bind<IPeriyodikBakimBildirimOkunduService>().To<PeriyodikBakimBildirimOkunduManager>().InSingletonScope();
+            Bind<IPeriyodikBakimBildirimOkunduDal>().To<DpPeriyodikBakimBildirimOkunduDal>();
+
             //*****Asıl tablolar
 
             //#VarlıkModul
