@@ -206,14 +206,108 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { Kime });
         }
 
-        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID, int KullaniciID)
         {
-            return new DpDtoRepositoryBase<GenelBildirimKullaniciDto>().GetListDtoQuery("select * from View_GenelBildirimKullaniciDto where BildirimID=@BildirimID", new { BildirimID });
+            return new DpDtoRepositoryBase<GenelBildirimKullaniciDto>().GetListDtoQuery($@"
+                 select t.BildirimID, t.Kime, t.KimeTip, t.Ad, t.Icerik, 
+		                        t.BildirimTarih, t.BildirimTriggerID, t.QuartzJobTip,
+		                        t.OkunmaTarih, t.PushTarih, t.IsPush, t.IsOkundu,
+		                        bil.PeriyotDeger, brm.BirimAd, k.KullaniciAdi as OlusturanKullaniciAdi
+								from (SELECT BildirimID, Kime, KimeTip, Ad, Icerik, 
+                                                BildirimTarih, BildirimTriggerID, QuartzJobTip,
+                                
+								--okundu durumu
+								case when QuartzJobTip=2
+									then 						
+									case when EXISTS(select * from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsOkundu
+										end as IsOkundu,
+
+								--push durumu
+								case when QuartzJobTip=2
+									then 									
+									case when EXISTS(select * from PeriyodikBakimBildirimPushed where 
+												 KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsPush
+										end as IsPush,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(OkunmaTarih) from PeriyodikBakimBildirimOkundu where 
+												 KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.OkunmaTarih
+										end as OkunmaTarih,
+
+								--push tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(PushTarih) from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.PushTarih
+										end as PushTarih
+
+                                    FROM GenelBildirim as G where Silindi=0 
+                                and BildirimID=@BildirimID
+                                ) t
+							inner join BildirimTrigger bil on t.BildirimTriggerID = bil.BildirimTriggerID
+							inner join Birim brm on bil.PeriyotBirimID=brm.BirimID
+							inner join Kullanici k on bil.OlusturanID=k.KullaniciID
+            ", new { BildirimID, KullaniciID });
         }
 
-        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID, int KullaniciID)
         {
-            return new DpDtoRepositoryBase<GenelBildirimYoneticiDto>().GetListDtoQuery("select * from View_GenelBildirimYoneticiDto where BildirimID=@BildirimID", new { BildirimID });
+            return new DpDtoRepositoryBase<GenelBildirimYoneticiDto>().GetListDtoQuery($@"
+                              select t.*, bil.PeriyotBirimID, bil.OlusturanID, bil.PeriyotDeger, bil.KimeTipID,
+                              bil.BaslangicTarih, bil.BitisTarih, bil.OlusturulmaTarih, bil.SonDegisiklikTarih,
+                              bil.QuartzTriggerTarih, bil.IsTrigger ,brm.BirimAd, k.KullaniciAdi as OlusturanKullaniciAdi
+								
+		                            from (SELECT BildirimID, BildirimTriggerID, Tip, Kime, KimeTip, Ad,
+		                            Icerik, BildirimAksiyonSayfaID, BildirimAksiyonID, BildirimTarih, Tarih,
+		                            QuartzJobTip,
+                                
+								--okundu durumu
+								case when QuartzJobTip=2
+									then 						
+									case when EXISTS(select * from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsOkundu
+										end as IsOkundu,
+
+								--push durumu
+								case when QuartzJobTip=2
+									then 									
+									case when EXISTS(select * from PeriyodikBakimBildirimPushed where 
+												 KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsPush
+										end as IsPush,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(OkunmaTarih) from PeriyodikBakimBildirimOkundu where 
+												 KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.OkunmaTarih
+										end as OkunmaTarih,
+
+								--push tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(PushTarih) from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.PushTarih
+										end as PushTarih
+
+                                    FROM GenelBildirim as G where Silindi=0 
+                                and BildirimID=@BildirimID
+                                ) t
+
+							inner join BildirimTrigger bil on t.BildirimTriggerID = bil.BildirimTriggerID
+							inner join Birim brm on bil.PeriyotBirimID=brm.BirimID
+							inner join Kullanici k on bil.OlusturanID=k.KullaniciID            
+            ", new { BildirimID, KullaniciID });
         }
     }
 }

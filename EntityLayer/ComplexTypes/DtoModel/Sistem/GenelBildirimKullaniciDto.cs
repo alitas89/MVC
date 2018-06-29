@@ -16,5 +16,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Sistem
         public int PeriyotDeger { get; set; }
         public int QuartzJobTip { get; set; }
         public string BirimAd { get; set; }
+        public string OlusturanKullaniciAdi { get; set; }
     }
 }

@@ -93,15 +93,15 @@ namespace BusinessLayer.Concrete.Sistem
             return _genelbildirimDal.GetListByKime(Kime);
         }
 
-        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        public List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID, int KullaniciID)
         {
-            return _genelbildirimDal.GetListGenelBildirimKullaniciDtoByKime(BildirimID);
+            return _genelbildirimDal.GetListGenelBildirimKullaniciDtoByKime(BildirimID, KullaniciID);
         }
 
         [SecuredOperation(Roles = "Authorized")]
-        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        public List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID, int KullaniciID)
         {
-            return _genelbildirimDal.GetListGenelBildirimYoneticiDtoByKime(BildirimID);
+            return _genelbildirimDal.GetListGenelBildirimYoneticiDtoByKime(BildirimID, KullaniciID);
         }
 
         [SecuredOperation(Roles = "Authorized")]

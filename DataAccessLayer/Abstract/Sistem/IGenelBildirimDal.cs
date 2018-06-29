@@ -12,9 +12,9 @@ namespace DataAccessLayer.Abstract.Sistem
 
         List<GenelBildirim> GetListByKime(int Kime);
 
-        List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID);
+        List<GenelBildirimKullaniciDto> GetListGenelBildirimKullaniciDtoByKime(int BildirimID, int KullaniciID);
 
-        List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID);
+        List<GenelBildirimYoneticiDto> GetListGenelBildirimYoneticiDtoByKime(int BildirimID, int KullaniciID);
 
         int UpdatePushOkundu(GenelBildirimPushOkundu genelBildirimPushOkundu);
 

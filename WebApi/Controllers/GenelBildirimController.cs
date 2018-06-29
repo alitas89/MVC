@@ -115,15 +115,15 @@ namespace WebApi.Controllers
         }
 
         [Route("api/genelbildirim/getlistgenelbildirimkullanicidtobykime/{BildirimID}")]
-        public GenelBildirimKullaniciDto GetListGenelBildirimKullaniciDtoByKime(int BildirimID)
+        public GenelBildirimKullaniciDto GetListGenelBildirimKullaniciDtoByKime(int BildirimID, int KullaniciID)
         {
-            return _genelBildirimService.GetListGenelBildirimKullaniciDtoByKime(BildirimID).FirstOrDefault();
+            return _genelBildirimService.GetListGenelBildirimKullaniciDtoByKime(BildirimID, KullaniciID).FirstOrDefault();
         }
 
         [Route("api/genelbildirim/getlistgenelbildirimyoneticidtobykime/{BildirimID}")]
-        public GenelBildirimYoneticiDto GetListGenelBildirimYoneticiDtoByKime(int BildirimID)
+        public GenelBildirimYoneticiDto GetListGenelBildirimYoneticiDtoByKime(int BildirimID, int KullaniciID)
         {
-            return _genelBildirimService.GetListGenelBildirimYoneticiDtoByKime(BildirimID).FirstOrDefault();
+            return _genelBildirimService.GetListGenelBildirimYoneticiDtoByKime(BildirimID, KullaniciID).FirstOrDefault();
         }
 
         [HttpPost]
