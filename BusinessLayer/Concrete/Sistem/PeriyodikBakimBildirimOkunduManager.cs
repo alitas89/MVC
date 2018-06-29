@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Sistem
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, PeriyodikBakimBildirimOkunduCreate")]
+        [SecuredOperation(Roles = "Authorized")]
         public int Add(PeriyodikBakimBildirimOkundu periyodikbakimbildirimokundu)
         {
             return _periyodikbakimbildirimokunduDal.Add(periyodikbakimbildirimokundu);

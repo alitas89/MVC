@@ -14,6 +14,7 @@ namespace EntityLayer.ComplexTypes.DtoModel.Sistem
         public bool IsOkundu { get; set; }
         public bool IsPush { get; set; }
         public int PeriyotDeger { get; set; }
+        public int QuartzJobTip { get; set; }
         public string BirimAd { get; set; }
     }
 }

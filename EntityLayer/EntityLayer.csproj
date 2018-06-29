@@ -134,6 +134,7 @@
     <Compile Include="Concrete\Sistem\IsTalebiOnayBirim.cs" />
     <Compile Include="Concrete\Sistem\Menu.cs" />
     <Compile Include="Concrete\Sistem\PeriyodikBakimBildirimOkundu.cs" />
+    <Compile Include="Concrete\Sistem\PeriyodikBakimBildirimPushed.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrup.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrupKullanici.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrupRol.cs" />

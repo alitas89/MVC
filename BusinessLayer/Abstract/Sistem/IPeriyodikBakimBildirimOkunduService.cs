@@ -20,6 +20,6 @@ namespace BusinessLayer.Abstract.Sistem
 
         List<PeriyodikBakimBildirimOkundu> GetListPagination(PagingParams pagingParams);
 
-        int GetCount(string filter);
+        int GetCount(string filter="");
     }
 }

@@ -20,6 +20,7 @@ namespace EntityLayer.Concrete.Sistem
         public DateTime? PushTarih { get; set; }
         public bool IsOkundu { get; set; }
         public bool IsPush { get; set; }
+        public int QuartzJobTip { get; set; }
         public bool Silindi { get; set; }
     }
 

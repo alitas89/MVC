@@ -91,8 +91,6 @@ namespace WebApi.Controllers
         public HttpResponseMessage GetListPaginationByKime(int kullaniciID, int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
-            
-
             total = filter.Length != 0 ? _genelBildirimService.GetCountByKime(kullaniciID, filter) : _genelBildirimService.GetCountByKime(kullaniciID);
             List<GenelBildirim> d = _genelBildirimService.GetListPaginationByKime(new PagingParams()
             {

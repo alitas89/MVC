@@ -108,6 +108,7 @@
     <Compile Include="Abstract\Sistem\ICompanyService.cs" />
     <Compile Include="Abstract\Sistem\IMenuService.cs" />
     <Compile Include="Abstract\Sistem\IPeriyodikBakimBildirimOkunduService.cs" />
+    <Compile Include="Abstract\Sistem\IPeriyodikBakimBildirimPushedService.cs" />
     <Compile Include="Abstract\Sistem\IYetkiGrupKullaniciService.cs" />
     <Compile Include="Abstract\Sistem\IYetkiGrupRolService.cs" />
     <Compile Include="Abstract\Sistem\IYetkiGrupService.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Concrete\Sistem\CompanyManager.cs" />
     <Compile Include="Concrete\Sistem\MenuManager.cs" />
     <Compile Include="Concrete\Sistem\PeriyodikBakimBildirimOkunduManager.cs" />
+    <Compile Include="Concrete\Sistem\PeriyodikBakimBildirimPushedManager.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrupKullaniciManager.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrupManager.cs" />
     <Compile Include="Concrete\Sistem\YetkiGrupRolManager.cs" />

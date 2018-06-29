@@ -39,7 +39,10 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
         public int GetCountByKime(int KullaniciID, string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM GenelBildirim where Silindi = 0 and Kime=@KullaniciID { filterQuery }", new { KullaniciID }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM GenelBildirim where Silindi = 0 and 
+                                         (Kime = @KullaniciID or KimeTip in 
+                                         (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @KullaniciID))
+                                        { filterQuery }", new { KullaniciID }) + "";
 
             int.TryParse(strCount, out int count);
             return count;
@@ -101,9 +104,47 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 columnsQuery = pagingParams.columns;
             }
 
-            return GetListQuery($@"SELECT * FROM GenelBildirim where Silindi=0 
-                                    and
-                (Kime = @KullaniciID or KimeTip in (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @KullaniciID))
+            return GetListQuery($@"
+                                SELECT BildirimID, BildirimTriggerID, Tip, Kime, KimeTip, Ad, Icerik, 
+                                    BildirimAksiyonSayfaID, BildirimAksiyonID, 
+                                    BildirimTarih, Tarih, QuartzJobTip, Silindi,
+                                
+								--okundu durumu
+								case when QuartzJobTip=2
+									then 						
+									case when EXISTS(select * from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsOkundu
+										end as IsOkundu,
+
+								--push durumu
+								case when QuartzJobTip=2
+									then 									
+									case when EXISTS(select * from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsPush
+										end as IsPush,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(OkunmaTarih) from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.OkunmaTarih
+										end as OkunmaTarih,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(PushTarih) from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@KullaniciID and BildirimID=G.BildirimID)
+									else G.PushTarih
+										end as PushTarih
+
+                                    FROM GenelBildirim as G where Silindi=0 
+                                and
+                                (Kime = @KullaniciID or KimeTip in 
+                                (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @KullaniciID))
                                     {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { KullaniciID, pagingParams.filter, pagingParams.offset, pagingParams.limit });
@@ -116,8 +157,52 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
         public List<GenelBildirim> GetListYeniBildirimByKime(int Kime)
         {
-            return GetListQuery($@"select * from GenelBildirim where Silindi=0 and IsOkundu=0 and
-                (Kime = @Kime or KimeTip in (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @Kime))",
+            return GetListQuery($@"
+                                select * from (
+
+                                 SELECT BildirimID, BildirimTriggerID, Tip, Kime, KimeTip, Ad, Icerik, 
+                                    BildirimAksiyonSayfaID, BildirimAksiyonID, 
+                                    BildirimTarih, Tarih, QuartzJobTip, Silindi,
+                                
+								--okundu durumu
+								case when QuartzJobTip=2
+									then 						
+									case when EXISTS(select * from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@Kime and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsOkundu
+										end as IsOkundu,
+
+								--push durumu
+								case when QuartzJobTip=2
+									then 									
+									case when EXISTS(select * from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@Kime and BildirimID=G.BildirimID) then 1 else 0 end
+									else G.IsPush
+										end as IsPush,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(OkunmaTarih) from PeriyodikBakimBildirimOkundu where 
+												KullaniciID=@Kime and BildirimID=G.BildirimID)
+									else G.OkunmaTarih
+										end as OkunmaTarih,
+
+								--okunma tarihi
+								case when QuartzJobTip=2
+									then 						
+										(select MAX(PushTarih) from PeriyodikBakimBildirimPushed where 
+												KullaniciID=@Kime and BildirimID=G.BildirimID)
+									else G.PushTarih
+										end as PushTarih
+
+                                    FROM GenelBildirim as G where Silindi=0 
+                                and
+                                (Kime = @Kime or KimeTip in 
+                                (select IsTipiID from IsTalebiOnayBirim where KullaniciID = @Kime))
+                                    
+                                ) t where IsOkundu=0
+								",
                 new { Kime });
         }
 
