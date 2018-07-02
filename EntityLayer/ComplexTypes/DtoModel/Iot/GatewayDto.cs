@@ -13,5 +13,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Iot
         public double SonEndeks { get; set; }
         public string EnerjiVarYok { get; set; }
         public string GatewaySicaklik { get; set; }
+        public int OkunanSayac { get; set; }
     }
 }

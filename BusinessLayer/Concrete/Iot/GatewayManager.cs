@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete.Iot
 
         public int GetCountDto(string filter = "")
         {
-            return _gatewayDal.GetCountDto();
+            return _gatewayDal.GetCountDto(filter);
         }
 
         [SecuredOperation(Roles = "Admin, IOTRead, GatewayRead, GatewayLtd")]

@@ -363,8 +363,12 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IIsTalebiService>().To<IsTalebiManager>().InSingletonScope();
             Bind<IIsTalebiDal>().To<DpIsTalebiDal>();
 
+            //#IOT
             Bind<IGatewayService>().To<GatewayManager>().InSingletonScope();
             Bind<IGatewayDal>().To<DpGatewayDal>();
+
+            Bind<ISayacService>().To<SayacManager>().InSingletonScope();
+            Bind<ISayacDal>().To<DpSayacDal>();
         }
     }
 }
