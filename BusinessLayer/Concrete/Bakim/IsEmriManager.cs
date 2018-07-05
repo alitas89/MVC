@@ -45,6 +45,11 @@ namespace BusinessLayer.Concrete.Bakim
             return _isEmriDal.AddWithTransaction(isemri);
         }
 
+        public List<string> AddListWithTransaction(List<IsEmri> listIsemri)
+        {
+            return _isEmriDal.AddListWithTransaction(listIsemri);
+        }
+
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
 
         [SecuredOperation(Roles = "Admin, BakimUpdate, IsEmriUpdate")]

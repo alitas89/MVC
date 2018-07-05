@@ -369,6 +369,18 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<ISayacService>().To<SayacManager>().InSingletonScope();
             Bind<ISayacDal>().To<DpSayacDal>();
+
+            Bind<IAlarmService>().To<AlarmManager>().InSingletonScope();
+            Bind<IAlarmDal>().To<DpAlarmDal>();
+
+            Bind<IAlarmKosulService>().To<AlarmKosulManager>().InSingletonScope();
+            Bind<IAlarmKosulDal>().To<DpAlarmKosulDal>();
+
+            Bind<IAlarmKosulTipService>().To<AlarmKosulTipManager>().InSingletonScope();
+            Bind<IAlarmKosulTipDal>().To<DpAlarmKosulTipDal>();
+
+            Bind<IAlarmTipService>().To<AlarmTipManager>().InSingletonScope();
+            Bind<IAlarmTipDal>().To<DpAlarmTipDal>();
         }
     }
 }

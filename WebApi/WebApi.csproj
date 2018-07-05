@@ -206,6 +206,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bearer\AuthorizationServerProvider.cs" />
     <Compile Include="Controllers\AkaryakitAlimFisController.cs" />
+    <Compile Include="Controllers\AlarmController.cs" />
+    <Compile Include="Controllers\AlarmKosulController.cs" />
+    <Compile Include="Controllers\AlarmKosulTipController.cs" />
+    <Compile Include="Controllers\AlarmTipController.cs" />
     <Compile Include="Controllers\AmbarController.cs" />
     <Compile Include="Controllers\AracServisController.cs" />
     <Compile Include="Controllers\ArizaCozumuController.cs" />

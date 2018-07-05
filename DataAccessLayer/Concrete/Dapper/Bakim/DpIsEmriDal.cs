@@ -63,7 +63,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
                                                             "@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
                                                             "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
                                                             "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
-                                                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi) "+
+                                                            "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi) " +
                                                             "SELECT CAST(SCOPE_IDENTITY() as int)", isemri, transaction);
                 int.TryParse(strIsEmriID + "", out int IsEmriID);
 
@@ -221,5 +221,48 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<string> AddListWithTransaction(List<IsEmri> listIsemri)
+        {
+            List<string> listIsEmriNo = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                IDbTransaction transaction = connection.BeginTransaction();
+
+                foreach (var isEmri in listIsemri)
+                {
+                    var strIsEmriID = connection.ExecuteScalar("insert into IsEmri(IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID," +
+                                                         "SarfyeriID,TalepEdenID,PlanlananBaslangicTarih,PlanlananBaslangicSaat,PlanlananBitisTarih," +
+                                                         "PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat," +
+                                                         "BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat," +
+                                                         "IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID," +
+                                                         "StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,BakimAciklamasi,Silindi) values " +
+                                                         "(@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID," +
+                                                         "@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih," +
+                                                         "@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat," +
+                                                         "@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat," +
+                                                         "@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID," +
+                                                         "@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi,@Silindi) " +
+                                                         "SELECT CAST(SCOPE_IDENTITY() as int)", isEmri, transaction);
+
+                    int.TryParse(strIsEmriID + "", out int IsEmriID);
+
+                    var strIsEmriNoID = connection.ExecuteScalar(
+                        "insert into IsEmriNo(IsTalepID,IsEmriID,Otomatik,Tarih,Silindi) values (null,@IsEmriID,0,GetDate(),0)" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)",
+                        new { IsEmriID }, transaction);
+                    listIsEmriNo.Add(strIsEmriNoID+"");
+                }
+
+                transaction.Commit();
+            }
+            return listIsEmriNo;
+        }
+
     }
 }

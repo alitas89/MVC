@@ -14,19 +14,19 @@ namespace EntityLayer.Concrete.Bakim
         public int KisimID { get; set; }
         public int SarfyeriID { get; set; }
         public int TalepEdenID { get; set; }
-        public DateTime PlanlananBaslangicTarih { get; set; }
+        public DateTime? PlanlananBaslangicTarih { get; set; }
         public string PlanlananBaslangicSaat { get; set; }
-        public DateTime PlanlananBitisTarih { get; set; }
+        public DateTime? PlanlananBitisTarih { get; set; }
         public string PlanlananBitisSaat { get; set; }
-        public DateTime ArizaOlusmaTarih { get; set; }
+        public DateTime? ArizaOlusmaTarih { get; set; }
         public string ArizaOlusmaSaat { get; set; }
-        public DateTime BildirilisTarih { get; set; }
+        public DateTime? BildirilisTarih { get; set; }
         public string BildirilisSaat { get; set; }
-        public DateTime BaslangicTarih { get; set; }
+        public DateTime? BaslangicTarih { get; set; }
         public string BaslangicSaat { get; set; }
-        public DateTime BitisTarih { get; set; }
+        public DateTime? BitisTarih { get; set; }
         public string BitisSaat { get; set; }
-        public DateTime DevreyeAlmaTarih { get; set; }
+        public DateTime? DevreyeAlmaTarih { get; set; }
         public string DevreyeAlmaSaat { get; set; }
         public int IsSorumluID { get; set; }
         public int ArizaNedeniID { get; set; }

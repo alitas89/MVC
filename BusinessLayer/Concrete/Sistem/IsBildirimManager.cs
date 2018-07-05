@@ -18,31 +18,31 @@ namespace BusinessLayer.Concrete.Sistem
             _genelBildirimDal = genelBildirimDal;
         }
         
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
+        [SecuredOperation(Roles = "Authorized")]
         public int GetAcikOnaysizIsTalepSayisi(int KullaniciID)
         {
             return _genelBildirimDal.GetAcikOnaysizIsTalepSayisi(KullaniciID);
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
+        [SecuredOperation(Roles = "Authorized")]
         public int GetAcikIsEmriSayisi(int KullaniciID)
         {
             return _genelBildirimDal.GetAcikIsEmriSayisi(KullaniciID);
         }
 
-        [SecuredOperation(Roles = "Admin, Authorized")]
+        [SecuredOperation(Roles = "Authorized")]
         public int GetSorumluOlunanIsEmriSayisi(int KullaniciID)
         {
             return _genelBildirimDal.GetSorumluOlunanIsEmriSayisi(KullaniciID);
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsEmriRead")]
+        [SecuredOperation(Roles = "Authorized")]
         public List<IsEmriBakimSonucBildirimTemp> GetIsEmriBakimSonucBildirim(int KullaniciID)
         {
             return _genelBildirimDal.GetIsEmriBakimSonucBildirim(KullaniciID);
         }
 
-        [SecuredOperation(Roles = "Admin, SistemRead, IsTalebiRead")]
+        [SecuredOperation(Roles = "Authorized")]
         public List<IsTalepSonucBildirimTemp> GetIsTalepSonucBildirim(int KullaniciID)
         {
             return _genelBildirimDal.GetIsTalepSonucBildirim(KullaniciID);

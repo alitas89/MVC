@@ -122,6 +122,10 @@
     <Compile Include="Concrete\Bakim\IsTalebi.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmriTuru.cs" />
     <Compile Include="Concrete\Bakim\PeriyodikBakim.cs" />
+    <Compile Include="Concrete\Iot\Alarm.cs" />
+    <Compile Include="Concrete\Iot\AlarmKosul.cs" />
+    <Compile Include="Concrete\Iot\AlarmKosulTip.cs" />
+    <Compile Include="Concrete\Iot\AlarmTip.cs" />
     <Compile Include="Concrete\Iot\Gateway.cs" />
     <Compile Include="Concrete\Iot\Sayac.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimi.cs" />

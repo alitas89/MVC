@@ -94,6 +94,10 @@
     <Compile Include="Abstract\Bakim\IIsinSorumlusuService.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmirTuruService.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimService.cs" />
+    <Compile Include="Abstract\Iot\IAlarmKosulService.cs" />
+    <Compile Include="Abstract\Iot\IAlarmKosulTipService.cs" />
+    <Compile Include="Abstract\Iot\IAlarmService.cs" />
+    <Compile Include="Abstract\Iot\IAlarmTipService.cs" />
     <Compile Include="Abstract\Iot\IGatewayService.cs" />
     <Compile Include="Abstract\Iot\ISayacService.cs" />
     <Compile Include="Abstract\Malzeme\IMalzemeSayimiService.cs" />
@@ -202,6 +206,10 @@
     <Compile Include="Concrete\Bakim\IsTalebiManager.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmirTuruManager.cs" />
     <Compile Include="Concrete\Bakim\PeriyodikBakimManager.cs" />
+    <Compile Include="Concrete\Iot\AlarmKosulManager.cs" />
+    <Compile Include="Concrete\Iot\AlarmKosulTipManager.cs" />
+    <Compile Include="Concrete\Iot\AlarmManager.cs" />
+    <Compile Include="Concrete\Iot\AlarmTipManager.cs" />
     <Compile Include="Concrete\Iot\GatewayManager.cs" />
     <Compile Include="Concrete\Iot\SayacManager.cs" />
     <Compile Include="Concrete\Malzeme\MalzemeSayimiManager.cs" />

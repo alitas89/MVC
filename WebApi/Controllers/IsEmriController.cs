@@ -10,6 +10,7 @@ using EntityLayer.Concrete.Bakim;
 using System.Linq.Dynamic;
 using System.Security.Claims;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using Newtonsoft.Json;
 
 namespace WebApi.Controllers
 {
@@ -105,6 +106,13 @@ namespace WebApi.Controllers
             int kullaniciID = strKullaniciID != null ? int.Parse(strKullaniciID) : 0;
 
             return _isEmriService.GetEditYetki(IsEmriID, kullaniciID);
+        }
+
+        [HttpPost]
+        [Route("api/isemri/addlistwithtransaction")]
+        public string AddListWithTransaction(List<IsEmri> listIsemri)
+        {
+            return JsonConvert.SerializeObject(_isEmriService.AddListWithTransaction(listIsemri));
         }
     }
 }
