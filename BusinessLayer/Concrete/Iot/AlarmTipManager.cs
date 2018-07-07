@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Iot
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmTipRead, AlarmTipLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmTipRead, AlarmTipLtd")]
         public List<AlarmTip> GetList()
         {
             return _alarmtipDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, AlarmTipRead, AlarmTipLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmTipRead, AlarmTipLtd")]
         public AlarmTip GetById(int Id)
         {
             return _alarmtipDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Iot
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmTipCreate")]
+        [SecuredOperation(Roles = "Admin, IOTCreate, AlarmTipCreate")]
         public int Add(AlarmTip alarmtip)
         {
             return _alarmtipDal.Add(alarmtip);
@@ -41,31 +41,32 @@ namespace BusinessLayer.Concrete.Iot
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmTipUpdate")]
+        [SecuredOperation(Roles = "Admin, IOTUpdate, AlarmTipUpdate")]
         public int Update(AlarmTip alarmtip)
         {
             return _alarmtipDal.Update(alarmtip);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmTipDelete")]
+        [SecuredOperation(Roles = "Admin, IOTDelete, AlarmTipDelete")]
         public int Delete(int Id)
         {
             return _alarmtipDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmTipDelete")]
+        [SecuredOperation(Roles = "Admin, IOTDelete, AlarmTipDelete")]
         public int DeleteSoft(int Id)
         {
             return _alarmtipDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, AlarmTipRead, AlarmTipLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmTipRead, AlarmTipLtd")]
         public List<AlarmTip> GetListPagination(PagingParams pagingParams)
         {
             return _alarmtipDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _alarmtipDal.GetCount(filter);

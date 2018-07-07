@@ -75,8 +75,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
-
-
         public int AddWithTransaction(BakimPlani bakimplani, List<IsAdimlari> listIsAdimlari)
         {
             var count = 0;

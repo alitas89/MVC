@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
+using EntityLayer.Concrete.Bakim;
 using EntityLayer.Concrete.Iot;
 
 namespace WebApi.Controllers
@@ -23,6 +24,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
+        [Route("api/alarmkosultip/getAll")]
         public IEnumerable<AlarmKosulTip> Get()
         {
             return _alarmKosulTipService.GetList();
@@ -48,7 +50,9 @@ namespace WebApi.Controllers
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;
         }
+
         // GET api/<controller>/5
+        [Route("api/alarmkosultip/getbyid/{id}")]
         public AlarmKosulTip Get(int id)
         {
             return _alarmKosulTipService.GetById(id);

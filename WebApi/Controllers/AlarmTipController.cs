@@ -23,6 +23,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
+        [Route("api/alarmtip/getAll")]
         public IEnumerable<AlarmTip> Get()
         {
             return _alarmTipService.GetList();
@@ -48,7 +49,9 @@ namespace WebApi.Controllers
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;
         }
+
         // GET api/<controller>/5
+        [Route("api/alarmtip/getbyid/{id}")]
         public AlarmTip Get(int id)
         {
             return _alarmTipService.GetById(id);

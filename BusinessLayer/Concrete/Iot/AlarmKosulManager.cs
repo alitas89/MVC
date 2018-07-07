@@ -19,13 +19,13 @@ namespace BusinessLayer.Concrete.Iot
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmKosulRead, AlarmKosulLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmKosulRead, AlarmKosulLtd")]
         public List<AlarmKosul> GetList()
         {
             return _alarmkosulDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, AlarmKosulRead, AlarmKosulLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmKosulRead, AlarmKosulLtd")]
         public AlarmKosul GetById(int Id)
         {
             return _alarmkosulDal.Get(Id);
@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete.Iot
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmKosulCreate")]
+        [SecuredOperation(Roles = "Admin, IOTCreate,  AlarmKosulCreate")]
         public int Add(AlarmKosul alarmkosul)
         {
             return _alarmkosulDal.Add(alarmkosul);
@@ -41,36 +41,42 @@ namespace BusinessLayer.Concrete.Iot
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmKosulUpdate")]
+        [SecuredOperation(Roles = "Admin, IOTUpdate, AlarmKosulUpdate")]
         public int Update(AlarmKosul alarmkosul)
         {
             return _alarmkosulDal.Update(alarmkosul);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmKosulDelete")]
+        [SecuredOperation(Roles = "Admin, IOTDelete, AlarmKosulDelete")]
         public int Delete(int Id)
         {
             return _alarmkosulDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, AlarmKosulDelete")]
+        [SecuredOperation(Roles = "Admin, IOTDelete, AlarmKosulDelete")]
         public int DeleteSoft(int Id)
         {
             return _alarmkosulDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, AlarmKosulRead, AlarmKosulLtd")]
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmKosulRead, AlarmKosulLtd")]
         public List<AlarmKosul> GetListPagination(PagingParams pagingParams)
         {
             return _alarmkosulDal.GetListPagination(pagingParams);
         }
+
         public int GetCount(string filter = "")
         {
             return _alarmkosulDal.GetCount(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, IOTRead, AlarmKosulRead, AlarmKosulLtd")]
+        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        {
+            return _alarmkosulDal.GetListAlarmKosulByAlarmID(AlarmID);
+        }
     }
 
 }

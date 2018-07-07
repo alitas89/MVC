@@ -6,6 +6,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Bakim;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 
@@ -33,7 +35,7 @@ namespace WebApi.Controllers
         {
             int total = 0;
             total = filter.Length != 0 ? _alarmService.GetCount(filter) : _alarmService.GetCount();
-            List<Alarm> d = _alarmService.GetListPagination(new PagingParams()
+            List<AlarmDto> d = _alarmService.GetListPaginationDto(new PagingParams()
             {
                 filter = filter,
                 limit = limit,
@@ -55,15 +57,15 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public int Post([FromBody]Alarm alarm)
+        public int Post([FromBody]AlarmTemp alarmTemp)
         {
-            return _alarmService.Add(alarm);
+            return _alarmService.AddWithTransaction(alarmTemp.alarm, alarmTemp.listAlarmKosul);
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody]Alarm alarm)
+        public int Put([FromBody]AlarmTemp alarmTemp)
         {
-            return _alarmService.Update(alarm);
+            return _alarmService.UpdateWithTransaction(alarmTemp.alarm, alarmTemp.listAlarmKosul);
         }
 
         public int Delete(int id)

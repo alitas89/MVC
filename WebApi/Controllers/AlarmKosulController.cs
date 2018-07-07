@@ -76,5 +76,11 @@ namespace WebApi.Controllers
         {
             return _alarmKosulService.Delete(id);
         }
+
+        [Route("api/alarmkosultip/getlistalarmkosulbyalarmid/{AlarmID}")]
+        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        {
+            return _alarmKosulService.GetListAlarmKosulByAlarmID(AlarmID);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
     {
         public List<AlarmKosul> GetList()
         {
-            return GetListQuery("select * from AlarmKosul where Silindi=0", new { });
+            return GetListQuery("select * from AlarmKosulDto where Silindi=0", new { });
         }
 
         public AlarmKosul Get(int Id)
@@ -69,5 +69,10 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        {
+            return GetListQuery("select * from AlarmKosul where AlarmID=@AlarmID",
+                new { AlarmID });
+        }
     }
 }

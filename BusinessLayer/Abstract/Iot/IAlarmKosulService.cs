@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Iot
         List<AlarmKosul> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter="");
+
+        List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID);
     }
 }
