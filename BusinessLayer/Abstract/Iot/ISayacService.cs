@@ -5,15 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 
 namespace BusinessLayer.Abstract.Iot
 {
     public interface ISayacService
     {
-        List<Sayac> GetListPagination(PagingParams pagingParams);
+        List<SayacDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCount(string filter = "");
+        int GetCountDto(string filter = "");
 
-        List<Sayac> GetListByModemSeriNo(string modemSeriNo);
+        List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemSeriNo);
+
+        int GetCountDtoByModemSeriNo(string modemserino, string filter = "");
     }
 }

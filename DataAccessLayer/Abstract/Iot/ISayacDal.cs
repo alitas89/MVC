@@ -2,15 +2,18 @@
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 
 namespace DataAccessLayer.Abstract.Iot
 {
     public interface ISayacDal : IEntityRepository<Sayac>
     {
-        List<Sayac> GetListPagination(PagingParams pagingParams);
+        List<SayacDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCount(string filter = "");
+        int GetCountDto(string filter = "");
 
-        List<Sayac> GetListByModemSeriNo(string ModemSeriNo);
+        List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemserino);
+
+        int GetCountDtoByModemSeriNo(string modemserino = "", string filter = "");
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 
 namespace BusinessLayer.Concrete.Iot
 {
@@ -19,19 +20,34 @@ namespace BusinessLayer.Concrete.Iot
             _sayacDal = sayacDal;
         }
 
-        public int GetCount(string filter = "")
+        public int GetCountDto(string filter = "")
         {
-            return _sayacDal.GetCount(filter);
+            return _sayacDal.GetCountDto(filter);
         }
 
-        public List<Sayac> GetListByModemSeriNo(string modemSeriNo)
+        public List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemSeriNo)
         {
-            return _sayacDal.GetListByModemSeriNo(modemSeriNo);
+            return _sayacDal.GetListPaginationDtoByModemSeriNo(pagingParams, modemSeriNo);
         }
 
-        public List<Sayac> GetListPagination(PagingParams pagingParams)
+        public List<SayacDto> GetListPaginationDto(PagingParams pagingParams)
         {
-            return _sayacDal.GetListPagination(pagingParams);
+            return _sayacDal.GetListPaginationDto(pagingParams);
+        }
+
+        public int GetCountDtoByModemSeriNo(string modemserino, string filter = "")
+        {
+            return _sayacDal.GetCountDtoByModemSeriNo(modemserino, filter); ;
+        }
+
+        List<SayacDto> ISayacService.GetListPaginationDto(PagingParams pagingParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<SayacDto> ISayacService.GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemSeriNo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

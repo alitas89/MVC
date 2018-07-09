@@ -1,6 +1,7 @@
 ﻿using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 using System;
@@ -35,9 +36,23 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
 
         public int GetCount(string filter = "")
         {
-            string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM VOLUMETRIK.dbo.gelen_son where 1 = 1 { filterQuery}", new { }) + "";
+            throw new NotImplementedException();
+        }
 
+        public int GetCountDto(string filter = "")
+        {
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [MVC].[dbo].[View_SayacDto] where Silindi = 0 { filterQuery}", new { }) + "";
+
+            int.TryParse(strCount, out int count);
+            return count;
+        }
+
+        public int GetCountDtoByModemSeriNo(string modemserino = "", string filter = "")
+        {
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [MVC].[dbo].[View_SayacDto] where Silindi = 0 and modemSeriNo=@modemserino
+                                            {filterQuery} ", new { modemserino }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
@@ -47,35 +62,64 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
             throw new NotImplementedException();
         }
 
-        public List<Sayac> GetListByModemSeriNo(string ModemSeriNo)
+
+        /*public List<SayacDto> GetListByModemSeriNo(string ModemSeriNo)
         {
-            return GetListQuery(@"SELECT [sayacno],[tuketim],[pil],[tarih],[modemSeriNo]
-                                  FROM [VOLUMETRIK].[dbo].[gelen_son]" +
-                                  " where  modemSeriNo = @ModemSeriNo", new { ModemSeriNo });
-        }
+            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery(@"SELECT * FROM [MVC].[dbo].[View_SayacDto]" +
+                                  " where modemSeriNo = @ModemSeriNo and Silindi = 0", new { ModemSeriNo });
+        }*/
 
         public List<Sayac> GetListPagination(PagingParams pagingParams)
         {
+            throw new NotImplementedException();
+        }
+
+        public List<SayacDto> GetListPaginationDto(PagingParams pagingParams)
+        {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
+
             if (pagingParams.order.Length != 0)
             {
                 var arrOrder = pagingParams.order.Split('~');
                 orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
             }
-            //columns ayrımı yapılır 
+
+            //columns ayrımı yapılır
             string columnsQuery = "*";
             if (pagingParams.columns.Length != 0)
             {
                 columnsQuery = pagingParams.columns;
             }
 
-            return GetListQuery($@"SELECT * FROM VOLUMETRIK.dbo.gelen_son where 1=1 {filterQuery} {orderQuery}
-OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-            new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
+            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        
+        public List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemserino)
+        {
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string orderQuery = "ORDER BY 1";
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where modemSeriNo=@modemserino and Silindi=0 {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { modemserino, pagingParams.filter, pagingParams.offset, pagingParams.limit });
+        }
+
         public int Update(Sayac obj)
         {
             throw new NotImplementedException();

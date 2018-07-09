@@ -10,5 +10,6 @@ namespace EntityLayer.Concrete.Iot
         public double Pil { get; set; }
         public DateTime Tarih { get; set; }
         public string ModemSeriNo { get; set; }
+        public bool Silindi { get; set; }
     }
 }

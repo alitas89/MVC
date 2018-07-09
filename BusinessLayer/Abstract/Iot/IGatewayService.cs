@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BusinessLayer.Abstract.Iot
 {
     public interface IGatewayService
-    {        
+    {
         List<GatewayDto> GetListDto();
 
         List<GatewayDto> GetListPaginationDto(PagingParams pagingParams);

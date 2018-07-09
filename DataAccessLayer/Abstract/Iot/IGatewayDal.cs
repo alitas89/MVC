@@ -10,7 +10,7 @@ namespace DataAccessLayer.Abstract.Iot
         List<GatewayDto> GetListDto();
 
         List<GatewayDto> GetListPaginationDto(PagingParams pagingParams);
-        
+
         int GetCountDto(string filter = "");
     }
 }
