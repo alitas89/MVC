@@ -46,3 +46,16 @@ D:\MVC\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.dll
 D:\MVC\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.pdb
 D:\MVC\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csprojAssemblyReference.cache
 D:\MVC\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CopyComplete
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\UtilityLayer.dll
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\UtilityLayer.pdb
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\Newtonsoft.Json.dll
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\System.Net.Http.Formatting.dll
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\System.Web.Http.dll
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\Newtonsoft.Json.xml
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\System.Net.Http.Formatting.xml
+D:\MVCProjesi\mvcprojesi\UtilityLayer\bin\Release\System.Web.Http.xml
+D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csprojResolveAssemblyReference.cache
+D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CoreCompileInputs.cache
+D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CopyComplete
+D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.dll
+D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.pdb

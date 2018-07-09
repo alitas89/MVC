@@ -4,6 +4,7 @@ using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 
@@ -73,7 +74,7 @@ namespace BusinessLayer.Concrete.Iot
         }
 
         [SecuredOperation(Roles = "Admin, IOTRead, AlarmKosulRead, AlarmKosulLtd")]
-        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        public List<AlarmKosulDto> GetListAlarmKosulByAlarmID(int AlarmID)
         {
             return _alarmkosulDal.GetListAlarmKosulByAlarmID(AlarmID);
         }

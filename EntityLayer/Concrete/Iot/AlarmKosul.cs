@@ -9,7 +9,8 @@ namespace EntityLayer.Concrete.Iot
         public int AlarmID { get; set; }
         public int OznitelikID { get; set; }
         public int KosulID { get; set; }
-        public int Deger { get; set; }
+        public decimal Deger { get; set; }
+        public decimal Tolerans { get; set; }
         public DateTime Tarih { get; set; }
         public bool Silindi { get; set; }
     }

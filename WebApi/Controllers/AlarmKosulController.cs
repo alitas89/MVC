@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Abstract.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 
@@ -78,7 +79,7 @@ namespace WebApi.Controllers
         }
 
         [Route("api/alarmkosultip/getlistalarmkosulbyalarmid/{AlarmID}")]
-        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        public List<AlarmKosulDto> GetListAlarmKosulByAlarmID(int AlarmID)
         {
             return _alarmKosulService.GetListAlarmKosulByAlarmID(AlarmID);
         }

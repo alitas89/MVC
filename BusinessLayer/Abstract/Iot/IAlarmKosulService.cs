@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 
@@ -22,6 +23,6 @@ namespace BusinessLayer.Abstract.Iot
 
         int GetCount(string filter="");
 
-        List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID);
+        List<AlarmKosulDto> GetListAlarmKosulByAlarmID(int AlarmID);
     }
 }

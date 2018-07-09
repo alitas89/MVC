@@ -2,6 +2,7 @@
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 
@@ -21,12 +22,12 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
 
         public int Add(AlarmKosul alarmkosul)
         {
-            return AddQuery("insert into AlarmKosul(AlarmID,OznitelikID,KosulID,Deger,Tarih,Silindi) values (@AlarmID,@OznitelikID,@KosulID,@Deger,@Tarih,@Silindi)", alarmkosul);
+            return AddQuery("insert into AlarmKosul(AlarmID,OznitelikID,KosulID,Deger,Tolerans,Tarih,Silindi) values (@AlarmID,@OznitelikID,@KosulID,@Deger,@Tolerans,@Tarih,@Silindi)", alarmkosul);
         }
 
         public int Update(AlarmKosul alarmkosul)
         {
-            return UpdateQuery("update AlarmKosul set AlarmID=@AlarmID,OznitelikID=@OznitelikID,KosulID=@KosulID,Deger=@Deger,Tarih=@Tarih,Silindi=@Silindi where AlarmKosulID=@AlarmKosulID", alarmkosul);
+            return UpdateQuery("update AlarmKosul set AlarmID=@AlarmID,OznitelikID=@OznitelikID,KosulID=@KosulID,Deger=@Deger,Tolerans=@Tolerans,Tarih=@Tarih,Silindi=@Silindi where AlarmKosulID=@AlarmKosulID", alarmkosul);
         }
 
         public int Delete(int Id)
@@ -69,9 +70,9 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
-        public List<AlarmKosul> GetListAlarmKosulByAlarmID(int AlarmID)
+        public List<AlarmKosulDto> GetListAlarmKosulByAlarmID(int AlarmID)
         {
-            return GetListQuery("select * from AlarmKosul where AlarmID=@AlarmID",
+            return new DpDtoRepositoryBase<AlarmKosulDto>().GetListDtoQuery("select * from View_AlarmKosulDto where AlarmID=@AlarmID and Silindi=0",
                 new { AlarmID });
         }
     }
