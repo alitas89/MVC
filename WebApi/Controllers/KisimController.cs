@@ -10,6 +10,7 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Varlik;
 using System.Linq.Dynamic;
+using System.Web;
 
 namespace WebApi.Controllers
 {
@@ -85,6 +86,24 @@ namespace WebApi.Controllers
         public int DeleteHard(int id)
         {
             return _kisimService.Delete(id);
+        }
+
+        [HttpPost]
+        [Route("api/kisim/uploadjsonfile")]
+        public HttpResponseMessage UploadJsonFile()
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
+            {
+                foreach (string file in httpRequest.Files)
+                {
+                    var postedFile = httpRequest.Files[file];
+                    var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/" + postedFile.FileName);
+                    postedFile.SaveAs(filePath);
+                }
+            }
+            return response;
         }
     }
 }
