@@ -240,3 +240,8 @@ C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.dll
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.xml
 C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ICSharpCode.SharpZipLib.dll
+D:\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.dll
+D:\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.dll
+D:\MVC\mvcprojesi\WebApi\bin\ICSharpCode.SharpZipLib.dll
+D:\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.xml
+D:\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.xml

@@ -1,9 +1,5 @@
 ﻿using EntityLayer.Concrete.Iot;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityLayer.ComplexTypes.DtoModel.Iot
 {
@@ -15,5 +11,6 @@ namespace EntityLayer.ComplexTypes.DtoModel.Iot
         public int OkunanSayac { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
+        public int VarlikID { get; set; }
     }
 }
