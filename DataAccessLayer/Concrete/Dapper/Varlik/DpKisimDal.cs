@@ -1,10 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Others;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
+using EntityLayer.Concrete.Bakim;
 using EntityLayer.Concrete.Varlik;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
@@ -54,7 +61,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<Kisim> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -77,7 +84,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public List<KisimDto> GetListPaginationDto(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -119,6 +126,50 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_KisimDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<ColumnNameTemp> GetColumnNames(string tableName)
+        {
+            return new DpDtoRepositoryBase<ColumnNameTemp>().GetListDtoQuery($@"SELECT COLUMN_NAME
+            FROM INFORMATION_SCHEMA.COLUMNS
+            WHERE TABLE_NAME = @tableName and COLUMN_NAME != 'Silindi' and COLUMN_NAME NOT IN(
+                SELECT COLUMN_NAME
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+                WHERE OBJECTPROPERTY(OBJECT_ID(CONSTRAINT_SCHEMA + '.' + QUOTENAME(CONSTRAINT_NAME)), 'IsPrimaryKey') = 1
+            AND TABLE_NAME = @tableName)", new { tableName });
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Kisim> listKisim)
+        {
+            List<string> listKisimID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var kisim in listKisim)
+                    {
+                        var strKisimID = connection.ExecuteScalar("insert into Kisim(Kod,Ad,Butce,HedeflenenButce,VardiyaSinifID,SarfYeriID,Aciklama) values (@Kod,@Ad,@Butce,@HedeflenenButce,@VardiyaSinifID,@SarfYeriID,@Aciklama); " +
+                            "SELECT CAST(SCOPE_IDENTITY() as int)", kisim, transaction);
+
+                        listKisimID.Add(strKisimID + "");
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+
+            }
+            return listKisimID;
         }
     }
 }

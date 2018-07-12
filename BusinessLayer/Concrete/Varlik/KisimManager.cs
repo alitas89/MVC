@@ -7,6 +7,7 @@ using Core.Aspects.Postsharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
+using EntityLayer.ComplexTypes.DtoModel.Others;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -109,6 +110,16 @@ namespace BusinessLayer.Concrete.Varlik
         public int GetCountDto(string filter = "")
         {
             return _kisimDal.GetCountDto(filter);
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Kisim> listKisim)
+        {
+            return _kisimDal.AddListWithTransactionBySablon(listKisim);
+        }
+
+        public List<ColumnNameTemp> GetColumnNames(string tableName)
+        {
+            return _kisimDal.GetColumnNames(tableName);
         }
     }
 }
