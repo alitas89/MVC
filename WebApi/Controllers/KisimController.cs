@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,7 +12,10 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Varlik;
 using System.Linq.Dynamic;
+using System.Reflection;
 using System.Web;
+using System.Web.UI.WebControls;
+using ExcelDataReader;
 
 namespace WebApi.Controllers
 {
@@ -40,7 +45,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _kisimService.GetCountDto(filter) : _kisimService.GetCountDto();
@@ -98,12 +103,70 @@ namespace WebApi.Controllers
             {
                 foreach (string file in httpRequest.Files)
                 {
+
                     var postedFile = httpRequest.Files[file];
                     var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/" + postedFile.FileName);
+
+                    //Gelen dosya okunur ve işleme girer.
+            
+                        using (var reader = ExcelReaderFactory.CreateReader(postedFile.InputStream))
+                        {
+
+                            // Choose one of either 1 or 2:
+
+                            // 1. Use the reader methods
+                            do
+                            {
+                                while (reader.Read())
+                                {
+                                    // reader.GetDouble(0);
+                                }
+                            } while (reader.NextResult());
+
+                            // 2. Use the AsDataSet extension method
+                            var result = reader.AsDataSet();
+
+                            // The result of each spreadsheet is in result.Tables
+                            ExcelDataProcess(result.Tables[0]);
+                        }
+
+                    //Dosyayı Fiziksel olarak kayıt eder.
                     postedFile.SaveAs(filePath);
                 }
             }
             return response;
         }
+
+        public void ExcelDataProcess(DataTable dataTable)
+        {
+            //Anahtar tablo sütun isimleri
+            List<string> listColumn = new List<string>();
+            foreach (var item in dataTable.Rows[0].ItemArray)
+            {
+                listColumn.Add(item+"");
+            }
+
+            List<Kisim> listKisim = new List<Kisim>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                //DataToObject(dataTable.Rows[i]);
+                //Eklenecek veriler
+                listKisim.Add(new Kisim()
+                {
+                    
+                });
+            }
+        }
+
+        //public Kisim DataToObject(object row)
+        //{
+        //    Kisim kisim = new Kisim();
+
+        //    foreach (PropertyInfo propertyInfo in kisim.GetType().GetProperties())
+        //    {
+        //        // do stuff here
+        //        propertyInfo.
+        //    }
+        //}
     }
 }

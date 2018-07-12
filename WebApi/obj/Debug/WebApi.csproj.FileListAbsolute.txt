@@ -235,3 +235,7 @@ D:\MVC\mvcprojesi\WebApi\bin\log4net.xml
 D:\MVC\mvcprojesi\WebApi\bin\System.ValueTuple.xml
 D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csprojAssemblyReference.cache
 D:\MVC\mvcprojesi\WebApi\obj\Debug\WebApi.csproj.CopyComplete
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.dll
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.xml
+C:\Users\EREN\MVC\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.xml
