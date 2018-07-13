@@ -18,6 +18,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using DataAccessLayer.Concrete.Dapper.Varlik;
 using EntityLayer.ComplexTypes.DtoModel.Others;
 using ExcelDataReader;
 using iTextSharp.text;
@@ -99,46 +100,27 @@ namespace WebApi.Controllers
         }
 
 
-        [System.Web.Http.Route("api/kisim/downloadsablonexcelfile")]
+        [System.Web.Http.Route("api/kisim/downloadsablon")]
         public HttpResponseMessage GetExcelSablon()
         {
-            var response =
-                Request.CreateResponse(HttpStatusCode.OK, _kisimService.GetColumnNames("Kisim"));
-            response.Headers.Add("total", "");
-            response.Headers.Add("Access-Control-Expose-Headers", "total");
-            return response;
+            List<String> list = new List<String>();
+            List<Type> listType = new List<Type>();
+            Kisim kisim = new Kisim();
+
+            PropertyInfo[] arrProp = kisim.GetType().GetProperties();
+            
+            //İlk parça alınmaz
+            for (int i = 1; i < arrProp.Length; i++)
+            {
+                list.Add(arrProp[i].Name);
+                listType.Add(typeof(string));
+            }
+
+            MyClassBuilder MCB = new MyClassBuilder("Kisim");
+            var myclass = MCB.CreateObject(list.ToArray(), listType.ToArray());
+
+            return Request.CreateResponse(HttpStatusCode.OK, myclass);
         }
-
-        //[System.Web.Http.HttpPost]
-        //[System.Web.Http.Route("api/kisim/downloadsablonexcelfile")]
-        //public HttpResponseMessage GetExcelSablon()
-        //{
-        //    List<ColumnNameTemp> listColumnName = _kisimService.GetColumnNames("Kisim");
-        //    StringBuilder str = new StringBuilder();
-        //    str.Append("<table border=`" + "1px" + "`b>");
-        //    str.Append("<tr>");
-        //    foreach (var columnName in listColumnName)
-        //    {
-        //        str.Append("<td><b><font face=Arial Narrow size=3>"+columnName+"</font></b></td>");
-        //    }
-        //    str.Append("</tr>");
-        //    str.Append("</table>");
-
-        //    byte[] temp = System.Text.Encoding.UTF8.GetBytes(str.ToString());
-
-        //    var response = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
-
-        //    //Create a file on the fly and get file data as a byte array and send back to client
-        //    response.Content = new ByteArrayContent(temp);//Use your byte array
-        //    response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
-        //    response.Content.Headers.ContentDisposition.FileName = "Kisim Sablon.xslx";//your file Name- text.xls
-        //    response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/ms-excel");
-        //    //response.Content.Headers.ContentType  = new MediaTypeHeaderValue("application/octet-stream");
-        //    response.Content.Headers.ContentLength = temp.Length;
-        //    response.StatusCode = System.Net.HttpStatusCode.OK;
-
-        //    return response;
-        //}
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/kisim/uploadsablonexcelfile")]
@@ -194,10 +176,10 @@ namespace WebApi.Controllers
                 {
                     Kod = row[0] + "",
                     Ad = row[1] + "",
-                    Butce = row[2] != null ? Convert.ToDecimal(row[2]+"") : 0,
-                    HedeflenenButce = row[3] != null ? Convert.ToDecimal(row[3]+"") : 0,
-                    VardiyaSinifID = row[4] != null ? Convert.ToInt32(row[4]+"") : 0,
-                    SarfYeriID = row[5] != null ? Convert.ToInt32(row[5]+"") : 0,
+                    Butce = row[2] != null ? Convert.ToDecimal(row[2] + "") : 0,
+                    HedeflenenButce = row[3] != null ? Convert.ToDecimal(row[3] + "") : 0,
+                    VardiyaSinifID = row[4] != null ? Convert.ToInt32(row[4] + "") : 0,
+                    SarfYeriID = row[5] != null ? Convert.ToInt32(row[5] + "") : 0,
                     Aciklama = row[6] + ""
                 });
             }

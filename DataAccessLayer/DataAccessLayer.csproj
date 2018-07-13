@@ -266,6 +266,7 @@
     <Compile Include="Concrete\Dapper\Varlik\DpYasalTakipDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpZimmetTransferDetayDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\MyClassBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

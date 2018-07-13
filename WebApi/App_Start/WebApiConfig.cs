@@ -61,6 +61,12 @@ namespace WebApi
                 }
             );
 
+            //Normal excel indirme
+            //config.Routes.MapHttpRoute(
+            //    name: "IdWithExt",
+            //    routeTemplate: "api/{controller}/downloadsablon/{format}"
+            //);
+
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
         }
     }
