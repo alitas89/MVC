@@ -170,7 +170,6 @@ namespace WebApi.Controllers
             for (int i = 1; i < dataTable.Rows.Count; i++)
             {
                 var row = dataTable.Rows[i].ItemArray;
-                //DataToObject(dataTable.Rows[i]);
                 //Eklenecek veriler
                 listKisim.Add(new Kisim()
                 {
