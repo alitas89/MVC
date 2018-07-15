@@ -43,5 +43,10 @@ namespace BusinessLayer.Concrete.Iot
         {
             return _sayacDal.GetCountDtoByModemSeriNo(modemserino, filter); ;
         }
+
+        public int AddSayacKomut(SayacKomut sarfyeri)
+        {
+            return _sayacDal.AddSayacKomut(sarfyeri);
+        }
     }
 }

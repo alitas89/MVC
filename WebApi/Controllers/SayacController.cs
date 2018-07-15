@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Linq.Dynamic;
+using EntityLayer.ComplexTypes.DtoModel.Iot;
 
 namespace WebApi.Controllers
 {
@@ -61,6 +62,11 @@ namespace WebApi.Controllers
             return response;
         }
 
+
+        public int Post([FromBody]SayacKomut komut)
+        {
+            return _sayacService.AddSayacKomut(komut);
+        }
 
     }
 }

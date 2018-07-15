@@ -18,5 +18,7 @@ namespace BusinessLayer.Abstract.Iot
         List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemSeriNo);
 
         int GetCountDtoByModemSeriNo(string modemserino, string filter = "");
+
+        int AddSayacKomut(SayacKomut sarfyeri);
     }
 }

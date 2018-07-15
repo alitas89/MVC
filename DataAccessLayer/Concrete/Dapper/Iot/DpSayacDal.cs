@@ -19,6 +19,11 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
             throw new NotImplementedException();
         }
 
+        public int AddSayacKomut(SayacKomut sayacKomut)
+        {
+            return AddQuery("insert into [VOLUMETRIK].[dbo].[komut_abone](sayacNo,komut,parametre) values (@SayacNo,@Komut,@Parametre)", sayacKomut);
+        }
+
         public int Delete(int Id)
         {
             throw new NotImplementedException();
