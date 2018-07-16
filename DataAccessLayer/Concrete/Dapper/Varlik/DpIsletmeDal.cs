@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -40,7 +45,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         }
         public List<Isletme> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -74,6 +79,36 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             var result = GetScalarQuery("select Count(*) from Isletme where Kod= @Kod and Silindi=0", new { Kod }) + "";
             int.TryParse(result, out int count);
             return count > 0;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Isletme> listIsletme)
+        {
+            List<string> listIsletmeID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var isletme in listIsletme)
+                    {
+                        var strIsletmeID = connection.ExecuteScalar("insert into Isletme(Kod,Ad,HaritaResmiYolu,Aciklama) values (@Kod,@Ad,@HaritaResmiYolu,@Aciklama);" +
+                            "SELECT CAST(SCOPE_IDENTITY() as int)", isletme, transaction);
+                        listIsletmeID.Add(strIsletmeID + "");
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listIsletmeID;
+            }
+
         }
     }
 }

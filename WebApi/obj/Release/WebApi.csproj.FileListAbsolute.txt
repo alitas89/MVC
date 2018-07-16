@@ -354,3 +354,8 @@ D:\MVCProjesi\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CoreCompileInputs.cach
 D:\MVCProjesi\mvcprojesi\WebApi\obj\Release\WebApi.csproj.CopyComplete
 D:\MVCProjesi\mvcprojesi\WebApi\obj\Release\WebApi.dll
 D:\MVCProjesi\mvcprojesi\WebApi\obj\Release\WebApi.pdb
+D:\MVCProjesi\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.dll
+D:\MVCProjesi\mvcprojesi\WebApi\bin\ExcelDataReader.dll
+D:\MVCProjesi\mvcprojesi\WebApi\bin\ICSharpCode.SharpZipLib.dll
+D:\MVCProjesi\mvcprojesi\WebApi\bin\ExcelDataReader.xml
+D:\MVCProjesi\mvcprojesi\WebApi\bin\ExcelDataReader.DataSet.xml

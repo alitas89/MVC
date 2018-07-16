@@ -79,6 +79,11 @@ namespace BusinessLayer.Concrete.Varlik
             return _isletmeDal.GetListPagination(pagingParams);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<Isletme> listIsletme)
+        {
+            return _isletmeDal.AddListWithTransactionBySablon(listIsletme);
+        }
+
         public int GetCount(string filter = "")
         {
             return _isletmeDal.GetCount(filter);

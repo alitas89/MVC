@@ -19,19 +19,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2018 10:01:39</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll">
-      <publishTime>07/09/2018 16:06:46</publishTime>
+      <publishTime>07/16/2018 16:36:03</publishTime>
     </File>
     <File Include="bin/BusinessLayer.dll.config">
       <publishTime>04/25/2018 10:01:36</publishTime>
     </File>
     <File Include="bin/BusinessLayer.pdb">
-      <publishTime>07/09/2018 16:06:46</publishTime>
+      <publishTime>07/16/2018 16:36:03</publishTime>
     </File>
     <File Include="bin/Core.dll">
-      <publishTime>07/09/2018 16:06:20</publishTime>
+      <publishTime>07/16/2018 16:35:35</publishTime>
     </File>
     <File Include="bin/Core.pdb">
-      <publishTime>07/09/2018 16:06:20</publishTime>
+      <publishTime>07/16/2018 16:35:35</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>04/25/2018 10:01:39</publishTime>
@@ -46,22 +46,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2018 10:01:39</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>07/09/2018 16:06:21</publishTime>
+      <publishTime>07/16/2018 16:35:37</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>07/09/2018 16:06:21</publishTime>
+      <publishTime>07/16/2018 16:35:37</publishTime>
     </File>
     <File Include="bin/EntityLayer.dll">
-      <publishTime>07/09/2018 16:06:20</publishTime>
+      <publishTime>07/16/2018 16:35:35</publishTime>
     </File>
     <File Include="bin/EntityLayer.pdb">
-      <publishTime>07/09/2018 16:06:20</publishTime>
+      <publishTime>07/16/2018 16:35:35</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>04/25/2018 10:01:39</publishTime>
     </File>
+    <File Include="bin/ExcelDataReader.DataSet.dll">
+      <publishTime>07/12/2018 11:30:25</publishTime>
+    </File>
+    <File Include="bin/ExcelDataReader.dll">
+      <publishTime>07/12/2018 11:30:24</publishTime>
+    </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>04/25/2018 10:01:39</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>07/16/2018 09:18:47</publishTime>
     </File>
     <File Include="bin/itextsharp.dll">
       <publishTime>04/25/2018 10:01:41</publishTime>
@@ -235,19 +244,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2018 10:01:40</publishTime>
     </File>
     <File Include="bin/UtilityLayer.dll">
-      <publishTime>07/09/2018 14:05:31</publishTime>
+      <publishTime>07/10/2018 10:01:47</publishTime>
     </File>
     <File Include="bin/UtilityLayer.pdb">
-      <publishTime>07/09/2018 14:05:31</publishTime>
+      <publishTime>07/10/2018 10:01:47</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
       <publishTime>04/25/2018 10:01:41</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>07/09/2018 16:08:55</publishTime>
+      <publishTime>07/16/2018 16:38:01</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>07/09/2018 16:08:55</publishTime>
+      <publishTime>07/16/2018 16:38:01</publishTime>
     </File>
     <File Include="bin/WebApiContrib.dll">
       <publishTime>04/25/2018 10:01:41</publishTime>
@@ -289,7 +298,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2018 10:01:38</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/25/2018 10:01:39</publishTime>
+      <publishTime>07/16/2018 09:18:47</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>04/25/2018 10:01:38</publishTime>
