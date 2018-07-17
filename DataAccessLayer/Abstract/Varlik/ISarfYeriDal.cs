@@ -6,18 +6,21 @@ using EntityLayer.Concrete.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 
 namespace DataAccessLayer.Abstract.Varlik
-{    
-        public interface ISarfYeriDal : IEntityRepository<SarfYeri>
-        {
-            List<SarfYeriDto> GetListDto();
+{
+    public interface ISarfYeriDal : IEntityRepository<SarfYeri>
+    {
+        List<SarfYeriDto> GetListDto();
 
-            List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams);
+        List<SarfYeriDto> GetListPaginationDto(PagingParams pagingParams);
 
-            List<SarfYeri> GetList(int IsletmeID);            
+        List<SarfYeri> GetList(int IsletmeID);
 
-            bool IsKodDefined(string Kod);
+        bool IsKodDefined(string Kod);
 
-            int GetCountDto(string filter="");
+        int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<SarfYeri> listSarfYeri);
+
     }
-    
+
 }

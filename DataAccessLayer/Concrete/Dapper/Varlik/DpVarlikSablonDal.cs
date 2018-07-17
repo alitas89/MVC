@@ -5,6 +5,11 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -108,6 +113,36 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var result = GetScalarQuery("select Count(*) from VarlikSablon where VarlikTuruID= @VarlikTuruID and Silindi=0", new { VarlikTuruID }) + "";
             int.TryParse(result, out int count);
             return count > 0;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<VarlikSablon> listVarlikSablon)
+        {
+            List<string> listVarlikSablonID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var varliksablon in listVarlikSablon)
+                    {
+                        var strVarlikSablonID = connection.ExecuteScalar("insert into VarlikSablon(Ad,VarlikTuruID) values (@Ad,@VarlikTuruID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", varliksablon, transaction);
+
+                        listVarlikSablonID.Add(strVarlikSablonID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listVarlikSablonID;
+            }
+
         }
     }
 }

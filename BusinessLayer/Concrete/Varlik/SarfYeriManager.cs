@@ -101,6 +101,11 @@ namespace BusinessLayer.Concrete.Varlik
             return _sarfyeriDal.GetListPaginationDto(pagingParams);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<SarfYeri> listSarfYeri)
+        {
+            return _sarfyeriDal.AddListWithTransactionBySablon(listSarfYeri);
+        }
+
         public int GetCount(string filter = "")
         {
             return _sarfyeriDal.GetCount(filter);

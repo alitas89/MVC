@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -40,7 +45,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         }
         public List<VarlikDurumu> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -67,6 +72,35 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM VarlikDurumu where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<VarlikDurumu> listVarlikDurumu)
+        {
+            List<string> listVarlikDurumuID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var varlikdurumu in listVarlikDurumu)
+                    {
+                        var strVarlikDurumuID = connection.ExecuteScalar("insert into VarlikDurumu(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", varlikdurumu, transaction);
+
+                        listVarlikDurumuID.Add(strVarlikDurumuID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listVarlikDurumuID;
+            }
         }
     }
 }

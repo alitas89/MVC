@@ -74,5 +74,11 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _duruskismiDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<DurusKismi> listDurusKismi)
+        {
+            return _duruskismiDal.AddListWithTransactionBySablon(listDurusKismi);
+        }
+
     }
 }

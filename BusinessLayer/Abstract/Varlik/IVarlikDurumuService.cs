@@ -21,5 +21,8 @@ namespace BusinessLayer.Abstract.Varlik
         List<VarlikDurumu> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<VarlikDurumu> listVarlikDurumu);
+
     }
 }

@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
@@ -40,7 +45,7 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
         }
         public List<DurusKismi> GetListPagination(PagingParams pagingParams)
         {
-              string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
 
             if (pagingParams.order.Length != 0)
@@ -69,5 +74,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public List<string> AddListWithTransactionBySablon(List<DurusKismi> listDurusKismi)
+        {
+            List<string> listDurusKismiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var duruskismi in listDurusKismi)
+                    {
+                        var strDurusKismiID = connection.ExecuteScalar("insert into DurusKismi(Kod,Ad,BakimDurusu,Aciklama) values (@Kod,@Ad,@BakimDurusu,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", duruskismi, transaction);
+
+                        listDurusKismiID.Add(strDurusKismiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listDurusKismiID;
+            }
+
+
+        }
     }
 }

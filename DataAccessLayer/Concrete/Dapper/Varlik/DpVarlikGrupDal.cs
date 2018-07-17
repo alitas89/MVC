@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
@@ -106,6 +111,37 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VarlikGrupDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+
+        public List<string> AddListWithTransactionBySablon(List<VarlikGrup> listVarlikGrup)
+        {
+            List<string> listVarlikGrupID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var varlikgrup in listVarlikGrup)
+                    {
+                        var strVarlikGrupID = connection.ExecuteScalar("insert into VarlikGrup(Kod,Ad,IsTipiID,Aciklama1,Aciklama2,Aciklama3) values (@Kod,@Ad,@IsTipiID,@Aciklama1,@Aciklama2,@Aciklama3);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", varlikgrup, transaction);
+
+                        listVarlikGrupID.Add(strVarlikGrupID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listVarlikGrupID;
+            }
+
         }
     }
 }

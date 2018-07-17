@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
@@ -120,5 +125,34 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(result, out int count);
             return count > 0;
         }
-    }
+
+        public List<string> AddListWithTransactionBySablon(List<SarfYeri> listSarfYeri)
+        {
+            List<string> listSarfYeriID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var sarfyeri in listSarfYeri)
+                    {
+                        var strSarfYeriID = connection.ExecuteScalar("insert into SarfYeri(Kod,Ad,Butce,HedeflenenButce,VardiyaSinifID,IsletmeID,Telefon1,Telefon2,FaxNo,Email,WebUrl,LogoDosyaYolu,Aciklama,SatinAlmaYeri) values (@Kod,@Ad,@Butce,@HedeflenenButce,@VardiyaSinifID,@IsletmeID,@Telefon1,@Telefon2,@FaxNo,@Email,@WebUrl,@LogoDosyaYolu,@Aciklama,@SatinAlmaYeri);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", sarfyeri, transaction);
+
+                        listSarfYeriID.Add(strSarfYeriID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listSarfYeriID;
+            }
+        }
+}
 }

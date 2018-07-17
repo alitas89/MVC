@@ -90,5 +90,10 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _modelDal.GetCountDto(filter);
         }
-    }
+
+        public List<string> AddListWithTransactionBySablon(List<Model> listModel)
+        {
+            return _modelDal.AddListWithTransactionBySablon(listModel);
+        }
+}
 }

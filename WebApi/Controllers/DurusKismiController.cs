@@ -10,6 +10,11 @@ using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Varlik;
 using System.Linq.Dynamic;
+using System.Reflection;
+using DataAccessLayer.Concrete.Dapper.Varlik;
+using System.Web;
+using ExcelDataReader;
+using System.Data;
 
 namespace WebApi.Controllers
 {
@@ -75,5 +80,93 @@ namespace WebApi.Controllers
         {
             return _durusKismiService.Delete(id);
         }
+
+        //*Boş şablon hazırlar ve yüklenmesine izin verir 
+        [System.Web.Http.Route("api/duruskismi/downloadsablon")]
+        public HttpResponseMessage GetExcelSablon()
+        {
+            List<String> list = new List<String>();
+            List<Type> listType = new List<Type>();
+            DurusKismi duruskismi = new DurusKismi();
+
+            PropertyInfo[] arrProp = duruskismi.GetType().GetProperties();
+
+            for (int i = 1; i < arrProp.Length; i++)
+            {
+                list.Add(arrProp[i].Name);
+                listType.Add(typeof(string));
+            }
+
+            MyClassBuilder MCB = new MyClassBuilder("DurusKismi");
+            var myclass = MCB.CreateObject(list.ToArray(), listType.ToArray());
+
+            return Request.CreateResponse(HttpStatusCode.OK, myclass);
+        }
+
+        //*İçerisinde kayıtların olduğu bir excel dosyası hazırlar ve upload edilmesini sağlar. 
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("api/duruskismi/uploadsablonexcelfile")]
+        public List<string> UploadSablonExcelFile()
+        {
+            List<string> listCreatedID = new List<string>();
+
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
+            {
+                foreach (string file in httpRequest.Files)
+                {
+
+                    var postedFile = httpRequest.Files[file];
+                    var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/ " + postedFile.FileName);
+                    //Gelen dosya okunur ve işleme girer.
+                    using (var reader = ExcelReaderFactory.CreateReader(postedFile.InputStream))
+                    {
+                        // Choose one of either 1 or 2:
+                        // 1. Use the reader methods
+                        do
+                        {
+                            while (reader.Read())
+                            {
+                                // reader.GetDouble(0);
+                            }
+                        } while (reader.NextResult());
+
+                        // 2. Use the AsDataSet extension method
+                        var result = reader.AsDataSet();
+
+                        // The result of each spreadsheet is in result.Tables
+                        ExcelDataProcess(result.Tables[0]);
+
+                        //Dosyayı Fiziksel olarak kayıt eder.
+                        postedFile.SaveAs(filePath);
+                    }
+                }
+            }
+            return listCreatedID;
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<string> ExcelDataProcess(DataTable dataTable)
+        {
+            List<DurusKismi> listDurusKismi = new List<DurusKismi>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listDurusKismi.Add(new DurusKismi()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    BakimDurusu = row[2] != null ? Convert.ToBoolean(row[2].ToString()) : false,
+                    Aciklama = row[3].ToString(),
+                });
+            }
+
+            //Transaction ile eklemeler yapılır
+            List<string> listDurusKismiID = _durusKismiService.AddListWithTransactionBySablon(listDurusKismi);
+
+            return listDurusKismiID;
+        }
+
     }
 }

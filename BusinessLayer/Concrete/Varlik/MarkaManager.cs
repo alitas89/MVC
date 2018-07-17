@@ -73,5 +73,11 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _markaDal.GetCount(filter);
         }
+
+
+        public List<string> AddListWithTransactionBySablon(List<Marka> listMarka)
+        {
+            return _markaDal.AddListWithTransactionBySablon(listMarka);
+        }
     }
 }

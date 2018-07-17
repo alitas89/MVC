@@ -22,5 +22,7 @@ namespace BusinessLayer.Abstract.Varlik
 
         int GetCount(string filter = "");
 
+        List<string> AddListWithTransactionBySablon(List<Marka> listMarka);
+
     }
 }

@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Varlik
         int GetCountDto(string filter = "");
 
         bool IsSablonDefined(int VarlikTuruID);
+
+        List<string> AddListWithTransactionBySablon(List<VarlikSablon> listVarlikSablon);
     }
 }

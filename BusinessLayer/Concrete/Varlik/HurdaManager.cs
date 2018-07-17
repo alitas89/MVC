@@ -78,5 +78,10 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _hurdaDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<Hurda> listHurda)
+        {
+            return _hurdaDal.AddListWithTransactionBySablon(listHurda);
+        }
     }
 }

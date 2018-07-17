@@ -13,5 +13,8 @@ namespace DataAccessLayer.Abstract.Varlik
         List<ModelDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Model> listModel);
+
     }
 }

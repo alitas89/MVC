@@ -71,5 +71,10 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _varlikdurumuDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<VarlikDurumu> listVarlikDurumu)
+        {
+            return _varlikdurumuDal.AddListWithTransactionBySablon(listVarlikDurumu);
+        }
     }
 }
