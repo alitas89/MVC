@@ -47,7 +47,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
         public int GetCountDto(string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [MVC].[dbo].[View_SayacDto] where Silindi = 0 { filterQuery}", new { }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [View_SayacDto] where Silindi = 0 { filterQuery}", new { }) + "";
 
             int.TryParse(strCount, out int count);
             return count;
@@ -56,7 +56,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
         public int GetCountDtoByModemSeriNo(string modemserino = "", string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [MVC].[dbo].[View_SayacDto] where Silindi = 0 and modemSeriNo=@modemserino
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [View_SayacDto] where Silindi = 0 and modemSeriNo=@modemserino
                                             {filterQuery} ", new { modemserino }) + "";
             int.TryParse(strCount, out int count);
             return count;

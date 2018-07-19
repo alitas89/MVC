@@ -36,5 +36,8 @@ namespace BusinessLayer.Abstract.Varlik
         List<VarlikDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik);
+
     }
 }

@@ -8,6 +8,11 @@ using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.Concrete.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -128,5 +133,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             int.TryParse(result, out int count);
             return count > 0;
         }
+
+        public List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik)
+        {
+            List<string> listVarlikID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var varlik in listVarlik)
+                    {
+                        var strVarlikID = connection.ExecuteScalar("insert into Varlik(Kod,Ad,VarlikDurumID,VarlikTuruID,VarlikGrupID,BagliVarlikKod,KisimID,SarfYeriID,IsletmeID,MarkaID,ModelID,SeriNo,BarkodKod,GarantiBitisTarih,SonKullanimTarih,Aciklama,ZimmetliPersonelID,VarsayilanIsTipiID,VarsayilanBakimArizaID,VarsayilanArizaNedenID,VarsayilanArizaCozumID,EkipID,IsEmriTurID) values (@Kod,@Ad,@VarlikDurumID,@VarlikTuruID,@VarlikGrupID,@BagliVarlikKod,@KisimID,@SarfYeriID,@IsletmeID,@MarkaID,@ModelID,@SeriNo,@BarkodKod,@GarantiBitisTarih,@SonKullanimTarih,@Aciklama,@ZimmetliPersonelID,@VarsayilanIsTipiID,@VarsayilanBakimArizaID,@VarsayilanArizaNedenID,@VarsayilanArizaCozumID,@EkipID,@IsEmriTurID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", varlik, transaction);
+
+                        listVarlikID.Add(strVarlikID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listVarlikID;
+            }
+        }
+  
     }
 }

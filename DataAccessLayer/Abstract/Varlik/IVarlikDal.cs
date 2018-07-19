@@ -19,5 +19,8 @@ namespace DataAccessLayer.Abstract.Varlik
         int GetCountDto(string filter = "");
 
         bool IsKodDefined(string Kod);
+
+        List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik);
+
     }
 }

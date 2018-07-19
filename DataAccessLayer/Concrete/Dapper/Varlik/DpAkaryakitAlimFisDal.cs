@@ -5,6 +5,11 @@ using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
 using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -102,6 +107,36 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<string> AddListWithTransactionBySablon(List<AkaryakitAlimFis> listAkaryakitAlimFis)
+        {
+            List<string> listAkaryakitAlimFisID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var akaryakitalimfis in listAkaryakitAlimFis)
+                    {
+                        var strAkaryakitAlimFisID = connection.ExecuteScalar("insert into AkaryakitAlimFis(FisNo,AracID,YakitID,AmbarID,Miktar,BirimFiyat,Iskonto,ToplamAkaryakitTutari,MasrafYeriID,YakitAlanKisiID,SaticiID,YakitAlimTarih,YakitAlimSaat,AracKm,Aciklama) values (@FisNo,@AracID,@YakitID,@AmbarID,@Miktar,@BirimFiyat,@Iskonto,@ToplamAkaryakitTutari,@MasrafYeriID,@YakitAlanKisiID,@SaticiID,@YakitAlimTarih,@YakitAlimSaat,@AracKm,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", akaryakitalimfis, transaction);
+
+                        listAkaryakitAlimFisID.Add(strAkaryakitAlimFisID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listAkaryakitAlimFisID;
+            }
+        }
+
 
     }
 }

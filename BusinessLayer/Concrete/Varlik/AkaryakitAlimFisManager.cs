@@ -88,5 +88,11 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _akaryakitalimfisDal.GetCountDto(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<AkaryakitAlimFis> listAkaryakitAlimFis)
+        {
+            return _akaryakitalimfisDal.AddListWithTransactionBySablon(listAkaryakitAlimFis);
+        }
+
     }
 }

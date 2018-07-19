@@ -157,7 +157,7 @@ namespace WebApi.Controllers
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    BakimDurusu = row[2] != null ? Convert.ToBoolean(row[2].ToString()) : false,
+                    BakimDurusu = row[2] != DBNull.Value ? Convert.ToBoolean(row[2].ToString()) : false,
                     Aciklama = row[3].ToString(),
                 });
             }

@@ -11,7 +11,7 @@ namespace EntityLayer.Concrete.Varlik
         public string OzurKod { get; set; }
         public string OzurAd { get; set; }
         public string OzurTip { get; set; }
-        public DateTime Tarih { get; set; }
+        public DateTime? Tarih { get; set; }
         public int Miktar { get; set; }
         public int Toplam { get; set; }
         public string Aciklama { get; set; }

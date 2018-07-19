@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
 
 namespace DataAccessLayer.Concrete.Dapper.Varlik
 {
@@ -104,6 +108,35 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_AracServisDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<AracServis> listAracServis)
+        {
+            List<string> listAracServisID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var aracservis in listAracServis)
+                    {
+                        var strAracServisID = connection.ExecuteScalar("insert into AracServis(IsEmriYili,FisNo,TalepEdenID,AracID,GorevID,TalepTarih,TalepSaat,TeslimEtmeTarih,TeslimEtmeSaat,TeslimAlmaTarih,TeslimAlmaSaat,TeslimAlinanKm,TeslimEdilenKm,KullanilanKm,Aciklama,TeslimEdenID,TeslimAlanID,TeslimAmbarID,BolumID,VarlikDurumID,MarkaID,ModelID,SeriNo,ArizaID,HizmetID,ServisAdres) values (@IsEmriYili,@FisNo,@TalepEdenID,@AracID,@GorevID,@TalepTarih,@TalepSaat,@TeslimEtmeTarih,@TeslimEtmeSaat,@TeslimAlmaTarih,@TeslimAlmaSaat,@TeslimAlinanKm,@TeslimEdilenKm,@KullanilanKm,@Aciklama,@TeslimEdenID,@TeslimAlanID,@TeslimAmbarID,@BolumID,@VarlikDurumID,@MarkaID,@ModelID,@SeriNo,@ArizaID,@HizmetID,@ServisAdres);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", aracservis, transaction);
+
+                        listAracServisID.Add(strAracServisID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listAracServisID;
+            }
         }
     }
 }

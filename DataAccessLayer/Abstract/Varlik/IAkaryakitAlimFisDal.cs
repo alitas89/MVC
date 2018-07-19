@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<AkaryakitAlimFisDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<AkaryakitAlimFis> listAkaryakitAlimFis);
     }
 }

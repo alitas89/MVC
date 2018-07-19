@@ -83,5 +83,11 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _aracServisDal.GetCountDto(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<AracServis> listAracServis)
+        {
+            return _aracServisDal.AddListWithTransactionBySablon(listAracServis);
+        }
+
     }
 }

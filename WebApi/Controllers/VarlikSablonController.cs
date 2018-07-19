@@ -155,7 +155,7 @@ namespace WebApi.Controllers
                 listVarlikSablon.Add(new VarlikSablon()
                 {
                     Ad = row[0].ToString(),
-                    VarlikTuruID = row[1] != null ? Convert.ToInt32(row[1].ToString()) : 0,
+                    VarlikTuruID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
                 });
             }
 

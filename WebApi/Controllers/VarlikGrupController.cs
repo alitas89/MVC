@@ -157,7 +157,7 @@ namespace WebApi.Controllers
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    IsTipiID = row[2] != null ? Convert.ToInt32(row[2].ToString()) : 0,
+                    IsTipiID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
                     Aciklama1 = row[3].ToString(),
                     Aciklama2 = row[4].ToString(),
                     Aciklama3 = row[5].ToString(),

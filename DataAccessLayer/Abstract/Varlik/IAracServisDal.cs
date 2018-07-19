@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract.Varlik
         List<AracServisDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<AracServis> listAracServis);
     }
 }

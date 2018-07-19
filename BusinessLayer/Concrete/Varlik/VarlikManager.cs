@@ -113,5 +113,10 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _varlikDal.GetListPaginationDto(pagingParams);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik)
+        {
+            return _varlikDal.AddListWithTransactionBySablon(listVarlik);
+        }
     }
 }

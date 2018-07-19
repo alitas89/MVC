@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Varlik
         int GetCountDto(string filter = "");
 
         int UpdateVarlikKisimBagliVarlikKod(int VarlikID, int KisimID, int? BagliVarlikKod = null);
+
+        List<string> AddListWithTransactionBySablon(List<VarlikTransfer> listVarlikTransfer);
     }
 }
