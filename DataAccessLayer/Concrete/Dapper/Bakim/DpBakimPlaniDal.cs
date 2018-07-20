@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -138,6 +139,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return GetListQuery("select * from BakimPlani where BakimPlaniID " +
                                 "in(select BakimPlaniID from BakimPlaniAraTablo where PeriyodikBakimID= @PeriyodikBakimID and Silindi=0)",
                 new { PeriyodikBakimID });
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimPlani> listBakimPlani)
+        {
+            List<string> listBakimPlaniID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var bakimplani in listBakimPlani)
+                    {
+                        var strBakimPlaniID = connection.ExecuteScalar("insert into BakimPlani(Kod,BakimPlaniTanim,ToplamBakimSuresi,ToplamIscilikSuresi,Aciklama) values (@Kod,@BakimPlaniTanim,@ToplamBakimSuresi,@ToplamIscilikSuresi,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", bakimplani, transaction);
+
+                        listBakimPlaniID.Add(strBakimPlaniID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listBakimPlaniID;
+            }
         }
     }
 }

@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -69,6 +74,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM BeklemeIptalNedeni where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<BeklemeIptalNedeni> listBeklemeIptalNedeni)
+        {
+            List<string> listBeklemeIptalNedeniID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var beklemeıptalnedeni in listBeklemeIptalNedeni)
+                    {
+                        var strBeklemeIptalNedeniID = connection.ExecuteScalar("insert into BeklemeIptalNedeni(Kod,Ad,Aciklama,IsEmriniKapsayanPeriyodikBakimOlustur,IptalEdilenOtonomBakimdanIsEmriOlustur) values (@Kod,@Ad,@Aciklama,@IsEmriniKapsayanPeriyodikBakimOlustur,@IptalEdilenOtonomBakimdanIsEmriOlustur);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", beklemeıptalnedeni, transaction);
+
+                        listBeklemeIptalNedeniID.Add(strBeklemeIptalNedeniID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listBeklemeIptalNedeniID;
+            }
         }
     }
 }

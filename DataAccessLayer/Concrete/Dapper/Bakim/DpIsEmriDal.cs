@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -262,6 +263,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 transaction.Commit();
             }
             return listIsEmriNo;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<IsEmri> listIsEmri)
+        {
+            List<string> listIsEmriID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var ısemri in listIsEmri)
+                    {
+                        var strIsEmriID = connection.ExecuteScalar("insert into IsEmri(IsEmriTuruID,VarlikID,IsTipiID,BakimArizaKoduID,BakimOncelikID,KisimID,SarfyeriID,TalepEdenID,PlanlananBaslangicTarih,PlanlananBaslangicSaat,PlanlananBitisTarih,PlanlananBitisSaat,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat,BaslangicTarih,BaslangicSaat,BitisTarih,BitisSaat,DevreyeAlmaTarih,DevreyeAlmaSaat,IsSorumluID,ArizaNedeniID,ArizaCozumuID,YapilanIsAciklama,TalepAciklamasi,StatuID,StatuAciklama,BakimEkibiID,VardiyaID,IsEmircisi,BakimDurumuID,BakimAciklamasi) values (@IsEmriTuruID,@VarlikID,@IsTipiID,@BakimArizaKoduID,@BakimOncelikID,@KisimID,@SarfyeriID,@TalepEdenID,@PlanlananBaslangicTarih,@PlanlananBaslangicSaat,@PlanlananBitisTarih,@PlanlananBitisSaat,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat,@BaslangicTarih,@BaslangicSaat,@BitisTarih,@BitisSaat,@DevreyeAlmaTarih,@DevreyeAlmaSaat,@IsSorumluID,@ArizaNedeniID,@ArizaCozumuID,@YapilanIsAciklama,@TalepAciklamasi,@StatuID,@StatuAciklama,@BakimEkibiID,@VardiyaID,@IsEmircisi,@BakimDurumuID,@BakimAciklamasi);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", ısemri, transaction);
+
+                        listIsEmriID.Add(strIsEmriID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listIsEmriID;
+            }
         }
 
     }

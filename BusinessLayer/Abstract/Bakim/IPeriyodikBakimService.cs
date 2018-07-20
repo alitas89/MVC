@@ -36,5 +36,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<PeriyodikBakim> GetListByVarlikID(int VarlikID);
 
         int DeleteSoftWithTransaction(int Id);
+
+        List<string> AddListWithTransactionBySablon(List<PeriyodikBakim> listPeriyodikBakim);
     }
 }

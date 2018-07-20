@@ -5,6 +5,11 @@ using EntityLayer.Concrete.Bakim;
 using System.Collections.Generic;
 using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Bakim
 {
@@ -69,6 +74,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM IsEmriTuru where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<IsEmriTuru> listIsEmriTuru)
+        {
+            List<string> listIsEmriTuruID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var ısemrituru in listIsEmriTuru)
+                    {
+                        var strIsEmriTuruID = connection.ExecuteScalar("insert into IsEmriTuru(Kod,Ad,Aciklama,TekYilSayac,TekYilBaslangicSayaci,CiftYilSayac,CiftYilBaslangicSayaci,IsEmriVarsayilani,AksiyonIsEmriVarsayilani,KaizenIsEmriVarsayilani,IsTalepVarsayilani,PeriyodikBakimVarsayilani,Servis,SokmeTakma,BagliDokumanlar,Hurdalar,SayacDegerleri,IsAdimlari,BakimNoktalari,SeyahatBilgileri,EtkilenenVarliklar,Icerik,GrupOzellikleri,OlcumDegeri,IsGunlugu,BakimRiski,ArizaKodları,NedenAnalizi,OzelKodlar,KullanilanAracGerecler) values (@Kod,@Ad,@Aciklama,@TekYilSayac,@TekYilBaslangicSayaci,@CiftYilSayac,@CiftYilBaslangicSayaci,@IsEmriVarsayilani,@AksiyonIsEmriVarsayilani,@KaizenIsEmriVarsayilani,@IsTalepVarsayilani,@PeriyodikBakimVarsayilani,@Servis,@SokmeTakma,@BagliDokumanlar,@Hurdalar,@SayacDegerleri,@IsAdimlari,@BakimNoktalari,@SeyahatBilgileri,@EtkilenenVarliklar,@Icerik,@GrupOzellikleri,@OlcumDegeri,@IsGunlugu,@BakimRiski,@ArizaKodları,@NedenAnalizi,@OzelKodlar,@KullanilanAracGerecler);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", ısemrituru, transaction);
+
+                        listIsEmriTuruID.Add(strIsEmriTuruID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listIsEmriTuruID;
+            }
         }
 
     }

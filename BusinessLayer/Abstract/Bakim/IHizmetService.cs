@@ -21,5 +21,8 @@ namespace BusinessLayer.Abstract.Bakim
         List<Hizmet> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Hizmet> listHizmet);
+    
     }
 }

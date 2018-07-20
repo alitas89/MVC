@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -70,5 +75,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimOncelik> listBakimOncelik)
+        {
+            List<string> listBakimOncelikID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var bakimoncelik in listBakimOncelik)
+                    {
+                        var strBakimOncelikID = connection.ExecuteScalar("insert into BakimOncelik(Kod,Ad,TamamlanmaZamani,BirimID,Aciklama,TeminSureleriID,IsEmriVarsayilani,IsTalepVarsayilani,PeriyodikBakimVarsayilani) values (@Kod,@Ad,@TamamlanmaZamani,@BirimID,@Aciklama,@TeminSureleriID,@IsEmriVarsayilani,@IsTalepVarsayilani,@PeriyodikBakimVarsayilani);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", bakimoncelik, transaction);
+
+                        listBakimOncelikID.Add(strBakimOncelikID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listBakimOncelikID;
+            }
+        }
+
     }
 }

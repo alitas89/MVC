@@ -114,6 +114,7 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isTipiEmirTuruDal.GetCountDto(isTipiID, filter);
         }
+
     }
 
 }

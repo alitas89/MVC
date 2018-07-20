@@ -10,6 +10,8 @@ namespace DataAccessLayer.Abstract.Bakim
     {
         List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams);
 
-        int GetCountDto(string filter = "");        
+        int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<IsTipi> listIsTipi);
     }
 }

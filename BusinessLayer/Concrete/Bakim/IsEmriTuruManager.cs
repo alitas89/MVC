@@ -72,5 +72,10 @@ namespace BusinessLayer.Concrete.Bakim
             return _isEmriTuruDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<IsEmriTuru> listIsEmriTuru)
+        {
+            return _isEmriTuruDal.AddListWithTransactionBySablon(listIsEmriTuru);
+        }
+
     }
 }

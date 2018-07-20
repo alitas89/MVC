@@ -105,7 +105,8 @@ namespace WebApi.Controllers
 
 
 
-        //*İçerisinde kayıtların olduğu bir excel dosyası hazırlar ve upload edilmesini sağlar. [System.Web.Http.HttpPost]
+        //*İçerisinde kayıtların olduğu bir excel dosyası hazırlar ve upload edilmesini sağlar. 
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/isletme/uploadsablonexcelfile")]
         public List<string> UploadSablonExcelFile()
         {

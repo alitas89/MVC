@@ -13,5 +13,7 @@ namespace DataAccessLayer.Abstract.Bakim
         int GetCountDto(string filter = "");
 
         List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID);
+
+        List<string> AddListWithTransactionBySablon(List<BakimRiski> listBakimRiski);
     }
 }

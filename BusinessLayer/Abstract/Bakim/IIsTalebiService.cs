@@ -42,5 +42,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<IsEmriNo> GetIsEmriNoByIsTalepID(int IsTalepID);
 
         int AddWithTransaction(IsTalebi ıstalebi);
+
+        List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi);
     }
 }

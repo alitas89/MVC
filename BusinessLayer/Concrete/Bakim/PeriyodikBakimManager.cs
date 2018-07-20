@@ -132,5 +132,10 @@ namespace BusinessLayer.Concrete.Bakim
             int bildirimTriggerID = _periyodikbakimDal.Get(Id).BildirimTriggerID;
             return _periyodikbakimDal.DeleteSoftWithTransaction(Id, bildirimTriggerID);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<PeriyodikBakim> listPeriyodikBakim)
+        {
+            return _periyodikbakimDal.AddListWithTransactionBySablon(listPeriyodikBakim);
+        }
     }
 }

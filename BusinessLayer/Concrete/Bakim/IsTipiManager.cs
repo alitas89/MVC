@@ -81,6 +81,11 @@ namespace BusinessLayer.Concrete.Bakim
         public int GetCountDto(string filter = "")
         {
             return _isTipiDal.GetCountDto(filter);
-        }        
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<IsTipi> listIsTipi)
+        {
+            return _isTipiDal.AddListWithTransactionBySablon(listIsTipi);
+        }
     }
 }

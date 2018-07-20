@@ -73,5 +73,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _arizacozumuDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<ArizaCozumu> listArizaCozumu)
+        {
+            return _arizacozumuDal.AddListWithTransactionBySablon(listArizaCozumu);
+        }
     }
 }

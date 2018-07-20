@@ -26,5 +26,8 @@ namespace BusinessLayer.Abstract.Bakim
         List<IsTipiDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<IsTipi> listIsTipi);
+ 
     }
 }

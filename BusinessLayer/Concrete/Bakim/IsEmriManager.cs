@@ -122,5 +122,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isEmriDal.GetEditYetki(IsEmriID, KullaniciID);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<IsEmri> listIsEmri)
+        {
+            return _isEmriDal.AddListWithTransactionBySablon(listIsEmri);
+        }
     }
 }

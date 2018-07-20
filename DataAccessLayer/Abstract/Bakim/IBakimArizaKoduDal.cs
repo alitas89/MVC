@@ -12,5 +12,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<BakimArizaKoduDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<BakimArizaKodu> listBakimArizaKodu);
     }
 }

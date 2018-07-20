@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<GonderimFormati> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<GonderimFormati> listGonderimFormati);
     }
 }

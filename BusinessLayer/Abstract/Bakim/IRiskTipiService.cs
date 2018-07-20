@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<RiskTipi> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<RiskTipi> listRiskTipi);
     }
 }

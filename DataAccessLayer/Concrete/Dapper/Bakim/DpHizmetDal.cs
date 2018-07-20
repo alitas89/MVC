@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
@@ -68,6 +73,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM Hizmet where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Hizmet> listHizmet)
+        {
+            List<string> listHizmetID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var hizmet in listHizmet)
+                    {
+                        var strHizmetID = connection.ExecuteScalar("insert into Hizmet(Kod,Ad,BirimFiyat,ParaBirimID,Aciklama) values (@Kod,@Ad,@BirimFiyat,@ParaBirimID,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", hizmet, transaction);
+
+                        listHizmetID.Add(strHizmetID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listHizmetID;
+            }
         }
     }
 }

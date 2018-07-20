@@ -88,5 +88,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bakimarizakoduDal.GetCountDto(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimArizaKodu> listBakimArizaKodu)
+        {
+            return _bakimarizakoduDal.AddListWithTransactionBySablon(listBakimArizaKodu);
+        }
     }
 }

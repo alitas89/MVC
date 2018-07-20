@@ -74,5 +74,11 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _hizmetDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<Hizmet> listHizmet)
+        {
+            return _hizmetDal.AddListWithTransactionBySablon(listHizmet);
+        }
+
     }
 }

@@ -86,5 +86,11 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bilgilendirmegrubuDal.GetCountDto(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<BilgilendirmeGrubu> listBilgilendirmeGrubu)
+        {
+            return _bilgilendirmegrubuDal.AddListWithTransactionBySablon(listBilgilendirmeGrubu);
+        }
+    
     }
 }

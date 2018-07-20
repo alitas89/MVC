@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
@@ -67,6 +72,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM GonderimFormati where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<GonderimFormati> listGonderimFormati)
+        {
+            List<string> listGonderimFormatiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var gonderimformati in listGonderimFormati)
+                    {
+                        var strGonderimFormatiID = connection.ExecuteScalar("insert into GonderimFormati(GonderimTuruID,Kod,Ad,Konu,Format) values (@GonderimTuruID,@Kod,@Ad,@Konu,@Format);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", gonderimformati, transaction);
+
+                        listGonderimFormatiID.Add(strGonderimFormatiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listGonderimFormatiID;
+            }
         }
 
 

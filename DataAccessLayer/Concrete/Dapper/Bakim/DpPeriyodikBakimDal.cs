@@ -312,5 +312,34 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return new DpDtoRepositoryBase<IsTipiForKullaniciTemp>().GetListDtoQuery($@"select a.IsTipiID, b.Ad as IsTipiAd, b.Kod from IsTalebiOnayBirim a inner join IsTipi b on a.IsTipiID=b.IsTipiID where a.KullaniciID=@KullaniciID and a.Silindi=0",
                 new { KullaniciID });
         }
+
+        public List<string> AddListWithTransactionBySablon(List<PeriyodikBakim> listPeriyodikBakim)
+        {
+            List<string> listPeriyodikBakimID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var periyodikbakim in listPeriyodikBakim)
+                    {
+                        var strPeriyodikBakimID = connection.ExecuteScalar("insert into PeriyodikBakim(Kod,Ad,BakimPeriyodu,PeriyodBirimID,SonBakimTarih,BakimYapilacakTarih,ToleransGun,VarlikID,BakimArizaID,IsEmriTuruID,IsTipiID,KisimID,OncelikID,SorumluEkipID,IsSorumluID,ArizaNedeniID,BakimSuresi,TahminiBakimMaliyeti,ParaBirimID,StatuID,TalepEdenID,FirmaID,TalepAciklamasi,YapilanIsinAciklamasi,IsOtomatik,IsCalismaZamaniSinirli,GecerlilikBitisTarih,BildirimTriggerID) values (@Kod,@Ad,@BakimPeriyodu,@PeriyodBirimID,@SonBakimTarih,@BakimYapilacakTarih,@ToleransGun,@VarlikID,@BakimArizaID,@IsEmriTuruID,@IsTipiID,@KisimID,@OncelikID,@SorumluEkipID,@IsSorumluID,@ArizaNedeniID,@BakimSuresi,@TahminiBakimMaliyeti,@ParaBirimID,@StatuID,@TalepEdenID,@FirmaID,@TalepAciklamasi,@YapilanIsinAciklamasi,@IsOtomatik,@IsCalismaZamaniSinirli,@GecerlilikBitisTarih,@BildirimTriggerID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", periyodikbakim, transaction);
+
+                        listPeriyodikBakimID.Add(strPeriyodikBakimID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listPeriyodikBakimID;
+            }
+        }
     }
 }

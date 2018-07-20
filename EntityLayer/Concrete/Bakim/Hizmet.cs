@@ -10,6 +10,5 @@ namespace EntityLayer.Concrete.Bakim
         public decimal BirimFiyat { get; set; }
         public int ParaBirimID { get; set; }
         public string Aciklama { get; set; }
-        public bool Silindi { get; set; }
     }
 }

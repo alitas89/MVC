@@ -21,5 +21,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<IsTipiForKullaniciTemp> GetIsTipiListByKullaniciIDForIsEmri(int KullaniciID);
 
         int DeleteSoftWithTransaction(int Id, int BildirimTriggerID);
+
+        List<string> AddListWithTransactionBySablon(List<PeriyodikBakim> listPeriyodikBakim);
     }
 }

@@ -27,5 +27,7 @@ namespace BusinessLayer.Abstract.Bakim
         int UpdateWithTransaction(BakimPlani bakimplani, List<IsAdimlari> listIsAdimlari);
 
         List<BakimPlani> GetListBakimPlaniByPeriyodikBakimID(int PeriyodikBakimID);
+
+        List<string> AddListWithTransactionBySablon(List<BakimPlani> listBakimPlani);
     }
 }

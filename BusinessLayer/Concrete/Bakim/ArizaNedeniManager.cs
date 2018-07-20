@@ -71,5 +71,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _arizanedeniDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<ArizaNedeni> listArizaNedeni)
+        {
+            return _arizanedeniDal.AddListWithTransactionBySablon(listArizaNedeni);
+        }
     }
 }

@@ -134,5 +134,10 @@ namespace BusinessLayer.Concrete.Bakim
             ıstalebi.StatuID = 7; //Yeni iş talebi atanır
             return _isTalebiDal.AddWithTransaction(ıstalebi);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi)
+        {
+            return _isTalebiDal.AddListWithTransactionBySablon(listIsTalebi);
+        }
     }
 }

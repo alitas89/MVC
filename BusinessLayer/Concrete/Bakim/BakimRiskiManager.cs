@@ -90,5 +90,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bakimriskiDal.GetListBakimRiskiByPeriyodikBakimID(PeriyodikBakimID);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimRiski> listBakimRiski)
+        {
+            return _bakimriskiDal.AddListWithTransactionBySablon(listBakimRiski);
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<BilgilendirmeGrubuDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<BilgilendirmeGrubu> listBilgilendirmeGrubu);
     }
 }

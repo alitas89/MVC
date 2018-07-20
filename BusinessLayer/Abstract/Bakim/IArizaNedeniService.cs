@@ -22,5 +22,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<ArizaNedeni> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<ArizaNedeni> listArizaNedeni);
     }
 }

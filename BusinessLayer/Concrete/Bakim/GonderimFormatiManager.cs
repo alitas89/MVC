@@ -74,5 +74,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _gonderimformatiDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<GonderimFormati> listGonderimFormati)
+        {
+            return _gonderimformatiDal.AddListWithTransactionBySablon(listGonderimFormati);
+        }
     }
 }

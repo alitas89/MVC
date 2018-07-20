@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
@@ -111,6 +116,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             return GetListQuery("select * from BakimRiski where BakimRiskiID " +
                                 "in(select BakimRiskiID from BakimRiskiAraTablo where PeriyodikBakimID= @PeriyodikBakimID and Silindi=0)",
                                 new { PeriyodikBakimID });
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimRiski> listBakimRiski)
+        {
+            List<string> listBakimRiskiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var bakimriski in listBakimRiski)
+                    {
+                        var strBakimRiskiID = connection.ExecuteScalar("insert into BakimRiski(RiskTipiID,Kod,Ad,Formulu,StokNo,Telefon,Aciklama1,Aciklama2,Aciklama3) values (@RiskTipiID,@Kod,@Ad,@Formulu,@StokNo,@Telefon,@Aciklama1,@Aciklama2,@Aciklama3);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", bakimriski, transaction);
+
+                        listBakimRiskiID.Add(strBakimRiskiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listBakimRiskiID;
+            }
         }
     }
 }

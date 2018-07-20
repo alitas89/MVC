@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -101,5 +106,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             int.TryParse(strCount, out int count);
             return count;
         }
+
+        public List<string> AddListWithTransactionBySablon(List<Statu> listStatu)
+        {
+            List<string> listStatuID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var statu in listStatu)
+                    {
+                        var strStatuID = connection.ExecuteScalar("insert into Statu(StatuTipiID,Kod,Ad,VarlikDurumuID,KaynakSinifi1ID,KaynakSinifi2ID,KaynakSinifi3ID,Aciklama,BeklemeIptalNedeni,TalepVarsayilani,TalepOnay,TalepRed,EmirVarsayilani,IsEmriAcik,IsEmriKapali,IsEmriIptal,EkipmanCalismiyor,PlanlanmisIsEmri,IsEmrineBaslandi,IsEmriTamamlandi,IsTeslimEdildi,SorumluDegisti,BakimErtelendi,BakimDevamEdiyor,BildirimIslemleriniYoksay,KismiSatinalmaTalebiOlusturuldu,SatinalmaTalebiOlusturuldu,SatinalmaTeklifVerildi,SatinalmaTeklifDegerlendirildi,SatinalmaSiparisVerildi,MalzemelerinSatinalmaFiyatBelirlendi,SatinalmaAmbarGirisiYapildi,EpostaGonder,SMSGonder,HerKayitAsamasindaUygula,KaydiKilitle) values (@StatuTipiID,@Kod,@Ad,@VarlikDurumuID,@KaynakSinifi1ID,@KaynakSinifi2ID,@KaynakSinifi3ID,@Aciklama,@BeklemeIptalNedeni,@TalepVarsayilani,@TalepOnay,@TalepRed,@EmirVarsayilani,@IsEmriAcik,@IsEmriKapali,@IsEmriIptal,@EkipmanCalismiyor,@PlanlanmisIsEmri,@IsEmrineBaslandi,@IsEmriTamamlandi,@IsTeslimEdildi,@SorumluDegisti,@BakimErtelendi,@BakimDevamEdiyor,@BildirimIslemleriniYoksay,@KismiSatinalmaTalebiOlusturuldu,@SatinalmaTalebiOlusturuldu,@SatinalmaTeklifVerildi,@SatinalmaTeklifDegerlendirildi,@SatinalmaSiparisVerildi,@MalzemelerinSatinalmaFiyatBelirlendi,@SatinalmaAmbarGirisiYapildi,@EpostaGonder,@SMSGonder,@HerKayitAsamasindaUygula,@KaydiKilitle);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", statu, transaction);
+
+                        listStatuID.Add(strStatuID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listStatuID;
+            }
+        }
+
     }
 }

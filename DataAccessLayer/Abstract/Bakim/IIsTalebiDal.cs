@@ -25,5 +25,7 @@ namespace DataAccessLayer.Abstract.Bakim
         List<IsTalebiDto> GetListPaginationDtoByKullaniciID(PagingParams pagingParams, int KullaniciID);
 
         int GetCountDtoByKullaniciID(int KullaniciID, string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi);
     }
 }

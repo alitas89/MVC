@@ -73,5 +73,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bakimoncelikDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<BakimOncelik> listBakimOncelik)
+        {
+            return _bakimoncelikDal.AddListWithTransactionBySablon(listBakimOncelik);
+        }
     }
 }

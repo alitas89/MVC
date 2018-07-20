@@ -23,5 +23,7 @@ namespace BusinessLayer.Abstract.Bakim
 
         int GetCount(string filter = "");
 
+        List<string> AddListWithTransactionBySablon(List<BeklemeIptalNedeni> listBeklemeIptalNedeni);
+
     }
 }

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -73,6 +77,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM ArizaCozumu where Silindi=0 {filterQuery} ", new { filterQuery }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<ArizaCozumu> listArizaCozumu)
+        {
+            List<string> listArizaCozumuID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var arizacozumu in listArizaCozumu)
+                    {
+                        var strArizaCozumuID = connection.ExecuteScalar("insert into ArizaCozumu(Kod,Ad,TekNoktaEgitimiOlustur,Aciklama) values (@Kod,@Ad,@TekNoktaEgitimiOlustur,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", arizacozumu, transaction);
+
+                        listArizaCozumuID.Add(strArizaCozumuID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listArizaCozumuID;
+            }
         }
 
     }

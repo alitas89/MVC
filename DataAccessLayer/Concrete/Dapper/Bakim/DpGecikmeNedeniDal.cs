@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Bakim;
@@ -68,6 +73,35 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM GecikmeNedeni where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<GecikmeNedeni> listGecikmeNedeni)
+        {
+            List<string> listGecikmeNedeniID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var gecikmenedeni in listGecikmeNedeni)
+                    {
+                        var strGecikmeNedeniID = connection.ExecuteScalar("insert into GecikmeNedeni(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", gecikmenedeni, transaction);
+
+                        listGecikmeNedeniID.Add(strGecikmeNedeniID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listGecikmeNedeniID;
+            }
         }
     }
 }

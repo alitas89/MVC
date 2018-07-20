@@ -71,5 +71,10 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _risktipiDal.GetCount(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<RiskTipi> listRiskTipi)
+        {
+            return _risktipiDal.AddListWithTransactionBySablon(listRiskTipi);
+        }
     }
 }

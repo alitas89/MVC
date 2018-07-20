@@ -229,5 +229,34 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
             var list = new DpDtoRepositoryBase<IsEmriNo>().GetListDtoQuery("select * from IsEmriNo where IsTalepID= @IsTalepID and Silindi=0", new { IsTalepID });
             return list;
         }
+
+        public List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi)
+        {
+            List<string> listIsTalebiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var ıstalebi in listIsTalebi)
+                    {
+                        var strIsTalebiID = connection.ExecuteScalar("insert into IsTalebi(TalepYil,IsEmriTuruID,BakimOncelikID,VarlikID,KisimID,ArizaOlusmaTarih,ArizaOlusmaSaat,BildirilisTarih,BildirilisSaat,TalepEdenID,IsTipiID,BakimArizaID,Aciklama,OnaylayanID,OnaylayanAciklama,SorumluID,EkipID,OnayTarih,OnaySaat,StatuID) values (@TalepYil,@IsEmriTuruID,@BakimOncelikID,@VarlikID,@KisimID,@ArizaOlusmaTarih,@ArizaOlusmaSaat,@BildirilisTarih,@BildirilisSaat,@TalepEdenID,@IsTipiID,@BakimArizaID,@Aciklama,@OnaylayanID,@OnaylayanAciklama,@SorumluID,@EkipID,@OnayTarih,@OnaySaat,@StatuID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", ıstalebi, transaction);
+
+                        listIsTalebiID.Add(strIsTalebiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listIsTalebiID;
+            }
+        }
     }
 }

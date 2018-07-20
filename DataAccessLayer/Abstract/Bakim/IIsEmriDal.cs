@@ -25,5 +25,7 @@ namespace DataAccessLayer.Abstract.Bakim
         int AddWithTransaction(IsEmri isemri);
 
         List<string> AddListWithTransaction(List<IsEmri> listIsemri);
+
+        List<string> AddListWithTransactionBySablon(List<IsEmri> listIsEmri);
     }
 }
