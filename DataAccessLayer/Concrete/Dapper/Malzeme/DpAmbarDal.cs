@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Malzeme;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Malzeme;
@@ -109,6 +113,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_AmbarDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Ambar> listAmbar)
+        {
+            List<string> listAmbarID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var ambar in listAmbar)
+                    {
+                        var strAmbarID = connection.ExecuteScalar("insert into Ambar(Kod,Ad,KisimID,Aciklama,IsEmriMalzemeFiyatKatsayi,SanalAmbarID,HurdaAmbarID,SanalAmbar,VarsayilanDeger,Semt,Sehir,Ulke,Adres) values (@Kod,@Ad,@KisimID,@Aciklama,@IsEmriMalzemeFiyatKatsayi,@SanalAmbarID,@HurdaAmbarID,@SanalAmbar,@VarsayilanDeger,@Semt,@Sehir,@Ulke,@Adres);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", ambar, transaction);
+
+                        listAmbarID.Add(strAmbarID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listAmbarID;
+            }
         }
     }
 }

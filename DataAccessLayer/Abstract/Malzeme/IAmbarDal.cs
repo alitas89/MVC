@@ -12,5 +12,7 @@ namespace DataAccessLayer.Abstract.Malzeme
         List<AmbarDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Ambar> listAmbar);
     }
 }

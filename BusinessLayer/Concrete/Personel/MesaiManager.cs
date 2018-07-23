@@ -88,5 +88,10 @@ namespace BusinessLayer.Concrete.Personel
             return _mesaiDal.GetCountDto(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<Mesai> listMesai)
+        {
+            return _mesaiDal.AddListWithTransactionBySablon(listMesai);
+        }
+
     }
 }

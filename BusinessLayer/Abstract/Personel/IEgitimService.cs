@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Personel
         List<Egitim> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Egitim> listEgitim);
     }
 }

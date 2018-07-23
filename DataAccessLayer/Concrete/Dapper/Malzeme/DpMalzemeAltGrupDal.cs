@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
@@ -72,6 +76,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM MalzemeAltGrup where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<MalzemeAltGrup> listMalzemeAltGrup)
+        {
+            List<string> listMalzemeAltGrupID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var malzemealtgrup in listMalzemeAltGrup)
+                    {
+                        var strMalzemeAltGrupID = connection.ExecuteScalar("insert into MalzemeAltGrup(Kod,Ad,Aciklama) values (@Kod,@Ad,@Aciklama);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", malzemealtgrup, transaction);
+
+                        listMalzemeAltGrupID.Add(strMalzemeAltGrupID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listMalzemeAltGrupID;
+            }
         }
 
     }

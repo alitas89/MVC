@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Personel
         List<KaynakPozisyonu> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<KaynakPozisyonu> listKaynakPozisyonu);
     }
 }

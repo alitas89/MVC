@@ -26,5 +26,7 @@ namespace BusinessLayer.Abstract.Personel
         List<VardiyaDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Vardiya> listVardiya);
     }
 }

@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Malzeme
             return _olcubirimDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<OlcuBirim> listOlcuBirim)
+        {
+            return _olcubirimDal.AddListWithTransactionBySablon(listOlcuBirim);
+        }
+
     }
 }

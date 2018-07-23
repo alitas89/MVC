@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Malzeme
         List<MalzemeSayimi> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter="");
+
+        List<string> AddListWithTransactionBySablon(List<MalzemeSayimi> listMalzemeSayimi);
     }
 }

@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Personel
         List<KaynakSinifi> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<KaynakSinifi> listKaynakSinifi);
     }
 }

@@ -16,5 +16,7 @@ namespace DataAccessLayer.Abstract.Malzeme
         int GetCountDto(string filter = "");
 
         bool IsKodDefined(string Kod);
+
+        List<string> AddListWithTransactionBySablon(List<Malzeme> listMalzeme);
     }
 }

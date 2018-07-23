@@ -89,5 +89,10 @@ namespace BusinessLayer.Concrete.Malzeme
             return _ambarDal.GetCountDto(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<Ambar> listAmbar)
+        {
+            return _ambarDal.AddListWithTransactionBySablon(listAmbar);
+        }
+
     }
 }

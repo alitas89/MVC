@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Personel
             return _kaynakpozisyonuDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<KaynakPozisyonu> listKaynakPozisyonu)
+        {
+            return _kaynakpozisyonuDal.AddListWithTransactionBySablon(listKaynakPozisyonu);
+        }
+
     }
 }

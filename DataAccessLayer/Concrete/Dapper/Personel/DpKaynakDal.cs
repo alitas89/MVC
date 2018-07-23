@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using Core.Utilities.Dal;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Personel
 {
@@ -106,6 +111,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_KaynakDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Kaynak> listKaynak)
+        {
+            List<string> listKaynakID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var kaynak in listKaynak)
+                    {
+                        var strKaynakID = connection.ExecuteScalar("insert into Kaynak(Kod,Ad,KisimID,SarfyeriID,IsletmeID,VarlikID,EkipID,KaynakSinifID,VardiyaID,StatuID,AmbarID,KaynakPozisyonuID,DurusIsTipiID,KaynakTipiID,KaynakDurumuID,KaynakTuruID,Email,TelefonNo) values (@Kod,@Ad,@KisimID,@SarfyeriID,@IsletmeID,@VarlikID,@EkipID,@KaynakSinifID,@VardiyaID,@StatuID,@AmbarID,@KaynakPozisyonuID,@DurusIsTipiID,@KaynakTipiID,@KaynakDurumuID,@KaynakTuruID,@Email,@TelefonNo);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", kaynak, transaction);
+
+                        listKaynakID.Add(strKaynakID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listKaynakID;
+            }
         }
     }
 }

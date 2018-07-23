@@ -4,6 +4,11 @@ using DataAccessLayer.Abstract.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel.Malzeme;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System;
 
 namespace DataAccessLayer.Concrete.Dapper.Malzeme
 {
@@ -115,6 +120,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var result = GetScalarQuery("select Count(*) from Malzeme where Kod= @Kod and Silindi=0", new { Kod }) + "";
             int.TryParse(result, out int count);
             return count > 0;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Malzeme.Malzeme> listMalzeme)
+        {
+            List<string> listMalzemeID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var malzeme in listMalzeme)
+                    {
+                        var strMalzemeID = connection.ExecuteScalar("insert into Malzeme(Kod,Ad,OlcuBirimID,MalzemeGrupID,MalzemeAltGrupID,SeriNo,MarkaID,ModelID) values (@Kod,@Ad,@OlcuBirimID,@MalzemeGrupID,@MalzemeAltGrupID,@SeriNo,@MarkaID,@ModelID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", malzeme, transaction);
+
+                        listMalzemeID.Add(strMalzemeID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listMalzemeID;
+            }
         }
 
     }

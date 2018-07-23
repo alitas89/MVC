@@ -83,5 +83,11 @@ namespace BusinessLayer.Concrete.Malzeme
         {
             return _malzemeserinoDal.GetCountDto(filter);
         }
+
+        public List<string> AddListWithTransactionBySablon(List<MalzemeSeriNo> listMalzemeSeriNo)
+        {
+            return _malzemeserinoDal.AddListWithTransactionBySablon(listMalzemeSeriNo);
+        }
+
     }
 }

@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Malzeme
             return _malzemealtgrupDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<MalzemeAltGrup> listMalzemeAltGrup)
+        {
+            return _malzemealtgrupDal.AddListWithTransactionBySablon(listMalzemeAltGrup);
+        }
+
     }
 }

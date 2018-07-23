@@ -29,5 +29,7 @@ namespace BusinessLayer.Abstract.Malzeme
         List<MalzemeDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Malzeme> listMalzeme);
     }
 }

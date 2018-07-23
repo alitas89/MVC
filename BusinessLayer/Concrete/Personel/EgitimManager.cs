@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Personel
             return _egitimDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<Egitim> listEgitim)
+        {
+            return _egitimDal.AddListWithTransactionBySablon(listEgitim);
+        }
+
     }
 }

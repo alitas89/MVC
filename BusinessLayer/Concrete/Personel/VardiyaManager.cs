@@ -88,5 +88,10 @@ namespace BusinessLayer.Concrete.Personel
             return _vardiyaDal.GetCountDto(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<Vardiya> listVardiya)
+        {
+            return _vardiyaDal.AddListWithTransactionBySablon(listVardiya);
+        }
+
     }
 }

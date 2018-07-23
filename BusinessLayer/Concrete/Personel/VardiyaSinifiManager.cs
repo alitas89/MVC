@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Personel
             return _vardiyasinifiDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<VardiyaSinifi> listVardiyaSinifi)
+        {
+            return _vardiyasinifiDal.AddListWithTransactionBySablon(listVardiyaSinifi);
+        }
+
     }
 }

@@ -26,5 +26,7 @@ namespace BusinessLayer.Abstract.Personel
         List<MesaiDto> GetListPaginationDto(PagingParams pagingParams);
 
         int GetCountDto(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<Mesai> listMesai);
     }
 }

@@ -29,5 +29,7 @@ namespace BusinessLayer.Abstract.Personel
         int GetCountDto(string filter = "");
 
         List<Kaynak> GetListKaynakHaveKullaniciID();
+
+        List<string> AddListWithTransactionBySablon(List<Kaynak> listKaynak);
     }
 }

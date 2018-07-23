@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
@@ -67,6 +72,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<MalzemeSayimi> listMalzemeSayimi)
+        {
+            List<string> listMalzemeSayimiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var malzemesayimi in listMalzemeSayimi)
+                    {
+                        var strMalzemeSayimiID = connection.ExecuteScalar("insert into MalzemeSayimi(SayacNo,MalzemeID,AmbarID,Miktar,Tarih,Saat) values (@SayacNo,@MalzemeID,@AmbarID,@Miktar,@Tarih,@Saat);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", malzemesayimi, transaction);
+
+                        listMalzemeSayimiID.Add(strMalzemeSayimiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listMalzemeSayimiID;
+            }
         }
 
     }

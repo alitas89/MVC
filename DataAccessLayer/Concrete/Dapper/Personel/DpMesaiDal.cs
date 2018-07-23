@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -101,6 +105,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_MesaiDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Mesai> listMesai)
+        {
+            List<string> listMesaiID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var mesai in listMesai)
+                    {
+                        var strMesaiID = connection.ExecuteScalar("insert into Mesai(Kod,Ad,UcretCarpani,MesaiTuruID) values (@Kod,@Ad,@UcretCarpani,@MesaiTuruID);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", mesai, transaction);
+
+                        listMesaiID.Add(strMesaiID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listMesaiID;
+            }
         }
     }
 }

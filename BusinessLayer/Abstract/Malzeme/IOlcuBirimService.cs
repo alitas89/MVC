@@ -21,5 +21,7 @@ namespace BusinessLayer.Abstract.Malzeme
         List<OlcuBirim> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter = "");
+
+        List<string> AddListWithTransactionBySablon(List<OlcuBirim> listOlcuBirim);
     }
 }

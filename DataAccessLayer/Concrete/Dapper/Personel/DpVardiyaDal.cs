@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
@@ -105,6 +109,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VardiyaDto where Silindi=0 {filterQuery} ", new { }) + "";
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Vardiya> listVardiya)
+        {
+            List<string> listVardiyaID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var vardiya in listVardiya)
+                    {
+                        var strVardiyaID = connection.ExecuteScalar("insert into Vardiya(Kod,Ad,BaslangicSaati,BaslangicSaati2,BitisSaati,BitisSaati2,SarfYeriID,BakimSuresiHesabinaDahil,DurusSuresiHesabinaDahil) values (@Kod,@Ad,@BaslangicSaati,@BaslangicSaati2,@BitisSaati,@BitisSaati2,@SarfYeriID,@BakimSuresiHesabinaDahil,@DurusSuresiHesabinaDahil);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", vardiya, transaction);
+
+                        listVardiyaID.Add(strVardiyaID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listVardiyaID;
+            }
         }
     }
 }

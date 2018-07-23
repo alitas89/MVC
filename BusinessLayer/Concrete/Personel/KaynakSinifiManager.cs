@@ -76,5 +76,10 @@ namespace BusinessLayer.Concrete.Personel
             return _kaynaksinifiDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<KaynakSinifi> listKaynakSinifi)
+        {
+            return _kaynaksinifiDal.AddListWithTransactionBySablon(listKaynakSinifi);
+        }
+
     }
 }

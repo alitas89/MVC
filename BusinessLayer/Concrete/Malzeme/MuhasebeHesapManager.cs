@@ -76,5 +76,11 @@ namespace BusinessLayer.Concrete.Malzeme
             return _muhasebehesapDal.GetCount(filter);
         }
 
+        public List<string> AddListWithTransactionBySablon(List<MuhasebeHesap> listMuhasebeHesap)
+        {
+            return _muhasebehesapDal.AddListWithTransactionBySablon(listMuhasebeHesap);
+        }
+
+
     }
 }
