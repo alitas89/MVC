@@ -30,6 +30,6 @@ namespace BusinessLayer.Abstract.Malzeme
 
         int GetCountDto(string filter = "");
 
-        List<string> AddListWithTransactionBySablon(List<Malzeme> listMalzeme);
+        List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Malzeme.Malzeme> listMalzeme);
     }
 }

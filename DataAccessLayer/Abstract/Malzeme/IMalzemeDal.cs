@@ -17,6 +17,6 @@ namespace DataAccessLayer.Abstract.Malzeme
 
         bool IsKodDefined(string Kod);
 
-        List<string> AddListWithTransactionBySablon(List<Malzeme> listMalzeme);
+        List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Malzeme.Malzeme> listMalzeme);
     }
 }
