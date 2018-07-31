@@ -41,7 +41,16 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update Isletme set Silindi = 1 where IsletmeID=@Id", new { Id });
+            var Count = 0;
+            var result = UpdateQuery(
+                "select @Count = count (*) from Sarfyeri where IsletmeID=@Id " +
+                "if(@Count = 0) "+
+                "begin "     +
+                "update Isletme set Silindi = 1 where IsletmeID = @Id " +
+                "end "
+                , new { Id ,Count}) + "";
+            int.TryParse(result, out int Result);
+            return Result;
         }
         public List<Isletme> GetListPagination(PagingParams pagingParams)
         {

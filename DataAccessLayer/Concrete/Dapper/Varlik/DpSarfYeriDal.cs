@@ -48,7 +48,16 @@ namespace DataAccessLayer.Concrete.Dapper.Varlik
 
         public int DeleteSoft(int Id)
         {
-            return UpdateQuery("update SarfYeri set Silindi = 1 where SarfYeriID=@Id", new { Id });
+            var Count = 0;
+            var result = UpdateQuery(
+                "select @Count = count (*) from Kisim where SarfYeriID=@Id " +
+                "if(@Count = 0) " +
+                "begin " +
+                "update SarfYeri set Silindi = 1 where SarfYeriID=@Id " +
+                "end "
+                , new { Id, Count }) + "";
+            int.TryParse(result, out int Result);
+            return Result;
         }
 
         public List<SarfYeriDto> GetListDto()
