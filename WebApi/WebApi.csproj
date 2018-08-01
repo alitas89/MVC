@@ -300,6 +300,7 @@
     <Compile Include="Controllers\PeriyodikBakimBildirimPushedController.cs" />
     <Compile Include="Controllers\PeriyodikBakimController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
+    <Compile Include="Controllers\SablonController.cs" />
     <Compile Include="Controllers\SarfYeriController.cs" />
     <Compile Include="Controllers\SayacController.cs" />
     <Compile Include="Controllers\StatuController.cs" />

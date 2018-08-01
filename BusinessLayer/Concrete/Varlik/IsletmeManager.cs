@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Varlik;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -87,6 +88,26 @@ namespace BusinessLayer.Concrete.Varlik
         public int GetCount(string filter = "")
         {
             return _isletmeDal.GetCount(filter);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Isletme> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Isletme> listIsletme = new List<Isletme>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listIsletme.Add(new Isletme()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    HaritaResmiYolu = row[2].ToString(),
+                    Aciklama = row[3].ToString(),
+                });
+            }
+
+            return listIsletme;
         }
     }
 }

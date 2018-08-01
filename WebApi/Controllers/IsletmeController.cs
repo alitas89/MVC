@@ -82,8 +82,9 @@ namespace WebApi.Controllers
         }
 
         //*Boş şablon hazırlar ve yüklenmesine izin verir
-        [System.Web.Http.Route("api/isletme/downloadsablon")]
-        public HttpResponseMessage GetExcelSablon()
+        [HttpGet]
+        [System.Web.Http.Route("api/isletmesablon/downloadsablon/{no}")]
+        public HttpResponseMessage GetExcelSablon(int no)
         {
             List<String> list = new List<String>();
             List<Type> listType = new List<Type>();
@@ -106,9 +107,9 @@ namespace WebApi.Controllers
 
 
         //*İçerisinde kayıtların olduğu bir excel dosyası hazırlar ve upload edilmesini sağlar. 
-        [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("api/isletme/uploadsablonexcelfile")]
-        public List<string> UploadSablonExcelFile()
+       
+        [Route("api/isletmesablon/uploadsablonexcelfile/{no}")]
+        public List<string> UploadSablonExcelFile(int no)
         {
             List<string> listCreatedID = new List<string>();
 
@@ -137,7 +138,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Isletme> listIsletme = _isletmeService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                       _isletmeService.AddListWithTransactionBySablon(listIsletme);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,31 +149,6 @@ namespace WebApi.Controllers
                 }
             }
             return listCreatedID;
-        }
-
-
-
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Isletme> listIsletme = new List<Isletme>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listIsletme.Add(new Isletme()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    HaritaResmiYolu = row[2].ToString(),
-                    Aciklama = row[3].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listIsletmeID = _isletmeService.AddListWithTransactionBySablon(listIsletme);
-
-            return listIsletmeID;
         }
     }
 }
