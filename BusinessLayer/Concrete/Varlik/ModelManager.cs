@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Varlik;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
@@ -95,5 +97,25 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _modelDal.AddListWithTransactionBySablon(listModel);
         }
-}
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Model> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Model> listModel = new List<Model>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listModel.Add(new Model()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    MarkaID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    Aciklama = row[3].ToString(),
+                });
+            }
+
+            return listModel;
+        }
+    }
 }

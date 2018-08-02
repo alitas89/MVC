@@ -135,7 +135,9 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<BakimOncelik> listBakimOncelik = _bakimOncelikService.ExcelDataProcess(result.Tables[0]);
+
+                        _bakimOncelikService.AddListWithTransactionBySablon(listBakimOncelik);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,32 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<BakimOncelik> listBakimOncelik = new List<BakimOncelik>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listBakimOncelik.Add(new BakimOncelik()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    TamamlanmaZamani = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    BirimID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    Aciklama = row[4].ToString(),
-                    TeminSureleriID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
-                    IsEmriVarsayilani = row[6] != DBNull.Value ? Convert.ToBoolean(row[6].ToString()) : false,
-                    IsTalepVarsayilani = row[7] != DBNull.Value ? Convert.ToBoolean(row[7].ToString()) : false,
-                    PeriyodikBakimVarsayilani = row[8] != DBNull.Value ? Convert.ToBoolean(row[8].ToString()) : false,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listBakimOncelikID = _bakimOncelikService.AddListWithTransactionBySablon(listBakimOncelik);
-
-            return listBakimOncelikID;
-        }
+       
     }
 }

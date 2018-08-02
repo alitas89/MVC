@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<AracServis> listAracServis = _aracServisService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                      _aracServisService.AddListWithTransactionBySablon(listAracServis);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,49 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<AracServis> listAracServis = new List<AracServis>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listAracServis.Add(new AracServis()
-                {
-                    IsEmriYili = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
-                    FisNo = row[1].ToString(),
-                    TalepEdenID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    AracID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    GorevID = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
-                    TalepTarih = row[5] != DBNull.Value ? Convert.ToDateTime(row[5].ToString()) : DateTime.MaxValue,
-                    TalepSaat = row[6].ToString(),
-                    TeslimEtmeTarih = row[7] != DBNull.Value ? Convert.ToDateTime(row[7].ToString()) : DateTime.MaxValue,
-                    TeslimEtmeSaat = row[8].ToString(),
-                    TeslimAlmaTarih = row[9] != DBNull.Value ? Convert.ToDateTime(row[9].ToString()) : DateTime.MaxValue,
-                    TeslimAlmaSaat = row[10].ToString(),
-                    TeslimAlinanKm = row[11] != DBNull.Value ? Convert.ToDecimal(row[11].ToString()) : 0,
-                    TeslimEdilenKm = row[12] != DBNull.Value ? Convert.ToDecimal(row[12].ToString()) : 0,
-                    KullanilanKm = row[13] != DBNull.Value ? Convert.ToDecimal(row[13].ToString()) : 0,
-                    Aciklama = row[14].ToString(),
-                    TeslimEdenID = row[15] != DBNull.Value ? Convert.ToInt32(row[15].ToString()) : 0,
-                    TeslimAlanID = row[16] != DBNull.Value ? Convert.ToInt32(row[16].ToString()) : 0,
-                    TeslimAmbarID = row[17] != DBNull.Value ? Convert.ToInt32(row[17].ToString()) : 0,
-                    BolumID = row[18] != DBNull.Value ? Convert.ToInt32(row[18].ToString()) : 0,
-                    VarlikDurumID = row[19] != DBNull.Value ? Convert.ToInt32(row[19].ToString()) : 0,
-                    MarkaID = row[20] != DBNull.Value ? Convert.ToInt32(row[20].ToString()) : 0,
-                    ModelID = row[21] != DBNull.Value ? Convert.ToInt32(row[21].ToString()) : 0,
-                    SeriNo = row[22].ToString(),
-                    ArizaID = row[23] != DBNull.Value ? Convert.ToInt32(row[23].ToString()) : 0,
-                    HizmetID = row[24] != DBNull.Value ? Convert.ToInt32(row[24].ToString()) : 0,
-                    ServisAdres = row[25].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listAracServisID = _aracServisService.AddListWithTransactionBySablon(listAracServis);
-
-            return listAracServisID;
-        }
+       
     }
 }

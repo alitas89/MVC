@@ -127,5 +127,6 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isEmriDal.AddListWithTransactionBySablon(listIsEmri);
         }
+
     }
 }

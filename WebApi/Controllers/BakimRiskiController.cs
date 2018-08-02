@@ -141,7 +141,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<BakimRiski> listBakimRiski = _bakimRiskiService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                       _bakimRiskiService.AddListWithTransactionBySablon(listBakimRiski);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -151,32 +154,5 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<BakimRiski> listBakimRiski = new List<BakimRiski>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listBakimRiski.Add(new BakimRiski()
-                {
-                    RiskTipiID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
-                    Kod = row[1].ToString(),
-                    Ad = row[2].ToString(),
-                    Formulu = row[3].ToString(),
-                    StokNo = row[4].ToString(),
-                    Telefon = row[5].ToString(),
-                    Aciklama1 = row[6].ToString(),
-                    Aciklama2 = row[7].ToString(),
-                    Aciklama3 = row[8].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listBakimRiskiID = _bakimRiskiService.AddListWithTransactionBySablon(listBakimRiski);
-
-            return listBakimRiskiID;
-        }
     }
 }

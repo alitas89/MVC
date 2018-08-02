@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -78,6 +80,29 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<BeklemeIptalNedeni> listBeklemeIptalNedeni)
         {
             return _beklemeıptalnedeniDal.AddListWithTransactionBySablon(listBeklemeIptalNedeni);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<BeklemeIptalNedeni> ExcelDataProcess(DataTable dataTable)
+        {
+            List<BeklemeIptalNedeni> listBeklemeIptalNedeni = new List<BeklemeIptalNedeni>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listBeklemeIptalNedeni.Add(new BeklemeIptalNedeni()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                    IsEmriniKapsayanPeriyodikBakimOlustur = row[3] != DBNull.Value ? Convert.ToBoolean(row[3].ToString()) : false,
+                    IptalEdilenOtonomBakimdanIsEmriOlustur = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
+                });
+            }
+
+
+
+            return listBeklemeIptalNedeni;
         }
     }
 }

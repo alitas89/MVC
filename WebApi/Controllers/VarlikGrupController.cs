@@ -33,7 +33,7 @@ namespace WebApi.Controllers
             return _varlikGrupService.GetListDto();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _varlikGrupService.GetCountDto(filter) : _varlikGrupService.GetCountDto();
@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<VarlikGrup> listVarlikGrup = _varlikGrupService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _varlikGrupService.AddListWithTransactionBySablon(listVarlikGrup);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,30 +148,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<VarlikGrup> listVarlikGrup = new List<VarlikGrup>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listVarlikGrup.Add(new VarlikGrup()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    IsTipiID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    Aciklama1 = row[3].ToString(),
-                    Aciklama2 = row[4].ToString(),
-                    Aciklama3 = row[5].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listVarlikGrupID = _varlikGrupService.AddListWithTransactionBySablon(listVarlikGrup);
-
-            return listVarlikGrupID;
-        }
 
 
     }

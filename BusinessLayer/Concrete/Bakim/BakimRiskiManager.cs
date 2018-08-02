@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -94,6 +96,34 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<BakimRiski> listBakimRiski)
         {
             return _bakimriskiDal.AddListWithTransactionBySablon(listBakimRiski);
+        }
+
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<BakimRiski> ExcelDataProcess(DataTable dataTable)
+        {
+            List<BakimRiski> listBakimRiski = new List<BakimRiski>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listBakimRiski.Add(new BakimRiski()
+                {
+                    RiskTipiID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    Kod = row[1].ToString(),
+                    Ad = row[2].ToString(),
+                    Formulu = row[3].ToString(),
+                    StokNo = row[4].ToString(),
+                    Telefon = row[5].ToString(),
+                    Aciklama1 = row[6].ToString(),
+                    Aciklama2 = row[7].ToString(),
+                    Aciklama3 = row[8].ToString(),
+                });
+            }
+
+
+
+            return listBakimRiski;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -78,6 +79,26 @@ namespace BusinessLayer.Concrete.Bakim
             return _arizanedenigrubuDal.AddListWithTransactionBySablon(listArizaNedeniGrubu);
         }
 
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<ArizaNedeniGrubu> ExcelDataProcess(DataTable dataTable)
+        {
+            List<ArizaNedeniGrubu> listArizaNedeniGrubu = new List<ArizaNedeniGrubu>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listArizaNedeniGrubu.Add(new ArizaNedeniGrubu()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+
+
+            return listArizaNedeniGrubu;
+        }
 
 
     }

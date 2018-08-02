@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,31 @@ namespace BusinessLayer.Concrete.Varlik
         public List<string> AddListWithTransactionBySablon(List<Hurda> listHurda)
         {
             return _hurdaDal.AddListWithTransactionBySablon(listHurda);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Hurda> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Hurda> listHurda = new List<Hurda>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listHurda.Add(new Hurda()
+                {
+                    BarkodKod = row[0].ToString(),
+                    VarlikID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
+                    OzurKod = row[2].ToString(),
+                    OzurAd = row[3].ToString(),
+                    OzurTip = row[4].ToString(),
+                    Tarih = row[5] != DBNull.Value ? Convert.ToDateTime(row[5].ToString()) : DateTime.MaxValue,
+                    Miktar = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
+                    Toplam = row[7] != DBNull.Value ? Convert.ToInt32(row[7].ToString()) : 0,
+                    Aciklama = row[8].ToString(),
+                });
+            }
+
+            return listHurda;
         }
     }
 }

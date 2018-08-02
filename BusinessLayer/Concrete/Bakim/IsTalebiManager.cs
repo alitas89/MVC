@@ -135,9 +135,5 @@ namespace BusinessLayer.Concrete.Bakim
             return _isTalebiDal.AddWithTransaction(ıstalebi);
         }
 
-        public List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi)
-        {
-            return _isTalebiDal.AddListWithTransactionBySablon(listIsTalebi);
-        }
     }
 }

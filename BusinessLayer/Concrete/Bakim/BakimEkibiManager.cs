@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,25 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<BakimEkibi> listBakimEkibi)
         {
             return _bakimekibiDal.AddListWithTransactionBySablon(listBakimEkibi);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<BakimEkibi> ExcelDataProcess(DataTable dataTable)
+        {
+            List<BakimEkibi> listBakimEkibi = new List<BakimEkibi>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listBakimEkibi.Add(new BakimEkibi()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+            return listBakimEkibi;
         }
 
 

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
@@ -87,5 +89,27 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _isTipiDal.AddListWithTransactionBySablon(listIsTipi);
         }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<IsTipi> ExcelDataProcess(DataTable dataTable)
+        {
+            List<IsTipi> listIsTipi = new List<IsTipi>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listIsTipi.Add(new IsTipi()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    BakimOncelikID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    IsEmriTuruID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    Aciklama = row[4].ToString(),
+                });
+            }
+
+            return listIsTipi;
+        }
+
     }
 }

@@ -136,7 +136,12 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<ArizaNedeni> listArizaNedeni = _arizaNedeniService.ExcelDataProcess(result.Tables[0]);
+
+
+                        //Transaction ile eklemeler yapılır
+                      _arizaNedeniService.AddListWithTransactionBySablon(listArizaNedeni);
+
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -146,29 +151,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<ArizaNedeni> listArizaNedeni = new List<ArizaNedeni>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listArizaNedeni.Add(new ArizaNedeni()
-                {
-                    Kod = row[0].ToString(),
-                    GenelKod = row[1] != DBNull.Value ? Convert.ToBoolean(row[1].ToString()) : false,
-                    Ad = row[2].ToString(),
-                    UretimiDurdurur = row[3] != DBNull.Value ? Convert.ToBoolean(row[3].ToString()) : false,
-                    NedenAnaliziZorunluOlmali = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
-                    Aciklama = row[5].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listArizaNedeniID = _arizaNedeniService.AddListWithTransactionBySablon(listArizaNedeni);
-
-            return listArizaNedeniID;
-        }
+    
     }
 }

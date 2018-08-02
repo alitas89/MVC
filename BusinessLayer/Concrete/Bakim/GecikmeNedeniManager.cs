@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -78,6 +79,25 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<GecikmeNedeni> listGecikmeNedeni)
         {
             return _gecikmenedeniDal.AddListWithTransactionBySablon(listGecikmeNedeni);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<GecikmeNedeni> ExcelDataProcess(DataTable dataTable)
+        {
+            List<GecikmeNedeni> listGecikmeNedeni = new List<GecikmeNedeni>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listGecikmeNedeni.Add(new GecikmeNedeni()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+            return listGecikmeNedeni;
         }
     }
 }

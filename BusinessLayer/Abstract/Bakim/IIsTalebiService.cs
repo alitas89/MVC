@@ -43,6 +43,5 @@ namespace BusinessLayer.Abstract.Bakim
 
         int AddWithTransaction(IsTalebi ıstalebi);
 
-        List<string> AddListWithTransactionBySablon(List<IsTalebi> listIsTalebi);
     }
 }

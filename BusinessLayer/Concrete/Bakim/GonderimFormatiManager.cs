@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -78,6 +80,29 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<GonderimFormati> listGonderimFormati)
         {
             return _gonderimformatiDal.AddListWithTransactionBySablon(listGonderimFormati);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<GonderimFormati> ExcelDataProcess(DataTable dataTable)
+        {
+            List<GonderimFormati> listGonderimFormati = new List<GonderimFormati>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listGonderimFormati.Add(new GonderimFormati()
+                {
+                    GonderimTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    Kod = row[1].ToString(),
+                    Ad = row[2].ToString(),
+                    Konu = row[3].ToString(),
+                    Format = row[4].ToString(),
+                });
+            }
+
+
+
+            return listGonderimFormati;
         }
     }
 }

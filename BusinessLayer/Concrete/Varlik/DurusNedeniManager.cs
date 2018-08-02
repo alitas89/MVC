@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Varlik;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -77,6 +79,27 @@ namespace BusinessLayer.Concrete.Varlik
         public List<string> AddListWithTransactionBySablon(List<DurusNedeni> listDurusNedeni)
         {
             return _durusnedeniDal.AddListWithTransactionBySablon(listDurusNedeni);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<DurusNedeni> ExcelDataProcess(DataTable dataTable)
+        {
+            List<DurusNedeni> listDurusNedeni = new List<DurusNedeni>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listDurusNedeni.Add(new DurusNedeni()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    BakimDurusu = row[2] != DBNull.Value ? Convert.ToBoolean(row[2].ToString()) : false,
+                    Aciklama = row[3].ToString(),
+
+                });
+            }
+
+            return listDurusNedeni;
         }
     }
 }

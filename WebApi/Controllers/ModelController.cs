@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Model> listModel = _modelService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _modelService.AddListWithTransactionBySablon(listModel);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,27 +148,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Model> listModel = new List<Model>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listModel.Add(new Model()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    MarkaID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    Aciklama = row[3].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listModelID = _modelService.AddListWithTransactionBySablon(listModel);
-
-            return listModelID;
-        }
+      
     }
 }

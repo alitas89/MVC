@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<BilgilendirmeGrubu> listBilgilendirmeGrubu = _bilgilendirmeGrubuService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                         _bilgilendirmeGrubuService.AddListWithTransactionBySablon(listBilgilendirmeGrubu);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,28 +148,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<BilgilendirmeGrubu> listBilgilendirmeGrubu = new List<BilgilendirmeGrubu>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listBilgilendirmeGrubu.Add(new BilgilendirmeGrubu()
-                {
-                    BilgilendirmeTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
-                    Kod = row[1].ToString(),
-                    Ad = row[2].ToString(),
-                    YetkiKodu = row[3].ToString(),
-                    Aciklama = row[4].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listBilgilendirmeGrubuID = _bilgilendirmeGrubuService.AddListWithTransactionBySablon(listBilgilendirmeGrubu);
-
-            return listBilgilendirmeGrubuID;
-        }
+      
     }
 }

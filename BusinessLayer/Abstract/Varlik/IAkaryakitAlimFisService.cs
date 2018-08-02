@@ -2,6 +2,7 @@
 using EntityLayer.Concrete.Varlik;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
 
 namespace BusinessLayer.Abstract.Varlik
 {
@@ -28,6 +29,8 @@ namespace BusinessLayer.Abstract.Varlik
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<AkaryakitAlimFis> listAkaryakitAlimFis);
+
+        List<AkaryakitAlimFis> ExcelDataProcess(DataTable dataTable);
 
     }
 }

@@ -32,7 +32,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _varlikTransferService.GetCountDto(filter) : _varlikTransferService.GetCountDto();
@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<VarlikTransfer> listVarlikTransfer = _varlikTransferService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _varlikTransferService.AddListWithTransactionBySablon(listVarlikTransfer);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,33 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<VarlikTransfer> listVarlikTransfer = new List<VarlikTransfer>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listVarlikTransfer.Add(new VarlikTransfer()
-                {
-                    TransferNo = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
-                    VarlikID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
-                    EskiKisimID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    EskiSahipVarlikID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    YeniSahipVarlikID = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
-                    YeniKisimID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
-                    IslemiYapanID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    Tarih = row[7] != DBNull.Value ? Convert.ToDateTime(row[7].ToString()) : DateTime.MaxValue,
-                    Saat = row[8].ToString(),
-                    Aciklama = row[9].ToString(),
-                });
-            }
 
-            //Transaction ile eklemeler yapılır
-            List<string> listVarlikTransferID = _varlikTransferService.AddListWithTransactionBySablon(listVarlikTransfer);
-
-            return listVarlikTransferID;
-        }
     }
 }

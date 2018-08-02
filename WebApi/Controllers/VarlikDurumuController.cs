@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<VarlikDurumu> listVarlikDurumu = _varlikDurumuService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                      _varlikDurumuService.AddListWithTransactionBySablon(listVarlikDurumu);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,26 +148,5 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<VarlikDurumu> listVarlikDurumu = new List<VarlikDurumu>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listVarlikDurumu.Add(new VarlikDurumu()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listVarlikDurumuID = _varlikDurumuService.AddListWithTransactionBySablon(listVarlikDurumu);
-
-            return listVarlikDurumuID;
-        }
     }
 }

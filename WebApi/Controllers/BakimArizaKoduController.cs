@@ -137,7 +137,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<BakimArizaKodu> listBakimArizaKodu = _bakimArizaKoduService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                      _bakimArizaKoduService.AddListWithTransactionBySablon(listBakimArizaKodu);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,40 +148,6 @@ namespace WebApi.Controllers
                 }
             }
             return listCreatedID;
-        }
-
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<BakimArizaKodu> listBakimArizaKodu = new List<BakimArizaKodu>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listBakimArizaKodu.Add(new BakimArizaKodu()
-                {
-                    Kod = row[0].ToString(),
-                    GenelKod = row[1] != DBNull.Value ? Convert.ToBoolean(row[1].ToString()) : false,
-                    Ad = row[2].ToString(),
-                    IsTipiID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    BakimOncelikID = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
-                    TalimatKoduID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
-                    RiskTipiID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    BakimPeriyodu = row[7] != DBNull.Value ? Convert.ToInt32(row[7].ToString()) : 0,
-                    BirimID = row[8] != DBNull.Value ? Convert.ToInt32(row[8].ToString()) : 0,
-                    BakimSuresi = row[9] != DBNull.Value ? Convert.ToInt32(row[9].ToString()) : 0,
-                    BakimPuani = row[10] != DBNull.Value ? Convert.ToInt32(row[10].ToString()) : 0,
-                    Etiket = row[11].ToString(),
-                    SurecPerformansinaDahil = row[12] != DBNull.Value ? Convert.ToBoolean(row[12].ToString()) : false,
-                    Aciklama = row[13].ToString(),
-                    UretimTipiID = row[14] != DBNull.Value ? Convert.ToInt32(row[14].ToString()) : 0,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listBakimArizaKoduID = _bakimArizaKoduService.AddListWithTransactionBySablon(listBakimArizaKodu);
-
-            return listBakimArizaKoduID;
         }
 
 

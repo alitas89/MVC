@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<DurusNedeni> listDurusNedeni = _durusNedeniService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                     _durusNedeniService.AddListWithTransactionBySablon(listDurusNedeni);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,29 +148,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<DurusNedeni> listDurusNedeni = new List<DurusNedeni>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listDurusNedeni.Add(new DurusNedeni()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    BakimDurusu = row[2] != DBNull.Value ? Convert.ToBoolean(row[2].ToString()) : false,
-                    Aciklama = row[3].ToString(),
-                   
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listDurusNedeniID = _durusNedeniService.AddListWithTransactionBySablon(listDurusNedeni);
-
-            return listDurusNedeniID;
-        }
+      
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Varlik;
 using BusinessLayer.ValidationRules.FluentValidation;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -120,6 +122,28 @@ namespace BusinessLayer.Concrete.Varlik
         public List<ColumnNameTemp> GetColumnNames(string tableName)
         {
             return _kisimDal.GetColumnNames(tableName);
+        }
+
+        public List<Kisim> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Kisim> listKisim = new List<Kisim>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listKisim.Add(new Kisim()
+                {
+                    Kod = row[0] + "",
+                    Ad = row[1] + "",
+                    Butce = row[2] != DBNull.Value ? Convert.ToDecimal(row[2] + "") : 0,
+                    HedeflenenButce = row[3] != DBNull.Value ? Convert.ToDecimal(row[3] + "") : 0,
+                    VardiyaSinifID = row[4] != DBNull.Value ? Convert.ToInt32(row[4] + "") : 0,
+                    SarfYeriID = row[5] != DBNull.Value ? Convert.ToInt32(row[5] + "") : 0,
+                    Aciklama = row[6] + ""
+                });
+            }
+
+            return listKisim;
         }
     }
 }

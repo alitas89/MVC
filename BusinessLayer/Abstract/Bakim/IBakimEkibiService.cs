@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
 using EntityLayer.Concrete.Bakim;
@@ -24,5 +25,7 @@ namespace BusinessLayer.Abstract.Bakim
         int GetCount(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<BakimEkibi> listBakimEkibi);
+
+        List<BakimEkibi> ExcelDataProcess(DataTable dataTable);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -91,6 +93,27 @@ namespace BusinessLayer.Concrete.Bakim
         {
             return _bilgilendirmegrubuDal.AddListWithTransactionBySablon(listBilgilendirmeGrubu);
         }
-    
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<BilgilendirmeGrubu> ExcelDataProcess(DataTable dataTable)
+        {
+            List<BilgilendirmeGrubu> listBilgilendirmeGrubu = new List<BilgilendirmeGrubu>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listBilgilendirmeGrubu.Add(new BilgilendirmeGrubu()
+                {
+                    BilgilendirmeTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    Kod = row[1].ToString(),
+                    Ad = row[2].ToString(),
+                    YetkiKodu = row[3].ToString(),
+                    Aciklama = row[4].ToString(),
+                });
+            }
+
+            return listBilgilendirmeGrubu;
+        }
+
     }
 }

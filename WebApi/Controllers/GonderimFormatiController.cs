@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<GonderimFormati> listGonderimFormati = _gonderimFormatiService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                       _gonderimFormatiService.AddListWithTransactionBySablon(listGonderimFormati);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,28 +148,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<GonderimFormati> listGonderimFormati = new List<GonderimFormati>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listGonderimFormati.Add(new GonderimFormati()
-                {
-                    GonderimTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
-                    Kod = row[1].ToString(),
-                    Ad = row[2].ToString(),
-                    Konu = row[3].ToString(),
-                    Format = row[4].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listGonderimFormatiID = _gonderimFormatiService.AddListWithTransactionBySablon(listGonderimFormati);
-
-            return listGonderimFormatiID;
-        }
+   
     }
 }

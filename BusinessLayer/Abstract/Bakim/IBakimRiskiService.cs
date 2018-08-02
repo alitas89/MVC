@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete;
@@ -31,5 +32,7 @@ namespace BusinessLayer.Abstract.Bakim
         List<BakimRiski> GetListBakimRiskiByPeriyodikBakimID(int PeriyodikBakimID);
 
         List<string> AddListWithTransactionBySablon(List<BakimRiski> listBakimRiski);
+
+        List<BakimRiski> ExcelDataProcess(DataTable dataTable);
     }
 }

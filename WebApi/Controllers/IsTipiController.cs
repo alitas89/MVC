@@ -138,7 +138,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<IsTipi> listIsTipi = _isTipiService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                         _isTipiService.AddListWithTransactionBySablon(listIsTipi);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -148,30 +151,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<IsTipi> listIsTipi = new List<IsTipi>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listIsTipi.Add(new IsTipi()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    BakimOncelikID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    IsEmriTuruID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    Aciklama = row[4].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listIsTipiID = _isTipiService.AddListWithTransactionBySablon(listIsTipi);
-
-            return listIsTipiID;
-        }
-
+     
 
     }
 }

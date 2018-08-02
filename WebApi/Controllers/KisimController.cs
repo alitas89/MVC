@@ -154,7 +154,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Kisim> listKisim =_kisimService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _kisimService.AddListWithTransactionBySablon(listKisim);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -164,29 +167,5 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Kisim> listKisim = new List<Kisim>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listKisim.Add(new Kisim()
-                {
-                    Kod = row[0] + "",
-                    Ad = row[1] + "",
-                    Butce = row[2] != DBNull.Value ? Convert.ToDecimal(row[2] + "") : 0,
-                    HedeflenenButce = row[3] != DBNull.Value ? Convert.ToDecimal(row[3] + "") : 0,
-                    VardiyaSinifID = row[4] != DBNull.Value ? Convert.ToInt32(row[4] + "") : 0,
-                    SarfYeriID = row[5] != DBNull.Value ? Convert.ToInt32(row[5] + "") : 0,
-                    Aciklama = row[6] + ""
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listKisimID = _kisimService.AddListWithTransactionBySablon(listKisim);
-
-            return listKisimID;
-        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿
+using System;
 using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Varlik;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
@@ -89,5 +91,30 @@ namespace BusinessLayer.Concrete.Varlik
         {
             return _zimmettransferDal.AddListWithTransactionBySablon(listZimmetTransfer);
         }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<ZimmetTransfer> ExcelDataProcess(DataTable dataTable)
+        {
+            List<ZimmetTransfer> listZimmetTransfer = new List<ZimmetTransfer>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listZimmetTransfer.Add(new ZimmetTransfer()
+                {
+                    TransferNo = row[0].ToString(),
+                    TeslimTarih = row[1] != DBNull.Value ? Convert.ToDateTime(row[1].ToString()) : DateTime.MaxValue,
+                    TeslimSaat = row[2].ToString(),
+                    ZimmetVerenID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    ZimmetAlanID = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
+                    UstVarlikID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
+                    YeniKisimID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
+                    Aciklama = row[7].ToString(),
+                });
+            }
+
+            return listZimmetTransfer;
+        }
+
     }
 }

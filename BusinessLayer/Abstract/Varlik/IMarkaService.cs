@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
 
@@ -23,6 +24,8 @@ namespace BusinessLayer.Abstract.Varlik
         int GetCount(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<Marka> listMarka);
+
+        List<Marka> ExcelDataProcess(DataTable dataTable);
 
     }
 }

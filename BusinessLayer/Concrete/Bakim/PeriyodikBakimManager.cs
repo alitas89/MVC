@@ -133,9 +133,5 @@ namespace BusinessLayer.Concrete.Bakim
             return _periyodikbakimDal.DeleteSoftWithTransaction(Id, bildirimTriggerID);
         }
 
-        public List<string> AddListWithTransactionBySablon(List<PeriyodikBakim> listPeriyodikBakim)
-        {
-            return _periyodikbakimDal.AddListWithTransactionBySablon(listPeriyodikBakim);
-        }
     }
 }

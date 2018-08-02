@@ -33,7 +33,7 @@ namespace WebApi.Controllers
             return _urunService.GetList();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _urunService.GetCount(filter) : _urunService.GetCount();
@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Urun> listUrun = _urunService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _urunService.AddListWithTransactionBySablon(listUrun);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,27 +148,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Urun> listUrun = new List<Urun>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listUrun.Add(new Urun()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
 
-            //Transaction ile eklemeler yapılır
-            List<string> listUrunID = _urunService.AddListWithTransactionBySablon(listUrun);
-
-            return listUrunID;
-        }
 
     }
 }

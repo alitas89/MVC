@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,8 @@ namespace BusinessLayer.Abstract.Varlik
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik);
+
+        List<EntityLayer.Concrete.Varlik.Varlik> ExcelDataProcess(DataTable dataTable);
 
     }
 }

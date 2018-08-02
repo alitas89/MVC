@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<AkaryakitAlimFis> listAkaryakitAlimFis =_akaryakitAlimFisService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                       _akaryakitAlimFisService.AddListWithTransactionBySablon(listAkaryakitAlimFis);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -142,40 +145,6 @@ namespace WebApi.Controllers
                 }
             }
             return listCreatedID;
-        }
-
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<AkaryakitAlimFis> listAkaryakitAlimFis = new List<AkaryakitAlimFis>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listAkaryakitAlimFis.Add(new AkaryakitAlimFis()
-                {
-                    FisNo = row[0].ToString(),
-                    AracID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
-                    YakitID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    AmbarID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    Miktar = row[4] != DBNull.Value ? Convert.ToDecimal(row[4].ToString()) : 0,
-                    BirimFiyat = row[5] != DBNull.Value ? Convert.ToDecimal(row[5].ToString()) : 0,
-                    Iskonto = row[6] != DBNull.Value ? Convert.ToDecimal(row[6].ToString()) : 0,
-                    ToplamAkaryakitTutari = row[7] != DBNull.Value ? Convert.ToDecimal(row[7].ToString()) : 0,
-                    MasrafYeriID = row[8] != DBNull.Value ? Convert.ToInt32(row[8].ToString()) : 0,
-                    YakitAlanKisiID = row[9] != DBNull.Value ? Convert.ToInt32(row[9].ToString()) : 0,
-                    SaticiID = row[10] != DBNull.Value ? Convert.ToInt32(row[10].ToString()) : 0,
-                    YakitAlimTarih = row[11] != DBNull.Value ? Convert.ToDateTime(row[11].ToString()) : DateTime.MaxValue,
-                    YakitAlimSaat = row[12].ToString(),
-                    AracKm = row[13] != DBNull.Value ? Convert.ToDecimal(row[13].ToString()) : 0,
-                    Aciklama = row[14].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listAkaryakitAlimFisID = _akaryakitAlimFisService.AddListWithTransactionBySablon(listAkaryakitAlimFis);
-
-            return listAkaryakitAlimFisID;
         }
 
     }

@@ -54,7 +54,7 @@ namespace WebApi.Controllers
                 columns = columns
             });
 
-            var response = columns.Length > 0 ? 
+            var response = columns.Length > 0 ?
                 Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
                 : Request.CreateResponse(HttpStatusCode.OK, d);
 
@@ -146,7 +146,11 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<SarfYeri> listSarfYeri = _sarfYeriService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _sarfYeriService.AddListWithTransactionBySablon(listSarfYeri);
+
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -156,37 +160,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<SarfYeri> listSarfYeri = new List<SarfYeri>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listSarfYeri.Add(new SarfYeri()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Butce = row[2] != DBNull.Value ? Convert.ToDecimal(row[2].ToString()) : 0,
-                    HedeflenenButce = row[3] != DBNull.Value ? Convert.ToDecimal(row[3].ToString()) : 0,
-                    VardiyaSinifID = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
-                    IsletmeID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
-                    Telefon1 = row[6].ToString(),
-                    Telefon2 = row[7].ToString(),
-                    FaxNo = row[8].ToString(),
-                    Email = row[9].ToString(),
-                    WebUrl = row[10].ToString(),
-                    LogoDosyaYolu = row[11].ToString(),
-                    Aciklama = row[12].ToString(),
-                });
-            }
 
-            //Transaction ile eklemeler yapılır
-            List<string> listSarfYeriID = _sarfYeriService.AddListWithTransactionBySablon(listSarfYeri);
-
-            return listSarfYeriID;
-        }
 
     }
 }

@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<GecikmeNedeni> listGecikmeNedeni = _gecikmeNedeniService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                      _gecikmeNedeniService.AddListWithTransactionBySablon(listGecikmeNedeni);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -145,26 +148,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<GecikmeNedeni> listGecikmeNedeni = new List<GecikmeNedeni>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listGecikmeNedeni.Add(new GecikmeNedeni()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listGecikmeNedeniID = _gecikmeNedeniService.AddListWithTransactionBySablon(listGecikmeNedeni);
-
-            return listGecikmeNedeniID;
-        }
+     
     }
 }

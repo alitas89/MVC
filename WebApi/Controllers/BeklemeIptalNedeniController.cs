@@ -137,7 +137,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<BeklemeIptalNedeni> listBeklemeIptalNedeni = _beklemeIptalNedeniService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _beklemeIptalNedeniService.AddListWithTransactionBySablon(listBeklemeIptalNedeni);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -147,29 +150,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<BeklemeIptalNedeni> listBeklemeIptalNedeni = new List<BeklemeIptalNedeni>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listBeklemeIptalNedeni.Add(new BeklemeIptalNedeni()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                    IsEmriniKapsayanPeriyodikBakimOlustur = row[3] != DBNull.Value ? Convert.ToBoolean(row[3].ToString()) : false,
-                    IptalEdilenOtonomBakimdanIsEmriOlustur = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listBeklemeIptalNedeniID = _beklemeIptalNedeniService.AddListWithTransactionBySablon(listBeklemeIptalNedeni);
-
-            return listBeklemeIptalNedeniID;
-        }
+    
 
     }
 }

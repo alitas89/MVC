@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract;
 using BusinessLayer.Abstract.Bakim;
 using Core.Aspects.Postsharp.AuthorizationAspects;
@@ -77,6 +79,27 @@ namespace BusinessLayer.Concrete.Bakim
         public List<string> AddListWithTransactionBySablon(List<ArizaCozumu> listArizaCozumu)
         {
             return _arizacozumuDal.AddListWithTransactionBySablon(listArizaCozumu);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<ArizaCozumu> ExcelDataProcess(DataTable dataTable)
+        {
+            List<ArizaCozumu> listArizaCozumu = new List<ArizaCozumu>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listArizaCozumu.Add(new ArizaCozumu()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    TekNoktaEgitimiOlustur = row[2] != DBNull.Value ? Convert.ToBoolean(row[2].ToString()) : false,
+                    Aciklama = row[3].ToString(),
+                });
+            }
+
+
+            return listArizaCozumu;
         }
     }
 }

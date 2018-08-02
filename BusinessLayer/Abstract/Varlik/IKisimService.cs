@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.DtoModel;
 using EntityLayer.ComplexTypes.DtoModel.Others;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
@@ -36,5 +37,7 @@ namespace BusinessLayer.Abstract.Varlik
         List<string> AddListWithTransactionBySablon(List<Kisim> listKisim);
 
         List<ColumnNameTemp> GetColumnNames(string tableName);
+
+        List<Kisim> ExcelDataProcess(DataTable dataTable);
     }
 }

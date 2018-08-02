@@ -6,7 +6,9 @@ using DataAccessLayer.Abstract.Varlik;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Varlik;
+using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BusinessLayer.Concrete.Varlik
 {
@@ -87,6 +89,24 @@ namespace BusinessLayer.Concrete.Varlik
         public List<string> AddListWithTransactionBySablon(List<VarlikSablon> listVarlikSablon)
         {
             return _varliksablonDal.AddListWithTransactionBySablon(listVarlikSablon);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<VarlikSablon> ExcelDataProcess(DataTable dataTable)
+        {
+            List<VarlikSablon> listVarlikSablon = new List<VarlikSablon>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listVarlikSablon.Add(new VarlikSablon()
+                {
+                    Ad = row[0].ToString(),
+                    VarlikTuruID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
+                });
+            }
+
+            return listVarlikSablon;
         }
     }
 

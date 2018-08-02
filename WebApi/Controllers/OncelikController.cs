@@ -33,7 +33,7 @@ namespace WebApi.Controllers
             return _oncelikService.GetList();
         }
         // GET api/<controller>
-        public HttpResponseMessage Get(int offset, int limit, string filter="", string order = "", string columns = "")
+        public HttpResponseMessage Get(int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _oncelikService.GetCount(filter) : _oncelikService.GetCount();
@@ -135,7 +135,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Oncelik> listOncelik = _oncelikService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _oncelikService.AddListWithTransactionBySablon(listOncelik);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -143,28 +146,6 @@ namespace WebApi.Controllers
                 }
             }
             return listCreatedID;
-        }
-
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Oncelik> listOncelik = new List<Oncelik>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listOncelik.Add(new Oncelik()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listOncelikID = _oncelikService.AddListWithTransactionBySablon(listOncelik);
-
-            return listOncelikID;
         }
     }
 }
