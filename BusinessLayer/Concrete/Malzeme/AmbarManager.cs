@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,36 @@ namespace BusinessLayer.Concrete.Malzeme
         public List<string> AddListWithTransactionBySablon(List<Ambar> listAmbar)
         {
             return _ambarDal.AddListWithTransactionBySablon(listAmbar);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Ambar> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Ambar> listAmbar = new List<Ambar>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listAmbar.Add(new Ambar()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    KisimID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    Aciklama = row[3].ToString(),
+                    IsEmriMalzemeFiyatKatsayi = row[4] != DBNull.Value ? Convert.ToDecimal(row[4].ToString()) : 0,
+                    SanalAmbarID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
+                    HurdaAmbarID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
+                    SanalAmbar = row[7] != DBNull.Value ? Convert.ToBoolean(row[7].ToString()) : false,
+                    VarsayilanDeger = row[8] != DBNull.Value ? Convert.ToBoolean(row[8].ToString()) : false,
+                    Semt = row[9].ToString(),
+                    Sehir = row[10].ToString(),
+                    Ulke = row[11].ToString(),
+                    Adres = row[12].ToString(),
+                });
+            }
+
+
+            return listAmbar;
         }
 
     }

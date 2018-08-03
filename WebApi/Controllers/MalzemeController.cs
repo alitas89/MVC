@@ -142,7 +142,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Malzeme> listMalzeme = _malzemeService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _malzemeService.AddListWithTransactionBySablon(listMalzeme);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -152,31 +155,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Malzeme> listMalzeme = new List<Malzeme>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listMalzeme.Add(new Malzeme()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    OlcuBirimID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    MalzemeGrupID = row[3].ToString(),
-                    MalzemeAltGrupID = row[4].ToString(),
-                    SeriNo = row[5].ToString(),
-                    MarkaID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    ModelID = row[7] != DBNull.Value ? Convert.ToInt32(row[7].ToString()) : 0,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listMalzemeID = _malzemeService.AddListWithTransactionBySablon(listMalzeme);
-
-            return listMalzemeID;
-        }
+        
     }
 }

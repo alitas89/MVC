@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using Core.DataAccessLayer.Dapper.RepositoryBase;
 using Core.Utilities.Dal;
+using Dapper;
 using DataAccessLayer.Abstract.Sistem;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
@@ -67,6 +72,35 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
 
             int.TryParse(strCount, out int count);
             return count;
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Firma> listFirma)
+        {
+            List<string> listFirmaID = new List<string>();
+            using (IDbConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MvcContext"].ConnectionString))
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                try
+                {
+                    IDbTransaction transaction = connection.BeginTransaction();
+                    foreach (var firma in listFirma)
+                    {
+                        var strFirmaID = connection.ExecuteScalar("insert into Firma(Ad,Kod,Sorumlu,Adres,Telefon) values (@Ad,@Kod,@Sorumlu,@Adres,@Telefon);" +
+                        "SELECT CAST(SCOPE_IDENTITY() as int)", firma, transaction);
+
+                        listFirmaID.Add(strFirmaID + "");
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    return new List<string>() { "0" };
+                }
+                return listFirmaID;
+            }
         }
 
     }

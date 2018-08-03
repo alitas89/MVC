@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,25 @@ namespace BusinessLayer.Concrete.Personel
         public List<string> AddListWithTransactionBySablon(List<VardiyaSinifi> listVardiyaSinifi)
         {
             return _vardiyasinifiDal.AddListWithTransactionBySablon(listVardiyaSinifi);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<VardiyaSinifi> ExcelDataProcess(DataTable dataTable)
+        {
+            List<VardiyaSinifi> listVardiyaSinifi = new List<VardiyaSinifi>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listVardiyaSinifi.Add(new VardiyaSinifi()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+            return listVardiyaSinifi;
         }
 
     }

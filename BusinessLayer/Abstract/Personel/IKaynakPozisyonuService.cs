@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 
@@ -23,5 +24,7 @@ namespace BusinessLayer.Abstract.Personel
         int GetCount(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<KaynakPozisyonu> listKaynakPozisyonu);
+
+        List<KaynakPozisyonu> ExcelDataProcess(DataTable dataTable);
     }
 }

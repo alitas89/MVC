@@ -11,6 +11,7 @@ using DataAccessLayer.Abstract.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
+using System.Data;
 
 namespace BusinessLayer.Concrete.Personel
 {
@@ -91,6 +92,27 @@ namespace BusinessLayer.Concrete.Personel
         public List<string> AddListWithTransactionBySablon(List<Mesai> listMesai)
         {
             return _mesaiDal.AddListWithTransactionBySablon(listMesai);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Mesai> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Mesai> listMesai = new List<Mesai>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listMesai.Add(new Mesai()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    UcretCarpani = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    MesaiTuruID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                });
+            }
+
+
+            return listMesai;
         }
 
     }

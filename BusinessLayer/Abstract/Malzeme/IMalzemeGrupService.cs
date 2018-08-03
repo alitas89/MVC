@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Malzeme;
 
@@ -23,5 +24,7 @@ namespace BusinessLayer.Abstract.Malzeme
         int GetCount(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<MalzemeGrup> listMalzemeGrup);
+
+        List<MalzemeGrup> ExcelDataProcess(DataTable dataTable);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +82,24 @@ namespace BusinessLayer.Concrete.Malzeme
             return _muhasebehesapDal.AddListWithTransactionBySablon(listMuhasebeHesap);
         }
 
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<MuhasebeHesap> ExcelDataProcess(DataTable dataTable)
+        {
+            List<MuhasebeHesap> listMuhasebeHesap = new List<MuhasebeHesap>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listMuhasebeHesap.Add(new MuhasebeHesap()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+            return listMuhasebeHesap;
+        }
 
     }
 }

@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<MalzemeSeriNo> listMalzemeSeriNo = _malzemeSeriNoService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                         _malzemeSeriNoService.AddListWithTransactionBySablon(listMalzemeSeriNo);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,27 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<MalzemeSeriNo> listMalzemeSeriNo = new List<MalzemeSeriNo>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listMalzemeSeriNo.Add(new MalzemeSeriNo()
-                {
-                    SeriNo = row[0].ToString(),
-                    OzelKod = row[1].ToString(),
-                    MalzemeID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    Aciklama = row[3].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listMalzemeSeriNoID = _malzemeSeriNoService.AddListWithTransactionBySablon(listMalzemeSeriNo);
-
-            return listMalzemeSeriNoID;
-        }
+     
     }
 }

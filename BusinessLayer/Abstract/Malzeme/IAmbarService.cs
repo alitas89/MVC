@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.DtoModel.Bakim;
 using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
@@ -29,5 +30,7 @@ namespace BusinessLayer.Abstract.Malzeme
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<Ambar> listAmbar);
+
+        List<Ambar> ExcelDataProcess(DataTable dataTable);
     }
 }

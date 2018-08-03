@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,28 @@ namespace BusinessLayer.Concrete.Personel
         public List<string> AddListWithTransactionBySablon(List<KaynakPozisyonu> listKaynakPozisyonu)
         {
             return _kaynakpozisyonuDal.AddListWithTransactionBySablon(listKaynakPozisyonu);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<KaynakPozisyonu> ExcelDataProcess(DataTable dataTable)
+        {
+            List<KaynakPozisyonu> listKaynakPozisyonu = new List<KaynakPozisyonu>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listKaynakPozisyonu.Add(new KaynakPozisyonu()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    UstDuzeyPozisyonID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    Aciklama = row[3].ToString(),
+                    Teknisyendir = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
+                });
+            }
+
+
+            return listKaynakPozisyonu;
         }
 
     }

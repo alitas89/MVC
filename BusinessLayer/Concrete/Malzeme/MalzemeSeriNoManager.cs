@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Malzeme;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
@@ -87,6 +89,27 @@ namespace BusinessLayer.Concrete.Malzeme
         public List<string> AddListWithTransactionBySablon(List<MalzemeSeriNo> listMalzemeSeriNo)
         {
             return _malzemeserinoDal.AddListWithTransactionBySablon(listMalzemeSeriNo);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<MalzemeSeriNo> ExcelDataProcess(DataTable dataTable)
+        {
+            List<MalzemeSeriNo> listMalzemeSeriNo = new List<MalzemeSeriNo>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listMalzemeSeriNo.Add(new MalzemeSeriNo()
+                {
+                    SeriNo = row[0].ToString(),
+                    OzelKod = row[1].ToString(),
+                    MalzemeID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    Aciklama = row[3].ToString(),
+                });
+            }
+
+
+            return listMalzemeSeriNo;
         }
 
     }

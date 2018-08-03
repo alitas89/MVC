@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<MalzemeAltGrup> listMalzemeAltGrup = _malzemeAltGrupService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _malzemeAltGrupService.AddListWithTransactionBySablon(listMalzemeAltGrup);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,26 +147,5 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<MalzemeAltGrup> listMalzemeAltGrup = new List<MalzemeAltGrup>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listMalzemeAltGrup.Add(new MalzemeAltGrup()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listMalzemeAltGrupID = _malzemeAltGrupService.AddListWithTransactionBySablon(listMalzemeAltGrup);
-
-            return listMalzemeAltGrupID;
-        }
     }
 }

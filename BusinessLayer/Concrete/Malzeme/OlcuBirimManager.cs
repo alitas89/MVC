@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,25 @@ namespace BusinessLayer.Concrete.Malzeme
         public List<string> AddListWithTransactionBySablon(List<OlcuBirim> listOlcuBirim)
         {
             return _olcubirimDal.AddListWithTransactionBySablon(listOlcuBirim);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<OlcuBirim> ExcelDataProcess(DataTable dataTable)
+        {
+            List<OlcuBirim> listOlcuBirim = new List<OlcuBirim>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listOlcuBirim.Add(new OlcuBirim()
+                {
+                    Kod = row[0].ToString(),
+                    Ad = row[1].ToString(),
+                    Aciklama = row[2].ToString(),
+                });
+            }
+
+            return listOlcuBirim;
         }
 
     }

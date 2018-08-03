@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Vardiya> listVardiya = _vardiyaService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _vardiyaService.AddListWithTransactionBySablon(listVardiya);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,32 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Vardiya> listVardiya = new List<Vardiya>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listVardiya.Add(new Vardiya()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    BaslangicSaati = row[2].ToString(),
-                    BaslangicSaati2 = row[3].ToString(),
-                    BitisSaati = row[4].ToString(),
-                    BitisSaati2 = row[5].ToString(),
-                    SarfYeriID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    BakimSuresiHesabinaDahil = row[7] != DBNull.Value ? Convert.ToBoolean(row[7].ToString()) : false,
-                    DurusSuresiHesabinaDahil = row[8] != DBNull.Value ? Convert.ToBoolean(row[8].ToString()) : false,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listVardiyaID = _vardiyaService.AddListWithTransactionBySablon(listVardiya);
-
-            return listVardiyaID;
-        }
+     
     }
 }

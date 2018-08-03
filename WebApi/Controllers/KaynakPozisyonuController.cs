@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<KaynakPozisyonu> listKaynakPozisyonu = _kaynakPozisyonuService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                      _kaynakPozisyonuService.AddListWithTransactionBySablon(listKaynakPozisyonu);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,28 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<KaynakPozisyonu> listKaynakPozisyonu = new List<KaynakPozisyonu>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listKaynakPozisyonu.Add(new KaynakPozisyonu()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    UstDuzeyPozisyonID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    Aciklama = row[3].ToString(),
-                    Teknisyendir = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listKaynakPozisyonuID = _kaynakPozisyonuService.AddListWithTransactionBySablon(listKaynakPozisyonu);
-
-            return listKaynakPozisyonuID;
-        }
+    
     }
 }

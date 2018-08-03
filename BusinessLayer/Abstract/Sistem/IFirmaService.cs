@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Sistem;
 
@@ -21,5 +22,9 @@ namespace BusinessLayer.Abstract.Sistem
         List<Firma> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter="");
+
+        List<Firma> ExcelDataProcess(DataTable dataTable);
+
+        List<string> AddListWithTransactionBySablon(List<Firma> listFirma);
     }
 }

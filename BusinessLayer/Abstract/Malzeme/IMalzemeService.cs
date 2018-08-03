@@ -1,6 +1,7 @@
 ﻿using EntityLayer.ComplexTypes.DtoModel.Malzeme;
 using EntityLayer.ComplexTypes.ParameterModel;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BusinessLayer.Abstract.Malzeme
 {
@@ -31,5 +32,7 @@ namespace BusinessLayer.Abstract.Malzeme
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Malzeme.Malzeme> listMalzeme);
+
+        List<EntityLayer.Concrete.Malzeme.Malzeme> ExcelDataProcess(DataTable dataTable);
     }
 }

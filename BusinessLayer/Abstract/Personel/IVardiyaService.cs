@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
@@ -28,5 +29,7 @@ namespace BusinessLayer.Abstract.Personel
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<Vardiya> listVardiya);
+
+        List<Vardiya> ExcelDataProcess(DataTable dataTable);
     }
 }

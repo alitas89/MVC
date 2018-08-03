@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<MuhasebeHesap> listMuhasebeHesap = _muhasebeHesapService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                         _muhasebeHesapService.AddListWithTransactionBySablon(listMuhasebeHesap);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,26 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<MuhasebeHesap> listMuhasebeHesap = new List<MuhasebeHesap>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listMuhasebeHesap.Add(new MuhasebeHesap()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listMuhasebeHesapID = _muhasebeHesapService.AddListWithTransactionBySablon(listMuhasebeHesap);
-
-            return listMuhasebeHesapID;
-        }
+       
     }
 }

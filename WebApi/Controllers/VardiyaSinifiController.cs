@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<VardiyaSinifi> listVardiyaSinifi = _vardiyaSinifiService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                        _vardiyaSinifiService.AddListWithTransactionBySablon(listVardiyaSinifi);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,27 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<VardiyaSinifi> listVardiyaSinifi = new List<VardiyaSinifi>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listVardiyaSinifi.Add(new VardiyaSinifi()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    Aciklama = row[2].ToString(),
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listVardiyaSinifiID = _vardiyaSinifiService.AddListWithTransactionBySablon(listVardiyaSinifi);
-
-            return listVardiyaSinifiID;
-        }
 
     }
 }

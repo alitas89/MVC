@@ -2,6 +2,7 @@
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
+using System.Data;
 
 namespace BusinessLayer.Abstract.Personel
 {
@@ -28,5 +29,7 @@ namespace BusinessLayer.Abstract.Personel
         int GetCountDto(string filter = "");
 
         List<string> AddListWithTransactionBySablon(List<Mesai> listMesai);
+
+        List<Mesai> ExcelDataProcess(DataTable dataTable);
     }
 }

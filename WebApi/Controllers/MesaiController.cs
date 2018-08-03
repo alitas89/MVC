@@ -134,7 +134,10 @@ namespace WebApi.Controllers
                         var result = reader.AsDataSet();
 
                         // The result of each spreadsheet is in result.Tables
-                        ExcelDataProcess(result.Tables[0]);
+                        List<Mesai> listMesai = _mesaiService.ExcelDataProcess(result.Tables[0]);
+
+                        //Transaction ile eklemeler yapılır
+                       _mesaiService.AddListWithTransactionBySablon(listMesai);
 
                         //Dosyayı Fiziksel olarak kayıt eder.
                         postedFile.SaveAs(filePath);
@@ -144,27 +147,6 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
-        public List<string> ExcelDataProcess(DataTable dataTable)
-        {
-            List<Mesai> listMesai = new List<Mesai>();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
-            {
-                var row = dataTable.Rows[i].ItemArray;
-                //Eklenecek veriler
-                listMesai.Add(new Mesai()
-                {
-                    Kod = row[0].ToString(),
-                    Ad = row[1].ToString(),
-                    UcretCarpani = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    MesaiTuruID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                });
-            }
-
-            //Transaction ile eklemeler yapılır
-            List<string> listMesaiID = _mesaiService.AddListWithTransactionBySablon(listMesai);
-
-            return listMesaiID;
-        }
+     
     }
 }

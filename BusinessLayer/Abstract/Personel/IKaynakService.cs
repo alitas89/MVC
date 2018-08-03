@@ -3,6 +3,7 @@ using EntityLayer.Concrete.Personel;
 using System.Collections.Generic;
 using EntityLayer.ComplexTypes.DtoModel.Personel;
 using EntityLayer.ComplexTypes.DtoModel.Varlik;
+using System.Data;
 
 namespace BusinessLayer.Abstract.Personel
 {
@@ -31,5 +32,7 @@ namespace BusinessLayer.Abstract.Personel
         List<Kaynak> GetListKaynakHaveKullaniciID();
 
         List<string> AddListWithTransactionBySablon(List<Kaynak> listKaynak);
+
+        List<Kaynak> ExcelDataProcess(DataTable dataTable);
     }
 }

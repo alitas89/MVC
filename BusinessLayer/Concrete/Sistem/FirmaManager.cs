@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using BusinessLayer.Abstract.Sistem;
 using Core.Aspects.Postsharp.AuthorizationAspects;
 using Core.Aspects.Postsharp.CacheAspects;
@@ -70,6 +71,32 @@ namespace BusinessLayer.Concrete.Sistem
         public int GetCount(string filter = "")
         {
             return _firmaDal.GetCount(filter);
+        }
+
+        public List<string> AddListWithTransactionBySablon(List<Firma> listFirma)
+        {
+            return _firmaDal.AddListWithTransactionBySablon(listFirma);
+        }
+
+        //*Excel içeriğinde bulunan verileri veritabanına kayıt atar
+        public List<Firma> ExcelDataProcess(DataTable dataTable)
+        {
+            List<Firma> listFirma = new List<Firma>();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                var row = dataTable.Rows[i].ItemArray;
+                //Eklenecek veriler
+                listFirma.Add(new Firma()
+                {
+                    Ad = row[0].ToString(),
+                    Kod = row[1].ToString(),
+                    Sorumlu = row[2].ToString(),
+                    Adres = row[3].ToString(),
+                    Telefon = row[4].ToString(),
+                });
+            }
+
+            return listFirma;
         }
 
     }
