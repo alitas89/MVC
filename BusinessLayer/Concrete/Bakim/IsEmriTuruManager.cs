@@ -92,7 +92,7 @@ namespace BusinessLayer.Concrete.Bakim
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
                     Aciklama = row[2].ToString(),
-                    TekYilSayac = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    TekYilSayac = row[3] != "" ? Convert.ToInt32(row[3].ToString()) : 0,
                     TekYilBaslangicSayaci = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
                     CiftYilSayac = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
                     CiftYilBaslangicSayaci = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,

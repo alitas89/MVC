@@ -83,8 +83,8 @@ namespace WebApi.Controllers
 
         //*Boş şablon hazırlar ve yüklenmesine izin verir
         [HttpGet]
-        [System.Web.Http.Route("api/isletmesablon/downloadsablon/{no}")]
-        public HttpResponseMessage GetExcelSablon(int no)
+        [System.Web.Http.Route("api/isletme/downloadsablon")]
+        public HttpResponseMessage GetExcelSablon()
         {
             List<String> list = new List<String>();
             List<Type> listType = new List<Type>();
@@ -108,8 +108,8 @@ namespace WebApi.Controllers
 
         //*İçerisinde kayıtların olduğu bir excel dosyası hazırlar ve upload edilmesini sağlar. 
        
-        [Route("api/isletmesablon/uploadsablonexcelfile/{no}")]
-        public List<string> UploadSablonExcelFile(int no)
+        [Route("api/isletmes/uploadsablonexcelfile")]
+        public List<string> UploadSablonExcelFile()
         {
             List<string> listCreatedID = new List<string>();
 
