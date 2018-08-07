@@ -93,13 +93,13 @@ namespace BusinessLayer.Concrete.Bakim
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    TamamlanmaZamani = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    BirimID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    TamamlanmaZamani = row[2].ToString() !=""? Convert.ToInt32(row[2].ToString()) : 0,
+                    BirimID = row[3].ToString() !=""? Convert.ToInt32(row[3].ToString()) : 0,
                     Aciklama = row[4].ToString(),
-                    TeminSureleriID = row[5] != DBNull.Value ? Convert.ToInt32(row[5].ToString()) : 0,
-                    IsEmriVarsayilani = row[6] != DBNull.Value ? Convert.ToBoolean(row[6].ToString()) : false,
-                    IsTalepVarsayilani = row[7] != DBNull.Value ? Convert.ToBoolean(row[7].ToString()) : false,
-                    PeriyodikBakimVarsayilani = row[8] != DBNull.Value ? Convert.ToBoolean(row[8].ToString()) : false,
+                    TeminSureleriID = row[5].ToString() !=""? Convert.ToInt32(row[5].ToString()) : 0,
+                    IsEmriVarsayilani = row[6].ToString() !=""? Convert.ToBoolean(row[6].ToString()) : false,
+                    IsTalepVarsayilani = row[7].ToString() !=""? Convert.ToBoolean(row[7].ToString()) : false,
+                    PeriyodikBakimVarsayilani = row[8].ToString() !=""? Convert.ToBoolean(row[8].ToString()) : false,
                 });
             }
 

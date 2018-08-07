@@ -93,7 +93,7 @@ namespace BusinessLayer.Concrete.Bakim
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    TekNoktaEgitimiOlustur = row[2] != DBNull.Value ? Convert.ToBoolean(row[2].ToString()) : false,
+                    TekNoktaEgitimiOlustur = row[2].ToString() !="" ? Convert.ToBoolean(row[2].ToString()) : false,
                     Aciklama = row[3].ToString(),
                 });
             }

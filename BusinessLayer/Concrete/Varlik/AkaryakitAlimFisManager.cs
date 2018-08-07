@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete.Varlik
             _akaryakitalimfisDal = akaryakitalimfisDal;
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, VarlikRead, AkaryakitAlimFisRead, AkaryakitAlimFisLtd")]
         public List<AkaryakitAlimFis> GetList()
         {
@@ -39,7 +39,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
+
         [SecuredOperation(Roles = "Admin, VarlikCreate, AkaryakitAlimFisCreate")]
         public int Add(AkaryakitAlimFis akaryakitalimfis)
         {
@@ -47,21 +47,21 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        
+
         [SecuredOperation(Roles = "Admin, VarlikUpdate, AkaryakitAlimFisUpdate")]
         public int Update(AkaryakitAlimFis akaryakitalimfis)
         {
             return _akaryakitalimfisDal.Update(akaryakitalimfis);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, VarlikDelete, AkaryakitAlimFisDelete")]
         public int Delete(int Id)
         {
             return _akaryakitalimfisDal.Delete(Id);
         }
 
-        
+
         [SecuredOperation(Roles = "Admin, VarlikDelete, AkaryakitAlimFisDelete")]
         public int DeleteSoft(int Id)
         {
@@ -106,19 +106,19 @@ namespace BusinessLayer.Concrete.Varlik
                 listAkaryakitAlimFis.Add(new AkaryakitAlimFis()
                 {
                     FisNo = row[0].ToString(),
-                    AracID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
-                    YakitID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    AmbarID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    Miktar = row[4] != DBNull.Value ? Convert.ToDecimal(row[4].ToString()) : 0,
-                    BirimFiyat = row[5] != DBNull.Value ? Convert.ToDecimal(row[5].ToString()) : 0,
-                    Iskonto = row[6] != DBNull.Value ? Convert.ToDecimal(row[6].ToString()) : 0,
-                    ToplamAkaryakitTutari = row[7] != DBNull.Value ? Convert.ToDecimal(row[7].ToString()) : 0,
-                    MasrafYeriID = row[8] != DBNull.Value ? Convert.ToInt32(row[8].ToString()) : 0,
-                    YakitAlanKisiID = row[9] != DBNull.Value ? Convert.ToInt32(row[9].ToString()) : 0,
-                    SaticiID = row[10] != DBNull.Value ? Convert.ToInt32(row[10].ToString()) : 0,
-                    YakitAlimTarih = row[11] != DBNull.Value ? Convert.ToDateTime(row[11].ToString()) : DateTime.MaxValue,
+                    AracID = row[1].ToString() != "" ? Convert.ToInt32(row[1] + "") : 0,
+                    YakitID = row[2].ToString() != "" ? Convert.ToInt32(row[2] + "") : 0,
+                    AmbarID = row[3].ToString() != "" ? Convert.ToInt32(row[3] + "") : 0,
+                    Miktar = row[4].ToString() != "" ? Convert.ToDecimal(row[4] + "") : 0,
+                    BirimFiyat = row[5].ToString() != "" ? Convert.ToDecimal(row[5] + "") : 0,
+                    Iskonto = row[6].ToString() != "" ? Convert.ToDecimal(row[6] + "") : 0,
+                    ToplamAkaryakitTutari = row[7].ToString() != "" ? Convert.ToDecimal(row[7] + "") : 0,
+                    MasrafYeriID = row[8].ToString() != "" ? Convert.ToInt32(row[8] + "") : 0,
+                    YakitAlanKisiID = row[9].ToString() != "" ? Convert.ToInt32(row[9] + "") : 0,
+                    SaticiID = row[10].ToString() != "" ? Convert.ToInt32(row[10] + "") : 0,
+                    YakitAlimTarih = row[11].ToString() != "" ? Convert.ToDateTime(row[11].ToString()) : DateTime.MaxValue,
                     YakitAlimSaat = row[12].ToString(),
-                    AracKm = row[13] != DBNull.Value ? Convert.ToDecimal(row[13].ToString()) : 0,
+                    AracKm = row[13].ToString() != "" ? Convert.ToDecimal(row[13] + "") : 0,
                     Aciklama = row[14].ToString(),
                 });
             }

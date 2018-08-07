@@ -93,7 +93,7 @@ namespace BusinessLayer.Concrete.Bakim
                     GenelKod = row[1] != DBNull.Value ? Convert.ToBoolean(row[1].ToString()) : false,
                     Ad = row[2].ToString(),
                     UretimiDurdurur = row[3] != DBNull.Value ? Convert.ToBoolean(row[3].ToString()) : false,
-                    NedenAnaliziZorunluOlmali = row[4] != DBNull.Value ? Convert.ToInt32(row[4].ToString()) : 0,
+                    NedenAnaliziZorunluOlmali = row[4].ToString() != "" ? Convert.ToInt32(row[4].ToString()) : 0,
                     Aciklama = row[5].ToString(),
                 });
             }
