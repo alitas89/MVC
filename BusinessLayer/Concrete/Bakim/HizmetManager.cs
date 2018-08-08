@@ -94,8 +94,8 @@ namespace BusinessLayer.Concrete.Bakim
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    BirimFiyat = row[2] != DBNull.Value ? Convert.ToDecimal(row[2].ToString()) : 0,
-                    ParaBirimID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    BirimFiyat = row[2] .ToString() != "" ? Convert.ToDecimal(row[2].ToString()) : 0,
+                    ParaBirimID = row[3] .ToString() != "" ? Convert.ToInt32(row[3].ToString()) : 0,
                     Aciklama = row[4].ToString(),
                 });
             }

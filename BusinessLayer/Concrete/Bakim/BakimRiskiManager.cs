@@ -109,7 +109,7 @@ namespace BusinessLayer.Concrete.Bakim
                 //Eklenecek veriler
                 listBakimRiski.Add(new BakimRiski()
                 {
-                    RiskTipiID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    RiskTipiID = row[0] .ToString() != "" ? Convert.ToInt32(row[0].ToString()) : 0,
                     Kod = row[1].ToString(),
                     Ad = row[2].ToString(),
                     Formulu = row[3].ToString(),

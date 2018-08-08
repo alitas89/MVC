@@ -96,13 +96,13 @@ namespace BusinessLayer.Concrete.Varlik
                 listHurda.Add(new Hurda()
                 {
                     BarkodKod = row[0].ToString(),
-                    VarlikID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
+                    VarlikID = row[1] .ToString() != "" ? Convert.ToInt32(row[1].ToString()) : 0,
                     OzurKod = row[2].ToString(),
                     OzurAd = row[3].ToString(),
                     OzurTip = row[4].ToString(),
-                    Tarih = row[5] != DBNull.Value ? Convert.ToDateTime(row[5].ToString()) : DateTime.MaxValue,
-                    Miktar = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    Toplam = row[7] != DBNull.Value ? Convert.ToInt32(row[7].ToString()) : 0,
+                    Tarih = row[5] .ToString() != "" ? Convert.ToDateTime(row[5].ToString()) : DateTime.MaxValue,
+                    Miktar = row[6] .ToString() != "" ? Convert.ToInt32(row[6].ToString()) : 0,
+                    Toplam = row[7] .ToString() != "" ? Convert.ToInt32(row[7].ToString()) : 0,
                     Aciklama = row[8].ToString(),
                 });
             }

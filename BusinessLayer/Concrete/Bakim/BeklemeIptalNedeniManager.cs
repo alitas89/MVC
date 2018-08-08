@@ -95,8 +95,8 @@ namespace BusinessLayer.Concrete.Bakim
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
                     Aciklama = row[2].ToString(),
-                    IsEmriniKapsayanPeriyodikBakimOlustur = row[3] != DBNull.Value ? Convert.ToBoolean(row[3].ToString()) : false,
-                    IptalEdilenOtonomBakimdanIsEmriOlustur = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
+                    IsEmriniKapsayanPeriyodikBakimOlustur = row[3] .ToString() != "" ? Convert.ToBoolean(row[3].ToString()) : false,
+                    IptalEdilenOtonomBakimdanIsEmriOlustur = row[4] .ToString() != "" ? Convert.ToBoolean(row[4].ToString()) : false,
                 });
             }
 

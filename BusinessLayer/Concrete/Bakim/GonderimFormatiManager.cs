@@ -92,7 +92,7 @@ namespace BusinessLayer.Concrete.Bakim
                 //Eklenecek veriler
                 listGonderimFormati.Add(new GonderimFormati()
                 {
-                    GonderimTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    GonderimTuruID = row[0] .ToString() != "" ? Convert.ToInt32(row[0].ToString()) : 0,
                     Kod = row[1].ToString(),
                     Ad = row[2].ToString(),
                     Konu = row[3].ToString(),

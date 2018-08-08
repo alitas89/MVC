@@ -104,7 +104,7 @@ namespace BusinessLayer.Concrete.Bakim
                 //Eklenecek veriler
                 listBilgilendirmeGrubu.Add(new BilgilendirmeGrubu()
                 {
-                    BilgilendirmeTuruID = row[0] != DBNull.Value ? Convert.ToInt32(row[0].ToString()) : 0,
+                    BilgilendirmeTuruID = row[0] .ToString() != "" ? Convert.ToInt32(row[0].ToString()) : 0,
                     Kod = row[1].ToString(),
                     Ad = row[2].ToString(),
                     YetkiKodu = row[3].ToString(),

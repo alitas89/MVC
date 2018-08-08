@@ -103,7 +103,7 @@ namespace BusinessLayer.Concrete.Malzeme
                 {
                     SeriNo = row[0].ToString(),
                     OzelKod = row[1].ToString(),
-                    MalzemeID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    MalzemeID = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
                     Aciklama = row[3].ToString(),
                 });
             }

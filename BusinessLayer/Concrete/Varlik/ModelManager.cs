@@ -110,7 +110,7 @@ namespace BusinessLayer.Concrete.Varlik
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    MarkaID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    MarkaID = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
                     Aciklama = row[3].ToString(),
                 });
             }

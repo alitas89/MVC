@@ -112,8 +112,8 @@ namespace BusinessLayer.Concrete.Bakim
                 {
                     Kod = row[0].ToString(),
                     BakimPlaniTanim = row[1].ToString(),
-                    ToplamBakimSuresi = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    ToplamIscilikSuresi = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    ToplamBakimSuresi = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
+                    ToplamIscilikSuresi = row[3] .ToString() != "" ? Convert.ToInt32(row[3].ToString()) : 0,
                     Aciklama = row[4].ToString(),
                 });
             }

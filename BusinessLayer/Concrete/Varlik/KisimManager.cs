@@ -135,10 +135,10 @@ namespace BusinessLayer.Concrete.Varlik
                 {
                     Kod = row[0] + "",
                     Ad = row[1] + "",
-                    Butce = row[2] != DBNull.Value ? Convert.ToDecimal(row[2] + "") : 0,
-                    HedeflenenButce = row[3] != DBNull.Value ? Convert.ToDecimal(row[3] + "") : 0,
-                    VardiyaSinifID = row[4] != DBNull.Value ? Convert.ToInt32(row[4] + "") : 0,
-                    SarfYeriID = row[5] != DBNull.Value ? Convert.ToInt32(row[5] + "") : 0,
+                    Butce = row[2] .ToString() != "" ? Convert.ToDecimal(row[2] + "") : 0,
+                    HedeflenenButce = row[3] .ToString() != "" ? Convert.ToDecimal(row[3] + "") : 0,
+                    VardiyaSinifID = row[4] .ToString() != "" ? Convert.ToInt32(row[4] + "") : 0,
+                    SarfYeriID = row[5] .ToString() != "" ? Convert.ToInt32(row[5] + "") : 0,
                     Aciklama = row[6] + ""
                 });
             }

@@ -106,8 +106,8 @@ namespace BusinessLayer.Concrete.Personel
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    UcretCarpani = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    MesaiTuruID = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
+                    UcretCarpani = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
+                    MesaiTuruID = row[3] .ToString() != "" ? Convert.ToInt32(row[3].ToString()) : 0,
                 });
             }
 

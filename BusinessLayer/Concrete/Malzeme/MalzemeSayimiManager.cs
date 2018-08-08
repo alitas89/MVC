@@ -90,10 +90,10 @@ namespace BusinessLayer.Concrete.Malzeme
                 listMalzemeSayimi.Add(new MalzemeSayimi()
                 {
                     SayacNo = row[0].ToString(),
-                    MalzemeID = row[1] != DBNull.Value ? Convert.ToInt32(row[1].ToString()) : 0,
-                    AmbarID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
-                    Miktar = row[3] != DBNull.Value ? Convert.ToInt32(row[3].ToString()) : 0,
-                    Tarih = row[4] != DBNull.Value ? Convert.ToDateTime(row[4].ToString()) : DateTime.MaxValue,
+                    MalzemeID = row[1] .ToString() != "" ? Convert.ToInt32(row[1].ToString()) : 0,
+                    AmbarID = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
+                    Miktar = row[3] .ToString() != "" ? Convert.ToInt32(row[3].ToString()) : 0,
+                    Tarih = row[4] .ToString() != "" ? Convert.ToDateTime(row[4].ToString()) : DateTime.MaxValue,
                     Saat = row[5].ToString(),
                 });
             }

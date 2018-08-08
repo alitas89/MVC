@@ -94,9 +94,9 @@ namespace BusinessLayer.Concrete.Personel
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    UstDuzeyPozisyonID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    UstDuzeyPozisyonID = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
                     Aciklama = row[3].ToString(),
-                    Teknisyendir = row[4] != DBNull.Value ? Convert.ToBoolean(row[4].ToString()) : false,
+                    Teknisyendir = row[4] .ToString() != "" ? Convert.ToBoolean(row[4].ToString()) : false,
                 });
             }
 

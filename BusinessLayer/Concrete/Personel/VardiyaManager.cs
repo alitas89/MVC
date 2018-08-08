@@ -110,9 +110,9 @@ namespace BusinessLayer.Concrete.Personel
                     BaslangicSaati2 = row[3].ToString(),
                     BitisSaati = row[4].ToString(),
                     BitisSaati2 = row[5].ToString(),
-                    SarfYeriID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    BakimSuresiHesabinaDahil = row[7] != DBNull.Value ? Convert.ToBoolean(row[7].ToString()) : false,
-                    DurusSuresiHesabinaDahil = row[8] != DBNull.Value ? Convert.ToBoolean(row[8].ToString()) : false,
+                    SarfYeriID = row[6] .ToString() != "" ? Convert.ToInt32(row[6].ToString()) : 0,
+                    BakimSuresiHesabinaDahil = row[7] .ToString() != "" ? Convert.ToBoolean(row[7].ToString()) : false,
+                    DurusSuresiHesabinaDahil = row[8] .ToString() != "" ? Convert.ToBoolean(row[8].ToString()) : false,
                 });
             }
 

@@ -112,12 +112,12 @@ namespace BusinessLayer.Concrete.Malzeme
                 {
                     Kod = row[0].ToString(),
                     Ad = row[1].ToString(),
-                    OlcuBirimID = row[2] != DBNull.Value ? Convert.ToInt32(row[2].ToString()) : 0,
+                    OlcuBirimID = row[2] .ToString() != "" ? Convert.ToInt32(row[2].ToString()) : 0,
                     MalzemeGrupID = row[3].ToString(),
                     MalzemeAltGrupID = row[4].ToString(),
                     SeriNo = row[5].ToString(),
-                    MarkaID = row[6] != DBNull.Value ? Convert.ToInt32(row[6].ToString()) : 0,
-                    ModelID = row[7] != DBNull.Value ? Convert.ToInt32(row[7].ToString()) : 0,
+                    MarkaID = row[6] .ToString() != "" ? Convert.ToInt32(row[6].ToString()) : 0,
+                    ModelID = row[7] .ToString() != "" ? Convert.ToInt32(row[7].ToString()) : 0,
                 });
             }
 
