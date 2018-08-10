@@ -42,5 +42,9 @@ namespace BusinessLayer.Abstract.Varlik
 
         List<EntityLayer.Concrete.Varlik.Varlik> ExcelDataProcess(DataTable dataTable);
 
+        List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, PagingParams pagingParams);
+
+        int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "");
+
     }
 }

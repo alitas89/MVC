@@ -104,6 +104,11 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetCountDto(filter);
         }
 
+        public int GetCountDtoByVarlikGrupID(int VarlikGrupID,string filter = "")
+        {
+            return _varlikDal.GetCountDtoByVarlikGrupID(VarlikGrupID,filter);
+        }
+
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<VarlikDto> GetListDto()
         {
@@ -114,6 +119,12 @@ namespace BusinessLayer.Concrete.Varlik
         public List<VarlikDto> GetListPaginationDto(PagingParams pagingParams)
         {
             return _varlikDal.GetListPaginationDto(pagingParams);
+        }
+
+        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
+        public List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID,PagingParams pagingParams)
+        {
+            return _varlikDal.GetListPaginationDtoByVarlikGrupID(VarlikGrupID,pagingParams);
         }
 
         public List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik)

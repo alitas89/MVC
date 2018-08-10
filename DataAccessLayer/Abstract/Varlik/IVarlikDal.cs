@@ -22,5 +22,9 @@ namespace DataAccessLayer.Abstract.Varlik
 
         List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik);
 
+        List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, PagingParams pagingParams);
+
+        int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "");
+
     }
 }

@@ -134,6 +134,37 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count > 0;
         }
 
+        public List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, PagingParams pagingParams)
+        {
+            string filterQuery = Datatables.FilterFabric(pagingParams.filter);
+            string orderQuery = "ORDER BY 1";
+
+            if (pagingParams.order.Length != 0)
+            {
+                var arrOrder = pagingParams.order.Split('~');
+                orderQuery = $"ORDER BY {arrOrder[0]} {arrOrder[1]}";
+            }
+
+            //columns ayrımı yapılır
+            string columnsQuery = "*";
+            if (pagingParams.columns.Length != 0)
+            {
+                columnsQuery = pagingParams.columns;
+            }
+
+            return new DpDtoRepositoryBase<VarlikDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_VarlikDto where Silindi=0 and VarlikGrupID=@VarlikGrupID {filterQuery} {orderQuery}
+                                    OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
+                new { pagingParams.filter, pagingParams.offset, pagingParams.limit, VarlikGrupID });
+        }
+
+        public int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "")
+        {
+            string filterQuery = Datatables.FilterFabric(filter);
+            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM View_VarlikDto where Silindi=0 and VarlikGrupID= @VarlikGrupID {filterQuery} ", new { VarlikGrupID }) + "";
+            int.TryParse(strCount, out int count);
+            return count;
+        }
+
         public List<string> AddListWithTransactionBySablon(List<EntityLayer.Concrete.Varlik.Varlik> listVarlik)
         {
             List<string> listVarlikID = new List<string>();
@@ -162,6 +193,6 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 return listVarlikID;
             }
         }
-  
+
     }
 }

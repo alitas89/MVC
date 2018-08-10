@@ -66,6 +66,28 @@ namespace WebApi.Controllers
             response.Headers.Add("Access-Control-Expose-Headers", "total");
             return response;
         }
+
+        //VarlikGrubuna Göre Varlıkları Çeker
+        [HttpGet]
+        public HttpResponseMessage GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, int offset, int limit, string filter = "", string order = "", string columns = "")
+        {
+            int total = 0;
+            total = filter.Length != 0 ? _varlikService.GetCountDtoByVarlikGrupID(VarlikGrupID, filter) : _varlikService.GetCountDtoByVarlikGrupID(VarlikGrupID);
+            var d = _varlikService.GetListPaginationDtoByVarlikGrupID(VarlikGrupID, new PagingParams()
+            {
+                filter = filter,
+                limit = limit,
+                offset = offset,
+                order = order,
+                columns = columns
+            });
+            var response = columns.Length > 0 ?
+                Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
+                : Request.CreateResponse(HttpStatusCode.OK, d);
+            response.Headers.Add("total", total + "");
+            response.Headers.Add("Access-Control-Expose-Headers", "total");
+            return response;
+        }
         // GET api/<controller>/5
         public Varlik Get(int id)
         {
@@ -162,7 +184,7 @@ namespace WebApi.Controllers
             return listCreatedID;
         }
 
-       
+
 
     }
 }
