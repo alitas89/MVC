@@ -104,6 +104,7 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetCountDto(filter);
         }
 
+        [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
         public int GetCountDtoByVarlikGrupID(int VarlikGrupID,string filter = "")
         {
             return _varlikDal.GetCountDtoByVarlikGrupID(VarlikGrupID,filter);

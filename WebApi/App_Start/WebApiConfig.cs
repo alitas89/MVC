@@ -61,6 +61,18 @@ namespace WebApi
                 }
             );
 
+            config.Routes.MapHttpRoute(
+               name: "ExportApiDeneme",
+               routeTemplate: "api/{controller}/GetListPaginationDtoByVarlikGrupID/{VarlikGrupID}/{offset}/{limit}/export/{format}",
+               defaults: new
+               {
+                   VarlikGrupID = RouteParameter.Optional,
+                   offset = RouteParameter.Optional,
+                   limit = RouteParameter.Optional,
+                   format = RouteParameter.Optional
+               }
+           );
+
             //Normal excel indirme
             //config.Routes.MapHttpRoute(
             //    name: "IdWithExt",
