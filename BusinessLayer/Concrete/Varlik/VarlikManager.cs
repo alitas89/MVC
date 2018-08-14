@@ -104,12 +104,6 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetCountDto(filter);
         }
 
-        [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
-        public int GetCountDtoByVarlikGrupID(int VarlikGrupID,string filter = "")
-        {
-            return _varlikDal.GetCountDtoByVarlikGrupID(VarlikGrupID,filter);
-        }
-
         [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
         public List<VarlikDto> GetListDto()
         {
@@ -122,7 +116,13 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetListPaginationDto(pagingParams);
         }
 
-        [SecuredOperation(Roles = "Admin, VarlikRead, VarliklarRead, VarliklarLtd")]
+        [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
+        public int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "")
+        {
+            return _varlikDal.GetCountDtoByVarlikGrupID(VarlikGrupID, filter);
+        }
+
+        [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
         public List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID,PagingParams pagingParams)
         {
             return _varlikDal.GetListPaginationDtoByVarlikGrupID(VarlikGrupID,pagingParams);

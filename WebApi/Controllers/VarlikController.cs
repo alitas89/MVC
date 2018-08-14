@@ -69,7 +69,7 @@ namespace WebApi.Controllers
 
         //VarlikGrubuna Göre Varlıkları Çeker
         [HttpGet]
-        public HttpResponseMessage GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, int offset, int limit, string filter = "", string order = "", string columns = "")
+        public HttpResponseMessage GetByVarlikGrupID(int VarlikGrupID, int offset, int limit, string filter = "", string order = "", string columns = "")
         {
             int total = 0;
             total = filter.Length != 0 ? _varlikService.GetCountDtoByVarlikGrupID(VarlikGrupID, filter) : _varlikService.GetCountDtoByVarlikGrupID(VarlikGrupID);
