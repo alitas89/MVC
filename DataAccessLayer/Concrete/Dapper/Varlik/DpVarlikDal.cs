@@ -134,6 +134,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count > 0;
         }
 
+        //VarlikGrupID ye göre gelen Varlıklar için pagination
         public List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID, PagingParams pagingParams)
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
@@ -157,6 +158,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit, VarlikGrupID });
         }
 
+        //VarlikGrupID ye göre gelen Varlıkların count
         public int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);

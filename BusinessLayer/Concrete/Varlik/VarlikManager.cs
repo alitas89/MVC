@@ -116,12 +116,14 @@ namespace BusinessLayer.Concrete.Varlik
             return _varlikDal.GetListPaginationDto(pagingParams);
         }
 
+        //VarlikGrupID ye göre gelen Varlıklar için pagination
         [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
         public int GetCountDtoByVarlikGrupID(int VarlikGrupID, string filter = "")
         {
             return _varlikDal.GetCountDtoByVarlikGrupID(VarlikGrupID, filter);
         }
 
+        //VarlikGrupID ye göre gelen Varlıkların count
         [SecuredOperation(Roles = "Admin, RaporRead, Rapor1Read, VarliklarLtd")]
         public List<VarlikDto> GetListPaginationDtoByVarlikGrupID(int VarlikGrupID,PagingParams pagingParams)
         {

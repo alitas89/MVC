@@ -61,6 +61,7 @@ namespace WebApi
                 }
             );
 
+            
             config.Routes.MapHttpRoute(
                name: "ExportApiVarlikGrup",
                routeTemplate: "api/{controller}/GetByVarlikGrupID/{VarlikGrupID}/{offset}/{limit}/export/{format}",

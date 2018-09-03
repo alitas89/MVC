@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return response;
         }
 
-        //VarlikGrubuna Göre Varlıkları Çeker
+        //VarlikGrubuna Göre Varlıkları Çeker (Rapor için )
         [HttpGet]
         public HttpResponseMessage GetByVarlikGrupID(int VarlikGrupID, int offset, int limit, string filter = "", string order = "", string columns = "")
         {
