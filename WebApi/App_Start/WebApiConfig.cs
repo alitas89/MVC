@@ -62,6 +62,7 @@ namespace WebApi
             );
 
             
+            //Sorun1 raporlara göre varlık grubu olmalı
             config.Routes.MapHttpRoute(
                name: "ExportApiVarlikGrup",
                routeTemplate: "api/{controller}/GetByVarlikGrupID/{VarlikGrupID}/{offset}/{limit}/export/{format}",

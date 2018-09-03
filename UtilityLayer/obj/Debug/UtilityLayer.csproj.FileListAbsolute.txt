@@ -47,3 +47,15 @@ D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.csproj.CoreCompileI
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.csproj.CopyComplete
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.dll
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.pdb
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\UtilityLayer.dll
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\UtilityLayer.pdb
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\System.Web.Http.dll
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\bin\Debug\System.Web.Http.xml
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.csprojResolveAssemblyReference.cache
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.csproj.CoreCompileInputs.cache
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.dll
+C:\Users\ereng\MVC\mvcprojesi\UtilityLayer\obj\Debug\UtilityLayer.pdb

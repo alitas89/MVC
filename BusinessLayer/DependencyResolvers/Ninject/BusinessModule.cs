@@ -179,6 +179,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IYasalTakipService>().To<YasalTakipManager>().InSingletonScope();
             Bind<IYasalTakipDal>().To<DpYasalTakipDal>();
 
+            Bind<IRaporVarlikByVarlikGrupService>().To<RaporVarlikByVarlikGrupManager>().InSingletonScope();
+            Bind<IRaporVarlikByVarlikGrupDal>().To<DpRaporVarlikByVarlikGrupDal>();
+
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
             Bind<IIsTipiDal>().To<DpIsTipiDal>();
