@@ -257,7 +257,7 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                         "insert into IsEmriNo(IsTalepID,IsEmriID,Otomatik,Tarih,Silindi) values (null,@IsEmriID,0,GetDate(),0)" +
                         "SELECT CAST(SCOPE_IDENTITY() as int)",
                         new { IsEmriID }, transaction);
-                    listIsEmriNo.Add(strIsEmriNoID+"");
+                    listIsEmriNo.Add(strIsEmriNoID + "");
                 }
 
                 transaction.Commit();

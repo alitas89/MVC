@@ -279,6 +279,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IPeriyodikBakimService>().To<PeriyodikBakimManager>().InSingletonScope();
             Bind<IPeriyodikBakimDal>().To<DpPeriyodikBakimDal>();
 
+            Bind<IRaporIsEmriByVarlikService>().To<RaporIsEmriByVarlikManager>().InSingletonScope();
+            Bind<IRaporIsEmriByVarlikDal>().To<DpRaporIsEmriByVarlikDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();

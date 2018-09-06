@@ -65,6 +65,7 @@
     <Compile Include="Abstract\Bakim\IIsTalebiDal.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmriTuruDal.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimDal.cs" />
+    <Compile Include="Abstract\Bakim\IRaporIsEmriByVarlikDal.cs" />
     <Compile Include="Abstract\Iot\IAlarmDal.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulDal.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulTipDal.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpIsTalebiDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpIsTipiEmriTuruDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpPeriyodikBakimDal.cs" />
+    <Compile Include="Concrete\Dapper\Bakim\DpRaporIsEmriByVarlikDal.cs" />
     <Compile Include="Concrete\Dapper\Iot\DpAlarmDal.cs" />
     <Compile Include="Concrete\Dapper\Iot\DpAlarmKosulDal.cs" />
     <Compile Include="Concrete\Dapper\Iot\DpAlarmKosulTipDal.cs" />
