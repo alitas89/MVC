@@ -94,6 +94,7 @@
     <Compile Include="Abstract\Bakim\IIsinSorumlusuService.cs" />
     <Compile Include="Abstract\Bakim\IIsTipiEmirTuruService.cs" />
     <Compile Include="Abstract\Bakim\IPeriyodikBakimService.cs" />
+    <Compile Include="Abstract\Bakim\IRaporArizaNedeniService.cs" />
     <Compile Include="Abstract\Bakim\IRaporIsEmriByVarlikService.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulService.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulTipService.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="Concrete\Bakim\IsTalebiManager.cs" />
     <Compile Include="Concrete\Bakim\IsTipiEmirTuruManager.cs" />
     <Compile Include="Concrete\Bakim\PeriyodikBakimManager.cs" />
+    <Compile Include="Concrete\Bakim\RaporArizaNedeniManager.cs" />
     <Compile Include="Concrete\Bakim\RaporIsEmriByVarlikManager.cs" />
     <Compile Include="Concrete\Iot\AlarmKosulManager.cs" />
     <Compile Include="Concrete\Iot\AlarmKosulTipManager.cs" />

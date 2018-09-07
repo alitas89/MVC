@@ -299,6 +299,7 @@
     <Compile Include="Controllers\PeriyodikBakimBildirimOkunduController.cs" />
     <Compile Include="Controllers\PeriyodikBakimBildirimPushedController.cs" />
     <Compile Include="Controllers\PeriyodikBakimController.cs" />
+    <Compile Include="Controllers\RaporArizaNedeniController.cs" />
     <Compile Include="Controllers\RaporIsEmriByVarlikController.cs" />
     <Compile Include="Controllers\RaporVarlikByVarlikGrupController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
