@@ -169,6 +169,7 @@
     <Compile Include="Abstract\Bakim\IParaBirimService.cs" />
     <Compile Include="Abstract\Bakim\IRiskTipiService.cs" />
     <Compile Include="Abstract\Varlik\IOzNitelikService.cs" />
+    <Compile Include="Abstract\Varlik\IRaporVarlikByArizaNedeniService.cs" />
     <Compile Include="Abstract\Varlik\IRaporVarlikByVarlikGrupService.cs" />
     <Compile Include="Abstract\Varlik\ISarfYeriService.cs" />
     <Compile Include="Abstract\Bakim\IStatuService.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Concrete\Bakim\ParaBirimManager.cs" />
     <Compile Include="Concrete\Bakim\RiskTipiManager.cs" />
     <Compile Include="Concrete\Varlik\OzNitelikManager.cs" />
+    <Compile Include="Concrete\Varlik\RaporVarlikByArizaNedeniManager.cs" />
     <Compile Include="Concrete\Varlik\RaporVarlikByVarlikGrupManager.cs" />
     <Compile Include="Concrete\Varlik\SarfYeriManager.cs" />
     <Compile Include="Concrete\Bakim\StatuManager.cs" />

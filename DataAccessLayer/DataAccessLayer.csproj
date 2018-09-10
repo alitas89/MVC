@@ -136,6 +136,7 @@
     <Compile Include="Abstract\Bakim\IParaBirimDal.cs" />
     <Compile Include="Abstract\Bakim\IRiskTipiDal.cs" />
     <Compile Include="Abstract\Varlik\IOzNitelikDal.cs" />
+    <Compile Include="Abstract\Varlik\IRaporVarlikByArizaNedeniDal.cs" />
     <Compile Include="Abstract\Varlik\ISarfYeriDal.cs" />
     <Compile Include="Abstract\Bakim\IStatuDal.cs" />
     <Compile Include="Abstract\Bakim\IStatuTipiDal.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="Concrete\Dapper\Bakim\DpParaBirimDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpRiskTipiDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpOzNitelikDal.cs" />
+    <Compile Include="Concrete\Dapper\Varlik\DpRaporVarlikByArizaNedeniDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpRaporVarlikByVarlikGrupDal.cs" />
     <Compile Include="Concrete\Dapper\Varlik\DpSarfYeriDal.cs" />
     <Compile Include="Concrete\Dapper\Bakim\DpStatuDal.cs" />
