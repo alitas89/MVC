@@ -312,6 +312,7 @@
     <Compile Include="Controllers\TeminSuresiController.cs" />
     <Compile Include="Controllers\TeslimSekliController.cs" />
     <Compile Include="Controllers\TeslimYeriController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UretimTipiController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\VardiyaController.cs" />
