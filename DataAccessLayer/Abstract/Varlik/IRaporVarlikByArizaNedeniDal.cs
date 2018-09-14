@@ -12,6 +12,6 @@ namespace DataAccessLayer.Abstract.Varlik
     {
         List<VarlikDto> GetListPaginationDtoByArizaNedeniID(int ArizaNedeniID, PagingParams pagingParams);
 
-        int GetCountDtoByArizaNedeniID(int VarlikGrupID, string filter = "");
+        int GetCountDtoByArizaNedeniID(int ArizaNedeniID, string filter = "");
     }
 }

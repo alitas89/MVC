@@ -288,6 +288,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IRaporArizaNedeniService>().To<RaporArizaNedeniManager>().InSingletonScope();
             Bind<IRaporArizaNedeniDal>().To<DpRaporArizaNedeniDal>();
 
+            Bind<IRaporArizaNedeniByVarlikService>().To<RaporArizaNedeniByVarlikManager>().InSingletonScope();
+            Bind<IRaporArizaNedeniByVarlikDal>().To<DpRaporArizaNedeniByVarlikDal>();
+
             //#MalzemeModul
             Bind<IAmbarService>().To<AmbarManager>().InSingletonScope();
             Bind<IAmbarDal>().To<DpAmbarDal>();

@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     public class UploadController : ApiController
     {
         [HttpPost]
-        public IHttpActionResult UploadFiles()
+        public IHttpActionResult UploadFiles(string path = "")
         {
             int i = 0;
             int cntSuccess = 0;
@@ -26,7 +26,7 @@ namespace WebApi.Controllers
                 foreach (string file in httpRequest.Files)
                 {
                     var postedFile = httpRequest.Files[i];
-                    var filePath = HttpContext.Current.Server.MapPath("~/UploadedFiles/" + postedFile.FileName);
+                    var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/" + path + "/" + postedFile.FileName);
                     try
                     {
                         postedFile.SaveAs(filePath);

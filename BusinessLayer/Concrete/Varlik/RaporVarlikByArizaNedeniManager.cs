@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete.Varlik
 {
-    class RaporVarlikByArizaNedeniManager : IRaporVarlikByArizaNedeniService
+   public class RaporVarlikByArizaNedeniManager : IRaporVarlikByArizaNedeniService
     {
         IRaporVarlikByArizaNedeniDal _raporVarlikByArizaNedeniDal;
 

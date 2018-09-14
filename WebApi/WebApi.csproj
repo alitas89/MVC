@@ -299,6 +299,7 @@
     <Compile Include="Controllers\PeriyodikBakimBildirimOkunduController.cs" />
     <Compile Include="Controllers\PeriyodikBakimBildirimPushedController.cs" />
     <Compile Include="Controllers\PeriyodikBakimController.cs" />
+    <Compile Include="Controllers\RaporArizaNedeniByVarlikController.cs" />
     <Compile Include="Controllers\RaporArizaNedeniController.cs" />
     <Compile Include="Controllers\RaporIsEmriByVarlikController.cs" />
     <Compile Include="Controllers\RaporVarlikByArizaNedeniController.cs" />
@@ -364,7 +365,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UploadFile\" />
+    <Folder Include="UploadFile\IsEmriFiles\" />
+    <Folder Include="UploadFile\VarlikFiles\" />
     <Folder Include="Views\AkaryakitAlimFis\" />
     <Folder Include="Views\Ambar\" />
     <Folder Include="Views\AracServis\" />
