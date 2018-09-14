@@ -138,6 +138,7 @@
     <Compile Include="Concrete\Sistem\BildirimAksiyonSayfa.cs" />
     <Compile Include="Concrete\Sistem\BildirimIsTalebiSonuc.cs" />
     <Compile Include="Concrete\Sistem\BildirimTrigger.cs" />
+    <Compile Include="Concrete\Sistem\Dosya.cs" />
     <Compile Include="Concrete\Sistem\Firma.cs" />
     <Compile Include="Concrete\Sistem\GenelBildirim.cs" />
     <Compile Include="Concrete\Sistem\IsBildirim.cs" />

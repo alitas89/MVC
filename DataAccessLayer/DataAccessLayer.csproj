@@ -78,6 +78,7 @@
     <Compile Include="Abstract\Sistem\IBildirimAksiyonSayfaDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Abstract\Sistem\IBildirimTriggerDal.cs" />
+    <Compile Include="Abstract\Sistem\IDosyaDal.cs" />
     <Compile Include="Abstract\Sistem\IFirmaDal.cs" />
     <Compile Include="Abstract\Sistem\IGenelBildirimDal.cs" />
     <Compile Include="Abstract\Sistem\IIsBildirimDal.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimAksiyonSayfaDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimIsTalebiSonucDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpBildirimTriggerDal.cs" />
+    <Compile Include="Concrete\Dapper\Sistem\DpDosyaDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpFirmaDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpGenelBildirimDal.cs" />
     <Compile Include="Concrete\Dapper\Sistem\DpIsBildirimDal.cs" />
