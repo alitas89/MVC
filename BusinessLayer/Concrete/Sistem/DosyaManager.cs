@@ -76,6 +76,10 @@ namespace BusinessLayer.Concrete.Sistem
             return _dosyaDal.GetCount(filter);
         }
 
+        public List<Dosya> GetListByBagliID(int id)
+        {
+            return _dosyaDal.GetListByBagliID(id);
+        }
     }
 
 }

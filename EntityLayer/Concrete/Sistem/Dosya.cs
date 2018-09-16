@@ -10,6 +10,7 @@ namespace EntityLayer.Concrete.Sistem
     public class Dosya : IEntity
     {
         public int DosyaID { get; set; }
+        public int BagliID { get; set; }
         public string Ad { get; set; }
         public string Path { get; set; }
         public int DosyaModul { get; set; }

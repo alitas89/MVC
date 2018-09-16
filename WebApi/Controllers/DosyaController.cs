@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Linq.Dynamic;
+using System.Web;
 
 namespace WebApi.Controllers
 {
@@ -18,6 +19,31 @@ namespace WebApi.Controllers
         public DosyaController(IDosyaService dosyaService)
         {
             _dosyaService = dosyaService;
+        }
+
+    
+
+        public int GetDosyaModulID(string path)
+        {
+            //DosyaModul => 1-Varlik 2-İşEmri
+            switch (path)
+            {
+                case "VarlikFiles":
+                    return 1;
+                case "IsEmriFiles":
+                    return 2;
+
+                default:
+                    return 0;
+            }
+        }
+
+        // GET api/<controller>
+        [HttpGet]
+        [Route("api/dosya/getlistbybagliid/{id}")]
+        public List<Dosya> GetListByBagliID(int id)
+        {
+            return _dosyaService.GetListByBagliID(id).Where(d => d.Silindi = false).ToList();
         }
 
         // GET api/<controller>
@@ -74,5 +100,78 @@ namespace WebApi.Controllers
         {
             return _dosyaService.Delete(id);
         }
+
+        [HttpPost]
+        public IHttpActionResult UploadFiles(int bagliID, string path = "")
+        {
+            int i = 0;
+            int cntSuccess = 0;
+            var uploadedFileNames = new List<string>();
+            string result = string.Empty;
+
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
+            {
+                foreach (string file in httpRequest.Files)
+                {
+                    var postedFile = httpRequest.Files[i];
+                    var filePath = HttpContext.Current.Server.MapPath("~/UploadFile/" + path + "/" + postedFile.FileName);
+
+                    try
+                    {
+                        postedFile.SaveAs(filePath);
+                        uploadedFileNames.Add(httpRequest.Files[i].FileName);
+
+                        //Dosya yükleme başarılı - ilgili tablolara kayıt yapılır
+                        //_dosyaService.Add(new Dosya()
+                        //{
+                        //    Ad = postedFile.FileName,
+                        //    BagliID = bagliID,
+                        //    DosyaModul = GetDosyaModulID(path),
+                        //    Path = filePath,
+                        //    YuklenmeTarih = DateTime.Now
+                        //});
+
+                        cntSuccess++;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+                    i++;
+                }
+            }
+
+            //Eski dosyalardan silinenler varsa veritabanından da silinir.
+            //if (!String.IsNullOrEmpty(arrDeleted))
+            //{
+            //    var arrDeletedSplit = arrDeleted.Split(',');
+            //    foreach (var deletedID in arrDeletedSplit)
+            //    {
+            //        if (int.TryParse(deletedID, out int parsedDeletedID))
+            //        {
+            //           // _dosyaService.DeleteSoft(parsedDeletedID);
+            //        }
+            //    }
+            //}
+
+            result = cntSuccess.ToString() + " dosya başarıyla yüklendi.<br/>";
+
+            result += "<ul>";
+
+            foreach (var f in uploadedFileNames)
+            {
+                result += "<li>" + f + "</li>";
+            }
+
+            result += "</ul>";
+
+            return Json(result);
+        }
+
+
     }
 }

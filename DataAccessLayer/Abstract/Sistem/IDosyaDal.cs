@@ -10,6 +10,6 @@ namespace DataAccessLayer.Abstract.Sistem
 {
     public interface IDosyaDal : IEntityRepository<Dosya>
     {
-
+        List<Dosya> GetListByBagliID(int id);
     }
 }

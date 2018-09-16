@@ -25,6 +25,8 @@ namespace BusinessLayer.Abstract.Sistem
         List<Dosya> GetListPagination(PagingParams pagingParams);
 
         int GetCount(string filter="");
+
+        List<Dosya> GetListByBagliID(int id);
     }
 
 

@@ -25,12 +25,12 @@ namespace DataAccessLayer.Concrete.Dapper.Sistem
 
         public int Add(Dosya dosya)
         {
-            return AddQuery("insert into Dosya(Ad,Path,DosyaModul,YuklenmeTarih,Silindi) values (@Ad,@Path,@DosyaModul,@YuklenmeTarih,@Silindi)", dosya);
+            return AddQuery("insert into Dosya(BagliID,Ad,Path,DosyaModul,YuklenmeTarih,Silindi) values (@BagliID,@Ad,@Path,@DosyaModul,@YuklenmeTarih,@Silindi)", dosya);
         }
 
         public int Update(Dosya dosya)
         {
-            return UpdateQuery("update Dosya set Ad=@Ad,Path=@Path,DosyaModul=@DosyaModul,YuklenmeTarih=@YuklenmeTarih,Silindi=@Silindi where DosyaID=@DosyaID", dosya);
+            return UpdateQuery("update Dosya set BagliID=@BagliID, Ad=@Ad,Path=@Path,DosyaModul=@DosyaModul,YuklenmeTarih=@YuklenmeTarih,Silindi=@Silindi where DosyaID=@DosyaID", dosya);
         }
 
         public int Delete(int Id)
@@ -73,5 +73,9 @@ OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
             return count;
         }
 
+        public List<Dosya> GetListByBagliID(int id)
+        {
+            return GetListQuery("select * from Dosya where BagliID= @id and Silindi=0", new { id });
+        }
     }
 }
