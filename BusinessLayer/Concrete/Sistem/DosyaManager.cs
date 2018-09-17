@@ -23,13 +23,13 @@ namespace BusinessLayer.Concrete.Sistem
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, DosyaRead, DosyaLtd")]
+        [SecuredOperation(Roles = "Authorized")]
         public List<Dosya> GetList()
         {
             return _dosyaDal.GetList();
         }
 
-        [SecuredOperation(Roles = "Admin, DosyaRead, DosyaLtd")]
+        [SecuredOperation(Roles = "Authorized")]
         public Dosya GetById(int Id)
         {
             return _dosyaDal.Get(Id);
@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete.Sistem
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, DosyaCreate")]
+        [SecuredOperation(Roles = "Authorized")]
         public int Add(Dosya dosya)
         {
             return _dosyaDal.Add(dosya);
@@ -45,27 +45,27 @@ namespace BusinessLayer.Concrete.Sistem
 
         //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, DosyaUpdate")]
+        [SecuredOperation(Roles = "Authorized")]
         public int Update(Dosya dosya)
         {
             return _dosyaDal.Update(dosya);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, DosyaDelete")]
+        [SecuredOperation(Roles = "Authorized")]
         public int Delete(int Id)
         {
             return _dosyaDal.Delete(Id);
         }
 
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Admin, DosyaDelete")]
+        [SecuredOperation(Roles = "Authorized")]
         public int DeleteSoft(int Id)
         {
             return _dosyaDal.DeleteSoft(Id);
         }
 
-        [SecuredOperation(Roles = "Admin, DosyaRead, DosyaLtd")]
+        [SecuredOperation(Roles = "Authorized")]
         public List<Dosya> GetListPagination(PagingParams pagingParams)
         {
             return _dosyaDal.GetListPagination(pagingParams);
@@ -76,6 +76,7 @@ namespace BusinessLayer.Concrete.Sistem
             return _dosyaDal.GetCount(filter);
         }
 
+        [SecuredOperation(Roles = "Authorized")]
         public List<Dosya> GetListByBagliID(int id)
         {
             return _dosyaDal.GetListByBagliID(id);

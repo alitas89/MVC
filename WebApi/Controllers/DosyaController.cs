@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             _dosyaService = dosyaService;
         }
 
-    
+
 
         public int GetDosyaModulID(string path)
         {
@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         [Route("api/dosya/getlistbybagliid/{id}")]
         public List<Dosya> GetListByBagliID(int id)
         {
-            return _dosyaService.GetListByBagliID(id).Where(d => d.Silindi = false).ToList();
+            return _dosyaService.GetListByBagliID(id).ToList();
         }
 
         // GET api/<controller>
@@ -101,8 +101,26 @@ namespace WebApi.Controllers
             return _dosyaService.Delete(id);
         }
 
+        [Route("api/dosya/deleteDosya/{arrDeleted}")]
+        public void DeleteArrDosya(string arrDeleted)
+        {
+            //Eski dosyalardan silinenler varsa veritabanından da silinir.
+            if (!String.IsNullOrEmpty(arrDeleted))
+            {
+                var arrDeletedSplit = arrDeleted.Split(',');
+                foreach (var deletedID in arrDeletedSplit)
+                {
+                    _dosyaService.DeleteSoft(Convert.ToInt32(deletedID));
+                    //if (int.TryParse(deletedID, out int parsedDeletedID))
+                    //{
+                    //    //_dosyaService.DeleteSoft(parsedDeletedID);
+                    //}
+                }
+            }
+        }
+
         [HttpPost]
-        public IHttpActionResult UploadFiles(int bagliID, string path = "")
+        public IHttpActionResult UploadFiles(int bagliID, string path = "", string arrDeleted="")
         {
             int i = 0;
             int cntSuccess = 0;
@@ -125,14 +143,14 @@ namespace WebApi.Controllers
                         uploadedFileNames.Add(httpRequest.Files[i].FileName);
 
                         //Dosya yükleme başarılı - ilgili tablolara kayıt yapılır
-                        //_dosyaService.Add(new Dosya()
-                        //{
-                        //    Ad = postedFile.FileName,
-                        //    BagliID = bagliID,
-                        //    DosyaModul = GetDosyaModulID(path),
-                        //    Path = filePath,
-                        //    YuklenmeTarih = DateTime.Now
-                        //});
+                        _dosyaService.Add(new Dosya()
+                        {
+                            Ad = postedFile.FileName,
+                            BagliID = bagliID,
+                            DosyaModul = GetDosyaModulID(path),
+                            Path = filePath,
+                            YuklenmeTarih = DateTime.Now
+                        });
 
                         cntSuccess++;
                     }
@@ -146,17 +164,18 @@ namespace WebApi.Controllers
             }
 
             //Eski dosyalardan silinenler varsa veritabanından da silinir.
-            //if (!String.IsNullOrEmpty(arrDeleted))
-            //{
-            //    var arrDeletedSplit = arrDeleted.Split(',');
-            //    foreach (var deletedID in arrDeletedSplit)
-            //    {
-            //        if (int.TryParse(deletedID, out int parsedDeletedID))
-            //        {
-            //           // _dosyaService.DeleteSoft(parsedDeletedID);
-            //        }
-            //    }
-            //}
+            if (!String.IsNullOrEmpty(arrDeleted))
+            {
+                var arrDeletedSplit = arrDeleted.Split(',');
+                foreach (var deletedID in arrDeletedSplit)
+                {
+                    _dosyaService.DeleteSoft(Convert.ToInt32(deletedID));
+                    //if (int.TryParse(deletedID, out int parsedDeletedID))
+                    //{
+                    //    // _dosyaService.DeleteSoft(parsedDeletedID);
+                    //}
+                }
+            }
 
             result = cntSuccess.ToString() + " dosya başarıyla yüklendi.<br/>";
 
