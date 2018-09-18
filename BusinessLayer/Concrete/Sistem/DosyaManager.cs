@@ -21,8 +21,7 @@ namespace BusinessLayer.Concrete.Sistem
         {
             _dosyaDal = dosyaDal;
         }
-
-        [CacheAspect(typeof(MemoryCacheManager))]
+        
         [SecuredOperation(Roles = "Authorized")]
         public List<Dosya> GetList()
         {
@@ -35,31 +34,25 @@ namespace BusinessLayer.Concrete.Sistem
             return _dosyaDal.Get(Id);
         }
 
-        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Authorized")]
+        //[SecuredOperation(Roles = "Authorized, VarlikCreate, VarliklarCreate, VarlikUpdate, VarliklarUpdate")]
         public int Add(Dosya dosya)
         {
             return _dosyaDal.Add(dosya);
         }
 
-        //[FluentValidationAspect(typeof(Validator), AspectPriority = 1)]
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         [SecuredOperation(Roles = "Authorized")]
         public int Update(Dosya dosya)
         {
             return _dosyaDal.Update(dosya);
         }
-
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Authorized")]
+        
+        [SecuredOperation(Roles = "Authorized, VarlikCreate, VarliklarCreate, VarlikUpdate, VarliklarUpdate")]
         public int Delete(int Id)
         {
             return _dosyaDal.Delete(Id);
         }
-
-        [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [SecuredOperation(Roles = "Authorized")]
+        
+        //[SecuredOperation(Roles = "Authorized, VarlikCreate, VarliklarCreate, VarlikUpdate, VarliklarUpdate")]
         public int DeleteSoft(int Id)
         {
             return _dosyaDal.DeleteSoft(Id);

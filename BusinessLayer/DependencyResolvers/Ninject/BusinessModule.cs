@@ -95,6 +95,10 @@ namespace BusinessLayer.DependencyResolvers.Ninject
 
             Bind<IPeriyodikBakimBildirimPushedService>().To<PeriyodikBakimBildirimPushedManager>().InSingletonScope();
             Bind<IPeriyodikBakimBildirimPushedDal>().To<DpPeriyodikBakimBildirimPushedDal>();
+
+            Bind<IDosyaService>().To<DosyaManager>().InSingletonScope();
+            Bind<IDosyaDal>().To<DpDosyaDal>();
+
             //*****Asıl tablolar
 
             //#VarlıkModul
