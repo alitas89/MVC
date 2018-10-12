@@ -55,6 +55,7 @@
     <Compile Include="ComplexTypes\DtoModel\Bakim\IsTipiTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\PeriyodikBakimDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Bakim\PeriyodikBakimTemp.cs" />
+    <Compile Include="ComplexTypes\DtoModel\Bakim\RaporIsEmriSayiveOraniTemp.cs" />
     <Compile Include="ComplexTypes\DtoModel\Iot\AlarmDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Iot\AlarmKosulDto.cs" />
     <Compile Include="ComplexTypes\DtoModel\Iot\AlarmTemp.cs" />

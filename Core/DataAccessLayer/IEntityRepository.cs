@@ -25,4 +25,9 @@ namespace Core.DataAccessLayer
 
         int GetCount(string filter = "");
     }
+    public interface IEntityRepositoryGetList<T> where T : class, IEntity, new()
+    {
+        List<T> GetList();
+        T Get(int Id);
+    }
 }

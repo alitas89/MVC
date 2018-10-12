@@ -189,6 +189,9 @@ namespace BusinessLayer.DependencyResolvers.Ninject
             Bind<IRaporVarlikByArizaNedeniService>().To<RaporVarlikByArizaNedeniManager>().InSingletonScope();
             Bind<IRaporVarlikByArizaNedeniDal>().To<DpRaporVarlikByArizaNedeniDal>();
 
+            Bind<IRaporIsEmriSayisiveOraniService>().To<RaporIsEmriSayisiveOraniManager>().InSingletonScope();
+            Bind<IRaporIsEmriSayisiveOraniDal>().To<DpRaporIsEmriSayisiveOraniDal>();
+
             //#BakimModul
             Bind<IIsTipiService>().To<IsTipiManager>().InSingletonScope();
             Bind<IIsTipiDal>().To<DpIsTipiDal>();

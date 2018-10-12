@@ -59,3 +59,16 @@ D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CoreCompil
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CopyComplete
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.dll
 D:\MVCProjesi\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.pdb
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\UtilityLayer.dll
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\UtilityLayer.pdb
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\System.Web.Http.dll
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\Newtonsoft.Json.xml
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\bin\Release\System.Web.Http.xml
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csprojAssemblyReference.cache
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CoreCompileInputs.cache
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.csproj.CopyComplete
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.dll
+C:\Users\alita\Desktop\Varlik_Proje\mvcprojesi\UtilityLayer\obj\Release\UtilityLayer.pdb

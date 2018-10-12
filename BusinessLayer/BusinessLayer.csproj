@@ -97,6 +97,7 @@
     <Compile Include="Abstract\Bakim\IRaporArizaNedeniByVarlikService.cs" />
     <Compile Include="Abstract\Bakim\IRaporArizaNedeniService.cs" />
     <Compile Include="Abstract\Bakim\IRaporIsEmriByVarlikService.cs" />
+    <Compile Include="Abstract\Bakim\IRaporIsEmriSayisiveOraniService.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulService.cs" />
     <Compile Include="Abstract\Iot\IAlarmKosulTipService.cs" />
     <Compile Include="Abstract\Iot\IAlarmService.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Concrete\Bakim\RaporArizaNedeniByVarlikManager.cs" />
     <Compile Include="Concrete\Bakim\RaporArizaNedeniManager.cs" />
     <Compile Include="Concrete\Bakim\RaporIsEmriByVarlikManager.cs" />
+    <Compile Include="Concrete\Bakim\RaporIsEmriSayisiveOraniManager.cs" />
     <Compile Include="Concrete\Iot\AlarmKosulManager.cs" />
     <Compile Include="Concrete\Iot\AlarmKosulTipManager.cs" />
     <Compile Include="Concrete\Iot\AlarmManager.cs" />
@@ -323,7 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

@@ -303,6 +303,7 @@
     <Compile Include="Controllers\RaporArizaNedeniByVarlikController.cs" />
     <Compile Include="Controllers\RaporArizaNedeniController.cs" />
     <Compile Include="Controllers\RaporIsEmriByVarlikController.cs" />
+    <Compile Include="Controllers\RaporIsEmriSayisiveOraniController.cs" />
     <Compile Include="Controllers\RaporVarlikByArizaNedeniController.cs" />
     <Compile Include="Controllers\RaporVarlikByVarlikGrupController.cs" />
     <Compile Include="Controllers\RiskTipiController.cs" />
