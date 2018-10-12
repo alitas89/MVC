@@ -18,7 +18,8 @@ namespace BusinessLayer.Concrete.Bakim
         {
             _raporisemrisayisiveoraniDal = raporisemrisayisiveoraniDal;
         }
-        [SecuredOperation(Roles = "Admin, RaporIsEmriSayisiveOraniRead, RaporIsEmriSayisiveOraniLtd")]
+
+        [SecuredOperation(Roles = "Admin,RaporRead,RaporIsEmriSayisiveOraniRead, RaporIsEmriSayisiveOraniLtd")]
         public List<RaporIsEmriSayisiveOraniTemp> GetList()
         {
             return _raporisemrisayisiveoraniDal.GetList();

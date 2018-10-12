@@ -19,7 +19,7 @@ namespace DataAccessLayer.Concrete.Dapper.Bakim
 
         public List<RaporIsEmriSayisiveOraniTemp> GetList()
         {
-            return GetListQuery("select top 1 (*) from RaporIsEmriSayisiveOrani", new { });
+            return GetListQuery("select top 1 * from RaporIsEmriSayisiveOrani()", new { });
         }
 
     }
