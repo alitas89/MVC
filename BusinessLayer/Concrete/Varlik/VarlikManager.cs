@@ -82,7 +82,7 @@ namespace BusinessLayer.Concrete.Varlik
         }
 
         
-        [SecuredOperation(Roles = "Admin, VarlikDelete VarliklarDelete")]
+        [SecuredOperation(Roles = "Admin, VarlikDelete,VarliklarDelete")]
         public int DeleteSoft(int Id)
         {
             return _varlikDal.DeleteSoft(Id);
