@@ -9,5 +9,9 @@ namespace EntityLayer.Concrete.Iot
         public string Aciklama { get; set; }
         public string Mahalle { get; set; }
         public string Ilce { get; set; }
+        public string ModemNo { get; set; }
+        public string LokasyonNo { get; set; }
+        public string Adres { get; set; }
+        public string Path { get; set; }
     }
 }
