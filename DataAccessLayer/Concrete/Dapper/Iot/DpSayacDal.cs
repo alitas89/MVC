@@ -2,6 +2,7 @@
 using Core.Utilities.Dal;
 using DataAccessLayer.Abstract.Iot;
 using EntityLayer.ComplexTypes.DtoModel.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 using EntityLayer.ComplexTypes.ParameterModel;
 using EntityLayer.Concrete.Iot;
 using System;
@@ -53,11 +54,11 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
             return count;
         }
 
-        public int GetCountDtoByModemSeriNo(string modemserino = "", string filter = "")
+        public int GetCountDtoByGetBagliVarlikKod(int baglivarlikkod , string filter = "")
         {
             string filterQuery = Datatables.FilterFabric(filter);
-            var strCount = GetScalarQuery($@"SELECT COUNT(*) FROM [View_SayacDto] where Silindi = 0 and modemSeriNo=@modemserino
-                                            {filterQuery} ", new { modemserino }) + "";
+            var strCount = GetScalarQuery($@"SELECT COUNT(*)  FROM View_SayacDto where Silindi = 0 and BagliVarlikKod=@baglivarlikkod
+                                            {filterQuery} ", new { baglivarlikkod }) + "";
             int.TryParse(strCount, out int count);
             return count;
         }
@@ -102,7 +103,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
                 new { pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
-        public List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemserino)
+        public List<SayacDto> GetListPaginationDtoByBagliVarlikKod(PagingParams pagingParams, int baglivarlikkod)
         {
             string filterQuery = Datatables.FilterFabric(pagingParams.filter);
             string orderQuery = "ORDER BY 1";
@@ -120,14 +121,16 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
                 columnsQuery = pagingParams.columns;
             }
 
-            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where modemSeriNo=@modemserino and Silindi=0 {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where BagliVarlikKod=2099 and Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
-                new { modemserino, pagingParams.filter, pagingParams.offset, pagingParams.limit });
+                new { baglivarlikkod, pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
 
         public int Update(Sayac obj)
         {
             throw new NotImplementedException();
         }
+
+      
     }
 }

@@ -12,6 +12,7 @@ namespace EntityLayer.Concrete.Iot
         public string ModemNo { get; set; }
         public string LokasyonNo { get; set; }
         public string Adres { get; set; }
+        public string EtiketNo { get; set; }
         public string Path { get; set; }
     }
 }

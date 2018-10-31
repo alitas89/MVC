@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.ComplexTypes.DtoModel.Iot;
+using EntityLayer.ComplexTypes.DtoModel.Varlik;
 
 namespace BusinessLayer.Abstract.Iot
 {
@@ -15,9 +16,9 @@ namespace BusinessLayer.Abstract.Iot
 
         int GetCountDto(string filter = "");
 
-        List<SayacDto> GetListPaginationDtoByModemSeriNo(PagingParams pagingParams, string modemSeriNo);
+        List<SayacDto> GetListPaginationDtoByBagliVarlikKod(PagingParams pagingParams, int baglivarlikkod);
 
-        int GetCountDtoByModemSeriNo(string modemserino, string filter = "");
+        int GetCountDtoByBagliVarlikKod(int baglivarlikkod, string filter = "");
 
         int AddSayacKomut(SayacKomut sarfyeri);
     }

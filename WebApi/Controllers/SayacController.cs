@@ -41,19 +41,19 @@ namespace WebApi.Controllers
             return response;
         }
 
-        [Route("api/sayac/getlistbymodemserino")]
-        public HttpResponseMessage GetListByModemSeriNo(int offset, int limit, string filter = "", string order = "", string columns = "", string modemserino = "")
+        [Route("api/sayac/getlistbybaglivarlikkod")]
+        public HttpResponseMessage GetListByBagliVarlikKod(int offset, int limit, string filter = "", string order = "", string columns = "", int baglivarlikkod=0)
         {
             int total = 0;
-            total = filter.Length != 0 ? _sayacService.GetCountDtoByModemSeriNo(modemserino, filter) : _sayacService.GetCountDtoByModemSeriNo(modemserino);
-            var d = _sayacService.GetListPaginationDtoByModemSeriNo(new PagingParams()
+            total = filter.Length != 0 ? _sayacService.GetCountDtoByBagliVarlikKod(baglivarlikkod, filter) : _sayacService.GetCountDtoByBagliVarlikKod(baglivarlikkod);
+            var d = _sayacService.GetListPaginationDtoByBagliVarlikKod(new PagingParams()
             {
                 filter = filter,
                 limit = limit,
                 offset = offset,
                 order = order,
                 columns = columns
-            }, modemserino);
+            }, baglivarlikkod);
             var response = columns.Length > 0 ?
                 Request.CreateResponse(HttpStatusCode.OK, d.Select("new(" + columns + ")").Cast<dynamic>().AsEnumerable().ToList())
                 : Request.CreateResponse(HttpStatusCode.OK, d);

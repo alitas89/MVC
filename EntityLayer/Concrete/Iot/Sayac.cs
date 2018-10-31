@@ -10,6 +10,11 @@ namespace EntityLayer.Concrete.Iot
         public double Pil { get; set; }
         public DateTime Tarih { get; set; }
         public string ModemSeriNo { get; set; }
+        public string SayacCapi { get; set; }
+        public string EtiketNo { get; set; }
+        public string Ceza { get; set; }
+        public string Endeks { get; set; }
         public bool Silindi { get; set; }
+        public int BagliVarlikKod { get; set; }
     }
 }
