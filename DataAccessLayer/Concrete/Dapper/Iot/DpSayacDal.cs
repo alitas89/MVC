@@ -121,7 +121,7 @@ namespace DataAccessLayer.Concrete.Dapper.Iot
                 columnsQuery = pagingParams.columns;
             }
 
-            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where BagliVarlikKod=2099 and Silindi=0 {filterQuery} {orderQuery}
+            return new DpDtoRepositoryBase<SayacDto>().GetListDtoQuery($@"SELECT {columnsQuery} FROM View_SayacDto where BagliVarlikKod=@baglivarlikkod and Silindi=0 {filterQuery} {orderQuery}
                                     OFFSET @offset ROWS FETCH NEXT @limit ROWS ONLY",
                 new { baglivarlikkod, pagingParams.filter, pagingParams.offset, pagingParams.limit });
         }
