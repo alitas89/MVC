@@ -14,6 +14,7 @@ namespace Core.Utilities.Mappings
             Mapper.Initialize(c => { c.CreateMap<T, T>(); });
 
             List<T> result = Mapper.Map<List<T>, List<T>>(list);
+
             return result;
         }
 
